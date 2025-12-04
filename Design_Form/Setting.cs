@@ -180,7 +180,7 @@ namespace Design_Form
 
                 Class_Camera Camera_top = new Class_Camera();
                 model1.Cameras.Add(Camera_top);
-                model1.Cameras[i].Jobs.Add(job1);
+            //      model1.Cameras[i].Jobs.Add(job1);
             }
         }
         private void inital_Dislay_Halcon()
@@ -321,6 +321,7 @@ namespace Design_Form
             string json = File.ReadAllText(name_file);
 
             Job_Model.Statatic_Model.model_run = JsonConvert.DeserializeObject<Model>(json, settings);
+            Job_Model.Statatic_Model.Dino_lites[0].SETPARAMETERCAMERA("ExposureTime", Job_Model.Statatic_Model.model_run.Cameras[0].Jobs[0].Exposure);
         }
         public void wirte_config(string file_path)
         {

@@ -37,7 +37,7 @@ namespace Design_Form.Job_Model
         public static string barcode = "";
         public static string barcode_2 = "";
         public static WirteLogcs wirtelog = new WirteLogcs("C:\\Log");
-        public static WirteLogcs wirtelog_CODE = new WirteLogcs("D:\\Log");
+        public static WirteLogcs wirtelog_CODE = new WirteLogcs("C:\\Log_ReadingCode");
 
         public static void SaveJob(Model model, string filePath)
         {

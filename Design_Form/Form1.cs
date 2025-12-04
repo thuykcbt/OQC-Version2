@@ -219,10 +219,12 @@ namespace Design_Form
             label39.Text = "";
             label41.Text = "";
             label43.Text = "";
+            MessageBox.Show("Submit OK");
         }
         private void status_auto_Click(object sender, EventArgs e)
         {
-            status_auto.BackColor = Color.Green;
+            status_auto.Appearance.BackColor = Color.Green;
+            simpleButton1.Appearance.BackColor = Color.White ;
             StartProcessing();
         }
         string data1,data2,data3,data4,data5,data6,data7;
@@ -270,7 +272,8 @@ namespace Design_Form
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            simpleButton1.BackColor = Color.Red;
+            simpleButton1.Appearance.BackColor = Color.Green;
+            status_auto.Appearance.BackColor = Color.White;
             StopProcessing();
             
         }
