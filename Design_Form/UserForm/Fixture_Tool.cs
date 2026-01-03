@@ -99,9 +99,9 @@ namespace Design_Form.UserForm
             fixture.index_master_job= index_job;
             fixture.job_index = b;
             ShapeModelTool shapeModelTool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[index_job].Images[d].Tools[index_follow];
-            fixture.master_x = shapeModelTool.X_follow;
-            fixture.master_y = shapeModelTool.Y_follow;
-            fixture.master_phi = shapeModelTool.Phi_follow;
+            fixture.master_x = shapeModelTool.XFollow;
+            fixture.master_y = shapeModelTool.YFollow;
+            fixture.master_phi = shapeModelTool.PhiFollow;
             Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c] = fixture;
         }
     }

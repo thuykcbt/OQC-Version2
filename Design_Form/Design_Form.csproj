@@ -92,6 +92,18 @@
     <Reference Include="EPPlus.System.Drawing, Version=7.5.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.System.Drawing.7.5.0\lib\net462\EPPlus.System.Drawing.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Apis, Version=1.73.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.73.0\lib\net462\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.73.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.73.0\lib\net462\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.73.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.73.0\lib\net462\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Sheets.v4, Version=1.72.0.3966, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Sheets.v4.1.72.0.3966\lib\net462\Google.Apis.Sheets.v4.dll</HintPath>
+    </Reference>
     <Reference Include="halcondotnet">
       <HintPath>C:\Program Files\MVTec\HALCON-18.11-Progress\bin\dotnet35\halcondotnet.dll</HintPath>
     </Reference>
@@ -103,11 +115,12 @@
     <Reference Include="MathNet.Numerics">
       <HintPath>C:\Users\Admin\source\repos\Align\packages\MathNet.Numerics.5.0.0\lib\net461\MathNet.Numerics.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.1\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\Design_Form - Ver8.1\Design_Form\bin\x64\Debug\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -133,9 +146,11 @@
     <Reference Include="System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Common.8.0.4\lib\net462\System.Drawing.Common.dll</HintPath>
     </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
@@ -147,6 +162,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -175,6 +191,7 @@
     <Compile Include="Job_Model\Display.cs" />
     <Compile Include="Job_Model\Image_Show.cs" />
     <Compile Include="Job_Model\LibaryHalcon.cs" />
+    <Compile Include="Job_Model\ManagerModelcs.cs" />
     <Compile Include="Job_Model\Manager_Result.cs" />
     <Compile Include="Job_Model\Model.cs" />
     <Compile Include="Job_Model\Roi_tool.cs" />
@@ -274,6 +291,18 @@
     <Compile Include="UserForm\CaliHandEye.Designer.cs">
       <DependentUpon>CaliHandEye.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserForm\Fixture_Tool2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\Fixture_Tool2.Designer.cs">
+      <DependentUpon>Fixture_Tool2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\HistogramPara_Color.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\HistogramPara_Color.Designer.cs">
+      <DependentUpon>HistogramPara_Color.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForm\Select_model.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -285,6 +314,18 @@
     </Compile>
     <Compile Include="UserForm\ImageFillter.Designer.cs">
       <DependentUpon>ImageFillter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\ShapeModelColor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\ShapeModelColor.Designer.cs">
+      <DependentUpon>ShapeModelColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\NccModelPara.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\NccModelPara.Designer.cs">
+      <DependentUpon>NccModelPara.cs</DependentUpon>
     </Compile>
     <Compile Include="UserForm\User_Calib.cs">
       <SubType>UserControl</SubType>
@@ -418,11 +459,23 @@
     <Compile Include="User_PLC\CycleTime.Designer.cs">
       <DependentUpon>CycleTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="User_PLC\ManagerModelUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\ManagerModelUser.Designer.cs">
+      <DependentUpon>ManagerModelUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_PLC\ModelPLC.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="User_PLC\ModelPLC.Designer.cs">
       <DependentUpon>ModelPLC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\ParameterCam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\ParameterCam.Designer.cs">
+      <DependentUpon>ParameterCam.cs</DependentUpon>
     </Compile>
     <Compile Include="User_PLC\Teach_Point_Axis10_1.cs">
       <SubType>UserControl</SubType>
@@ -618,11 +671,23 @@
     <EmbeddedResource Include="UserForm\CaliHandEye.resx">
       <DependentUpon>CaliHandEye.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\Fixture_Tool2.resx">
+      <DependentUpon>Fixture_Tool2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\HistogramPara_Color.resx">
+      <DependentUpon>HistogramPara_Color.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserForm\Select_model.resx">
       <DependentUpon>Select_model.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\ImageFillter.resx">
       <DependentUpon>ImageFillter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\ShapeModelColor.resx">
+      <DependentUpon>ShapeModelColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\NccModelPara.resx">
+      <DependentUpon>NccModelPara.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\User_Calib.resx">
       <DependentUpon>User_Calib.cs</DependentUpon>
@@ -690,8 +755,14 @@
     <EmbeddedResource Include="User_PLC\CycleTime.resx">
       <DependentUpon>CycleTime.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\ManagerModelUser.resx">
+      <DependentUpon>ManagerModelUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User_PLC\ModelPLC.resx">
       <DependentUpon>ModelPLC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\ParameterCam.resx">
+      <DependentUpon>ParameterCam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_PLC\Teach_Point_Axis10_1.resx">
       <DependentUpon>Teach_Point_Axis10_1.cs</DependentUpon>

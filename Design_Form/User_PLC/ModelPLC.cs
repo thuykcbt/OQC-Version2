@@ -21,7 +21,7 @@ namespace Design_Form.User_PLC
             InitializeComponent();
             loadtre_model();
             InitializeContextMenu();
-            index_select_model = Job_Model.Statatic_Model.config_machine.model_plc_machine.number_model_run;
+         
         }
         private void InitializeContextMenu()
         {
@@ -40,43 +40,17 @@ namespace Design_Form.User_PLC
         }
         private void RemoveNode_Click(object sender, EventArgs e)
         {
-            if (treeView1.SelectedNode != null)
-            {
-                Job_Model.Statatic_Model.config_machine.model_plc_machine.names_model.RemoveAt(index_select_model);
-                loadtre_model();
-
-            }
-
-            //treeView1.Nodes.Remove(treeView1.SelectedNode);
+            
+        
 
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if(textBox1.TextLength!=0)
-            {
-                Job_Model.Statatic_Model.config_machine.model_plc_machine.names_model.Add(textBox1.Text);
-                textBox1.Clear();
-                loadtre_model();
-            }    
+          
         }
         public void loadtre_model()
         {
-            try 
-            {
-                treeView1.Nodes.Clear();
-                for(int i=0;i < Job_Model.Statatic_Model.config_machine.model_plc_machine.names_model.Count;i++)
-                {
-                    TreeNode Node = new TreeNode();
-                    Node.Text = "Model" + (i+1).ToString() + ": "+ Job_Model.Statatic_Model.config_machine.model_plc_machine.names_model[i];
-                    Node.Name = (i).ToString();
-                    treeView1.Nodes.Add(Node);
-                }    
-            }
-            catch(Exception ex)
-            {
-                Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
-                MessageBox.Show("Error load model : " + ex.ToString());
-            }
+          
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)

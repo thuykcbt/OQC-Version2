@@ -35,6 +35,10 @@ namespace Design_Form.UserForm
                     {
                         combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName + ": " + i.ToString());
                     }
+                    if (Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName == "Fixture_2")
+                    {
+                        combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName + ": " + i.ToString());
+                    }
 
                 }
 
@@ -106,7 +110,11 @@ namespace Design_Form.UserForm
                 {
                     index_follow = i;
                 }
-                if(combo_master.Text == "none")
+                if (combo_master.Text == "Fixture_2: " + i.ToString())
+                {
+                    index_follow = i;
+                }
+                if (combo_master.Text == "none")
                 {
                     index_follow = -1;
                     break;

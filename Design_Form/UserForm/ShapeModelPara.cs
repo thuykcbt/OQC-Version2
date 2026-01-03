@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,25 +36,30 @@ namespace Design_Form.UserForm
                     {
                         combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName + ": " + i.ToString());
                     }
+					if (Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName == "Fixture_2")
+					{
+						combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName + ": " + i.ToString());
+					}
 
-                }
+				}
 
-                combo_master.Text = shapeModel.folow_master;
-                numeric_AgStart.Value =(decimal) shapeModel.Ag_Start;
-                numeric_AgEnd.Value = (decimal)shapeModel.Ag_End;
-                numeric_MinScore.Value = (decimal)shapeModel.Min_Score;
-                numeric_NumberMatch.Value = (decimal)shapeModel.Number_of_match;
+                combo_master.Text = shapeModel.FollowMaster;
+                numeric_AgStart.Value =(decimal) shapeModel.StartAngle;
+                numeric_AgEnd.Value = (decimal)shapeModel.EndAngle;
+                numeric_MinScore.Value = (decimal)shapeModel.MinScore;
+                numeric_NumberMatch.Value = (decimal)shapeModel.NumberOfMatches;
                 numeric_Greediness.Value = (decimal)shapeModel.Greediness;
-                numeric_Constact.Value = (decimal)shapeModel.Constract;
-                numeric_MinConstract.Value = (decimal)shapeModel.MinConstract;
-                numeric_Overlap.Value = (decimal)shapeModel.Max_Overlap;
-                combo_SubPixel.Text = shapeModel.Sub_pixel;
-                label1.Text = shapeModel.File_Model;
-                numeric_MaxScore.Value =(decimal) shapeModel.max_score;
-                Min_score.Value = (decimal) shapeModel.min_score;
+                numeric_Constact.Value = (decimal)shapeModel.Contrast;
+                numeric_MinConstract.Value = (decimal)shapeModel.MinContrast;
+                numeric_Overlap.Value = (decimal)shapeModel.MaxOverlap;
+                combo_SubPixel.Text = shapeModel.SubPixel;
+                combo_Metric.Text = shapeModel.metric;
+                label1.Text = shapeModel.ModelReadPath;
+                numeric_MaxScore.Value =(decimal) shapeModel.ScoreMaxThreshold;
+                Min_score.Value = (decimal) shapeModel.ScoreMinThreshold;
                 comboBox1.Text= shapeModel.item_check;
-                Max_Phi.Value = (decimal)shapeModel.max_phi;
-                Min_Phi.Value = (decimal)shapeModel.min_phi;
+                Max_Phi.Value = (decimal)shapeModel.MaxPhi;
+                Min_Phi.Value = (decimal)shapeModel.MinPhi;
               
 
             }
@@ -79,7 +85,9 @@ namespace Design_Form.UserForm
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                shapeModel.File_Model = saveFileDialog.SelectedPath;
+                shapeModel.ModelFilePath = saveFileDialog.SelectedPath;
+                string file_name = shapeModel.ModelFilePath + "\\_Shapemodel" + shapeModel.job_index + shapeModel.tool_index + ".model";
+                shapeModel.ModelReadPath = file_name;
                 Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c] = shapeModel;
                 label1.Text = saveFileDialog.SelectedPath;
             }
@@ -99,21 +107,22 @@ namespace Design_Form.UserForm
             int d = Job_Model.Statatic_Model.image_index;
             ShapeModelTool shapeModel = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
             shapeModel.index_follow= index_follow;
-            shapeModel.folow_master = combo_master.Text;
-            shapeModel.Ag_Start =(double) numeric_AgStart.Value;
-            shapeModel.Ag_End = (double)numeric_AgEnd.Value;
-            shapeModel.Number_of_match = (double)numeric_NumberMatch.Value;
-            shapeModel.Max_Overlap = (double)numeric_Overlap.Value;
+            shapeModel.FollowMaster = combo_master.Text;
+            shapeModel.StartAngle =(double) numeric_AgStart.Value;
+            shapeModel.EndAngle = (double)numeric_AgEnd.Value;
+            shapeModel.NumberOfMatches = (double)numeric_NumberMatch.Value;
+            shapeModel.MaxOverlap = (double)numeric_Overlap.Value;
             shapeModel.Greediness = (double)numeric_Greediness.Value;
-            shapeModel.Min_Score = (double)numeric_MinScore.Value;
-            shapeModel.Constract = (double)numeric_Constact.Value;
-            shapeModel.MinConstract = (double)numeric_MinConstract.Value;
-            shapeModel.Sub_pixel = combo_SubPixel.Text;
-            shapeModel.max_score = (double)numeric_MaxScore.Value;
-            shapeModel.min_score = (double)Min_score.Value;
+            shapeModel.MinScore = (double)numeric_MinScore.Value;
+            shapeModel.Contrast = (double)numeric_Constact.Value;
+            shapeModel.MinContrast = (double)numeric_MinConstract.Value;
+            shapeModel.SubPixel = combo_SubPixel.Text;
+            shapeModel.ScoreMaxThreshold = (double)numeric_MaxScore.Value;
+            shapeModel.ScoreMinThreshold = (double)Min_score.Value;
             shapeModel.item_check = comboBox1.Text;
-            shapeModel.max_phi = (double)Max_Phi.Value;
-            shapeModel.min_phi = (double)Min_Phi.Value;
+            shapeModel.MaxPhi = (double)Max_Phi.Value;
+            shapeModel.MinPhi = (double)Min_Phi.Value;
+            shapeModel.metric = combo_Metric.Text;
             Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c] = shapeModel;
         }
 
@@ -136,7 +145,11 @@ namespace Design_Form.UserForm
                 {
                     index_follow = i;
                 }
-                if(combo_master.Text == "none")
+				if (combo_master.Text == "Fixture_2: " + i.ToString())
+				{
+					index_follow = i;
+				}
+				if (combo_master.Text == "none")
                 {
                     index_follow = -1;
                     break;

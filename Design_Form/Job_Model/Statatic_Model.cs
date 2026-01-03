@@ -1,18 +1,20 @@
-﻿using Newtonsoft.Json;
+﻿using HalconDotNet;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using HalconDotNet;
+using System.Windows.Forms;
 //using ActUtlType64Lib;
 namespace Design_Form.Job_Model
 {
     public class Statatic_Model
     {
         public static Model model_run=new Model();
-        public static Model model_run_buffer = new Model();
+        public static ManagerModelMain model_list = new ManagerModelMain();
+        public static ManagerModelcs model_main_run = new ManagerModelcs();
         public static List<VisionHalcon> Dino_lites = new List<VisionHalcon>();
         public static HTuple[,,] hommat2D = new HTuple[50,50,50];
         public static HObject[,,] Input_Image = new HObject[50,50,50];
@@ -60,6 +62,29 @@ namespace Design_Form.Job_Model
             string json = File.ReadAllText(filePath);
             return JsonConvert.DeserializeObject<Model>(json, settings);
         }
+        public static void Save_Modellist()
+        {
+            try
+            {
+                string debugFolder = AppDomain.CurrentDomain.BaseDirectory;
+                string name_file = "ModelJob.job";
+                string file_path = Path.Combine(debugFolder, name_file);
+                var settings = new JsonSerializerSettings
+                {
+                    TypeNameHandling = TypeNameHandling.Auto,
+                    Formatting = Formatting.Indented
+                };
+
+                string json = JsonConvert.SerializeObject(Job_Model.Statatic_Model.model_list, settings);
+                File.WriteAllText(file_path, json);
+            }
+            catch (Exception ex)
+            {
+                Job_Model.Statatic_Model.wirtelog.Log($"AL100 - " + ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
 
     }
     

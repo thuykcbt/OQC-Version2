@@ -37,21 +37,68 @@ namespace Design_Form.UserForm
           
             ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
             
-            for (int i = 0; i < tool.Score.GetLength(0); i++)
+            for (int i = 0; i < tool.MatchResults.Count; i++)
             {
-                if (tool.Score[ i] != 0)
-                {
-                    table.Rows.Add(i, tool.Score[i], tool.X_Master[i], tool.Y_Master[i], tool.Phi_Master[i]);
-                }
-                else
-                {
-                    break;
-                }
+               
+                    table.Rows.Add(i, tool.MatchResults[i].Score, tool.MatchResults[i].X, tool.MatchResults[i].Y, tool.MatchResults[i].Phi);
+              
             }
             dataGridView1.DataSource = table;
 
         }
-        public void Result_Blob()
+        public void result_Shapemodel_Color()
+        {
+            int a = Job_Model.Statatic_Model.camera_index;
+            int b = Job_Model.Statatic_Model.job_index;
+            int c = Job_Model.Statatic_Model.tool_index;
+            int d = Job_Model.Statatic_Model.image_index;
+            table.Clear();
+            table.Columns.Clear();
+            table.Rows.Clear();
+            table.Columns.Add("STT", typeof(int));
+            table.Columns.Add("Score", typeof(double));
+            table.Columns.Add("X_Center", typeof(double));
+            table.Columns.Add("Y_Center", typeof(double));
+            table.Columns.Add("Phi_Center", typeof(double));
+
+            ShapeModelTool_Color tool = (ShapeModelTool_Color)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+
+            for (int i = 0; i < tool.MatchResults.Count; i++)
+            {
+
+                table.Rows.Add(i, tool.MatchResults[i].Score, tool.MatchResults[i].X, tool.MatchResults[i].Y, tool.MatchResults[i].Phi);
+
+            }
+            dataGridView1.DataSource = table;
+
+        }
+		public void result_Nccmodel()
+		{
+			int a = Job_Model.Statatic_Model.camera_index;
+			int b = Job_Model.Statatic_Model.job_index;
+			int c = Job_Model.Statatic_Model.tool_index;
+			int d = Job_Model.Statatic_Model.image_index;
+			table.Clear();
+			table.Columns.Clear();
+			table.Rows.Clear();
+			table.Columns.Add("STT", typeof(int));
+			table.Columns.Add("Score", typeof(double));
+			table.Columns.Add("X_Center", typeof(double));
+			table.Columns.Add("Y_Center", typeof(double));
+			table.Columns.Add("Phi_Center", typeof(double));
+
+			NccModelTool tool = (NccModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+
+			for (int i = 0; i < tool.MatchResults.Count; i++)
+			{
+
+				table.Rows.Add(i, tool.MatchResults[i].Score, tool.MatchResults[i].X, tool.MatchResults[i].Y, tool.MatchResults[i].Phi);
+
+			}
+			dataGridView1.DataSource = table;
+
+		}
+		public void Result_Blob()
         {
             int a = Job_Model.Statatic_Model.camera_index;
             int b = Job_Model.Statatic_Model.job_index;
@@ -90,9 +137,7 @@ namespace Design_Form.UserForm
             table.Columns.Add("Total_Point", typeof(int));
             for (int i = 0; i < tool.map_pixel.GetLength(0); i++)
             {
-               
                     table.Rows.Add(i, tool.map_pixel[i]);
-                
             }
 
             dataGridView1.DataSource = table;

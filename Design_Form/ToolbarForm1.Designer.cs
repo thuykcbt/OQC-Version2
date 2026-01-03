@@ -138,7 +138,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_Home),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonSetting),
             new DevExpress.XtraBars.LinkPersistInfo(this.barReport),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnLivecamera),
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_Monitor)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -183,7 +182,7 @@
             // 
             // bar_Monitor
             // 
-            this.bar_Monitor.Caption = "Monitor";
+            this.bar_Monitor.Caption = "Model";
             this.bar_Monitor.Id = 13;
             this.bar_Monitor.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bar_Monitor.ImageOptions.SvgImage")));
             this.bar_Monitor.Name = "bar_Monitor";

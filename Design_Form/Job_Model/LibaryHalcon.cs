@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Design_Form.Job_Model.Roi_tool;
 
 namespace Design_Form.Job_Model
 {
@@ -120,6 +121,7 @@ namespace Design_Form.Job_Model
             }
 
         }
+     
         public void make_Roi_Circle(HWindow hWindow, double row, double column, double radius, bool mask, int index)
         {
 
@@ -237,11 +239,6 @@ namespace Design_Form.Job_Model
             HOperatorSet.GenRegionPolygon(out ho_ImageROI, Rows, Cols);
             HOperatorSet.AffineTransRegion(ho_ImageROI, out ho_RoiPolygon, homMat2D, "nearest_neighbor");
         }
-        public void draw_Region(HObject ho_ImageROI,out HObject draw_ImageROI, HWindow hWindow)
-        {
-            HOperatorSet.GenEmptyObj(out draw_ImageROI);
-           // HOperatorSet.DrawRegion()
-            HOperatorSet.DragRegion1(ho_ImageROI,out draw_ImageROI, hWindow);
-        }
+       
     }
 }

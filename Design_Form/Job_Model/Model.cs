@@ -15,6 +15,7 @@ using MathNet.Numerics.Distributions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -25,24 +26,37 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using System.Windows.Input;
+using System.Windows.Media.Media3D;
+using static Design_Form.Job_Model.Roi_tool;
 using static DevExpress.Utils.Drawing.Helpers.NativeMethods;
 using static DevExpress.Xpo.DB.DataStoreLongrunnersWatch;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Design_Form.Job_Model
 {
-    public class Model
+    public class Model : INotifyPropertyChanged
     {
         public List<Class_Camera> Cameras = new List<Class_Camera>();
-        public string Name_Model { get; set; } = "none";
+        private string Name_model { get; set; } = "NewSubModel";
+        public string Name_Model
+        {
+            get => Name_model;
+            set
+            {
+                Name_model = value;
+                OnPropertyChanged(nameof(Name_Model));
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public int ID = 1;
         public int total_camera = 1;
         public string File_Path_Image { get; set; }
         public string file_model { get; set; }
-        public string image1_model = "D:\\01. Workspace\\01. Vision\\Design_Form - Ver7\\Image_Model\\Face_A.jpg";
-        public string image2_model = "D:\\01. Workspace\\01. Vision\\Design_Form - Ver7\\Image_Model\\Face_C.jpg";
-        public string image3_model = "D:\\01. Workspace\\01. Vision\\Design_Form - Ver7\\Image_Model\\Face_B.jpg";
-       
+
         public Model Clone()
         {
             string jobjson = JsonConvert.SerializeObject(this, Formatting.Indented);
@@ -157,17 +171,86 @@ namespace Design_Form.Job_Model
         }
 
     }
-    public class Class_Image
+    public class fudixal_mark : InspectItem
+    {
+        public List<Class_Tool> Tools = new List<Class_Tool>();
+    }
+    public class component : InspectItem
+    {
+        public List<Class_Tool> Tools = new List<Class_Tool>();
+    }
+    public class InspectItem
     {
         public string result_Image = "OK";
         public bool auto_check = false;
+        public bool RGBtoGray = false;
+        public List<Class_Tool> Tools = new List<Class_Tool>();
+        public List<component> Components = new List<component>();
+        public List<fudixal_mark> Fudixals = new List<fudixal_mark>();
+        public void AddTool(Class_Tool tool)
+        {
+            Tools.Add(tool);
+        }
+        public void Excute(HWindow hWindow, HObject ho_Image, out HObject ho_image_out)
+        {
+            if (RGBtoGray)
+            {
+                HOperatorSet.Decompose3(ho_Image, out HObject Red, out HObject Green, out HObject Blue);
+                HOperatorSet.Rgb3ToGray(Red, Green, Blue, out ho_image_out);
+            }
+            else
+            {
+                ho_image_out = ho_Image;
+            }
+        }
+        public void ExecuteAllTools(HWindow hWindow, HObject ho_Image)
+		{
+
+			result_Image = "OK";
+			foreach (Class_Tool tool in Tools)
+			{
+				if (auto_check)
+				{
+					tool.show_text = false;
+				}
+				else
+				{
+					tool.show_text = true;
+				}
+				tool.Excute(hWindow, ho_Image);
+				//  ho_Image = Job_Model.Statatic_Model.Input_Image[tool.camera_index, tool.job_index, 0];
+				if (!tool.Result_Tool)
+				{
+					result_Image = "NG";
+					break;
+				}
+
+			}
+
+		}
+	}
+	public  class Class_Image
+    {
+        public string result_Image = "OK";
+        public bool auto_check = false;
+        public bool RGBtoGray = false;
         public List<Class_Tool> Tools = new List<Class_Tool>();
         public void AddTool(Class_Tool tool)
         {
             Tools.Add(tool);
         }
-        public void Excute(HWindow hWindow, HObject ho_Image)
-        { }
+        public void Excute(HWindow hWindow, HObject ho_Image,out HObject ho_image_out)
+        {
+            if(RGBtoGray)
+            {
+                HOperatorSet.Decompose3(ho_Image, out HObject Red, out HObject Green, out HObject Blue);
+                HOperatorSet.Rgb3ToGray(Red, Green, Blue, out ho_image_out);
+            }
+            else
+            {
+                ho_image_out = ho_Image;
+            }
+        }
         public void ExecuteAllTools(HWindow hWindow, HObject ho_Image)
         {
 
@@ -197,12 +280,12 @@ namespace Design_Form.Job_Model
     public abstract class Class_Tool
     {
         
-        public List<Roi_tool> roi_Tool = new List<Roi_tool>();
+        public BindingList<Roi_tool> roi_Tool = new BindingList<Roi_tool>();
         public string item_check;
         public int camera_index {  get; set; }
         public int job_index {  get; set; }
         public int tool_index {  get; set; }
-
+        public string type_light { get; set; }
         public int image_index { get; set; }    
         public int index_follow { get; set; } = -1;
         public double cali { get; set; } = 1;
@@ -514,287 +597,1019 @@ namespace Design_Form.Job_Model
         }
 
     }
-    public class ShapeModelTool : Class_Tool
+    public class NccModelTool : Class_Tool
     {
-        public string folow_master { get; set; } = "none";
-        public double Ag_Start { get; set; } = 0;
-        public double Ag_End { get; set; } = 360;
-        public double Min_Score { get; set; } = 0.5;
-        public double Number_of_match { get; set; } = 1;
-        public double Greediness { get; set; } = 1;
-        public double Max_Overlap { get; set; } = 0.5;
-        public double Constract { get; set; } = 30;
-        public double MinConstract { get; set; } = 5;
-        public string Sub_pixel { get; set; } = "least_squares";
-        public string File_Model { get; set; }
-        public string Read_Model { get; set; }
-        public double min_score { get; set; } = 0.9;
-        public double max_score { get; set; } = 1;
-        public double max_phi { get; set; } = 6;
-        public double min_phi { get; set; } = -6;
-        // Train Model
-        public bool canmeasure { get; set; }
-        // Result
-        public double[] Score = new double[100];
-        public double[] X_Master = new double[100];
-        public double[] Y_Master = new double[100];
-        public double[] Phi_Master = new double[100];
-        // Master_Train
-        public double X_follow { get; set; } = 0;
-        public double Y_follow { get; set; } = 0;
-        public double Phi_follow { get; set; } = 0;
+        // Properties
+        public string FollowMaster { get; set; } = "none";
+        public double StartAngle { get; set; } = 0;
+        public double EndAngle { get; set; } = 360;
+        public double MinScore { get; set; } = 0.5;
+        public double NumberOfMatches { get; set; } = 1;
+        public int numlever { get; set; } = 0;
+        public double MaxOverlap { get; set; } = 0.5;
+        public double Contrast { get; set; } = 30;
+        public string metric { get; set; } = "use_polarity";
+        public string SubPixel { get; set; } = "true";
+        public string ModelFilePath { get; set; }
+        public string ModelReadPath { get; set; }
+        public double ScoreMinThreshold { get; set; } = 0.9;
+        public double ScoreMaxThreshold { get; set; } = 1;
+        public double MaxPhi { get; set; } = 180;
+        public double MinPhi { get; set; } = -180;
 
-        public ShapeModelTool() : base("ShapeModel") { }
-        public override void Excute(HWindow hWindow, HObject ho_Image)
+        // Training state
+        public bool CanMeasure { get; set; }
+
+        // Results
+        public List<NccMatchResult> MatchResults { get; private set; } = new List<NccMatchResult>();
+
+        // Master training results
+        public double XFollow { get; set; }
+        public double YFollow { get; set; }
+        public double PhiFollow { get; set; }
+
+        public NccModelTool() : base("NccModel") { }
+
+        public override void Excute(HWindow hWindow, HObject hoImage)
         {
-            Excute_OnlyTool(hWindow, ho_Image);
-
-
-
+            Excute_OnlyTool(hWindow, hoImage);
         }
-        public void Train_Model(HWindow hWindow, HObject ho_Image)
+
+        public void TrainModel(HWindow hWindow, HObject hoImage)
         {
+            CanMeasure = false;
+            HObject hoModelROI = null, hoImageROI = null;
+            HObject hoShapeModelImage = null, hoShapeModelRegion = null;
+            HTuple hvModelID = null;
+
             try
             {
+                HOperatorSet.Rgb1ToGray(hoImage, out hoImage);
+                // Setup display
+                SetupDisplay(hWindow, hoImage);
 
-                canmeasure = false;
-                // Local iconic variables 
+                // Get ROI for model
+                hoModelROI = GetModelROI(-1, 0);
+                hoImageROI = ReduceImageDomain(hoImage, hoModelROI);
 
-                HObject ho_ModelROI, ho_ImageROI;
-                HObject ho_ShapeModelImage, ho_ShapeModelRegion, ho_ShapeModel;
-                HObject ho_SearchImage = null, ho_ModelAtNewPosition = null;
+                // Create shape model
+                hvModelID = CreateShapeModel(hoImageROI);
 
+                // Inspect and display model
+              //  InspectAndDisplayModel(hWindow, hvModelID, out hoShapeModelImage, out hoShapeModelRegion);
 
-                // Local control variables 
+                // Save model
+                SaveShapeModel(hvModelID);
 
-                HTuple hv_Width;
-                HTuple hv_Height;
-                HTuple hv_ModelID, hv_RowCheck = new HTuple(), hv_ColumnCheck = new HTuple();
-                HTuple hv_AngleCheck = new HTuple(), hv_Score = new HTuple();
-                HTuple hv_j = new HTuple(), hv_MovementOfObject = new HTuple();
-                HTuple hv_RowArrowHead = new HTuple(), hv_ColumnArrowHead = new HTuple();
-                // Initialize local and output iconic variables 
-                HOperatorSet.GenEmptyObj(out ho_ModelROI);
-                HOperatorSet.GenEmptyObj(out ho_ImageROI);
-                HOperatorSet.GenEmptyObj(out ho_ShapeModelImage);
-                HOperatorSet.GenEmptyObj(out ho_ShapeModelRegion);
-                HOperatorSet.GenEmptyObj(out ho_ShapeModel);
-                HOperatorSet.GenEmptyObj(out ho_SearchImage);
-                HOperatorSet.GenEmptyObj(out ho_ModelAtNewPosition);
+                // Execute to find initial position
+                Excute(hWindow, hoImage);
 
-                HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
-                HOperatorSet.SetSystem("width", hv_Width);
-                HOperatorSet.SetSystem("height", hv_Height);
-                HOperatorSet.SetColor(hWindow, "blue");
-                HOperatorSet.SetDraw(hWindow, "fill");
-                HOperatorSet.SetShape(hWindow, "original");
-                HOperatorSet.SetDraw(hWindow, "margin");
-                HOperatorSet.SetLineWidth(hWindow, 2);
-                HOperatorSet.ClearWindow(hWindow);
-                HOperatorSet.DispObj(ho_Image, hWindow);
-                HTuple Angle_Start = Ag_Start;
-                HTuple Angle_End = Ag_End;
-                // Get Roi 
-                ho_ModelROI.Dispose();
-                align_Roi(-1, 0, out ho_ModelROI);
-                //  HOperatorSet.DispObj(ho_ModelROI, hWindow);
-                //  MessageBox.Show("Model Region");
-                //step 2: inspect the model region
-                //ho_ImageROI.Dispose();
-                HOperatorSet.ReduceDomain(ho_Image, ho_ModelROI, out ho_ImageROI);
-
-
-                //  HOperatorSet.DispObj(ho_ImageROI, hWindow);
-                //  MessageBox.Show("Reduce Domain");
-
-               
-                //SavePicMenuItem1_Click(ho_ImageROI);
-                //step 3: create the model
-
-                //    HOperatorSet.ReduceDomain(ho_Image, ho_ModelROI, out ho_ImageROI);
-
-               
-                HOperatorSet.CreateShapeModel(
-                    ho_ImageROI
-                    , "auto"
-                    , (HTuple)Angle_Start.TupleRad()
-                    , (HTuple)Angle_End.TupleRad()
-                    , "auto"
-                    , "auto"//"none"
-                , "use_polarity"
-                , (HTuple)Constract// 30
-                    , (HTuple)MinConstract// 10
-                    , out hv_ModelID);
-                ho_ShapeModelImage.Dispose();
-                ho_ShapeModelRegion.Dispose();
-                HOperatorSet.InspectShapeModel(
-                    ho_ImageROI
-                    , out ho_ShapeModelImage
-                    , out ho_ShapeModelRegion
-                , 1//1
-                    , (HTuple)Constract);//30
-
-                //   HOperatorSet.ClearWindow(hWindow);
-                HOperatorSet.DispObj(ho_ShapeModelRegion, hWindow);
-                MessageBox.Show("Shape Model Region");
-
-                //  HOperatorSet.DispObj(ho_ShapeModelImage, hWindow);
-                //string pathcamparam = Application.StartupPath + "\\TrainModel\\" + "Camera" + camera_run.ToString() + "Job" + job.ToString() + "Tool" + tool.ToString() + ".Shape";
-                //HOperatorSet.WriteShapeModel(hv_ModelID, @"Config\\" + Model + "_Job_" + job.ToString() + "_Tool_" + tool.ToString() + "_Shapemodel.shm");
-                // HOperatorSet.WriteShapeModel(hv_ModelID, "D:\\2. DUC THUY\\" + "_Shapemodel.shm");
-                string file_name = File_Model + "\\_Shapemodel"+job_index+tool_index+".model";
-                Read_Model = file_name;
-                HOperatorSet.WriteShapeModel(hv_ModelID, file_name);
-
-                MessageBox.Show("Finish Train Shape Model");
-                HOperatorSet.ClearShapeModel(hv_ModelID);
-                Excute(hWindow, ho_Image);
-                X_follow = X_Master[0];
-                Y_follow= Y_Master[0];
-                Phi_follow = Phi_Master[0];
-
-                ho_ModelROI.Dispose();
-                ho_ImageROI.Dispose();
-                ho_ShapeModelImage.Dispose();
-                ho_ShapeModelRegion.Dispose();
-                ho_ShapeModel.Dispose();
-                ho_SearchImage.Dispose();
-                ho_ModelAtNewPosition.Dispose();
+                // Store first match as follow position
+                if (MatchResults.Count > 0)
+                {
+                    XFollow = MatchResults[0].X;
+                    YFollow = MatchResults[0].Y;
+                    PhiFollow = MatchResults[0].Phi;
+                }
             }
             catch (Exception ex)
             {
-                Job_Model.Statatic_Model.wirtelog.Log($"AL015 - {this.GetType().Name}" + ex.ToString());
-                canmeasure = false;
+                LogError($"AL015 - {GetType().Name}", ex);
+                CanMeasure = false;
+            }
+            finally
+            {
+                // Cleanup
+                DisposeObjects(hvModelID, hoModelROI, hoImageROI,
+                              hoShapeModelImage, hoShapeModelRegion);
             }
         }
-        public override void Excute_OnlyTool(HWindow hWindow, HObject ho_Image)
+
+        public override void Excute_OnlyTool(HWindow hWindow, HObject hoImage)
         {
             Result_Tool = false;
-            Array.Clear(Score, 0, Score.GetLength(0));
-            Array.Clear(X_Master, 0, X_Master.GetLength(0));
-            Array.Clear(Y_Master, 0, Y_Master.GetLength(0));
-            Array.Clear(Phi_Master, 0, Phi_Master.GetLength(0));
+            MatchResults.Clear();
+
+            HObject hoSearchROI = null;
+            HTuple hvModelID = null;
 
             try
             {
-                HTuple Angle_Start = Ag_Start;
-                HTuple Angle_End = Ag_End;
-                HObject ho_ModelROI, ho_ImageROI;
-                HObject ho_ShapeModelImage, ho_ShapeModelRegion, ho_ShapeModel;
-                HObject ho_ModelAtNewPosition = null;
-                HTuple hv_ModelID, hv_RowCheck = new HTuple(), hv_ColumnCheck = new HTuple();
-                HTuple hv_AngleCheck = new HTuple(), hv_Score = new HTuple();
-                HTuple hv_j = new HTuple(), hv_MovementOfObject = new HTuple();
-                HTuple hv_RowArrowHead = new HTuple(), hv_ColumnArrowHead = new HTuple();
+                // Get search ROI
+                hoSearchROI = GetModelROI(index_follow, 1);
+                hoImage = ReduceImageDomain(hoImage, hoSearchROI);
 
-                // Initialize local and output iconic variables 
-                HOperatorSet.GenEmptyObj(out ho_ModelROI);
-                HOperatorSet.GenEmptyObj(out ho_ImageROI);
-                HOperatorSet.GenEmptyObj(out ho_ShapeModelImage);
-                HOperatorSet.GenEmptyObj(out ho_ShapeModelRegion);
-                HOperatorSet.GenEmptyObj(out ho_ShapeModel);
-                HOperatorSet.GenEmptyObj(out ho_ModelAtNewPosition);
+                // Read and find shape model
+                hvModelID = ReadShapeModel();
+             
 
-                align_Roi(index_follow, 1, out ho_ImageROI);
+                // Find matches
+                var matches = FindShapeMatches(hoImage, hvModelID);
 
+                // Process results
+                ProcessMatchResults(hWindow, matches);
 
-                HOperatorSet.ReduceDomain(ho_Image, ho_ImageROI, out ho_Image);
-
-                HOperatorSet.ReadShapeModel(Read_Model, out hv_ModelID);
-                ho_ShapeModel.Dispose();
-                HOperatorSet.GetShapeModelContours(out ho_ShapeModel, hv_ModelID, 1);//1
-                HOperatorSet.SetColor(hWindow, "blue");
-
-                HOperatorSet.FindShapeModel(
-                    ho_Image
-                    , hv_ModelID
-                    , (HTuple)Angle_Start.TupleRad()
-                    , (HTuple)Angle_End.TupleRad()
-                    , (HTuple)Min_Score //min score
-                    , (HTuple)Number_of_match // numMatched
-                    , (HTuple)Max_Overlap //Maxoverlap
-                    , (HTuple)Sub_pixel
-                    , 0
-                    , (HTuple)Greediness
-                    , out hv_RowCheck
-                    , out hv_ColumnCheck
-                    , out hv_AngleCheck
-                    , out hv_Score);
-                int numshape = (int)(new HTuple(hv_Score.TupleLength()));
-                if (numshape > 0)
-                {
-                    canmeasure = true;
-                    //X = hv_ColumnCheck.TupleSelect(0);
-                    //Y = hv_RowCheck.TupleSelect(0);
-                    //Phi = hv_AngleCheck.TupleSelect(0);
-                    //Score = hv_Score.TupleSelect(0);
-                    for (hv_j = 0; (int)hv_j <= (int)((new HTuple(hv_Score.TupleLength())) - 1); hv_j = (int)hv_j + 1)
-                    {
-
-                        Score[hv_j] = hv_Score.TupleSelect(hv_j);
-                        Y_Master[hv_j] = hv_ColumnCheck.TupleSelect(hv_j);
-                        X_Master[hv_j] = hv_RowCheck.TupleSelect(hv_j);
-                        Phi_Master[hv_j] = hv_AngleCheck.TupleSelect(hv_j);
-                        if (Phi_Master[hv_j]>6)
-                        {
-                            Phi_Master[hv_j] = Phi_Master[hv_j] - Math.PI * 2;
-                        }
-                        if (Score[hv_j] >= min_score && Score[hv_j] <= max_score && Phi_Master[hv_j]>=min_phi&& Phi_Master[hv_j]<=max_phi)
-                        {
-                            Result_Tool = true;
-                            HOperatorSet.SetColor(hWindow, "green");
-                        }
-                        else
-                        {
-                            Result_Tool = false;
-                            HOperatorSet.SetColor(hWindow, "red");
-                        }
-                        if (hv_j == 0)
-                        {
-                            HOperatorSet.VectorAngleToRigid(0, 0, 0, hv_RowCheck.TupleSelect(hv_j), hv_ColumnCheck.TupleSelect(hv_j), hv_AngleCheck.TupleSelect(hv_j), out hv_MovementOfObject);
-                            ho_ModelAtNewPosition.Dispose();
-                            HOperatorSet.AffineTransContourXld(ho_ShapeModel, out ho_ModelAtNewPosition, hv_MovementOfObject);
-                            HOperatorSet.DispObj(ho_ModelAtNewPosition, hWindow);
-                            HOperatorSet.AffineTransPixel(hv_MovementOfObject, 100, 0, out hv_RowArrowHead, out hv_ColumnArrowHead);
-                            HOperatorSet.DispArrow(hWindow, hv_RowCheck.TupleSelect(hv_j), hv_ColumnCheck.TupleSelect(hv_j), hv_RowArrowHead, hv_ColumnArrowHead, 2);
-                            HOperatorSet.AffineTransPixel(hv_MovementOfObject, 0, 100, out hv_RowArrowHead, out hv_ColumnArrowHead);
-                            HOperatorSet.DispArrow(hWindow, hv_RowCheck.TupleSelect(hv_j), hv_ColumnCheck.TupleSelect(hv_j), hv_RowArrowHead, hv_ColumnArrowHead, 2);
-
-                        }
-                        if (hv_j > 0)
-                        {
-
-                            HOperatorSet.VectorAngleToRigid(0, 0, 0, hv_RowCheck.TupleSelect(hv_j), hv_ColumnCheck.TupleSelect(hv_j), hv_AngleCheck.TupleSelect(hv_j), out hv_MovementOfObject);
-                            ho_ModelAtNewPosition.Dispose();
-                            HOperatorSet.AffineTransContourXld(ho_ShapeModel, out ho_ModelAtNewPosition, hv_MovementOfObject);
-                            HOperatorSet.DispObj(ho_ModelAtNewPosition, hWindow);
-                            HOperatorSet.AffineTransPixel(hv_MovementOfObject, 100, 0, out hv_RowArrowHead, out hv_ColumnArrowHead);
-                            //    HOperatorSet.DispArrow(hWindow, hv_RowCheck.TupleSelect(hv_j), hv_ColumnCheck.TupleSelect(hv_j), hv_RowArrowHead, hv_ColumnArrowHead, 2);
-                            HOperatorSet.AffineTransPixel(hv_MovementOfObject, 0, 100, out hv_RowArrowHead, out hv_ColumnArrowHead);
-                            //  HOperatorSet.DispArrow(hWindow, hv_RowCheck.TupleSelect(hv_j), hv_ColumnCheck.TupleSelect(hv_j), hv_RowArrowHead, hv_ColumnArrowHead, 2);
-
-                        }
-                    }
-                }
-                else
-                {
-
-                }
-                HOperatorSet.ClearShapeModel(hv_ModelID);
-
-                ho_Image.Dispose();
-                ho_ModelROI.Dispose();
-                ho_ImageROI.Dispose();
-                ho_ShapeModelImage.Dispose();
-                ho_ShapeModelRegion.Dispose();
-                ho_ShapeModel.Dispose();
-                ho_ModelAtNewPosition.Dispose();
+                Result_Tool = MatchResults.Any(r =>
+                    r.Score >= ScoreMinThreshold &&
+                    r.Score <= ScoreMaxThreshold &&
+                    r.Phi >= MinPhi &&
+                    r.Phi <= MaxPhi);
             }
             catch (Exception ex)
             {
-                Job_Model.Statatic_Model.wirtelog.Log($"AL016 - {this.GetType().Name}" + ex.ToString());
+                LogError($"AL016 - {GetType().Name}", ex);
+            }
+            finally
+            {
+                DisposeObjects(hvModelID, hoSearchROI);
             }
         }
+
+        #region Helper Methods
+
+        private void SetupDisplay(HWindow hWindow, HObject hoImage)
+        {
+            HOperatorSet.GetImageSize(hoImage, out HTuple hvWidth, out HTuple hvHeight);
+            HOperatorSet.SetSystem("width", hvWidth);
+            HOperatorSet.SetSystem("height", hvHeight);
+
+            HOperatorSet.SetColor(hWindow, "blue");
+            HOperatorSet.SetDraw(hWindow, "margin");
+            HOperatorSet.SetLineWidth(hWindow, 2);
+            HOperatorSet.ClearWindow(hWindow);
+            HOperatorSet.DispObj(hoImage, hWindow);
+        }
+
+        private HObject GetModelROI(int index, int mode)
+        {
+            HObject hoROI;
+            align_Roi(index, mode, out hoROI);
+            return hoROI;
+        }
+
+        private HObject ReduceImageDomain(HObject hoImage, HObject hoROI)
+        {
+            HOperatorSet.ReduceDomain(hoImage, hoROI, out HObject hoReducedImage);
+            return hoReducedImage;
+        }
+
+        private HTuple CreateShapeModel(HObject hoImageROI)
+        {
+          
+            HOperatorSet.CreateNccModel(
+                hoImageROI,
+                "auto",
+                StartAngle * Math.PI / 180.0,
+                EndAngle * Math.PI / 180.0,
+                "auto",
+                metric,
+                out HTuple hvModelID
+            );
+            return hvModelID;
+        }
+
+        private void InspectAndDisplayModel(HWindow hWindow, HTuple HdModel,
+                                          out HObject hoShapeModelRegion)
+        {
+            HOperatorSet.GetNccModelRegion(
+                out hoShapeModelRegion,
+                HdModel
+            );
+
+            HOperatorSet.DispObj(hoShapeModelRegion, hWindow);
+            MessageBox.Show("Ncc Model Region");
+        }
+
+        private void SaveShapeModel(HTuple hvModelID)
+        {
+            string fileName = $"{ModelFilePath}\\_Nccmodel{job_index}{tool_index}.model";
+            ModelReadPath = fileName;
+            HOperatorSet.WriteNccModel(hvModelID, fileName);
+            MessageBox.Show("Finish Train Shape Model");
+        }
+
+        private HTuple ReadShapeModel()
+        {
+            HOperatorSet.ReadNccModel(ModelReadPath, out HTuple hvModelID);
+            return hvModelID;
+        }
+
+       
+
+        private ShapeMatch[] FindShapeMatches(HObject hoImage, HTuple hvModelID)
+        {
+            HOperatorSet.FindNccModel(
+                hoImage,
+                hvModelID,
+                0,
+                2*3.14,
+                MinScore,
+                1,
+                0.5,
+                "true",
+                numlever,
+                out HTuple hvColumns,
+                out HTuple hvRows,
+                out HTuple hvAngles,
+                out HTuple hvScores
+            );
+
+            int matchCount = hvScores.TupleLength();
+            var matches = new ShapeMatch[matchCount];
+
+            for (int i = 0; i < matchCount; i++)
+            {
+                matches[i] = new ShapeMatch
+                {
+                    Row = hvRows.TupleSelect(i),
+                    Column = hvColumns.TupleSelect(i),
+                    Angle = hvAngles.TupleSelect(i),
+                    Score = hvScores.TupleSelect(i)
+                };
+            }
+
+            return matches;
+        }
+
+        private void ProcessMatchResults(HWindow hWindow, ShapeMatch[] matches)
+        {
+            for (int i = 0; i < matches.Length; i++)
+            {
+                var match = matches[i];
+                double normalizedAngle = match.Angle;
+
+                var result = new NccMatchResult
+                {
+                    Score = match.Score,
+                    X = match.Column,
+                    Y = match.Row,
+                    Phi = normalizedAngle
+                };
+
+                MatchResults.Add(result);
+
+                // Determine display color
+                bool isValidMatch = result.Score >= ScoreMinThreshold &&
+                                   result.Score <= ScoreMaxThreshold &&
+                                   result.Phi >= MinPhi &&
+                                   result.Phi <= MaxPhi;
+
+                HOperatorSet.SetColor(hWindow, isValidMatch ? "green" : "red");
+
+                // Display match
+                DisplayMatch(hWindow, match, i == 0);
+
+            }
+        }
+
+
+
+        private void DisplayMatch(HWindow hWindow, ShapeMatch match, bool displayArrows)
+        {
+            HOperatorSet.VectorAngleToRigid(0, 0, 0, match.Column, match.Row, match.Angle,
+                                           out HTuple hvMovement);
+
+
+            if (displayArrows)
+            {
+                HOperatorSet.AffineTransPixel(hvMovement, 100, 0, out HTuple hvRowArrow,
+                                             out HTuple hvColArrow);
+                HOperatorSet.DispArrow(hWindow, match.Column, match.Row, hvRowArrow, hvColArrow, 2);
+
+         
+            }
+
+          
+        }
+
+        private void DisposeObjects(params object[] objects)
+        {
+            foreach (var obj in objects)
+            {
+                if (obj is HObject hObj && hObj != null)
+                {
+                    hObj.Dispose();
+                }
+                else if (obj is HTuple hv && hv != null)
+                {
+                    try { HOperatorSet.ClearShapeModel(hv); } catch { }
+                }
+            }
+        }
+
+        private void LogError(string prefix, Exception ex)
+        {
+            Job_Model.Statatic_Model.wirtelog.Log($"{prefix} - {ex}");
+        }
+
+        #endregion
+
+        #region Helper Classes
+
+        private struct ShapeMatch
+        {
+            public double Row { get; set; }
+            public double Column { get; set; }
+            public double Angle { get; set; }
+            public double Score { get; set; }
+        }
+
+        public class NccMatchResult
+        {
+            public double Score { get; set; }
+            public double X { get; set; }
+            public double Y { get; set; }
+            public double Phi { get; set; }
+        }
+
+        #endregion
+    }
+    public class ShapeModelTool : Class_Tool
+    {
+        // Properties
+        public string FollowMaster { get; set; } = "none";
+        public double StartAngle { get; set; } = 0;
+        public double EndAngle { get; set; } = 360;
+        public double MinScore { get; set; } = 0.5;
+        public double NumberOfMatches { get; set; } = 1;
+        public double Greediness { get; set; } = 1;
+        public double MaxOverlap { get; set; } = 0.5;
+        public double Contrast { get; set; } = 30;
+        public string metric { get; set; } = "use_polarity";
+        public double MinContrast { get; set; } = 5;
+        public string SubPixel { get; set; } = "least_squares";
+        public string ModelFilePath { get; set; }
+        public string ModelReadPath { get; set; }
+        public double ScoreMinThreshold { get; set; } = 0.9;
+        public double ScoreMaxThreshold { get; set; } = 1;
+        public double MaxPhi { get; set; } = 180;
+        public double MinPhi { get; set; } = -180;
+
+        // Training state
+        public bool CanMeasure { get; set; }
+
+        // Results
+        public List<ShapeMatchResult> MatchResults { get; private set; } = new List<ShapeMatchResult>();
+
+        // Master training results
+        public double XFollow { get; set; }
+        public double YFollow { get; set; }
+        public double PhiFollow { get; set; }
+
+        public ShapeModelTool() : base("ShapeModel") { }
+
+        public override void Excute(HWindow hWindow, HObject hoImage)
+        {
+            Excute_OnlyTool(hWindow, hoImage);
+        }
+
+        public void TrainModel(HWindow hWindow, HObject hoImage)
+        {
+            CanMeasure = false;
+            HObject hoModelROI = null, hoImageROI = null;
+            HObject hoShapeModelImage = null, hoShapeModelRegion = null;
+            HTuple hvModelID = null;
+
+            try
+            {
+                // Setup display
+                SetupDisplay(hWindow, hoImage);
+
+                // Get ROI for model
+                hoModelROI = GetModelROI(-1, 0);
+                hoImageROI = ReduceImageDomain(hoImage, hoModelROI);
+
+                // Create shape model
+                hvModelID = CreateShapeModel(hoImageROI);
+
+                // Inspect and display model
+                InspectAndDisplayModel(hWindow, hoImageROI, out hoShapeModelImage, out hoShapeModelRegion);
+
+                // Save model
+                SaveShapeModel(hvModelID);
+
+                // Execute to find initial position
+                Excute(hWindow, hoImage);
+
+                // Store first match as follow position
+                if (MatchResults.Count > 0)
+                {
+                    XFollow = MatchResults[0].X;
+                    YFollow = MatchResults[0].Y;
+                    PhiFollow = MatchResults[0].Phi;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogError($"AL015 - {GetType().Name}", ex);
+                CanMeasure = false;
+            }
+            finally
+            {
+                // Cleanup
+                DisposeObjects(hvModelID, hoModelROI, hoImageROI,
+                              hoShapeModelImage, hoShapeModelRegion);
+            }
+        }
+
+        public override void Excute_OnlyTool(HWindow hWindow, HObject hoImage)
+        {
+            Result_Tool = false;
+            MatchResults.Clear();
+
+            HObject hoSearchROI = null, hoShapeModelContour = null;
+            HTuple hvModelID = null;
+
+            try
+            {
+                // Get search ROI
+                hoSearchROI = GetModelROI(index_follow, 1);
+                hoImage = ReduceImageDomain(hoImage, hoSearchROI);
+
+                // Read and find shape model
+                hvModelID = ReadShapeModel();
+                hoShapeModelContour = GetShapeModelContour(hvModelID);
+
+                // Find matches
+                var matches = FindShapeMatches(hoImage, hvModelID);
+
+                // Process results
+                ProcessMatchResults(hWindow, matches, hoShapeModelContour);
+
+                Result_Tool = MatchResults.Any(r =>
+                    r.Score >= ScoreMinThreshold &&
+                    r.Score <= ScoreMaxThreshold &&
+                    r.Phi >= MinPhi &&
+                    r.Phi <= MaxPhi);
+            }
+            catch (Exception ex)
+            {
+                LogError($"AL016 - {GetType().Name}", ex);
+            }
+            finally
+            {
+                DisposeObjects(hvModelID, hoSearchROI, hoShapeModelContour);
+            }
+        }
+
+        #region Helper Methods
+
+        private void SetupDisplay(HWindow hWindow, HObject hoImage)
+        {
+            HOperatorSet.GetImageSize(hoImage, out HTuple hvWidth, out HTuple hvHeight);
+            HOperatorSet.SetSystem("width", hvWidth);
+            HOperatorSet.SetSystem("height", hvHeight);
+
+            HOperatorSet.SetColor(hWindow, "blue");
+            HOperatorSet.SetDraw(hWindow, "margin");
+            HOperatorSet.SetLineWidth(hWindow, 2);
+            HOperatorSet.ClearWindow(hWindow);
+            HOperatorSet.DispObj(hoImage, hWindow);
+        }
+
+        private HObject GetModelROI(int index, int mode)
+        {
+            HObject hoROI;
+            align_Roi(index, mode, out hoROI);
+            return hoROI;
+        }
+
+        private HObject ReduceImageDomain(HObject hoImage, HObject hoROI)
+        {
+            HOperatorSet.ReduceDomain(hoImage, hoROI, out HObject hoReducedImage);
+            return hoReducedImage;
+        }
+
+        private HTuple CreateShapeModel(HObject hoImageROI)
+        {
+            HOperatorSet.CreateShapeModel(
+                hoImageROI,
+                "auto",
+                StartAngle * Math.PI / 180.0,
+                EndAngle * Math.PI / 180.0,
+                "auto",
+                "auto",
+                metric,
+                Contrast,
+                MinContrast,
+                out HTuple hvModelID
+            );
+            return hvModelID;
+        }
+
+        private void InspectAndDisplayModel(HWindow hWindow, HObject hoImageROI,
+                                           out HObject hoShapeModelImage, out HObject hoShapeModelRegion)
+        {
+            HOperatorSet.InspectShapeModel(
+                hoImageROI,
+                out hoShapeModelImage,
+                out hoShapeModelRegion,
+                1,
+                Contrast
+            );
+
+            HOperatorSet.DispObj(hoShapeModelRegion, hWindow);
+            MessageBox.Show("Shape Model Region");
+        }
+
+        private void SaveShapeModel(HTuple hvModelID)
+        {
+            string fileName = $"{ModelFilePath}\\_Shapemodel{job_index}{tool_index}.model";
+            ModelReadPath = fileName;
+            HOperatorSet.WriteShapeModel(hvModelID, fileName);
+            MessageBox.Show("Finish Train Shape Model");
+        }
+
+        private HTuple ReadShapeModel()
+        {
+            HOperatorSet.ReadShapeModel(ModelReadPath, out HTuple hvModelID);
+            return hvModelID;
+        }
+
+        private HObject GetShapeModelContour(HTuple hvModelID)
+        {
+            HOperatorSet.GetShapeModelContours(out HObject hoContour, hvModelID, 1);
+            return hoContour;
+        }
+
+        private ShapeMatch[] FindShapeMatches(HObject hoImage, HTuple hvModelID)
+        {
+            HOperatorSet.FindShapeModel(
+                hoImage,
+                hvModelID,
+                StartAngle * Math.PI / 180.0,
+                EndAngle * Math.PI / 180.0,
+                MinScore,
+                NumberOfMatches,
+                MaxOverlap,
+                SubPixel,
+                0,
+                Greediness,
+                out HTuple hvColumns,
+                out HTuple hvRows,
+                out HTuple hvAngles,
+                out HTuple hvScores
+            );
+
+            int matchCount = hvScores.TupleLength();
+            var matches = new ShapeMatch[matchCount];
+
+            for (int i = 0; i < matchCount; i++)
+            {
+                matches[i] = new ShapeMatch
+                {
+                    Row = hvRows.TupleSelect(i),
+                    Column = hvColumns.TupleSelect(i),
+                    Angle = hvAngles.TupleSelect(i),
+                    Score = hvScores.TupleSelect(i)
+                };
+            }
+
+            return matches;
+        }
+
+        private void ProcessMatchResults(HWindow hWindow, ShapeMatch[] matches, HObject hoShapeModelContour)
+        {
+            for (int i = 0; i < matches.Length; i++)
+            {
+                var match = matches[i];
+                double normalizedAngle =match.Angle;
+
+                var result = new ShapeMatchResult
+                {
+                    Score = match.Score,
+                    X = match.Column,
+                    Y = match.Row,
+                    Phi = normalizedAngle
+                };
+
+                MatchResults.Add(result);
+
+                // Determine display color
+                bool isValidMatch = result.Score >= ScoreMinThreshold &&
+                                   result.Score <= ScoreMaxThreshold &&
+                                   result.Phi >= MinPhi &&
+                                   result.Phi <= MaxPhi;
+
+                HOperatorSet.SetColor(hWindow, isValidMatch ? "green" : "red");
+
+                // Display match
+                DisplayMatch(hWindow, match, hoShapeModelContour, i == 0);
+                
+            }
+        }
+
+    
+
+        private void DisplayMatch(HWindow hWindow, ShapeMatch match, HObject hoShapeModelContour, bool displayArrows)
+        {
+            HOperatorSet.VectorAngleToRigid(0, 0, 0, match.Column, match.Row, match.Angle,
+                                           out HTuple hvMovement);
+
+            HOperatorSet.AffineTransContourXld(hoShapeModelContour, out HObject hoTransformedContour,
+                                              hvMovement);
+            HOperatorSet.DispObj(hoTransformedContour, hWindow);
+
+            if (displayArrows)
+            {
+                HOperatorSet.AffineTransPixel(hvMovement, 100, 0, out HTuple hvRowArrow,
+                                             out HTuple hvColArrow);
+                HOperatorSet.DispArrow(hWindow, match.Column, match.Row, hvRowArrow, hvColArrow, 2);
+
+                HOperatorSet.AffineTransPixel(hvMovement, 0, 100, out hvRowArrow, out hvColArrow);
+                HOperatorSet.DispObj(hoTransformedContour, hWindow);
+            }
+
+            hoTransformedContour?.Dispose();
+        }
+
+        private void DisposeObjects(params object[] objects)
+        {
+            foreach (var obj in objects)
+            {
+                if (obj is HObject hObj && hObj != null)
+                {
+                    hObj.Dispose();
+                }
+                else if (obj is HTuple hv && hv != null)
+                {
+                    try { HOperatorSet.ClearShapeModel(hv); } catch { }
+                }
+            }
+        }
+
+        private void LogError(string prefix, Exception ex)
+        {
+            Job_Model.Statatic_Model.wirtelog.Log($"{prefix} - {ex}");
+        }
+
+        #endregion
+
+        #region Helper Classes
+
+        private struct ShapeMatch
+        {
+            public double Row { get; set; }
+            public double Column { get; set; }
+            public double Angle { get; set; }
+            public double Score { get; set; }
+        }
+
+        public class ShapeMatchResult
+        {
+            public double Score { get; set; }
+            public double X { get; set; }
+            public double Y { get; set; }
+            public double Phi { get; set; }
+        }
+
+        #endregion
+    }
+    public class ShapeModelTool_Color : Class_Tool
+    {
+        // Properties
+        public string FollowMaster { get; set; } = "none";
+        public double StartAngle { get; set; } = 0;
+        public double EndAngle { get; set; } = 360;
+        public double MinScore { get; set; } = 0.5;
+        public double NumberOfMatches { get; set; } = 1;
+        public double Greediness { get; set; } = 1;
+        public double MaxOverlap { get; set; } = 0.5;
+        public double Contrast { get; set; } = 30;
+        public double MinContrast { get; set; } = 5;
+        public string SubPixel { get; set; } = "least_squares";
+        public string ModelFilePath { get; set; }
+        public string ModelReadPath { get; set; }
+        public double ScoreMinThreshold { get; set; } = 0.9;
+        public double ScoreMaxThreshold { get; set; } = 1;
+        public double MaxPhi { get; set; } = 180;
+        public double MinPhi { get; set; } = -180;
+
+        // Training state
+        public bool CanMeasure { get; set; }
+
+        // Results
+        public List<ShapeMatchResult> MatchResults { get; private set; } = new List<ShapeMatchResult>();
+
+        // Master training results
+        public double XFollow { get; set; }
+        public double YFollow { get; set; }
+        public double PhiFollow { get; set; }
+
+        public ShapeModelTool_Color() : base("ShapeModel_Color") { }
+
+        public override void Excute(HWindow hWindow, HObject hoImage)
+        {
+            Excute_OnlyTool(hWindow, hoImage);
+        }
+
+        public void TrainModel(HWindow hWindow, HObject hoImage)
+        {
+            CanMeasure = false;
+            HObject hoModelROI = null, hoImageROI = null;
+            HObject hoShapeModelImage = null, hoShapeModelRegion = null;
+            HTuple hvModelID = null;
+
+            try
+            {
+                // Setup display
+                SetupDisplay(hWindow, hoImage);
+
+                // Get ROI for model
+                hoModelROI = GetModelROI(-1, 0);
+                hoImageROI = ReduceImageDomain(hoImage, hoModelROI);
+
+                // Create shape model
+                hvModelID = CreateShapeModel(hoImageROI);
+
+                // Inspect and display model
+                InspectAndDisplayModel(hWindow, hoImageROI, out hoShapeModelImage, out hoShapeModelRegion);
+
+                // Save model
+                SaveShapeModel(hvModelID);
+
+                // Execute to find initial position
+                Excute(hWindow, hoImage);
+
+                // Store first match as follow position
+                if (MatchResults.Count > 0)
+                {
+                    XFollow = MatchResults[0].X;
+                    YFollow = MatchResults[0].Y;
+                    PhiFollow = MatchResults[0].Phi;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogError($"AL015 - {GetType().Name}", ex);
+                CanMeasure = false;
+            }
+            finally
+            {
+                // Cleanup
+                DisposeObjects(hvModelID, hoModelROI, hoImageROI,
+                              hoShapeModelImage, hoShapeModelRegion);
+            }
+        }
+
+        public override void Excute_OnlyTool(HWindow hWindow, HObject hoImage)
+        {
+            Result_Tool = false;
+            MatchResults.Clear();
+
+            HObject hoSearchROI = null, hoShapeModelContour = null;
+            HTuple hvModelID = null;
+
+            try
+            {
+                // Get search ROI
+                hoSearchROI = GetModelROI(index_follow, 1);
+                hoImage = ReduceImageDomain(hoImage, hoSearchROI);
+
+                // Read and find shape model
+                hvModelID = ReadShapeModel();
+                hoShapeModelContour = GetShapeModelContour(hvModelID);
+
+                // Find matches
+                var matches = FindShapeMatches(hoImage, hvModelID);
+
+                // Process results
+                ProcessMatchResults(hWindow, matches, hoShapeModelContour);
+
+                Result_Tool = MatchResults.Any(r =>
+                    r.Score >= ScoreMinThreshold &&
+                    r.Score <= ScoreMaxThreshold &&
+                    r.Phi >= MinPhi &&
+                    r.Phi <= MaxPhi);
+
+            }
+            catch (Exception ex)
+            {
+                LogError($"AL016 - {GetType().Name}", ex);
+            }
+            finally
+            {
+                DisposeObjects(hvModelID, hoSearchROI, hoShapeModelContour);
+            }
+        }
+
+        #region Helper Methods
+
+        private void SetupDisplay(HWindow hWindow, HObject hoImage)
+        {
+            HOperatorSet.GetImageSize(hoImage, out HTuple hvWidth, out HTuple hvHeight);
+            HOperatorSet.SetSystem("width", hvWidth);
+            HOperatorSet.SetSystem("height", hvHeight);
+
+            HOperatorSet.SetColor(hWindow, "blue");
+            HOperatorSet.SetDraw(hWindow, "margin");
+            HOperatorSet.SetLineWidth(hWindow, 2);
+            HOperatorSet.ClearWindow(hWindow);
+            HOperatorSet.DispObj(hoImage, hWindow);
+        }
+
+        private HObject GetModelROI(int index, int mode)
+        {
+            HObject hoROI;
+            align_Roi(index, mode, out hoROI);
+            return hoROI;
+        }
+
+        private HObject ReduceImageDomain(HObject hoImage, HObject hoROI)
+        {
+            HOperatorSet.ReduceDomain(hoImage, hoROI, out HObject hoReducedImage);
+            return hoReducedImage;
+        }
+
+        private HTuple CreateShapeModel(HObject hoImageROI)
+        {
+            HOperatorSet.CreateShapeModel(
+                hoImageROI,
+                "auto",
+                StartAngle * Math.PI / 180.0,
+                EndAngle * Math.PI / 180.0,
+                "auto",
+                "auto",
+                "use_polarity",
+                Contrast,
+                MinContrast,
+                out HTuple hvModelID
+            );
+            return hvModelID;
+        }
+
+        private void InspectAndDisplayModel(HWindow hWindow, HObject hoImageROI,
+                                           out HObject hoShapeModelImage, out HObject hoShapeModelRegion)
+        {
+            HOperatorSet.InspectShapeModel(
+                hoImageROI,
+                out hoShapeModelImage,
+                out hoShapeModelRegion,
+                1,
+                Contrast
+            );
+
+            HOperatorSet.DispObj(hoShapeModelRegion, hWindow);
+            MessageBox.Show("Shape Model Region");
+        }
+
+        private void SaveShapeModel(HTuple hvModelID)
+        {
+            string fileName = $"{ModelFilePath}\\_Shapemodel{job_index}{tool_index}.model";
+            ModelReadPath = fileName;
+            HOperatorSet.WriteShapeModel(hvModelID, fileName);
+            MessageBox.Show("Finish Train Shape Model");
+        }
+
+        private HTuple ReadShapeModel()
+        {
+            HOperatorSet.ReadShapeModel(ModelReadPath, out HTuple hvModelID);
+            return hvModelID;
+        }
+
+        private HObject GetShapeModelContour(HTuple hvModelID)
+        {
+            HOperatorSet.GetShapeModelContours(out HObject hoContour, hvModelID, 1);
+            return hoContour;
+        }
+
+        private ShapeMatch[] FindShapeMatches(HObject hoImage, HTuple hvModelID)
+        {
+            HOperatorSet.FindShapeModel(
+                hoImage,
+                hvModelID,
+                StartAngle * Math.PI / 180.0,
+                EndAngle * Math.PI / 180.0,
+                MinScore,
+                NumberOfMatches,
+                MaxOverlap,
+                SubPixel,
+                0,
+                Greediness,
+                out HTuple hvColumns,
+                out HTuple hvRows,
+                out HTuple hvAngles,
+                out HTuple hvScores
+            );
+
+            int matchCount = hvScores.TupleLength();
+            var matches = new ShapeMatch[matchCount];
+
+            for (int i = 0; i < matchCount; i++)
+            {
+                matches[i] = new ShapeMatch
+                {
+                    Row = hvRows.TupleSelect(i),
+                    Column = hvColumns.TupleSelect(i),
+                    Angle = hvAngles.TupleSelect(i),
+                    Score = hvScores.TupleSelect(i)
+                };
+            }
+
+            return matches;
+        }
+
+        private void ProcessMatchResults(HWindow hWindow, ShapeMatch[] matches, HObject hoShapeModelContour)
+        {
+            for (int i = 0; i < matches.Length; i++)
+            {
+                var match = matches[i];
+                double normalizedAngle = NormalizeAngle(match.Angle);
+
+                var result = new ShapeMatchResult
+                {
+                    Score = match.Score,
+                    X = match.Column,
+                    Y = match.Row,
+                    Phi = normalizedAngle
+                };
+
+                MatchResults.Add(result);
+
+                // Determine display color
+                bool isValidMatch = result.Score >= ScoreMinThreshold &&
+                                   result.Score <= ScoreMaxThreshold &&
+                                   result.Phi >= MinPhi &&
+                                   result.Phi <= MaxPhi;
+
+                HOperatorSet.SetColor(hWindow, isValidMatch ? "green" : "red");
+
+                // Display match
+                DisplayMatch(hWindow, match, hoShapeModelContour, i == 0);
+            }
+        }
+
+        private double NormalizeAngle(double angle)
+        {
+            // Normalize angle to [-π, π] range
+            while (angle > Math.PI) angle -= 2 * Math.PI;
+            while (angle < -Math.PI) angle += 2 * Math.PI;
+            return angle * 180.0 / Math.PI; // Convert to degrees
+        }
+
+        private void DisplayMatch(HWindow hWindow, ShapeMatch match, HObject hoShapeModelContour, bool displayArrows)
+        {
+            HOperatorSet.VectorAngleToRigid(0, 0, 0, match.Column, match.Row, match.Angle,
+                                           out HTuple hvMovement);
+
+            HOperatorSet.AffineTransContourXld(hoShapeModelContour, out HObject hoTransformedContour,
+                                              hvMovement);
+            HOperatorSet.DispObj(hoTransformedContour, hWindow);
+
+            if (displayArrows)
+            {
+                HOperatorSet.AffineTransPixel(hvMovement, 100, 0, out HTuple hvRowArrow,
+                                             out HTuple hvColArrow);
+                HOperatorSet.DispArrow(hWindow, match.Column, match.Row, hvRowArrow, hvColArrow, 2);
+
+                HOperatorSet.AffineTransPixel(hvMovement, 0, 100, out hvRowArrow, out hvColArrow);
+                HOperatorSet.DispObj(hoTransformedContour, hWindow);
+            }
+
+            hoTransformedContour?.Dispose();
+        }
+
+        private void DisposeObjects(params object[] objects)
+        {
+            foreach (var obj in objects)
+            {
+                if (obj is HObject hObj && hObj != null)
+                {
+                    hObj.Dispose();
+                }
+                else if (obj is HTuple hv && hv != null)
+                {
+                    try { HOperatorSet.ClearShapeModel(hv); } catch { }
+                }
+            }
+        }
+
+        private void LogError(string prefix, Exception ex)
+        {
+            Job_Model.Statatic_Model.wirtelog.Log($"{prefix} - {ex}");
+        }
+
+        #endregion
+
+        #region Helper Classes
+
+        private struct ShapeMatch
+        {
+            public double Row { get; set; }
+            public double Column { get; set; }
+            public double Angle { get; set; }
+            public double Score { get; set; }
+        }
+
+        public class ShapeMatchResult
+        {
+            public double Score { get; set; }
+            public double X { get; set; }
+            public double Y { get; set; }
+            public double Phi { get; set; }
+        }
+
+        #endregion
     }
     public class FixtureTool : Class_Tool
     {
@@ -817,9 +1632,9 @@ namespace Design_Form.Job_Model
             {
 
                 ShapeModelTool shapeModelTool = (ShapeModelTool)Statatic_Model.model_run.Cameras[camera_index].Jobs[index_master_job].Images[image_index].Tools[index_follow];
-                double x_cr = shapeModelTool.X_Master[0];
-                double y_cr = shapeModelTool.Y_Master[0];
-                double phi_cr = shapeModelTool.Phi_Master[0];
+                double x_cr = shapeModelTool.MatchResults[0].X;
+                double y_cr = shapeModelTool.MatchResults[0].Y;
+                double phi_cr = shapeModelTool.MatchResults[0].Phi;
                 phi = phi_cr;
                 Align_Tool(out Statatic_Model.hommat2D[camera_index, job_index, tool_index], x_cr, y_cr, phi_cr);
 
@@ -829,9 +1644,62 @@ namespace Design_Form.Job_Model
         {
             
             HOperatorSet.VectorAngleToRigid((HTuple)master_x, (HTuple)master_y, (HTuple)master_phi, (HTuple)x_cr, (HTuple)y_cr, (HTuple)phi_cr, out homMat2D);
+            
 
         }
        
+
+    }
+    public class FixtureTool_2 : Class_Tool
+    {
+        public string master_follow { get; set; } = "none";
+        public string master_follow_1 { get; set; } = "none";
+        public int index_folow_2 = -1;
+        public int index_master_job { get; set; } = -1;
+        public double master_y1 { get; set; } = 0;
+        public double master_x1 { get; set; } = 0;
+        public double master_y2 { get; set; } = 0;
+        public double master_x2 { get; set; } = 0;
+       
+       
+        public FixtureTool_2() : base("Fixture_2") { }
+        public override void Excute(HWindow hWindow, HObject ho_Image)
+        {
+            Excute_OnlyTool(hWindow, ho_Image);
+        }
+        public override void Excute_OnlyTool(HWindow hWindow, HObject ho_Image)
+        {
+            Result_Tool = true;
+
+            if (index_follow >= 0&& index_folow_2 >= 0)
+            {
+
+                ShapeModelTool shapeModelTool = (ShapeModelTool)Statatic_Model.model_run.Cameras[camera_index].Jobs[index_master_job].Images[image_index].Tools[index_follow];
+                double x_cr1 = shapeModelTool.MatchResults[0].X;
+                double y_cr1 = shapeModelTool.MatchResults[0].Y;
+                ShapeModelTool shapeModelTool2 = (ShapeModelTool)Statatic_Model.model_run.Cameras[camera_index].Jobs[index_master_job].Images[image_index].Tools[index_folow_2];
+                double x_cr2 = shapeModelTool2.MatchResults[0].X;
+                double y_cr2= shapeModelTool2.MatchResults[0].Y;
+
+                Align_Tool(out Statatic_Model.hommat2D[camera_index, job_index, tool_index], x_cr1, y_cr1, x_cr2, y_cr2);
+
+            }
+        }
+        public void Align_Tool(out HTuple homMat2D, double x_cr1, double y_cr1, double x_cr2, double y_cr2)
+        {
+            HTuple master_x = (master_x1 + master_x2) / 2.0;
+            HTuple master_y = (master_y1 + master_y2) / 2.0;
+            HOperatorSet.TupleAtan2(master_y2 - master_y1, master_x2 - master_x1, out HTuple master_phi);
+          //  master_phi = (master_phi * 180) / Math.PI;
+            HTuple x_cr = (x_cr2 + x_cr1) / 2.0;
+            HTuple y_cr = (y_cr1 + y_cr2) / 2.0;
+            HOperatorSet.TupleAtan2(y_cr2 - y_cr1, x_cr2 - x_cr1, out HTuple phi_cr);
+           // phi_cr = (phi_cr * 180) / Math.PI;
+            HOperatorSet.VectorAngleToRigid(master_x, master_y, master_phi, x_cr, y_cr, phi_cr, out homMat2D);
+          //  HOperatorSet.VectorAngleToRigid(master_y, master_x, master_phi, y_cr, x_cr, phi_cr, out homMat2D);
+
+        }
+
 
     }
     public class FindCircleTool : Class_Tool
@@ -1115,8 +1983,8 @@ namespace Design_Form.Job_Model
                 if (Fr_Name_Tool == "ShapeModel")
                 {
                     ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
-                    Fr_X = tool.X_Master[0];
-                    Fr_Y = tool.Y_Master[0];
+                    Fr_X = tool.MatchResults[0].X;
+                    Fr_Y = tool.MatchResults[0].Y;
                 }
                 if (Fr_Name_Tool == "FitLine_Tool")
                 {
@@ -1149,8 +2017,8 @@ namespace Design_Form.Job_Model
                 if (To_Name_Tool == "ShapeModel")
                 {
                     ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
-                    To_X = tool.X_Master[0];
-                    To_Y = tool.Y_Master[0];
+                    Fr_X = tool.MatchResults[0].X;
+                    Fr_Y = tool.MatchResults[0].Y;
                 }
                 if (To_Name_Tool == "FitLine_Tool")
                 {
@@ -1273,68 +2141,21 @@ namespace Design_Form.Job_Model
     public class HistogramTool : Class_Tool
     {
         public string master_follow { get; set; } = "none";
+        public string Select_Algorithm = "Average";
         public int pixel_high { get; set; } = 255;
         public int pixel_low { get; set; } = 0;
         public double max_setup { get; set; } = 100;
         public double min_setup { get; set; } = 0;
-        public int threshold_high { get; set; } = 255;
-        public int threshold_low { get; set; } = 125;
-        public bool find_contour { get; set; } = false;
-        public int nomal_size_max { get; set; } = 2000000;
-        public int nomal_size_min { get; set; } = 100;
-        public double max_deviation {  get; set; } = 255;
-        public double min_deviation { get; set; } = 0;
-        public double max_mean { get; set; } = 255;
-        public double min_mean { get; set; } = 0;
+      
+      
+        public int[] map_pixel = new int[256];
 
         public double Rate_his { get; set; }
         public double Mean {  get; set; }
         public double Deviation {  get; set; }
-        public int[] map_pixel = new int[256];
+        
         public HistogramTool() : base("Histogram") { }
-        private void Find_contour(HObject ho_ImageROI, HObject ho_Image, out HObject Region_contour,HWindow hWindow)
-        {
-            HObject ho_Contours;
-            HObject ho_SelectedContour;
-            HOperatorSet.GenEmptyObj(out Region_contour);
-            HOperatorSet.GenEmptyObj(out ho_Contours);
-            HObject ho_threshold;
-            HOperatorSet.GenEmptyObj(out ho_threshold);
-            HOperatorSet.ReduceDomain(ho_Image, ho_ImageROI, out ho_Image);
-            HOperatorSet.Threshold(ho_Image, out ho_threshold, threshold_low, threshold_high);
-            HOperatorSet.GenContourRegionXld(ho_threshold, out ho_Contours, "border");
-            if(stepbystep)
-            {
-                HOperatorSet.ClearWindow(hWindow);
-                HOperatorSet.DispObj(ho_Contours, hWindow);
-                MessageBox.Show("GenContourRegionXld");
-            }    
-           
-            HTuple hv_Number;
-            HOperatorSet.CountObj(ho_Contours, out hv_Number);
-          
-          
-            List<List<int>> hv_List = new List<List<int>>();
-
-            for (int i = 1; i <= hv_Number; i++)
-            {
-                HOperatorSet.SelectObj(ho_Contours, out ho_SelectedContour, i);
-                if (ho_SelectedContour != null && ho_SelectedContour.IsInitialized())
-                {
-                    HTuple hv_Row1, hv_Column1, hv_Row2, hv_Column2;
-                    HOperatorSet.SelectObj(ho_Contours, out ho_SelectedContour, i);
-                    HOperatorSet.SmallestRectangle1Xld(ho_SelectedContour, out hv_Row1, out hv_Column1, out hv_Row2, out hv_Column2);
-                    double width = hv_Column2.D - hv_Column1.D;
-                    double height = hv_Row2.D - hv_Row1.D;
-                    if (nomal_size_max>width&&width >nomal_size_min )
-                    {
-                        HOperatorSet.GenRegionContourXld(ho_SelectedContour, out Region_contour, "filled");
-                        break;
-                    }
-                }
-
-            }
-        }
+    
         public override void Excute(HWindow hWindow, HObject ho_Image)
         {
             Excute_OnlyTool(hWindow, ho_Image);
@@ -1343,8 +2164,8 @@ namespace Design_Form.Job_Model
         {
             try
             {
-                Array.Clear(map_pixel, 0, map_pixel.GetLength(0));
-                Result_Tool = false;
+				Array.Clear(map_pixel, 0, map_pixel.GetLength(0));
+				Result_Tool = false;
                 HObject ho_ImageROI;
                 HObject ho_ImageROI1;
                 HTuple abHis, relati;
@@ -1355,53 +2176,51 @@ namespace Design_Form.Job_Model
                 HOperatorSet.GenEmptyObj(out ho_ImageROI1);
                 HOperatorSet.GenEmptyObj(out edges);
                 align_Roi(index_follow, 0, out ho_ImageROI);
-                if (roi_Tool.Count > 1)
-                {
-                    align_Roi(index_follow, 1, out ho_ImageROI1);
-                //    HOperatorSet.Difference(ho_ImageROI, ho_ImageROI1, out ho_ImageROI);
-                }
-                if (find_contour)
-                {
-                    Find_contour(ho_ImageROI, ho_Image, out ho_ImageROI, hWindow);
-                    if (stepbystep)
-                    {
-                        HOperatorSet.SetColor(hWindow, "Green");
-                        HOperatorSet.ClearWindow(hWindow);
-                        HOperatorSet.DispObj(ho_ImageROI, hWindow);
-                        MessageBox.Show("ho_Imagecrop");
-                    }
-                    if (stepbystep)
-                    {
-                        //HObject contours;
-                        //HOperatorSet.GenContoursSkeletonXld(edges, out contours, "true", 1);
-                        //HOperatorSet.ClearWindow(hWindow);
-                        //HOperatorSet.DispObj(contours, hWindow);
-                        //MessageBox.Show("ho_Imagecrop");
-                    }
-                }
+              
+              
 
                 HOperatorSet.AreaCenter(ho_ImageROI, out area, out rowCenter, out columnCenter);
                 HOperatorSet.GrayHisto(ho_ImageROI, ho_Image, out abHis, out relati);
-                HOperatorSet.Intensity(ho_ImageROI, ho_Image, out mean, out deviation);
-                Mean = mean;
-                Deviation = deviation;
-
-                int result_Histogram = 0;
-                int result_Histogram_tong = 0;
-                for (int i = 0; i < abHis.Length; i++)
+                
+             //   HOperatorSet.Intensity(ho_ImageROI, ho_Image, out mean, out deviation);
+				double results_toool = 0;
+                GrayStatistics CalculateGray = CalculateGrayStatistics(abHis);
+                if(Select_Algorithm == "Diff")
                 {
-                    map_pixel[i] = abHis[i];
-                    result_Histogram_tong = result_Histogram_tong + abHis[i];
-                    if (i >= pixel_low && i <= pixel_high)
-                    {
-                        result_Histogram = result_Histogram + abHis[i];
-                    }
-                }
-                Rate_his = ((double)result_Histogram / (double)result_Histogram_tong) * 100;
-                HOperatorSet.SetDraw(hWindow, "fill");
+					align_Roi(index_follow, 1, out ho_ImageROI1);
+					HOperatorSet.GrayHisto(ho_ImageROI1, ho_Image, out HTuple abHis1, out HTuple relati1);
+                    results_toool = HistogramCorrelation(relati, relati1)*100;
+
+				}
+                if(Select_Algorithm =="Average")
+                {
+                    results_toool = CalculateGray.Average;
+				}
+				if (Select_Algorithm == "Min")
+				{
+					results_toool = CalculateGray.Min;
+				}
+				if (Select_Algorithm == "Max")
+				{
+					results_toool = CalculateGray.Max;
+				}
+				if (Select_Algorithm == "Peak")
+				{
+					results_toool = CalculateGray.PeakGray;
+				}
+				if (Select_Algorithm == "Range")
+				{
+					results_toool = CalculateGray.Range;
+				}
+				if (Select_Algorithm == "Black/White")
+				{
+					results_toool = CalculateGray.Rate;
+				}
+				HOperatorSet.SetDraw(hWindow, "fill");
                 HOperatorSet.SetShape(hWindow, "original");
                 HOperatorSet.SetDraw(hWindow, "margin");
-                if (min_setup <= Rate_his && Rate_his <= max_setup && deviation >= min_deviation && deviation <= max_deviation && mean>= min_mean && mean<=max_mean)
+              
+                if (results_toool > min_setup && results_toool<max_setup)
                 {
                     HOperatorSet.SetColor(hWindow, "green");
                     Result_Tool = true;
@@ -1412,6 +2231,7 @@ namespace Design_Form.Job_Model
                 }
                 Display design_Display = new Display();
                 design_Display.set_font(hWindow, 10, "mono", "true", "false");
+               
                 HOperatorSet.DispRegion(ho_ImageROI, hWindow);
                 ho_ImageROI.Dispose();
                 ho_ImageROI1.Dispose();
@@ -1420,7 +2240,7 @@ namespace Design_Form.Job_Model
                 if (show_text)
                 {
                     HOperatorSet.DispText(hWindow
-                        , "Step" + job_index + "-" + tool_index + " Histogram\n" + "Rate " + Rate_his.ToString("0.00") + "%\n" + "Mean :" + Mean.ToString("0.00") + " pixel\n" + "Deviation :" + Deviation.ToString("0.00") + " pixel"
+                        , "Step" + job_index + "-" + tool_index + " Histogram\n" + "Result " + results_toool.ToString("0.00") + "%\n" 
                         , "image"
                         , rowCenter
                         , columnCenter
@@ -1435,7 +2255,230 @@ namespace Design_Form.Job_Model
             }
             catch (Exception e) { Job_Model.Statatic_Model.wirtelog.Log($"AL018 - {this.GetType().Name}" + e.ToString()); }
         }
+		public class GrayStatistics
+		{
+			public double Average { get; set; }
+			public double Rate { get; set; }
+			public int Min { get; set; }
+			public int Max { get; set; }
+			public int PeakGray { get; set; }
+			public int PeakCount { get; set; }
+			public int Range { get; set; }
+			public int TotalPixel { get; set; }
+		}
+		public  double HistogramCorrelation(HTuple hist1, HTuple hist2)
+		{
+			int length = Math.Min(hist1.Length, hist2.Length);
+
+			double mean1 = 0, mean2 = 0;
+
+			for (int i = 0; i < length; i++)
+			{
+				mean1 += hist1[i].D;
+				mean2 += hist2[i].D;
+			}
+
+			mean1 /= length;
+			mean2 /= length;
+
+			double num = 0;
+			double den1 = 0;
+			double den2 = 0;
+
+			for (int i = 0; i < length; i++)
+			{
+				double a = hist1[i].D - mean1;
+				double b = hist2[i].D - mean2;
+
+				num += a * b;
+				den1 += a * a;
+				den2 += b * b;
+			}
+
+			if (den1 == 0 || den2 == 0)
+				return 0;
+
+			return num / Math.Sqrt(den1 * den2);
+		}
+
+		public GrayStatistics CalculateGrayStatistics(HTuple absoluteHisto)
+		{
+			GrayStatistics stat = new GrayStatistics();
+
+			double sumGray = 0;
+			int totalPixel = 0;
+
+			int minGray = -1;
+			int maxGray = -1;
+
+			int peakGray = 0;
+			int peakCount = 0;
+            int result_Histogram =0;
+
+			int length = absoluteHisto.Length;
+
+			for (int gray = 0; gray < length; gray++)
+			{
+				int count = absoluteHisto[gray].I;
+                map_pixel[gray] = absoluteHisto[gray];
+				if (count > 0)
+				{
+					// Min
+					if (minGray == -1)
+						minGray = gray;
+
+					// Max
+					maxGray = gray;
+
+					// Average
+					sumGray += gray * count;
+					totalPixel += count;
+
+					// Peak
+					if (count > peakCount)
+					{
+						peakCount = count;
+						peakGray = gray;
+					}
+					if (gray >= pixel_low && gray <= pixel_high)
+					{
+						result_Histogram = result_Histogram + count;
+					}
+				}
+			}
+			
+			if (totalPixel == 0)
+				throw new Exception("Region rỗng, không có pixel!");
+
+			stat.Min = minGray;
+			stat.Max = maxGray;
+			stat.Range = maxGray - minGray;
+			stat.TotalPixel = totalPixel;
+			stat.PeakGray = peakGray;
+			stat.PeakCount = peakCount;
+			stat.Average = sumGray / totalPixel;
+            stat.Rate = (totalPixel / (double)result_Histogram) * 100;
+			return stat;
+		}
+	}
+
+public class HistogramTool_Color : Class_Tool
+    {
+        public string master_follow { get; set; } = "none";
+
+        #region ==== Channel Config Class ====
+        public class ChannelConfig
+        {
+            public bool Enable { get; set; } = false;
+            public int PixelLow { get; set; } = 0;
+            public int PixelHigh { get; set; } = 255;
+            public double MinRate { get; set; } = 0;
+            public double MaxRate { get; set; } = 100;
+            public double MinMean { get; set; } = 0;
+            public double MaxMean { get; set; } = 255;
+            public double MinDeviation { get; set; } = 0;
+            public double MaxDeviation { get; set; } = 255;
+
+            public double Rate { get; set; }
+            public double Mean { get; set; }
+            public double Deviation { get; set; }
+            public int[] Histogram { get; } = new int[256];
+        }
+        #endregion
+
+        public ChannelConfig Red { get; } = new ChannelConfig();
+        public ChannelConfig Green { get; } = new ChannelConfig();
+        public ChannelConfig Blue { get; } = new ChannelConfig();
+
+        public HistogramTool_Color() : base("Histogram_Color") { }
+
+        public override void Excute(HWindow hWindow, HObject ho_Image)
+        {
+            Excute_OnlyTool(hWindow, ho_Image);
+        }
+
+        public override void Excute_OnlyTool(HWindow hWindow, HObject ho_Image)
+        {
+            try
+            {
+                Result_Tool = false;
+
+                // ROI
+                HOperatorSet.GenEmptyObj(out HObject ho_Roi);
+                align_Roi(index_follow, 0, out ho_Roi);
+                HOperatorSet.ReduceDomain(ho_Image, ho_Roi, out HObject ho_ImageROI);
+
+                // Decompose RGB
+                HOperatorSet.Decompose3(ho_ImageROI, out HObject r, out HObject g, out HObject b);
+                HOperatorSet.AreaCenter(ho_Roi, out HTuple area, out HTuple row, out HTuple column);
+                bool passR = ProcessChannel(ho_ImageROI, r, Red);
+                bool passG = ProcessChannel(ho_ImageROI, g, Green);
+                bool passB = ProcessChannel(ho_ImageROI, b, Blue);
+
+                Result_Tool = passR && passG && passB;
+
+                // Display
+               // HOperatorSet.ClearWindow(hWindow);
+                HOperatorSet.SetDraw(hWindow, "margin");
+                HOperatorSet.SetColor(hWindow, Result_Tool ? "green" : "red");
+                HOperatorSet.DispRegion(ho_Roi, hWindow);
+
+                if (show_text)
+                {
+                    string txt = $"Histogram RGB\n" +
+                                 $"R: {Red.Rate:0.00}% M:{Red.Mean:0.0} D:{Red.Deviation:0.0}\n" +
+                                 $"G: {Green.Rate:0.00}% M:{Green.Mean:0.0} D:{Green.Deviation:0.0}\n" +
+                                 $"B: {Blue.Rate:0.00}% M:{Blue.Mean:0.0} D:{Blue.Deviation:0.0}";
+
+                    HOperatorSet.DispText(hWindow, txt, "image", row, column, "black", new HTuple(), new HTuple());
+                }
+
+                ho_Roi.Dispose();
+                ho_ImageROI.Dispose();
+                r.Dispose(); g.Dispose(); b.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Job_Model.Statatic_Model.wirtelog.Log($"AL018 - {GetType().Name}: {ex}");
+            }
+        }
+
+        private bool ProcessChannel(HObject imageROI, HObject channel, ChannelConfig cfg)
+        {
+            if (!cfg.Enable)
+                return true;
+
+            Array.Clear(cfg.Histogram, 0, cfg.Histogram.Length);
+
+            HOperatorSet.GrayHisto(imageROI, channel, out HTuple histo, out _);
+            HOperatorSet.Intensity(imageROI, channel, out HTuple mean, out HTuple dev);
+
+            cfg.Mean = mean;
+            cfg.Deviation = dev;
+
+            int total = 0;
+            int valid = 0;
+
+            int len = Math.Min(histo.Length, cfg.Histogram.Length);
+            for (int i = 0; i < len; i++)
+            {
+                int v = histo[i];
+                cfg.Histogram[i] = v;
+                total += v;
+                if (i >= cfg.PixelLow && i <= cfg.PixelHigh)
+                    valid += v;
+            }
+
+            cfg.Rate = total > 0 ? (double)valid / total * 100.0 : 0.0;
+
+            bool pass = cfg.Rate >= cfg.MinRate && cfg.Rate <= cfg.MaxRate &&
+                        cfg.Mean >= cfg.MinMean && cfg.Mean <= cfg.MaxMean &&
+                        cfg.Deviation >= cfg.MinDeviation && cfg.Deviation <= cfg.MaxDeviation;
+
+            return pass;
+        }
     }
+
     public class BlobTool : Class_Tool
     {
         public string master_follow { get; set; } = "none";
@@ -1494,6 +2537,231 @@ namespace Design_Form.Job_Model
             HOperatorSet.GenEmptyObj(out ho_Dots);
             HOperatorSet.GenEmptyObj(out ho_Reg);
             HOperatorSet.GenEmptyObj(out out_bitmap);
+            Result_Tool = false;
+            Array.Clear(Result_Area, 0, Result_Area.GetLength(0));
+            try
+            {
+                // Lấy vùng ROI
+                align_Roi(index_follow, 0, out ho_Reg);
+                HOperatorSet.ReduceDomain(ho_Image, ho_Reg, out ho_Image);
+                if (stepbystep == true)
+                {
+                    HOperatorSet.ClearWindow(hWindow);
+                    HOperatorSet.DispObj(ho_Image, hWindow);
+                    MessageBox.Show("ho_Imagecrop");
+                }
+                ho_DarkPixels.Dispose();
+                HOperatorSet.Threshold(ho_Image, out ho_DarkPixels, threshold_low, threshold_high);
+                if (stepbystep == true)
+                {
+                    HOperatorSet.ClearWindow(hWindow);
+                    HOperatorSet.DispObj(ho_DarkPixels, hWindow);
+                    MessageBox.Show("ho_Threshold");
+                }
+
+                HObject ho_ero;
+                HOperatorSet.GenEmptyObj(out ho_ero);
+                ho_ero.Dispose();
+                HOperatorSet.ErosionRectangle1(ho_DarkPixels, out ho_ero, Erosion_W, Erosion_H);
+                if (stepbystep == true)
+                {
+                    HOperatorSet.ClearWindow(hWindow);
+                    HOperatorSet.DispObj(ho_ero, hWindow);
+                    MessageBox.Show("ho_ero");
+                }
+                HOperatorSet.DilationRectangle1(ho_ero, out ho_ero, Dilation_W, Dilation_H);
+                if (stepbystep == true)
+                {
+                    HOperatorSet.ClearWindow(hWindow);
+                    HOperatorSet.DispObj(ho_ero, hWindow);
+                    MessageBox.Show("ho_dila");
+                }
+                if (Partition == true)
+                {
+                    HOperatorSet.FillUp(ho_ero, out ho_ero);
+                    if (stepbystep == true)
+                    {
+                        HOperatorSet.ClearWindow(hWindow);
+                        HOperatorSet.DispObj(ho_DarkPixels, hWindow);
+                        MessageBox.Show("Fill Up");
+                    }
+                }
+                ho_Errors.Dispose();
+                HOperatorSet.Connection(ho_ero, out ho_Errors);
+                if (stepbystep == true)
+                {
+                    HOperatorSet.ClearWindow(hWindow);
+                    HOperatorSet.DispObj(ho_Errors, hWindow);
+                    MessageBox.Show("All Pin");
+                }
+                ho_Scratches.Dispose();
+                HOperatorSet.SelectShape(ho_Errors, out out_bitmap, "area", "and", min_Area, max_Area);
+                if (stepbystep == true)
+                {
+                    HOperatorSet.ClearWindow(hWindow);
+                    HOperatorSet.DispObj(out_bitmap, hWindow);
+                    MessageBox.Show("out_bitmap");
+                }
+                HObject ho_SortedRegions;
+                HOperatorSet.GenEmptyObj(out ho_SortedRegions);
+                ho_SortedRegions.Dispose();
+                HOperatorSet.SortRegion(out_bitmap, out ho_SortedRegions, "first_point", "true", "column");/// phân loại vùng( vị trí ...)
+                if (stepbystep == true)
+                {
+                    HOperatorSet.ClearWindow(hWindow);
+                    HOperatorSet.DispObj(ho_SortedRegions, hWindow);
+                    MessageBox.Show("ho_SortedRegions");
+                }
+                HTuple hv_Number;// so luong object loi
+                HTuple hv_i;// so luong object loi               
+                HOperatorSet.CountObj(ho_SortedRegions, out hv_Number);
+                HTuple[] R1 = new HTuple[1000], C1 = new HTuple[1000], R2 = new HTuple[1000], C2 = new HTuple[1000], Cenx = new HTuple[1000], Ceny = new HTuple[1000], Area = new HTuple[1000];
+                HTuple[] row = new HTuple[1000], col = new HTuple[1000], leng = new HTuple[1000], hight = new HTuple[1000], Phi = new HTuple[1000];
+                HObject ho_ObjectSelected;
+                HOperatorSet.GenEmptyObj(out ho_ObjectSelected);
+                int k = 0;
+                for (hv_i = 1; hv_i.Continue(hv_Number, 1); hv_i = hv_i.TupleAdd(1))
+                {
+                    ho_ObjectSelected.Dispose();
+                    HOperatorSet.SelectObj(ho_SortedRegions, out ho_ObjectSelected, hv_i);
+                    #region Duong bao trong
+                    HOperatorSet.AreaCenter(ho_ObjectSelected, out Area[hv_i - 1], out Ceny[hv_i - 1], out Cenx[hv_i - 1]);
+                    HOperatorSet.SmallestRectangle1(ho_ObjectSelected, out R1[hv_i - 1], out C1[hv_i - 1], out R2[hv_i - 1], out C2[hv_i - 1]);// Lấy kích thước ký tự
+                    double w1 = C2[hv_i - 1] - C1[hv_i - 1];
+                    double l1 = R2[hv_i - 1] - R1[hv_i - 1];
+                    HOperatorSet.SmallestRectangle2(ho_ObjectSelected, out row[hv_i - 1], out col[hv_i - 1], out Phi[hv_i - 1], out hight[hv_i - 1], out leng[hv_i - 1]);
+                    double w = 0;
+                    double h = 0;
+                    double degrees = Phi[hv_i - 1].TupleDeg();
+                    if (degrees >= 45)
+                    {
+                        degrees = 90 - degrees;
+                    }
+                    else
+                    if (degrees <= -45)
+                    {
+                        degrees = -(90 + degrees);
+                    }
+
+                    if (w1 > l1 && hight[hv_i - 1] > leng[hv_i - 1])
+                    {
+                        w = 2 * hight[hv_i - 1];
+                        h = 2 * leng[hv_i - 1];
+                    }
+                    else
+                    {
+                        w = 2 * leng[hv_i - 1];
+                        h = 2 * hight[hv_i - 1];
+                    }
+
+                    double x = col[hv_i - 1] - w / 2;
+                    double y = row[hv_i - 1] - h / 2;
+                    double cenx = col[hv_i - 1];
+                    double ceny = row[hv_i - 1];
+                    double phi = Phi[hv_i - 1];
+
+                    if (stepbystep == true)
+                    {
+                        //    HOperatorSet.DispRectangle2(hWindow, row[hv_i - 1], col[hv_i - 1], Phi[hv_i - 1], hight[hv_i - 1], leng[hv_i - 1]);
+                        MessageBox.Show("DegreesofObject " + hv_i + ":" + degrees + " -w: " + w + " -h: " + h + " -phi: " + phi + " -Area: " + Area[hv_i - 1]);
+                    }
+                    if (h <= max_Height && h >= min_Height && w >= min_Width && w <= max_Width && min_Area <= Area[hv_i - 1] && max_Area >= Area[hv_i - 1])
+                    {
+                        HOperatorSet.SetColor(hWindow, "green");
+                        HOperatorSet.DispObj(ho_ObjectSelected, hWindow);
+
+                        Result_Area[hv_i - 1] = Area[hv_i - 1];
+                        Result_H[hv_i - 1] = h;
+                        Result_W[hv_i - 1] = w;
+
+
+                        k += 1;
+                    }
+                    #endregion
+                }
+                total_Blob = k;
+                if (min_detect_object <= total_Blob && total_Blob <= max_detect_object)
+                {
+                    Result_Tool = true;
+                }
+
+                ho_DarkPixels.Dispose();
+                ho_ConnectedRegions.Dispose();
+                ho_SelectedRegions.Dispose();
+                ho_RegionUnion.Dispose();
+                ho_RegionDilation.Dispose();
+                ho_Skeleton.Dispose();
+                ho_Errors.Dispose();
+                ho_Scratches.Dispose();
+                ho_Dots.Dispose();
+                ho_Reg.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Job_Model.Statatic_Model.wirtelog.Log($"AL019 - {this.GetType().Name}" + ex.ToString());
+
+            }
+        }
+    }
+    public class BlobTool_Color : Class_Tool
+    {
+        public string master_follow { get; set; } = "none";
+        public string fillter_step_1 { get; set; } = "none";
+        public string fillter_step_2 { get; set; } = "none";
+        public string fillter_step_3 { get; set; } = "none";
+        public string fillter_step_4 { get; set; } = "none";
+        public int threshold_high { get; set; } = 128;
+        public int threshold_low { get; set; } = 0;
+        public int Remove_Noise_Low { get; set; } = 1;
+        public int ReMove_Noise_Height { get; set; } = 1000000;
+        public int Dilation_W { get; set; } = 1;
+        public int Dilation_H { get; set; } = 1;
+        public int Erosion_W { get; set; } = 1;
+        public int Erosion_H { get; set; } = 1;
+        public int Approximate { get; set; } = 117;
+        public int Percent_Shift { get; set; } = 36;
+        public int min_Area { get; set; } = 500;
+        public int max_Area { get; set; } = 1000000;
+        public int max_Width { get; set; } = 1000;
+        public int min_Width { get; set; } = 10;
+        public int max_Height { get; set; } = 1000;
+        public int min_Height { get; set; } = 10;
+        public bool Partition { get; set; } = false;
+        public int min_detect_object { get; set; } = 1;
+        public int max_detect_object { get; set; } = 2;
+
+        // Result Blob
+        public double[] Result_Area = new double[1000];
+        public double[] Result_W = new double[1000];
+        public double[] Result_H = new double[1000];
+        public int total_Blob { get; set; } = 0;
+        public BlobTool_Color() : base("Blob_Color") { }
+        public override void Excute(HWindow hWindow, HObject ho_Image)
+        {
+            Excute_OnlyTool(hWindow, ho_Image);
+        }
+
+
+        public override void Excute_OnlyTool(HWindow hWindow, HObject ho_Image)
+        {
+            HObject ho_DarkPixels;
+            HObject ho_ConnectedRegions, ho_SelectedRegions, ho_RegionUnion;
+            HObject ho_RegionDilation, ho_Skeleton, ho_Errors, ho_Scratches;
+            HObject ho_Dots;
+            HObject ho_Reg;
+            HObject out_bitmap;
+            HOperatorSet.GenEmptyObj(out ho_DarkPixels);
+            HOperatorSet.GenEmptyObj(out ho_ConnectedRegions);
+            HOperatorSet.GenEmptyObj(out ho_SelectedRegions);
+            HOperatorSet.GenEmptyObj(out ho_RegionUnion);
+            HOperatorSet.GenEmptyObj(out ho_RegionDilation);
+            HOperatorSet.GenEmptyObj(out ho_Skeleton);
+            HOperatorSet.GenEmptyObj(out ho_Errors);
+            HOperatorSet.GenEmptyObj(out ho_Scratches);
+            HOperatorSet.GenEmptyObj(out ho_Dots);
+            HOperatorSet.GenEmptyObj(out ho_Reg);
+            HOperatorSet.GenEmptyObj(out out_bitmap);
+          
             Result_Tool = false;
             Array.Clear(Result_Area, 0, Result_Area.GetLength(0));
             try
@@ -2185,24 +3453,16 @@ namespace Design_Form.Job_Model
     {
         public string code_type { get; set; } = "Universal_Rej.occ";
         public string master_follow { get; set; } = "none";
-        public int threshold_high { get; set; } = 128;
-        public int threshold_low { get; set; } = 0;
-        public int Remove_Noise_Low { get; set; } = 1;
-        public int ReMove_Noise_Height { get; set; } = 1000000;
-        public int Dilation_W { get; set; } = 1;
-        public int Dilation_H { get; set; } = 1;
-        public int Erosion_W { get; set; } = 1;
-        public int Erosion_H { get; set; } = 1;
-        public int Approximate { get; set; } = 117;
-        public int Percent_Shift { get; set; } = 36;
-        public int min_contract { get; set; } = 30;
-        public int min_Area { get; set; } = 500;
-        public int max_Area { get; set; } = 1000000;
-        public int max_Width { get; set; } = 1000;
-        public int min_Width { get; set; } = 10;
-        public int max_Height { get; set; } = 1000;
-        public int min_Height { get; set; } = 10;
-        public bool Partition { get; set; } = false;
+        public string polarity { get; set; } = "dark_on_light";
+        public int max_char_high { get; set; } = 50;
+        public int min_char_high { get; set; } = 1;
+        public int max_char_width { get; set; } = 50;
+        public int min_char_width { get; set; } = 1;
+        public string Separator { get; set; }
+        public string structure { get; set; }
+        public int min_contract { get; set; } = 0;
+
+
         public string result_text { get; set; }
         public OCR_Tool() : base("OCR_Tool") { }
        
@@ -2214,7 +3474,7 @@ namespace Design_Form.Job_Model
         {
             HObject ho_Chacracters;
             HOperatorSet.GenEmptyObj(out ho_Chacracters);
-            HTuple hv_OCRHandle, hv_Class, hv_Confidence;
+            HTuple hv_Class;
             HObject ho_DarkPixels;
             HObject ho_ConnectedRegions, ho_SelectedRegions, ho_RegionUnion;
             HObject ho_RegionDilation, ho_Skeleton, ho_Errors, ho_Scratches;
@@ -2248,103 +3508,62 @@ namespace Design_Form.Job_Model
             {
 
                 // Lấy vùng ROI
-              
+
                 align_Roi(index_follow, 0, out ho_Reg);
-               
+                if (roi_Tool.Count > 1)
+                {
+                    for (int i = 1; i < roi_Tool.Count; i++)
+                    {
+                        HObject buffer;
+                        align_Roi(index_follow, i, out buffer);
+                        HOperatorSet.Difference(ho_Reg, buffer, out ho_Reg);
+                        if (stepbystep)
+                        {
+                          //  HOperatorSet.SetColor(hWindow, "Green");
+                            HOperatorSet.ClearWindow(hWindow);
+                            HOperatorSet.DispObj(ho_Reg, hWindow);
+                            MessageBox.Show("ho_Imagecrop");
+                        }
+                    }
+                 
+                  
+                    //    HOperatorSet.Difference(ho_ImageROI, ho_ImageROI1, out ho_ImageROI);
+                }
+              //  HOperatorSet.RotateImage(ho_Image, out ho_Scratches, deltal_phi, "constant");
+                
                 HOperatorSet.ReduceDomain(ho_Image, ho_Reg, out ho_Image);
                 HOperatorSet.Connection(ho_Image, out display_hh);
                 HOperatorSet.CropDomain(ho_Image, out Roate_Obj);
                 HOperatorSet.RotateImage(Roate_Obj, out Roate_Obj, deltal_phi, "constant");
-                if (stepbystep == true)
-                {
-                    HOperatorSet.ClearWindow(hWindow);
-                    HOperatorSet.DispObj(Roate_Obj, hWindow);
-                    MessageBox.Show("ho_Imagecrop");
-                }
-                ho_DarkPixels.Dispose();
-                HOperatorSet.Threshold(ho_Image, out ho_DarkPixels, threshold_low, threshold_high);
-                if (stepbystep == true)
-                {
-                    HOperatorSet.ClearWindow(hWindow);
-                    HOperatorSet.DispObj(ho_DarkPixels, hWindow);
-                    MessageBox.Show("ho_Threshold");
-                }
+          //      HOperatorSet.DispObj(Roate_Obj, hWindow);
 
-                HObject ho_ero;
-                HOperatorSet.GenEmptyObj(out ho_ero);
-                ho_ero.Dispose();
-                HOperatorSet.ErosionRectangle1(ho_DarkPixels, out ho_ero, Erosion_W, Erosion_H);
-               // HOperatorSet.RotateImage(ho_Image, out ho_ero, deltal_phi, "constant");
-                if (stepbystep == true)
-                {
-                    HOperatorSet.ClearWindow(hWindow);
-                    HOperatorSet.DispObj(ho_ero, hWindow);
-                    MessageBox.Show("ho_ero");
-                }
-                HOperatorSet.DilationRectangle1(ho_ero, out ho_ero, Dilation_W, Dilation_H);
-                if (stepbystep == true)
-                {
-                    HOperatorSet.ClearWindow(hWindow);
-                    HOperatorSet.DispObj(ho_ero, hWindow);
-                    MessageBox.Show("ho_dila");
-                }
-                if (Partition == true)
-                {
-                    HOperatorSet.FillUp(ho_ero, out ho_ero);
-                    if (stepbystep == true)
-                    {
-                        HOperatorSet.ClearWindow(hWindow);
-                        HOperatorSet.DispObj(ho_DarkPixels, hWindow);
-                        MessageBox.Show("Fill Up");
-                    }
-                }
-                ho_Errors.Dispose();
-                HOperatorSet.Connection(ho_ero, out ho_Errors);
-                if (stepbystep == true)
-                {
-                    HOperatorSet.ClearWindow(hWindow);
-                    HOperatorSet.DispObj(ho_Errors, hWindow);
-                    MessageBox.Show("All Pin");
-                }
-                ho_Scratches.Dispose();
-                HOperatorSet.SelectShape(ho_Errors, out out_bitmap, "area", "and", min_Area, max_Area);
-                if (stepbystep == true)
-                {
-                    HOperatorSet.ClearWindow(hWindow);
-                    HOperatorSet.DispObj(out_bitmap, hWindow);
-                    MessageBox.Show("out_bitmap");
-                }
-                HObject ho_SortedRegions;
-                HOperatorSet.GenEmptyObj(out ho_SortedRegions);
-                ho_SortedRegions.Dispose();
-                HOperatorSet.SortRegion(out_bitmap, out ho_SortedRegions, "first_point", "true", "column");/// phân loại vùng( vị trí ...)
-                if (stepbystep == true)
-                {
-                    HOperatorSet.ClearWindow(hWindow);
-                    HOperatorSet.DispObj(ho_SortedRegions, hWindow);
-                    MessageBox.Show("ho_SortedRegions");
-                }
 
                 HObject ho_ObjectSelected;
                 HOperatorSet.GenEmptyObj(out ho_ObjectSelected);
                 HTuple hv_TextModel;
                 HOperatorSet.CreateTextModelReader("auto", code_type, out hv_TextModel); //Universal_0-9A-Z_Rej
                 HOperatorSet.SetTextModelParam(hv_TextModel, "dot_print", "false");
-
+                HOperatorSet.SetTextModelParam(hv_TextModel, "polarity", polarity);
+                HOperatorSet.SetTextModelParam(hv_TextModel, "max_char_height", max_char_high);
+                HOperatorSet.SetTextModelParam(hv_TextModel, "min_char_height", min_char_high);
+                HOperatorSet.SetTextModelParam(hv_TextModel, "max_char_width", max_char_width);
+                HOperatorSet.SetTextModelParam(hv_TextModel, "min_char_width", min_char_width);
                 HOperatorSet.SetTextModelParam(hv_TextModel, "min_contrast", min_contract);
-               // HOperatorSet.SetTextModelParam(hv_TextModel,)
+                HOperatorSet.SetTextModelParam(hv_TextModel, "text_line_separators", Separator);
+                HOperatorSet.SetTextModelParam(hv_TextModel, "text_line_structure", structure);
+
+                // HOperatorSet.SetTextModelParam(hv_TextModel,)
                 HTuple hv_TextResultID;
                 HOperatorSet.FindText(Roate_Obj, hv_TextModel, out hv_TextResultID);
                 HObject ho_Characters;
                 HOperatorSet.GetTextObject(out ho_Characters, hv_TextResultID, "all_lines");
 
                 HOperatorSet.GetTextResult(hv_TextResultID, "class", out hv_Class);
-                //
+             
                 //Display result.
-                HOperatorSet.SetLineWidth(hWindow, 2);
-                HOperatorSet.DispObj(ho_SortedRegions, hWindow);
                 HOperatorSet.SetColored(hWindow, 12);
-              //  HOperatorSet.DispObj(ho_Characters, hWindow);
+                HOperatorSet.SetLineWidth(hWindow, 2);
+            //    HOperatorSet.DispObj(ho_Characters, hWindow);
                 HOperatorSet.SetDraw(hWindow, "margin");
                 using (HDevDisposeHelper dh = new HDevDisposeHelper())
                 {
@@ -2352,12 +3571,12 @@ namespace Design_Form.Job_Model
                     display.disp_message(hWindow, "Lot number: " + (hv_Class.TupleSum()), "window",
                         12, 12, "black", "true");
                     if (hv_Class.Length > 0)
-                        Result_Tool = true;
-                        result_text = hv_Class.TupleSum();
+                    
+                    result_text = hv_Class.TupleSum();
                 }
+                Result_Tool = true;
 
 
-                ho_DarkPixels.Dispose();
                 ho_ConnectedRegions.Dispose();
                 ho_SelectedRegions.Dispose();
                 ho_RegionUnion.Dispose();
@@ -2374,7 +3593,23 @@ namespace Design_Form.Job_Model
 
             }
         }
+        public string FilterByStartString(string input, string startString, int length)
+        {
+            if (string.IsNullOrEmpty(input) || string.IsNullOrEmpty(startString))
+                return "";
 
+            int index = input.IndexOf(startString);
+            if (index == -1)
+                return "";  // không tìm thấy
+
+            // Tính vị trí bắt đầu lấy
+            int startIndex = index ;
+
+            // Nếu không đủ độ dài → cắt tối đa có thể
+            int maxLength = Math.Min(length, input.Length - startIndex);
+
+            return input.Substring(startIndex, maxLength);
+        }
     }
     public class FitLine_Tool : Class_Tool
     {
@@ -2440,8 +3675,8 @@ namespace Design_Form.Job_Model
                 if (Fr_Name_Tool == "ShapeModel")
                 {
                     ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
-                    Fr_X = tool.X_Master[0];
-                    Fr_Y = tool.Y_Master[0];
+                    Fr_X = tool.MatchResults[0].X;
+                    Fr_Y = tool.MatchResults[0].Y;
                 }
                 if (To_Name_Tool == "FindLine")
                 {
@@ -2463,8 +3698,8 @@ namespace Design_Form.Job_Model
                 if (To_Name_Tool == "ShapeModel")
                 {
                     ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
-                    To_X = tool.X_Master[0];
-                    To_Y = tool.Y_Master[0];
+                    To_X = tool.MatchResults[0].X;
+                    To_Y = tool.MatchResults[0].Y;
                 }
 
                 if (From_Point == "StartPoint")
@@ -2508,7 +3743,139 @@ namespace Design_Form.Job_Model
         }
 
     }
-    public class Calibrate_Plate_Tool : Class_Tool
+	public class FitCircle_Tool : Class_Tool
+	{
+		public int index_Fr_tool { get; set; }
+		public int index_To_tool { get; set; }
+		public string Geometry { get; set; }
+		public string From_Pos { get; set; }
+		public string To_Pos { get; set; }
+		public string From_Point { get; set; }
+		public string To_Point { get; set; }
+		public double Max_Dis { get; set; }
+		public double Min_Dis { get; set; }
+		public string Fr_Name_Tool { get; set; }
+		public string To_Name_Tool { get; set; }
+		// Get Point
+		public double Fr_X { get; set; }
+		public double Fr_Y { get; set; }
+		public double Fr_X1 { get; set; }
+		public double Fr_Y1 { get; set; }
+		public double Fr_X2 { get; set; }
+		public double Fr_Y2 { get; set; }
+		public double To_X { get; set; }
+		public double To_Y { get; set; }
+		public double To_X1 { get; set; }
+		public double To_Y1 { get; set; }
+		public double To_X2 { get; set; }
+		public double To_Y2 { get; set; }
+		// Get Result
+		public double X_Fr { get; set; }
+		public double Y_Fr { get; set; }
+		public double X_To { get; set; }
+		public double Y_To { get; set; }
+		public double X_Center { get; set; }
+		public double Y_Center { get; set; }
+		public FitCircle_Tool() : base("FitCircle_Tool") { }
+
+		public override void Excute(HWindow hWindow, HObject ho_Image)
+		{
+			Excute_OnlyTool(hWindow, ho_Image);
+		}
+		public override void Excute_OnlyTool(HWindow hWindow, HObject ho_Image)
+		{
+			try
+			{
+				Result_Tool = false;
+				if (Fr_Name_Tool == "FindLine")
+				{
+					FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+					Fr_X = tool.Xcenterob;
+					Fr_Y = tool.Ycenterob;
+					Fr_X1 = tool.X1ob;
+					Fr_Y1 = tool.Y1ob;
+					Fr_X2 = tool.X2ob;
+					Fr_Y2 = tool.Y2ob;
+				}
+				if (Fr_Name_Tool == "FindCircle")
+				{
+					FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+					Fr_X = tool.X_center;
+					Fr_Y = tool.Y_center;
+
+				}
+				if (Fr_Name_Tool == "ShapeModel")
+				{
+					ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+					Fr_X = tool.MatchResults[0].X;
+					Fr_Y = tool.MatchResults[0].Y;
+				}
+				if (To_Name_Tool == "FindLine")
+				{
+					FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+					To_X = tool.Xcenterob;
+					To_Y = tool.Ycenterob;
+					To_X1 = tool.X1ob;
+					To_Y1 = tool.Y1ob;
+					To_X2 = tool.X2ob;
+					To_Y2 = tool.Y2ob;
+				}
+				if (To_Name_Tool == "FindCircle")
+				{
+					FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+					To_X = tool.X_center;
+					To_Y = tool.Y_center;
+
+				}
+				if (To_Name_Tool == "ShapeModel")
+				{
+					ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+					To_X = tool.MatchResults[0].X;
+					To_Y = tool.MatchResults[0].Y;
+				}
+
+				if (From_Point == "StartPoint")
+				{
+					X_Fr = Fr_X1;
+					Y_Fr = Fr_Y1;
+				}
+				if (From_Point == "CenterPoint")
+				{
+					X_Fr = Fr_X;
+					Y_Fr = Fr_Y;
+				}
+				if (From_Point == "EndPoint")
+				{
+					X_Fr = Fr_X2;
+					Y_Fr = Fr_Y2;
+				}
+				if (To_Point == "StartPoint")
+				{
+					X_To = To_X1;
+					Y_To = To_Y1;
+				}
+				if (To_Point == "CenterPoint")
+				{
+					X_To = To_X;
+					Y_To = To_Y;
+				}
+				if (To_Point == "EndPoint")
+				{
+					X_To = To_X2;
+					Y_To = To_Y2;
+				}
+				HOperatorSet.DispArrow(hWindow, X_Fr, Y_Fr, X_To, Y_To, 1);
+				X_Center = (X_Fr + X_To) / 2;
+				Y_Center = (Y_Fr + Y_To) / 2;
+				Result_Tool = true;
+
+
+			}
+			catch (Exception ex) { Job_Model.Statatic_Model.wirtelog.Log($"AL012 - {this.GetType().Name}" + ex.ToString()); }
+		}
+
+	}
+	public class Calibrate_Plate_Tool : Class_Tool
     {
         public string file_Calib_describe { get;set;}
         public string file_paracam {  get;set;}

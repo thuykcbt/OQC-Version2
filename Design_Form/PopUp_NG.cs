@@ -180,45 +180,15 @@ namespace Design_Form
         }
         private void initai_image1()
         {
-            HOperatorSet.ReadImage(out Image1, Job_Model.Statatic_Model.model_run.image1_model);
-            HTuple width1;
-            HTuple height1;
-            HOperatorSet.ClearWindow(HSmartWindowControl1.HalconWindow);
-            HOperatorSet.DispObj(Image1, HSmartWindowControl1.HalconWindow);
-            HOperatorSet.GetImageSize(Image1, out width1, out height1);
-            HTuple a1 = 0;
-            HTuple b1 = 0;
-            HTuple h1 = height1 - 1;
-            HTuple w1 = width1 - 1;
-            HSmartWindowControl1.HalconWindow.SetPart(a1, b1, h1, w1);
+           
         }
         private void initai_image2()
         {
-            HOperatorSet.ReadImage(out Image2, Job_Model.Statatic_Model.model_run.image2_model);
-            HTuple width1;
-            HTuple height1;
-            HOperatorSet.ClearWindow(HSmartWindowControl2.HalconWindow);
-            HOperatorSet.DispObj(Image2, HSmartWindowControl2.HalconWindow);
-            HOperatorSet.GetImageSize(Image2, out width1, out height1);
-            HTuple a1 = 0;
-            HTuple b1 = 0;
-            HTuple h1 = height1 - 1;
-            HTuple w1 = width1 - 1;
-            HSmartWindowControl2.HalconWindow.SetPart(a1, b1, h1, w1);
+           
         }
         private void initai_image3()
         {
-            HOperatorSet.ReadImage(out Image3, Job_Model.Statatic_Model.model_run.image3_model);
-            HTuple width1;
-            HTuple height1;
-            HOperatorSet.ClearWindow(HSmartWindowControl3.HalconWindow);
-            HOperatorSet.DispObj(Image3, HSmartWindowControl3.HalconWindow);
-            HOperatorSet.GetImageSize(Image3, out width1, out height1);
-            HTuple a1 = 0;
-            HTuple b1 = 0;
-            HTuple h1 = height1 - 1;
-            HTuple w1 = width1 - 1;
-            HSmartWindowControl3.HalconWindow.SetPart(a1, b1, h1, w1);
+           
         }
         private void DisplayHalcon_Load1(object sender, EventArgs e)
         {

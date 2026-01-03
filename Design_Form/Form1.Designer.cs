@@ -67,12 +67,10 @@
             this.dockPanel10_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.status_inital = new DevExpress.XtraEditors.SimpleButton();
             this.status_auto = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dockPanel6 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel6_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -93,28 +91,14 @@
             this.dockPanel_Cam1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.panel_Cam1 = new System.Windows.Forms.Panel();
-            this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
+            this.dockPanel4 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panelContainer2 = new DevExpress.XtraBars.Docking.DockPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel14.SuspendLayout();
             this.dockPanel8.SuspendLayout();
@@ -135,7 +119,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.dockPanel6.SuspendLayout();
             this.dockPanel6_Container.SuspendLayout();
@@ -154,14 +137,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.dockPanel_Cam1.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
-            this.dockPanel2.SuspendLayout();
-            this.controlContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
-            this.layoutControl5.SuspendLayout();
+            this.dockPanel4.SuspendLayout();
+            this.dockPanel4_Container.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -174,9 +154,8 @@
             this.dockPanel1});
             this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
             this.dockPanel3,
-            this.dockPanel_Cam1,
-            this.dockPanel2,
-            this.panelContainer4});
+            this.dockPanel4,
+            this.panelContainer2});
             this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -523,7 +502,7 @@
             this.dockPanel1.OriginalSize = new System.Drawing.Size(195, 431);
             this.dockPanel1.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel1.SavedIndex = 0;
-            this.dockPanel1.SavedParent = this.panelContainer4;
+            this.dockPanel1.SavedParent = this.panelContainer2;
             this.dockPanel1.SavedSizeFactor = 0.90487D;
             this.dockPanel1.Size = new System.Drawing.Size(227, 530);
             this.dockPanel1.Text = "dockPanel1";
@@ -558,7 +537,7 @@
             this.listBox2.Location = new System.Drawing.Point(12, 248);
             this.listBox2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(193, 234);
+            this.listBox2.Size = new System.Drawing.Size(193, 228);
             this.listBox2.TabIndex = 5;
             // 
             // listBox1
@@ -569,7 +548,7 @@
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(193, 232);
+            this.listBox1.Size = new System.Drawing.Size(193, 228);
             this.listBox1.TabIndex = 4;
             // 
             // layoutControlGroup4
@@ -610,11 +589,11 @@
             this.panelContainer4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.panelContainer4.FloatVertical = true;
             this.panelContainer4.ID = new System.Guid("dcb29b4f-f4ab-4631-87b7-34b365e3a9c9");
-            this.panelContainer4.Location = new System.Drawing.Point(1501, 224);
+            this.panelContainer4.Location = new System.Drawing.Point(562, 0);
             this.panelContainer4.Margin = new System.Windows.Forms.Padding(4);
             this.panelContainer4.Name = "panelContainer4";
-            this.panelContainer4.OriginalSize = new System.Drawing.Size(97, 200);
-            this.panelContainer4.Size = new System.Drawing.Size(97, 636);
+            this.panelContainer4.OriginalSize = new System.Drawing.Size(779, 200);
+            this.panelContainer4.Size = new System.Drawing.Size(562, 667);
             this.panelContainer4.Tabbed = true;
             this.panelContainer4.Text = "Data_Result";
             // 
@@ -627,8 +606,8 @@
             this.dockPanel10.Location = new System.Drawing.Point(4, 32);
             this.dockPanel10.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel10.Name = "dockPanel10";
-            this.dockPanel10.OriginalSize = new System.Drawing.Size(70, 568);
-            this.dockPanel10.Size = new System.Drawing.Size(89, 568);
+            this.dockPanel10.OriginalSize = new System.Drawing.Size(89, 568);
+            this.dockPanel10.Size = new System.Drawing.Size(554, 599);
             this.dockPanel10.Text = "Control";
             // 
             // dockPanel10_Container
@@ -637,58 +616,41 @@
             this.dockPanel10_Container.Location = new System.Drawing.Point(0, 0);
             this.dockPanel10_Container.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel10_Container.Name = "dockPanel10_Container";
-            this.dockPanel10_Container.Size = new System.Drawing.Size(89, 568);
+            this.dockPanel10_Container.Size = new System.Drawing.Size(554, 599);
             this.dockPanel10_Container.TabIndex = 0;
             // 
             // layoutControl3
             // 
             this.layoutControl3.Controls.Add(this.simpleButton1);
-            this.layoutControl3.Controls.Add(this.status_inital);
             this.layoutControl3.Controls.Add(this.status_auto);
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl3.Location = new System.Drawing.Point(0, 0);
             this.layoutControl3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup3;
-            this.layoutControl3.Size = new System.Drawing.Size(89, 568);
+            this.layoutControl3.Size = new System.Drawing.Size(554, 599);
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Green;
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.Image = global::Design_Form.Properties.Resources.icons8_manual_50;
-            this.simpleButton1.Location = new System.Drawing.Point(12, 142);
+            this.simpleButton1.Location = new System.Drawing.Point(12, 84);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(209, 54);
+            this.simpleButton1.Size = new System.Drawing.Size(530, 54);
             this.simpleButton1.StyleController = this.layoutControl3;
             this.simpleButton1.TabIndex = 6;
             this.simpleButton1.Text = "StopRead";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // status_inital
-            // 
-            this.status_inital.Appearance.BackColor = System.Drawing.Color.White;
-            this.status_inital.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_inital.Appearance.Options.UseBackColor = true;
-            this.status_inital.Appearance.Options.UseFont = true;
-            this.status_inital.ImageOptions.Image = global::Design_Form.Properties.Resources.icons8_manual_50;
-            this.status_inital.Location = new System.Drawing.Point(12, 84);
-            this.status_inital.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.status_inital.Name = "status_inital";
-            this.status_inital.Size = new System.Drawing.Size(209, 54);
-            this.status_inital.StyleController = this.layoutControl3;
-            this.status_inital.TabIndex = 5;
-            this.status_inital.Text = "SUBMIT";
-            this.status_inital.Click += new System.EventHandler(this.status_inital_Click);
-            // 
             // status_auto
             // 
-            this.status_auto.Appearance.BackColor = System.Drawing.Color.White;
+            this.status_auto.Appearance.BackColor = System.Drawing.Color.Green;
             this.status_auto.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status_auto.Appearance.Options.UseBackColor = true;
             this.status_auto.Appearance.Options.UseFont = true;
@@ -696,7 +658,7 @@
             this.status_auto.Location = new System.Drawing.Point(12, 12);
             this.status_auto.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.status_auto.Name = "status_auto";
-            this.status_auto.Size = new System.Drawing.Size(209, 68);
+            this.status_auto.Size = new System.Drawing.Size(530, 68);
             this.status_auto.StyleController = this.layoutControl3;
             this.status_auto.TabIndex = 4;
             this.status_auto.Text = "READ CODE";
@@ -709,10 +671,9 @@
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem4,
             this.emptySpaceItem2,
-            this.layoutControlItem5,
             this.layoutControlItem1});
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(233, 547);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(554, 599);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlItem4
@@ -720,33 +681,24 @@
             this.layoutControlItem4.Control = this.status_auto;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(213, 72);
+            this.layoutControlItem4.Size = new System.Drawing.Size(534, 72);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 188);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 130);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(213, 339);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(534, 449);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.status_inital;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(213, 58);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.simpleButton1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 130);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(213, 58);
+            this.layoutControlItem1.Size = new System.Drawing.Size(534, 58);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -761,8 +713,8 @@
             this.dockPanel6.Location = new System.Drawing.Point(4, 32);
             this.dockPanel6.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel6.Name = "dockPanel6";
-            this.dockPanel6.OriginalSize = new System.Drawing.Size(70, 568);
-            this.dockPanel6.Size = new System.Drawing.Size(89, 568);
+            this.dockPanel6.OriginalSize = new System.Drawing.Size(89, 568);
+            this.dockPanel6.Size = new System.Drawing.Size(554, 599);
             this.dockPanel6.Text = "Image_Save";
             // 
             // dockPanel6_Container
@@ -771,7 +723,7 @@
             this.dockPanel6_Container.Location = new System.Drawing.Point(0, 0);
             this.dockPanel6_Container.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel6_Container.Name = "dockPanel6_Container";
-            this.dockPanel6_Container.Size = new System.Drawing.Size(89, 568);
+            this.dockPanel6_Container.Size = new System.Drawing.Size(554, 599);
             this.dockPanel6_Container.TabIndex = 0;
             // 
             // panel2
@@ -780,7 +732,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(89, 568);
+            this.panel2.Size = new System.Drawing.Size(554, 599);
             this.panel2.TabIndex = 0;
             // 
             // dockPanel7
@@ -792,8 +744,8 @@
             this.dockPanel7.Location = new System.Drawing.Point(4, 32);
             this.dockPanel7.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel7.Name = "dockPanel7";
-            this.dockPanel7.OriginalSize = new System.Drawing.Size(70, 568);
-            this.dockPanel7.Size = new System.Drawing.Size(89, 568);
+            this.dockPanel7.OriginalSize = new System.Drawing.Size(89, 568);
+            this.dockPanel7.Size = new System.Drawing.Size(554, 599);
             this.dockPanel7.Text = "Data_Result";
             // 
             // dockPanel7_Container
@@ -802,7 +754,7 @@
             this.dockPanel7_Container.Location = new System.Drawing.Point(0, 0);
             this.dockPanel7_Container.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel7_Container.Name = "dockPanel7_Container";
-            this.dockPanel7_Container.Size = new System.Drawing.Size(89, 568);
+            this.dockPanel7_Container.Size = new System.Drawing.Size(554, 599);
             this.dockPanel7_Container.TabIndex = 0;
             // 
             // dataLayoutControl1
@@ -813,7 +765,7 @@
             this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.Root = this.layoutControlGroup1;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(89, 568);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(554, 599);
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
@@ -842,7 +794,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(89, 568);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(554, 599);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // emptySpaceItem1
@@ -850,7 +802,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(69, 548);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(534, 579);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // dockPanel3
@@ -863,8 +815,8 @@
             this.dockPanel3.Location = new System.Drawing.Point(0, 0);
             this.dockPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel3.Name = "dockPanel3";
-            this.dockPanel3.OriginalSize = new System.Drawing.Size(200, 224);
-            this.dockPanel3.Size = new System.Drawing.Size(1598, 224);
+            this.dockPanel3.OriginalSize = new System.Drawing.Size(200, 193);
+            this.dockPanel3.Size = new System.Drawing.Size(1598, 193);
             this.dockPanel3.Text = "Main";
             // 
             // dockPanel3_Container
@@ -873,7 +825,7 @@
             this.dockPanel3_Container.Location = new System.Drawing.Point(4, 32);
             this.dockPanel3_Container.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel3_Container.Name = "dockPanel3_Container";
-            this.dockPanel3_Container.Size = new System.Drawing.Size(1590, 186);
+            this.dockPanel3_Container.Size = new System.Drawing.Size(1590, 155);
             this.dockPanel3_Container.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -890,7 +842,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1590, 186);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1590, 155);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -905,7 +857,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1093, 172);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1093, 141);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // label2
@@ -916,7 +868,7 @@
             this.label2.Location = new System.Drawing.Point(5, 1);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1083, 170);
+            this.label2.Size = new System.Drawing.Size(1083, 139);
             this.label2.TabIndex = 2;
             this.label2.Text = "READING OCR MACHINE";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -928,7 +880,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(7, 7);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(472, 172);
+            this.pictureBox1.Size = new System.Drawing.Size(472, 141);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -936,15 +888,15 @@
             // dockPanel_Cam1
             // 
             this.dockPanel_Cam1.Controls.Add(this.dockPanel2_Container);
-            this.dockPanel_Cam1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.dockPanel_Cam1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel_Cam1.FloatSize = new System.Drawing.Size(322, 275);
             this.dockPanel_Cam1.ID = new System.Guid("10268a0d-59f7-4343-9b31-a44f2c179c39");
-            this.dockPanel_Cam1.Location = new System.Drawing.Point(0, 224);
+            this.dockPanel_Cam1.Location = new System.Drawing.Point(0, 0);
             this.dockPanel_Cam1.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel_Cam1.Name = "dockPanel_Cam1";
             this.dockPanel_Cam1.Options.ShowCloseButton = false;
-            this.dockPanel_Cam1.OriginalSize = new System.Drawing.Size(550, 252);
-            this.dockPanel_Cam1.Size = new System.Drawing.Size(550, 636);
+            this.dockPanel_Cam1.OriginalSize = new System.Drawing.Size(659, 252);
+            this.dockPanel_Cam1.Size = new System.Drawing.Size(562, 667);
             this.dockPanel_Cam1.Text = "Camera Station 1";
             // 
             // dockPanel2_Container
@@ -953,7 +905,7 @@
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 32);
             this.dockPanel2_Container.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(540, 600);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(552, 629);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // panel_Cam1
@@ -962,254 +914,8 @@
             this.panel_Cam1.Location = new System.Drawing.Point(0, 0);
             this.panel_Cam1.Margin = new System.Windows.Forms.Padding(4);
             this.panel_Cam1.Name = "panel_Cam1";
-            this.panel_Cam1.Size = new System.Drawing.Size(540, 600);
+            this.panel_Cam1.Size = new System.Drawing.Size(552, 629);
             this.panel_Cam1.TabIndex = 0;
-            // 
-            // dockPanel2
-            // 
-            this.dockPanel2.Controls.Add(this.controlContainer1);
-            this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
-            this.dockPanel2.FloatSize = new System.Drawing.Size(1252, 275);
-            this.dockPanel2.FloatVertical = true;
-            this.dockPanel2.ID = new System.Guid("740b890c-f09f-4180-b6d8-473025513838");
-            this.dockPanel2.Location = new System.Drawing.Point(550, 224);
-            this.dockPanel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.dockPanel2.Name = "dockPanel2";
-            this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 95);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 636);
-            this.dockPanel2.Text = "dockPanel2";
-            // 
-            // controlContainer1
-            // 
-            this.controlContainer1.Controls.Add(this.layoutControl5);
-            this.controlContainer1.Location = new System.Drawing.Point(4, 32);
-            this.controlContainer1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.controlContainer1.Name = "controlContainer1";
-            this.controlContainer1.Size = new System.Drawing.Size(941, 600);
-            this.controlContainer1.TabIndex = 0;
-            // 
-            // layoutControl5
-            // 
-            this.layoutControl5.Controls.Add(this.panel3);
-            this.layoutControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl5.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.layoutControl5.Name = "layoutControl5";
-            this.layoutControl5.Root = this.layoutControlGroup5;
-            this.layoutControl5.Size = new System.Drawing.Size(941, 600);
-            this.layoutControl5.TabIndex = 0;
-            this.layoutControl5.Text = "layoutControl5";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.tableLayoutPanel6);
-            this.panel3.Controls.Add(this.tabControl2);
-            this.panel3.Location = new System.Drawing.Point(12, 12);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(917, 576);
-            this.panel3.TabIndex = 4;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-            this.tableLayoutPanel6.Controls.Add(this.label43, 1, 5);
-            this.tableLayoutPanel6.Controls.Add(this.label42, 0, 5);
-            this.tableLayoutPanel6.Controls.Add(this.label41, 1, 4);
-            this.tableLayoutPanel6.Controls.Add(this.label40, 0, 4);
-            this.tableLayoutPanel6.Controls.Add(this.label39, 1, 3);
-            this.tableLayoutPanel6.Controls.Add(this.label38, 0, 3);
-            this.tableLayoutPanel6.Controls.Add(this.label37, 1, 2);
-            this.tableLayoutPanel6.Controls.Add(this.label36, 0, 2);
-            this.tableLayoutPanel6.Controls.Add(this.label35, 1, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label34, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label33, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label32, 0, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 6;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(917, 576);
-            this.tableLayoutPanel6.TabIndex = 1;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label43.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(309, 476);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(604, 99);
-            this.label43.TabIndex = 12;
-            this.label43.Text = "No :";
-            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label42.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(4, 476);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(298, 99);
-            this.label42.TabIndex = 10;
-            this.label42.Text = "Main P/O:";
-            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label41.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(309, 381);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(604, 94);
-            this.label41.TabIndex = 9;
-            this.label41.Text = "No :";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label40.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(4, 381);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(298, 94);
-            this.label40.TabIndex = 8;
-            this.label40.Text = "Arr Time :";
-            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label39.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(309, 286);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(604, 94);
-            this.label39.TabIndex = 7;
-            this.label39.Text = "No :";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label38.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(4, 286);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(298, 94);
-            this.label38.TabIndex = 6;
-            this.label38.Text = "W/K Time :";
-            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label37.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(309, 191);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(604, 94);
-            this.label37.TabIndex = 5;
-            this.label37.Text = "No :";
-            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label36.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(4, 191);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(298, 94);
-            this.label36.TabIndex = 4;
-            this.label36.Text = "Dpt Time :";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label35.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(309, 96);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(604, 94);
-            this.label35.TabIndex = 3;
-            this.label35.Text = "No :";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label34.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(4, 96);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(298, 94);
-            this.label34.TabIndex = 2;
-            this.label34.Text = "[M] NORM :";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label33.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(309, 1);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(604, 94);
-            this.label33.TabIndex = 1;
-            this.label33.Text = "No :";
-            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label32.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(4, 1);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(298, 94);
-            this.label32.TabIndex = 0;
-            this.label32.Text = "No :";
-            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tabControl2
-            // 
-            this.tabControl2.Location = new System.Drawing.Point(205, 59);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(200, 100);
-            this.tabControl2.TabIndex = 0;
-            // 
-            // layoutControlGroup5
-            // 
-            this.layoutControlGroup5.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup5.GroupBordersVisible = false;
-            this.layoutControlGroup5.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem9});
-            this.layoutControlGroup5.Name = "Root";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(941, 600);
-            this.layoutControlGroup5.TextVisible = false;
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.panel3;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(921, 580);
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextVisible = false;
             // 
             // panelContainer1
             // 
@@ -1226,15 +932,75 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // standaloneBarDockControl1
+            // 
+            this.standaloneBarDockControl1.CausesValidation = false;
+            this.standaloneBarDockControl1.Location = new System.Drawing.Point(712, 241);
+            this.standaloneBarDockControl1.Manager = null;
+            this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(75, 23);
+            this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
+            // 
+            // dockPanel4
+            // 
+            this.dockPanel4.Controls.Add(this.dockPanel4_Container);
+            this.dockPanel4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.dockPanel4.ID = new System.Guid("2b19f025-e54e-4419-857c-068b020c37b3");
+            this.dockPanel4.Location = new System.Drawing.Point(0, 193);
+            this.dockPanel4.Name = "dockPanel4";
+            this.dockPanel4.OriginalSize = new System.Drawing.Size(474, 200);
+            this.dockPanel4.Size = new System.Drawing.Size(474, 667);
+            this.dockPanel4.Text = "dockPanel4";
+            // 
+            // dockPanel4_Container
+            // 
+            this.dockPanel4_Container.Controls.Add(this.panel3);
+            this.dockPanel4_Container.Location = new System.Drawing.Point(4, 32);
+            this.dockPanel4_Container.Name = "dockPanel4_Container";
+            this.dockPanel4_Container.Size = new System.Drawing.Size(464, 631);
+            this.dockPanel4_Container.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(464, 631);
+            this.panel3.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(464, 631);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panelContainer2
+            // 
+            this.panelContainer2.ChildPanelOrientation = DevExpress.XtraBars.Docking.LayoutOrientation.Horizontal;
+            this.panelContainer2.Controls.Add(this.dockPanel_Cam1);
+            this.panelContainer2.Controls.Add(this.panelContainer4);
+            this.panelContainer2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            this.panelContainer2.FloatVertical = true;
+            this.panelContainer2.ID = new System.Guid("cb31529f-6a8e-4c0b-9e8f-0ef5df2d6b42");
+            this.panelContainer2.Location = new System.Drawing.Point(474, 193);
+            this.panelContainer2.Name = "panelContainer2";
+            this.panelContainer2.OriginalSize = new System.Drawing.Size(1124, 200);
+            this.panelContainer2.Size = new System.Drawing.Size(1124, 667);
+            this.panelContainer2.Text = "panelContainer2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1598, 860);
-            this.Controls.Add(this.panelContainer4);
-            this.Controls.Add(this.dockPanel2);
-            this.Controls.Add(this.dockPanel_Cam1);
+            this.Controls.Add(this.panelContainer2);
+            this.Controls.Add(this.dockPanel4);
             this.Controls.Add(this.dockPanel3);
+            this.Controls.Add(this.standaloneBarDockControl1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "/";
@@ -1261,7 +1027,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.dockPanel6.ResumeLayout(false);
             this.dockPanel6_Container.ResumeLayout(false);
@@ -1281,15 +1046,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.dockPanel_Cam1.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
-            this.dockPanel2.ResumeLayout(false);
-            this.controlContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
-            this.layoutControl5.ResumeLayout(false);
+            this.dockPanel4.ResumeLayout(false);
+            this.dockPanel4_Container.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1347,39 +1108,23 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         public DevExpress.XtraEditors.SimpleButton status_auto;
-        public DevExpress.XtraEditors.SimpleButton status_inital;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
-        private DevExpress.XtraBars.Docking.DockPanel dockPanel2;
-        private DevExpress.XtraBars.Docking.ControlContainer controlContainer1;
         private DevExpress.XtraLayout.LayoutControl layoutControl4;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.ListBox listBox1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraLayout.LayoutControl layoutControl5;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
-        private System.Windows.Forms.Panel panel3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
         public DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraBars.Docking.DockPanel dockPanel4;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel4_Container;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
+        private DevExpress.XtraBars.Docking.DockPanel panelContainer2;
     }
 }
 

@@ -36,6 +36,10 @@ namespace Design_Form.UserForm
                     {
                         combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName + ": " + i.ToString());
                     }
+                    if (Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName == "Fixture_2")
+                    {
+                        combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName + ": " + i.ToString());
+                    }
 
                 }
                 index_follow = tool.index_follow;
@@ -44,16 +48,8 @@ namespace Design_Form.UserForm
                 numeric_PixelLow.Value = tool.pixel_low;
                 numeric_SetupMax.Value =(decimal)tool.max_setup;
                 numeric_SetupMin.Value =(decimal)tool.min_setup;
-                Thresh_High.Value = (decimal)tool.threshold_high;
-                Thresh_Low.Value = (decimal)tool.threshold_low;
-                Min_Size.Value = (decimal)tool.nomal_size_min;
-                Max_Size.Value = (decimal)tool.nomal_size_max;
-                comboBox1.Text= tool.item_check;
-                Ck_Contour.Checked= tool.find_contour;
-                max_deviation.Value = (decimal)tool.max_deviation;
-                min_deviation.Value = (decimal)tool.min_deviation;
-                Max_Mean.Value = (decimal)tool.max_mean;
-                Min_Mean.Value =(decimal)tool.min_mean;
+                comboBox1.Text = tool.Select_Algorithm;
+               
             }
 
             catch (Exception ex) 
@@ -83,17 +79,11 @@ namespace Design_Form.UserForm
             tool.max_setup = (double)numeric_SetupMax.Value;
             tool.min_setup = (double) numeric_SetupMin.Value;
             tool.index_follow = index_follow;
-            tool.find_contour= Ck_Contour.Checked;
-            tool.threshold_high= (int) Thresh_High.Value;
-            tool.threshold_low= (int)Thresh_Low.Value;
-            tool.nomal_size_max= (int)Max_Size.Value;
-            tool.nomal_size_min= (int)Min_Size.Value;
-            tool.item_check = comboBox1.Text;
-            tool.max_deviation = (double)max_deviation.Value;
-            tool.min_deviation =(double)min_deviation.Value;
-            tool.max_mean = (double)Max_Mean.Value;
-            tool.min_mean = (double)Min_Mean.Value;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c] = tool;
+			tool.Select_Algorithm = comboBox1.Text;
+
+
+
+			Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c] = tool;
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -116,7 +106,11 @@ namespace Design_Form.UserForm
                 {
                     index_follow = i;
                 }
-                if(combo_master.Text == "none")
+                if (combo_master.Text == "Fixture_2: " + i.ToString())
+                {
+                    index_follow = i;
+                }
+                if (combo_master.Text == "none")
                 {
                     index_follow = -1;
                     break;

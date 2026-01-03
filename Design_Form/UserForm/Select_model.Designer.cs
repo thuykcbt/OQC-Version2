@@ -82,6 +82,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
+            this.tabNavigationPage1.SuspendLayout();
+            this.tabNavigationPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Min_Mean1)).BeginInit();
@@ -116,9 +118,10 @@
             this.layoutControl1.Controls.Add(this.combo_master);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(233, 583);
+            this.layoutControl1.Size = new System.Drawing.Size(272, 717);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -127,9 +130,10 @@
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(11, 537);
+            this.simpleButton1.Location = new System.Drawing.Point(14, 659);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(211, 36);
+            this.simpleButton1.Size = new System.Drawing.Size(244, 44);
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 14;
             this.simpleButton1.Text = "SaveTool";
@@ -139,9 +143,10 @@
             // 
             this.combo_master.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combo_master.FormattingEnabled = true;
-            this.combo_master.Location = new System.Drawing.Point(104, 10);
+            this.combo_master.Location = new System.Drawing.Point(129, 14);
+            this.combo_master.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.combo_master.Name = "combo_master";
-            this.combo_master.Size = new System.Drawing.Size(118, 24);
+            this.combo_master.Size = new System.Drawing.Size(129, 27);
             this.combo_master.TabIndex = 4;
             this.combo_master.Text = "none";
             this.combo_master.SelectedIndexChanged += new System.EventHandler(this.combo_master_SelectedIndexChanged);
@@ -155,7 +160,7 @@
             this.emptySpaceItem1,
             this.layoutControlItem9});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(233, 583);
+            this.Root.Size = new System.Drawing.Size(272, 717);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -165,24 +170,24 @@
             this.layoutControlItem1.Control = this.combo_master;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(215, 25);
+            this.layoutControlItem1.Size = new System.Drawing.Size(248, 30);
             this.layoutControlItem1.Text = "Master_Follow";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(83, 16);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(101, 19);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 25);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 30);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(215, 502);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(248, 615);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.simpleButton1;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 527);
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 645);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(215, 40);
+            this.layoutControlItem9.Size = new System.Drawing.Size(248, 48);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
@@ -199,14 +204,15 @@
             this.tabPane1.Controls.Add(this.tabNavigationPage2);
             this.tabPane1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPane1.Location = new System.Drawing.Point(0, 0);
+            this.tabPane1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPane1.Name = "tabPane1";
             this.tabPane1.PageProperties.ShowMode = DevExpress.XtraBars.Navigation.ItemShowMode.ImageAndText;
             this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabNavigationPage1,
             this.tabNavigationPage2});
-            this.tabPane1.RegularSize = new System.Drawing.Size(233, 616);
+            this.tabPane1.RegularSize = new System.Drawing.Size(272, 758);
             this.tabPane1.SelectedPage = this.tabNavigationPage1;
-            this.tabPane1.Size = new System.Drawing.Size(233, 616);
+            this.tabPane1.Size = new System.Drawing.Size(272, 758);
             this.tabPane1.TabIndex = 2;
             this.tabPane1.Text = "tabPane1";
             this.tabPane1.Click += new System.EventHandler(this.tabPane1_Click);
@@ -215,19 +221,19 @@
             // 
             this.tabNavigationPage1.Caption = "Para";
             this.tabNavigationPage1.Controls.Add(this.layoutControl1);
-            this.tabNavigationPage1.Enabled = true;
+            this.tabNavigationPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
             this.tabNavigationPage1.Properties.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabNavigationPage1.Properties.AppearanceCaption.Options.UseFont = true;
-            this.tabNavigationPage1.Size = new System.Drawing.Size(233, 583);
+            this.tabNavigationPage1.Size = new System.Drawing.Size(272, 717);
             // 
             // tabNavigationPage2
             // 
             this.tabNavigationPage2.Caption = "Spec";
             this.tabNavigationPage2.Controls.Add(this.layoutControl2);
-            this.tabNavigationPage2.Enabled = true;
+            this.tabNavigationPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabNavigationPage2.Name = "tabNavigationPage2";
-            this.tabNavigationPage2.Size = new System.Drawing.Size(233, 583);
+            this.tabNavigationPage2.Size = new System.Drawing.Size(272, 718);
             // 
             // layoutControl2
             // 
@@ -246,27 +252,30 @@
             this.layoutControl2.Controls.Add(this.Min_Mean3);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(233, 583);
+            this.layoutControl2.Size = new System.Drawing.Size(272, 718);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // file3
             // 
             this.file3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.file3.Location = new System.Drawing.Point(11, 280);
+            this.file3.Location = new System.Drawing.Point(14, 340);
+            this.file3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.file3.Name = "file3";
-            this.file3.Size = new System.Drawing.Size(211, 20);
+            this.file3.Size = new System.Drawing.Size(244, 26);
             this.file3.TabIndex = 25;
             // 
             // simpleButton5
             // 
             this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton5.Appearance.Options.UseFont = true;
-            this.simpleButton5.Location = new System.Drawing.Point(11, 254);
+            this.simpleButton5.Location = new System.Drawing.Point(14, 309);
+            this.simpleButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(211, 22);
+            this.simpleButton5.Size = new System.Drawing.Size(244, 27);
             this.simpleButton5.StyleController = this.layoutControl2;
             this.simpleButton5.TabIndex = 24;
             this.simpleButton5.Text = "Select_Model 3";
@@ -275,18 +284,20 @@
             // file2
             // 
             this.file2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.file2.Location = new System.Drawing.Point(11, 182);
+            this.file2.Location = new System.Drawing.Point(14, 221);
+            this.file2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.file2.Name = "file2";
-            this.file2.Size = new System.Drawing.Size(211, 20);
+            this.file2.Size = new System.Drawing.Size(244, 26);
             this.file2.TabIndex = 23;
             // 
             // simpleButton4
             // 
             this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.Location = new System.Drawing.Point(11, 156);
+            this.simpleButton4.Location = new System.Drawing.Point(14, 190);
+            this.simpleButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(211, 22);
+            this.simpleButton4.Size = new System.Drawing.Size(244, 27);
             this.simpleButton4.StyleController = this.layoutControl2;
             this.simpleButton4.TabIndex = 22;
             this.simpleButton4.Text = "Select_Model 2";
@@ -295,18 +306,20 @@
             // file1
             // 
             this.file1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.file1.Location = new System.Drawing.Point(11, 84);
+            this.file1.Location = new System.Drawing.Point(14, 103);
+            this.file1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.file1.Name = "file1";
-            this.file1.Size = new System.Drawing.Size(211, 20);
+            this.file1.Size = new System.Drawing.Size(244, 25);
             this.file1.TabIndex = 21;
             // 
             // simpleButton3
             // 
             this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.Location = new System.Drawing.Point(11, 58);
+            this.simpleButton3.Location = new System.Drawing.Point(14, 72);
+            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(211, 22);
+            this.simpleButton3.Size = new System.Drawing.Size(244, 27);
             this.simpleButton3.StyleController = this.layoutControl2;
             this.simpleButton3.TabIndex = 20;
             this.simpleButton3.Text = "Select_Model 1";
@@ -321,14 +334,15 @@
             0,
             0,
             131072});
-            this.Min_Mean1.Location = new System.Drawing.Point(94, 34);
+            this.Min_Mean1.Location = new System.Drawing.Point(116, 43);
+            this.Min_Mean1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Min_Mean1.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.Min_Mean1.Name = "Min_Mean1";
-            this.Min_Mean1.Size = new System.Drawing.Size(128, 23);
+            this.Min_Mean1.Size = new System.Drawing.Size(142, 27);
             this.Min_Mean1.TabIndex = 19;
             // 
             // Max_Mean1
@@ -340,14 +354,15 @@
             0,
             0,
             131072});
-            this.Max_Mean1.Location = new System.Drawing.Point(94, 10);
+            this.Max_Mean1.Location = new System.Drawing.Point(116, 14);
+            this.Max_Mean1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Max_Mean1.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.Max_Mean1.Name = "Max_Mean1";
-            this.Max_Mean1.Size = new System.Drawing.Size(128, 23);
+            this.Max_Mean1.Size = new System.Drawing.Size(142, 27);
             this.Max_Mean1.TabIndex = 18;
             // 
             // simpleButton2
@@ -355,9 +370,10 @@
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(11, 537);
+            this.simpleButton2.Location = new System.Drawing.Point(14, 660);
+            this.simpleButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(211, 36);
+            this.simpleButton2.Size = new System.Drawing.Size(244, 44);
             this.simpleButton2.StyleController = this.layoutControl2;
             this.simpleButton2.TabIndex = 13;
             this.simpleButton2.Text = "SaveTool";
@@ -372,14 +388,15 @@
             0,
             0,
             131072});
-            this.Max_Mean2.Location = new System.Drawing.Point(94, 108);
+            this.Max_Mean2.Location = new System.Drawing.Point(116, 132);
+            this.Max_Mean2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Max_Mean2.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.Max_Mean2.Name = "Max_Mean2";
-            this.Max_Mean2.Size = new System.Drawing.Size(128, 23);
+            this.Max_Mean2.Size = new System.Drawing.Size(142, 27);
             this.Max_Mean2.TabIndex = 18;
             // 
             // Min_Mean2
@@ -391,14 +408,15 @@
             0,
             0,
             131072});
-            this.Min_Mean2.Location = new System.Drawing.Point(94, 132);
+            this.Min_Mean2.Location = new System.Drawing.Point(116, 161);
+            this.Min_Mean2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Min_Mean2.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.Min_Mean2.Name = "Min_Mean2";
-            this.Min_Mean2.Size = new System.Drawing.Size(128, 23);
+            this.Min_Mean2.Size = new System.Drawing.Size(142, 27);
             this.Min_Mean2.TabIndex = 19;
             // 
             // Max_Mean3
@@ -410,14 +428,15 @@
             0,
             0,
             131072});
-            this.Max_Mean3.Location = new System.Drawing.Point(94, 206);
+            this.Max_Mean3.Location = new System.Drawing.Point(116, 251);
+            this.Max_Mean3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Max_Mean3.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.Max_Mean3.Name = "Max_Mean3";
-            this.Max_Mean3.Size = new System.Drawing.Size(128, 23);
+            this.Max_Mean3.Size = new System.Drawing.Size(142, 27);
             this.Max_Mean3.TabIndex = 18;
             // 
             // Min_Mean3
@@ -429,14 +448,15 @@
             0,
             0,
             131072});
-            this.Min_Mean3.Location = new System.Drawing.Point(94, 230);
+            this.Min_Mean3.Location = new System.Drawing.Point(116, 280);
+            this.Min_Mean3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Min_Mean3.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.Min_Mean3.Name = "Min_Mean3";
-            this.Min_Mean3.Size = new System.Drawing.Size(128, 23);
+            this.Min_Mean3.Size = new System.Drawing.Size(142, 27);
             this.Min_Mean3.TabIndex = 19;
             // 
             // layoutControlGroup1
@@ -459,23 +479,23 @@
             this.layoutControlItem14,
             this.layoutControlItem16});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(233, 583);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(272, 718);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 294);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 356);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(215, 233);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(248, 290);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.simpleButton2;
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 527);
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 646);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(215, 40);
+            this.layoutControlItem15.Size = new System.Drawing.Size(248, 48);
             this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem15.TextVisible = false;
             // 
@@ -486,54 +506,54 @@
             this.layoutControlItem12.Control = this.Max_Mean1;
             this.layoutControlItem12.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(215, 24);
+            this.layoutControlItem12.Size = new System.Drawing.Size(248, 29);
             this.layoutControlItem12.Text = "Max_Mean1";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(73, 17);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(88, 21);
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem17.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem17.Control = this.Min_Mean1;
-            this.layoutControlItem17.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem17.Location = new System.Drawing.Point(0, 29);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(215, 24);
+            this.layoutControlItem17.Size = new System.Drawing.Size(248, 29);
             this.layoutControlItem17.Text = "Min_Mean1";
-            this.layoutControlItem17.TextSize = new System.Drawing.Size(73, 17);
+            this.layoutControlItem17.TextSize = new System.Drawing.Size(88, 21);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.simpleButton3;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 58);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(215, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(248, 31);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.file1;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 74);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 89);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(215, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(248, 29);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.simpleButton4;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 146);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 176);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(215, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(248, 31);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.file2;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 172);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 207);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(215, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(248, 30);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -544,11 +564,11 @@
             this.layoutControlItem8.Control = this.Max_Mean2;
             this.layoutControlItem8.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem8.CustomizationFormText = "Max_Mean";
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 98);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 118);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(215, 24);
+            this.layoutControlItem8.Size = new System.Drawing.Size(248, 29);
             this.layoutControlItem8.Text = "Max_Mean2";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(73, 17);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(88, 21);
             // 
             // layoutControlItem10
             // 
@@ -557,11 +577,11 @@
             this.layoutControlItem10.Control = this.Min_Mean2;
             this.layoutControlItem10.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem10.CustomizationFormText = "Min_Mean";
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 122);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 147);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(215, 24);
+            this.layoutControlItem10.Size = new System.Drawing.Size(248, 29);
             this.layoutControlItem10.Text = "Min_Mean2";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(73, 17);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(88, 21);
             // 
             // layoutControlItem11
             // 
@@ -570,11 +590,11 @@
             this.layoutControlItem11.Control = this.Max_Mean3;
             this.layoutControlItem11.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem11.CustomizationFormText = "Max_Mean";
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 196);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 237);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(215, 24);
+            this.layoutControlItem11.Size = new System.Drawing.Size(248, 29);
             this.layoutControlItem11.Text = "Max_Mean3";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(73, 17);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(88, 21);
             // 
             // layoutControlItem13
             // 
@@ -583,27 +603,27 @@
             this.layoutControlItem13.Control = this.Min_Mean3;
             this.layoutControlItem13.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem13.CustomizationFormText = "Min_Mean";
-            this.layoutControlItem13.Location = new System.Drawing.Point(0, 220);
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 266);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(215, 24);
+            this.layoutControlItem13.Size = new System.Drawing.Size(248, 29);
             this.layoutControlItem13.Text = "Min_Mean3";
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(73, 17);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(88, 21);
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.simpleButton5;
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 244);
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 295);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(215, 26);
+            this.layoutControlItem14.Size = new System.Drawing.Size(248, 31);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.file3;
-            this.layoutControlItem16.Location = new System.Drawing.Point(0, 270);
+            this.layoutControlItem16.Location = new System.Drawing.Point(0, 326);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(215, 24);
+            this.layoutControlItem16.Size = new System.Drawing.Size(248, 30);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
@@ -616,7 +636,7 @@
             this.numeric_MeasureThres.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numeric_MeasureThres.Location = new System.Drawing.Point(110, 61);
             this.numeric_MeasureThres.Name = "numeric_MeasureThres";
-            this.numeric_MeasureThres.Size = new System.Drawing.Size(111, 23);
+            this.numeric_MeasureThres.Size = new System.Drawing.Size(111, 27);
             this.numeric_MeasureThres.TabIndex = 6;
             // 
             // numeric_Length2
@@ -629,7 +649,7 @@
             0,
             0});
             this.numeric_Length2.Name = "numeric_Length2";
-            this.numeric_Length2.Size = new System.Drawing.Size(111, 23);
+            this.numeric_Length2.Size = new System.Drawing.Size(111, 27);
             this.numeric_Length2.TabIndex = 8;
             // 
             // numeric_Sigma
@@ -648,7 +668,7 @@
             0,
             0});
             this.numeric_Sigma.Name = "numeric_Sigma";
-            this.numeric_Sigma.Size = new System.Drawing.Size(111, 23);
+            this.numeric_Sigma.Size = new System.Drawing.Size(111, 27);
             this.numeric_Sigma.TabIndex = 5;
             this.numeric_Sigma.Value = new decimal(new int[] {
             2,
@@ -658,11 +678,12 @@
             // 
             // Select_model
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabPane1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Select_model";
-            this.Size = new System.Drawing.Size(233, 616);
+            this.Size = new System.Drawing.Size(272, 758);
             ((System.ComponentModel.ISupportInitialize)(this.numericChartRangeControlClient1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -672,6 +693,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
+            this.tabNavigationPage1.ResumeLayout(false);
+            this.tabNavigationPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Min_Mean1)).EndInit();

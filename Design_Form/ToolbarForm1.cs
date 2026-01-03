@@ -24,7 +24,7 @@ namespace Design_Form
         private Button currentButton;
         Form1 form1;
         Setting setting;
-        LiveCamera livecamera;
+       // LiveCamera livecamera;
         ReportForm report;
        
         Monitor_Form monitor_Form;
@@ -64,15 +64,16 @@ namespace Design_Form
         {
             if (form1 == null)
             { form1 = new Form1(); }
+            if (monitor_Form == null)
+            { monitor_Form = new Monitor_Form(); }
             if (setting == null)
             { setting = new Setting(); }
-            if(livecamera == null)
-            { livecamera = new LiveCamera(); }
+            //if(livecamera == null)
+            //{ livecamera = new LiveCamera(); }
             if(report == null)
             { report = new ReportForm(); }  
            
-            if(monitor_Form == null)
-            { monitor_Form = new Monitor_Form();}    
+              
         }
         private void ToolbarForm1_Load(object sender, EventArgs e)
         {
@@ -143,8 +144,8 @@ namespace Design_Form
                     setting.timer1.Enabled = true;
                     barReport.Enabled = true;
                     bar_Monitor.Enabled = true;
-                
-                    livecamera.stop_livecamera1();
+                    setting.update_change_model();
+                    
                     monitor_Form.timer1.Enabled=false;
                   
 
@@ -169,7 +170,7 @@ namespace Design_Form
                     ShowChildForm(form1);
                     current_Window = 0;
                     setting.timer1.Enabled = false;
-                    livecamera.stop_livecamera1();
+               
               
                     monitor_Form.timer1.Enabled = false;
                  
@@ -191,7 +192,7 @@ namespace Design_Form
                     bar_Monitor.Enabled = true;
                
                     btnLivecamera.Enabled = false;
-                    ShowChildForm(livecamera);
+                   
                     current_Window = 2;
                     setting.timer1.Enabled = false;
                     monitor_Form.timer1.Enabled = false;
@@ -217,7 +218,7 @@ namespace Design_Form
                     ShowChildForm(report);
                     current_Window = 3;
                     setting.timer1.Enabled = false;
-                    livecamera.stop_livecamera1();
+                
                     monitor_Form.timer1.Enabled = false;
                    
                 }
@@ -242,7 +243,7 @@ namespace Design_Form
                     ShowChildForm(monitor_Form);
                     current_Window = 5;
                     setting.timer1.Enabled = false;
-                    livecamera.stop_livecamera1();
+                  
                     monitor_Form.timer1.Enabled = true;
                  
                 }
@@ -290,19 +291,7 @@ namespace Design_Form
         {
          
        
-           
-            string debugFolder = AppDomain.CurrentDomain.BaseDirectory;
-            string name_file = "Machine_Config.cam";
-            string file_path = Path.Combine(debugFolder, name_file);
-            var settings = new JsonSerializerSettings
-            {
-                TypeNameHandling = TypeNameHandling.Auto,
-                Formatting = Formatting.Indented
-            };
-
-            string json = JsonConvert.SerializeObject(Job_Model.Statatic_Model.config_machine, settings);
-            File.WriteAllText(file_path, json);
-
+        
         }
 
         private void barButtonItem4_ItemClick_2(object sender, ItemClickEventArgs e)

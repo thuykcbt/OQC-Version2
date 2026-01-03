@@ -155,25 +155,23 @@ namespace Design_Form.Job_Model
         public string name { get; set; }
         public string device { get; set; }
         public string TriggerMode { get; set; }
-      
+        public string ID_google { get; set; }
+
 
     }
     public class Config_Machine
     {
-        public int cam1_ok { get; set; } = 0;
-        public int cam1_ng { get; set; } = 0;
-        public int cam1_total { get; set; } = 0;
-        public int cam2_ok { get; set; } = 0;
-        public int cam2_ng { get; set; } = 0;
-        public int cam2_total { get; set; } = 0;    
-
-
-        public Model_PLC_Machine model_plc_machine = new Model_PLC_Machine();
+        public string start_code1D { get; set; }
+        public bool use_start_1D { get; set; } = true;
+        public int length_code1D { get; set; } = 6;
+        public string end_code1D { get;set; }
+        public bool use_end_1D { get; set; }
+        public string start_code2D { get; set; }
+        public bool use_start_2D { get; set; }
+        public int length_code2D { get; set; } = 4;
+        public string end_code2D { get; set; }
+        public bool use_end_2D { get; set; }
+   
     }
-    public class Model_PLC_Machine
-    {
-        public List<string> names_model = new List<string>();
-        public int number_model_run;
-    }
-
+  
 }

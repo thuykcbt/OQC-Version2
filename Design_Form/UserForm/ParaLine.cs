@@ -34,8 +34,12 @@ namespace Design_Form.UserForm
                     if(Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName=="Fixture")
                     {
                         combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName+": "+i.ToString());
-                    }    
-               
+                    }
+                    if (Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName == "Fixture_2")
+                    {
+                        combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName + ": " + i.ToString());
+                    }
+
                 }    
 
                 combo_master.Text = findLine.folow_master;
@@ -88,6 +92,10 @@ namespace Design_Form.UserForm
             for (int i = 0; i < Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools.Count; i++)
             {
                 if (combo_master.Text == "Fixture: " + i.ToString())
+                {
+                    index_follow = i;
+                }
+                if (combo_master.Text == "Fixture_2: " + i.ToString())
                 {
                     index_follow = i;
                 }
