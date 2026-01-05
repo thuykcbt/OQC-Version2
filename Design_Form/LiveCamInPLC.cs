@@ -21,9 +21,9 @@ namespace Design_Form
         {
             try
             {
-                numericUpDown1.Value = Job_Model.Statatic_Model.model_run.Cameras[cam].Jobs[index].Exposure;
-                numericUpDown2.Value = Job_Model.Statatic_Model.model_run.Cameras[cam].Jobs[index].Brightness;
-                numericUpDown3.Value = Job_Model.Statatic_Model.model_run.Cameras[cam].Jobs[index].Contrast;
+                numericUpDown1.Value = Job_Model.Statatic_Model.model_run.Cameras[cam].Views[index].Exposure;
+                numericUpDown2.Value = Job_Model.Statatic_Model.model_run.Cameras[cam].Views[index].Brightness;
+                numericUpDown3.Value = Job_Model.Statatic_Model.model_run.Cameras[cam].Views[index].Contrast;
             }
             catch(Exception ex)
             {
@@ -36,9 +36,9 @@ namespace Design_Form
         {
             try
             {
-                Job_Model.Statatic_Model.model_run.Cameras[cam].Jobs[index].Exposure = (int)numericUpDown1.Value;
-                Job_Model.Statatic_Model.model_run.Cameras[cam].Jobs[index].Brightness = (int)numericUpDown2.Value;
-                Job_Model.Statatic_Model.model_run.Cameras[cam].Jobs[index].Contrast = (int)numericUpDown3.Value;
+                Job_Model.Statatic_Model.model_run.Cameras[cam].Views[index].Exposure = (int)numericUpDown1.Value;
+                Job_Model.Statatic_Model.model_run.Cameras[cam].Views[index].Brightness = (int)numericUpDown2.Value;
+                Job_Model.Statatic_Model.model_run.Cameras[cam].Views[index].Contrast = (int)numericUpDown3.Value;
             }
             catch (Exception ex)
             {

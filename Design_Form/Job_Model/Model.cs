@@ -19,6 +19,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
@@ -36,8 +37,8 @@ namespace Design_Form.Job_Model
 {
     public class Model : INotifyPropertyChanged
     {
-        public List<Class_Camera> Cameras = new List<Class_Camera>();
-        private string Name_model { get; set; } = "NewSubModel";
+		public List<Class_Camera> Cameras;
+		private string Name_model { get; set; } = "NewSubModel";
         public string Name_Model
         {
             get => Name_model;
@@ -47,13 +48,23 @@ namespace Design_Form.Job_Model
                 OnPropertyChanged(nameof(Name_Model));
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
+		public Model()
+		{
+			Cameras = new List<Class_Camera>();
+			for (int i = 0; i < total_camera; i++)
+			{
+				Cameras.Add(new Class_Camera(i.ToString()));
+			}
+		}
+
+		
+		public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         public int ID = 1;
-        public int total_camera = 1;
+        public int total_camera = 4;
         public string File_Path_Image { get; set; }
         public string file_model { get; set; }
 
@@ -65,24 +76,32 @@ namespace Design_Form.Job_Model
     }
     public class Class_Camera
     {
-        public List<Class_Job> Jobs = new List<Class_Job>();
+        public List<Class_Views> Views ;
         private string name;
-        private string device;
+       
         public double[,] R;
         public double[] t;
 
-        public Class_Camera() { }
-        public Class_Camera(string Name, string Device)
+        public Class_Camera(string nam)
         {
-            this.name = Name;
-            this.device = Device;
-        }
+            this.name = nam;
+            Views = new List<Class_Views>();
+            Class_Views view  = new Class_Views();
+			Views.Add(view);
+		}
+      
     }
-    public class Class_Job
+    public class Class_Views
     {
-        public string JobName { get; set; }
-    
-        public string result_job = "OK";
+        public string ViewsName { get; set; }
+		public BindingList<Class_Components> Components;
+		public Class_Views()
+		{
+			Components = new BindingList<Class_Components>();
+            Class_Components component = new Class_Components("Fiducial_Mark");
+            Components.Add(component);
+		}
+		public string result_job = "OK";
         public int Exposure = 1300;
         public int Brightness = 0;
         public int Contrast = 512;
@@ -91,17 +110,17 @@ namespace Design_Form.Job_Model
         public bool auto_check =false;
         public string File_Path_Image { get; set; }
         public string Face_Check { get; set; }
-        public List<Class_Image> Images = new List<Class_Image>();
+     
         public void ExecuteAllImge(HWindow hWindow, HObject ho_Image)
         {
 
             result_job = "OK";
-            foreach (Class_Image Images in Images)
+            foreach (Class_Components Components in Components)
             {
 
-                Images.ExecuteAllTools(hWindow, ho_Image);
+               Components.ExecuteAllTools(hWindow, ho_Image);
                 //  ho_Image = Job_Model.Statatic_Model.Input_Image[tool.camera_index, tool.job_index, 0];
-                if (Images.result_Image=="NG")
+                if (Components.result_Image=="NG")
                     result_job = "NG";
             }
             dev_display_ok_nok(result_job, hWindow);
@@ -164,77 +183,40 @@ namespace Design_Form.Job_Model
             }
         }
 
-        public Class_Job Clone()
+        public Class_Views Clone()
         {
             string jobjson = JsonConvert.SerializeObject(this, Formatting.Indented);
-            return JsonConvert.DeserializeObject<Class_Job>(jobjson);
+            return JsonConvert.DeserializeObject<Class_Views>(jobjson);
         }
 
     }
-    public class fudixal_mark : InspectItem
-    {
-        public List<Class_Tool> Tools = new List<Class_Tool>();
-    }
-    public class component : InspectItem
-    {
-        public List<Class_Tool> Tools = new List<Class_Tool>();
-    }
-    public class InspectItem
+     
+	public  class Class_Components
     {
         public string result_Image = "OK";
-        public bool auto_check = false;
-        public bool RGBtoGray = false;
-        public List<Class_Tool> Tools = new List<Class_Tool>();
-        public List<component> Components = new List<component>();
-        public List<fudixal_mark> Fudixals = new List<fudixal_mark>();
-        public void AddTool(Class_Tool tool)
-        {
-            Tools.Add(tool);
-        }
-        public void Excute(HWindow hWindow, HObject ho_Image, out HObject ho_image_out)
-        {
-            if (RGBtoGray)
-            {
-                HOperatorSet.Decompose3(ho_Image, out HObject Red, out HObject Green, out HObject Blue);
-                HOperatorSet.Rgb3ToGray(Red, Green, Blue, out ho_image_out);
-            }
-            else
-            {
-                ho_image_out = ho_Image;
-            }
-        }
-        public void ExecuteAllTools(HWindow hWindow, HObject ho_Image)
+        public string name_component;
+        public string Name_component
 		{
-
-			result_Image = "OK";
-			foreach (Class_Tool tool in Tools)
+			get => name_component;
+			set
 			{
-				if (auto_check)
-				{
-					tool.show_text = false;
-				}
-				else
-				{
-					tool.show_text = true;
-				}
-				tool.Excute(hWindow, ho_Image);
-				//  ho_Image = Job_Model.Statatic_Model.Input_Image[tool.camera_index, tool.job_index, 0];
-				if (!tool.Result_Tool)
-				{
-					result_Image = "NG";
-					break;
-				}
-
+				name_component = value;
+				OnPropertyChanged(nameof(Name_component));
 			}
-
 		}
-	}
-	public  class Class_Image
-    {
-        public string result_Image = "OK";
+		public event PropertyChangedEventHandler PropertyChanged;
+		protected void OnPropertyChanged(string propertyName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+		public Class_Components(string name)
+        {
+            this.Name_component = name;
+        }
+
         public bool auto_check = false;
         public bool RGBtoGray = false;
-        public List<Class_Tool> Tools = new List<Class_Tool>();
+        public BindingList<Class_Tool> Tools = new BindingList<Class_Tool>();
         public void AddTool(Class_Tool tool)
         {
             Tools.Add(tool);
@@ -290,7 +272,7 @@ namespace Design_Form.Job_Model
         public int index_follow { get; set; } = -1;
         public double cali { get; set; } = 1;
         public bool Result_Tool {  get; set; } = false;
-        public string ToolName { get; set; }
+       
         public bool stepbystep { get; set; } =false;
         public int threshold_Max { get; set; } = 255;
         public int threshold_Min { get; set; } = 125;
@@ -311,14 +293,26 @@ namespace Design_Form.Job_Model
 
             }    
         }
-        public Class_Tool(string toolName)
+        public Class_Tool(string tool)
         {
-            ToolName = toolName;
+            ToolName = tool;
         }
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+        public string toolName;
+		public string ToolName
+		{
+			get => toolName;
+			set
+			{
+				toolName = value;
+				OnPropertyChanged(nameof(ToolName));
+			}
+		}
+		public event PropertyChangedEventHandler PropertyChanged;
+		protected void OnPropertyChanged(string propertyName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+	
         public void align_Roi(int index_follow, int index_roi, out HObject ho_ImageROI)
         {
             // Khởi tạo đối tượng đầu ra
@@ -767,19 +761,6 @@ namespace Design_Form.Job_Model
             );
             return hvModelID;
         }
-
-        private void InspectAndDisplayModel(HWindow hWindow, HTuple HdModel,
-                                          out HObject hoShapeModelRegion)
-        {
-            HOperatorSet.GetNccModelRegion(
-                out hoShapeModelRegion,
-                HdModel
-            );
-
-            HOperatorSet.DispObj(hoShapeModelRegion, hWindow);
-            MessageBox.Show("Ncc Model Region");
-        }
-
         private void SaveShapeModel(HTuple hvModelID)
         {
             string fileName = $"{ModelFilePath}\\_Nccmodel{job_index}{tool_index}.model";
@@ -1631,7 +1612,7 @@ namespace Design_Form.Job_Model
             if (index_follow >= 0)
             {
 
-                ShapeModelTool shapeModelTool = (ShapeModelTool)Statatic_Model.model_run.Cameras[camera_index].Jobs[index_master_job].Images[image_index].Tools[index_follow];
+                ShapeModelTool shapeModelTool = (ShapeModelTool)Statatic_Model.model_run.Cameras[camera_index].Views[index_master_job].Components[image_index].Tools[index_follow];
                 double x_cr = shapeModelTool.MatchResults[0].X;
                 double y_cr = shapeModelTool.MatchResults[0].Y;
                 double phi_cr = shapeModelTool.MatchResults[0].Phi;
@@ -1674,10 +1655,10 @@ namespace Design_Form.Job_Model
             if (index_follow >= 0&& index_folow_2 >= 0)
             {
 
-                ShapeModelTool shapeModelTool = (ShapeModelTool)Statatic_Model.model_run.Cameras[camera_index].Jobs[index_master_job].Images[image_index].Tools[index_follow];
+                ShapeModelTool shapeModelTool = (ShapeModelTool)Statatic_Model.model_run.Cameras[camera_index].Views[index_master_job].Components[image_index].Tools[index_follow];
                 double x_cr1 = shapeModelTool.MatchResults[0].X;
                 double y_cr1 = shapeModelTool.MatchResults[0].Y;
-                ShapeModelTool shapeModelTool2 = (ShapeModelTool)Statatic_Model.model_run.Cameras[camera_index].Jobs[index_master_job].Images[image_index].Tools[index_folow_2];
+                ShapeModelTool shapeModelTool2 = (ShapeModelTool)Statatic_Model.model_run.Cameras[camera_index].Views[index_master_job].Components[image_index].Tools[index_folow_2];
                 double x_cr2 = shapeModelTool2.MatchResults[0].X;
                 double y_cr2= shapeModelTool2.MatchResults[0].Y;
 
@@ -1965,7 +1946,7 @@ namespace Design_Form.Job_Model
                 Y_To = To_Y;
                 if (Fr_Name_Tool == "FindLine")
                 {
-                    FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+                    FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_Fr_tool];
                     Fr_X = tool.Xcenterob;
                     Fr_Y = tool.Ycenterob;
                     Fr_X1 = tool.X1ob;
@@ -1975,20 +1956,20 @@ namespace Design_Form.Job_Model
                 }
                 if (Fr_Name_Tool == "FindCircle")
                 {
-                    FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+                    FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_Fr_tool];
                     Fr_X = tool.X_center;
                     Fr_Y = tool.Y_center;
 
                 }
                 if (Fr_Name_Tool == "ShapeModel")
                 {
-                    ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+                    ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_Fr_tool];
                     Fr_X = tool.MatchResults[0].X;
                     Fr_Y = tool.MatchResults[0].Y;
                 }
                 if (Fr_Name_Tool == "FitLine_Tool")
                 {
-                    FitLine_Tool tool = (FitLine_Tool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+                    FitLine_Tool tool = (FitLine_Tool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_Fr_tool];
                     Fr_X = tool.X_Center;
                     Fr_Y = tool.Y_Center;
                     Fr_X1 = tool.X_Fr;
@@ -1999,7 +1980,7 @@ namespace Design_Form.Job_Model
 
                 if (To_Name_Tool == "FindLine")
                 {
-                    FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+                    FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_To_tool];
                     To_X = tool.Xcenterob;
                     To_Y = tool.Ycenterob;
                     To_X1 = tool.X1ob;
@@ -2009,20 +1990,20 @@ namespace Design_Form.Job_Model
                 }
                 if (To_Name_Tool == "FindCircle")
                 {
-                    FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+                    FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_To_tool];
                     To_X = tool.X_center;
                     To_Y = tool.Y_center;
 
                 }
                 if (To_Name_Tool == "ShapeModel")
                 {
-                    ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+                    ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_To_tool];
                     Fr_X = tool.MatchResults[0].X;
                     Fr_Y = tool.MatchResults[0].Y;
                 }
                 if (To_Name_Tool == "FitLine_Tool")
                 {
-                    FitLine_Tool tool = (FitLine_Tool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+                    FitLine_Tool tool = (FitLine_Tool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_To_tool];
                     To_X = tool.X_Center;
                     To_Y = tool.Y_Center;
                     To_X1 = tool.X_Fr;
@@ -3168,7 +3149,7 @@ public class HistogramTool_Color : Class_Tool
             Result_Tool = true;
             try
             {
-                if (Save_OK && Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].result_job == "OK")
+                if (Save_OK && Statatic_Model.model_run.Cameras[camera_index].Views[job_index].result_job == "OK")
                 {
                     //HImage result_image = hWindow.DumpWindowImage();
                     //ho_Image = result_image;
@@ -3190,7 +3171,7 @@ public class HistogramTool_Color : Class_Tool
                     }
 
                 }
-                if (Save_NG && Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].result_job == "NG")
+                if (Save_NG && Statatic_Model.model_run.Cameras[camera_index].Views[job_index].result_job == "NG")
                 {
                     //HImage result_image = hWindow.DumpWindowImage();
                     //ho_Image = result_image;
@@ -3265,15 +3246,6 @@ public class HistogramTool_Color : Class_Tool
             HOperatorSet.GenEmptyObj(out ho_ImageClass);
             try
             {
-                //This example program shows how to segment an RGB image with a GMM
-                //classifier.  The classifier is trained with four different colors.  In contrast to
-                //other classifiers, colors that have not been trained can be rejected easily.
-
-
-                //HOperatorSet.SetWindowAttr("background_color", "black");
-                //HOperatorSet.OpenWindow(0, 0, 735, 485, 0, "visible", "", out hv_WindowHandle);
-                //HDevWindowStack.Push(hv_WindowHandle);
-                //  set_display_font(hv_WindowHandle, 14, "mono", "true", "false");
                 HOperatorSet.SetDraw(hWindow, "margin");
                 HOperatorSet.SetColored(hWindow, 6);
                 HOperatorSet.SetLineWidth(hWindow, 3);
@@ -3292,72 +3264,17 @@ public class HistogramTool_Color : Class_Tool
                         ho_ImageClass = buffer;
                     }
 
-
-
-                    //hv_Message.Dispose();
-                    //hv_Message = "Training regions for the color classifier";
-                    //   disp_message(hv_WindowHandle, hv_Message, "window", 12, 12, "black", "true");
-                    //   disp_continue_message(hv_WindowHandle, "black", "true");
-                    // stop(...); only in hdevelop
-                    //Create the classifier and add the samples.
-                    //  hv_GMMHandle.Dispose();
                     HOperatorSet.CreateClassGmm(1, count_class, (new HTuple(1)).TupleConcat(10), "full",
                         "none", 2, 42, out hv_GMMHandle);
                     HOperatorSet.AddSamplesImageClassGmm(ho_Image, ho_ImageClass, hv_GMMHandle, 2.0);
-                    //if (HDevWindowStack.IsOpen())
-                    //{
-                    //    HOperatorSet.DispObj(ho_Image, HDevWindowStack.GetActive());
-                    //}
-
                     HOperatorSet.TrainClassGmm(hv_GMMHandle, 500, 1e-4, "uniform", 1e-4, out hv_Centers,
                         out hv_Iter);
                 }
-                //ho_Image.Dispose();
-                //HOperatorSet.ReadImage(out ho_Image, "patras");
-                //if (HDevWindowStack.IsOpen())
-                //{
-                //    HOperatorSet.DispObj(ho_Image, HDevWindowStack.GetActive());
-                //}
-                //hv_Color.Dispose();
-                //hv_Color = new HTuple();
                 hv_Color[0] = "indian red";
                 hv_Color[1] = "cornflower blue";
                 hv_Color[2] = "white";
                 hv_Color[3] = "black";
                 hv_Color[4] = "yellow";
-                //Create regions that contain the training samples of the four classes
-                //ho_Sea.Dispose();
-                //HOperatorSet.GenRectangle1(out ho_Sea, 10, 10, 120, 270);
-                //ho_Deck.Dispose();
-                //HOperatorSet.GenRectangle2(out ho_Deck, (new HTuple(170)).TupleConcat(400),
-                //    (new HTuple(350)).TupleConcat(375), (new HTuple(-0.56)).TupleConcat(-0.75),
-                //    (new HTuple(64)).TupleConcat(104), (new HTuple(26)).TupleConcat(11));
-                //{
-                //    HObject ExpTmpOutVar_0;
-                //    HOperatorSet.Union1(ho_Deck, out ExpTmpOutVar_0);
-                //    ho_Deck.Dispose();
-                //    ho_Deck = ExpTmpOutVar_0;
-                //}
-                //ho_Walls.Dispose();
-                //HOperatorSet.GenRectangle1(out ho_Walls, 355, 623, 420, 702);
-                //ho_Chimney.Dispose();
-                //HOperatorSet.GenRectangle2(out ho_Chimney, 286, 623, -0.56, 64, 33);
-                //ho_Classes.Dispose();
-                //HOperatorSet.ConcatObj(ho_Sea, ho_Deck, out ho_Classes);
-                //{
-                //    HObject ExpTmpOutVar_0;
-                //    HOperatorSet.ConcatObj(ho_Classes, ho_Walls, out ExpTmpOutVar_0);
-                //    ho_Classes.Dispose();
-                //    ho_Classes = ExpTmpOutVar_0;
-                //}
-                //{
-                //    HObject ExpTmpOutVar_0;
-                //    HOperatorSet.ConcatObj(ho_Classes, ho_Chimney, out ExpTmpOutVar_0);
-                //    ho_Classes.Dispose();
-                //    ho_Classes = ExpTmpOutVar_0;
-                //}
-                // HObject ho_ImageClass;
-
                 using (HDevDisposeHelper dh = new HDevDisposeHelper())
                 {
                     {
@@ -3369,84 +3286,25 @@ public class HistogramTool_Color : Class_Tool
                 }
                 if (hv_Message == null)
                     hv_Message = new HTuple();
-
-                //  disp_message(hv_WindowHandle, hv_Message, "window", 12, 12, "black", "true");
-                //Segment (classify) the image.
                 ho_ClassRegions.Dispose();
                 HOperatorSet.ClassifyImageClassGmm(ho_Image, out ho_ClassRegions, hv_GMMHandle,
                     0.0001);
-                //ho_ImageClass.Dispose();
-                //for(int i=0;i< ho_ClassRegions.CountObj();i++)
-                //{
-                //    HOperatorSet.SetColor(hWindow, hv_Color[i]);
-                //    HOperatorSet.DispObj(ho_ClassRegions[i], hWindow);
-                //}
                 HOperatorSet.CountObj(ho_ClassRegions, out HTuple numClasses);
                 HOperatorSet.SetDraw(hWindow, "fill");
                 for (int i = 1; i <= numClasses; i++)
                 {
-                    // Lấy từng lớp (region) từ `ho_ClassRegions`
                     HOperatorSet.SelectObj(ho_ClassRegions, out HObject ho_RegionClass, i);
-
-                    // Hiển thị từng lớp
                     HOperatorSet.SetColor(hWindow, hv_Color[i]);  // Chọn màu hiển thị
                                                                   //   HOperatorSet.DispObj(ho_Image, hWindow);  // Hiển thị hình ảnh gốc
                     HOperatorSet.DispObj(ho_RegionClass, hWindow);  // Hiển thị vùng thuộc lớp i
 
-                    // Thêm thông báo hoặc dừng để quan sát từng lớp
-                    //    HOperatorSet.DispText(hWindow, $"Class {i}", "window", 12, 12, "black", new HTuple(), new HTuple());
-                    //  HOperatorSet.DispContinueMessage(hv_WindowHandle, "black", "true");
-                    // HOperatorSet.WaitSeconds(1);  // Dừng 1 giây để quan sát
                 }
-
-                //HOperatorSet.RegionToMean(ho_ClassRegions, ho_Image, out ho_ImageClass);
-
-                //HOperatorSet.DispObj(ho_ImageClass, hWindow);
-
-
-
             }
             catch (HalconException HDevExpDefaultException)
             {
-                ho_Image.Dispose();
-                ho_Sea.Dispose();
-                ho_Deck.Dispose();
-                ho_Walls.Dispose();
-                ho_Chimney.Dispose();
-                ho_Classes.Dispose();
-                ho_ClassRegions.Dispose();
-                ho_ImageClass.Dispose();
-
-                hv_WindowHandle.Dispose();
-                hv_Color.Dispose();
-                hv_Message.Dispose();
-                //  hv_GMMHandle.Dispose();
-                hv_Centers.Dispose();
-                hv_Iter.Dispose();
-
                 throw HDevExpDefaultException;
             }
-            ho_Image.Dispose();
-            ho_Sea.Dispose();
-            ho_Deck.Dispose();
-            ho_Walls.Dispose();
-            ho_Chimney.Dispose();
-            ho_Classes.Dispose();
-            ho_ClassRegions.Dispose();
-            ho_ImageClass.Dispose();
-
-            hv_WindowHandle.Dispose();
-            hv_Color.Dispose();
-            hv_Message.Dispose();
-            // hv_GMMHandle.Dispose();
-            hv_Centers.Dispose();
-            hv_Iter.Dispose();
-        
     }
-        public void draw_mask(out HObject ho_Image)
-        {
-            align_Roi(-1, 0, out ho_Image);
-        }
 
     }
     public class OCR_Tool : Class_Tool
@@ -3498,7 +3356,7 @@ public class HistogramTool_Color : Class_Tool
             HOperatorSet.GenEmptyObj(out out_bitmap);
             result_text = "";
             Result_Tool = false;
-            FixtureTool fixture = (FixtureTool)Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_follow];
+            FixtureTool fixture = (FixtureTool)Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_follow];
             double deltal_phi = fixture.master_phi -fixture.phi;
             deltal_phi = (deltal_phi * 180)/3.14;
 
@@ -3657,7 +3515,7 @@ public class HistogramTool_Color : Class_Tool
                 Result_Tool = false;
                 if (Fr_Name_Tool == "FindLine")
                 {
-                    FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+                    FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_Fr_tool];
                     Fr_X = tool.Xcenterob;
                     Fr_Y = tool.Ycenterob;
                     Fr_X1 = tool.X1ob;
@@ -3667,20 +3525,20 @@ public class HistogramTool_Color : Class_Tool
                 }
                 if (Fr_Name_Tool == "FindCircle")
                 {
-                    FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+                    FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_Fr_tool];
                     Fr_X = tool.X_center;
                     Fr_Y = tool.Y_center;
 
                 }
                 if (Fr_Name_Tool == "ShapeModel")
                 {
-                    ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+                    ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_Fr_tool];
                     Fr_X = tool.MatchResults[0].X;
                     Fr_Y = tool.MatchResults[0].Y;
                 }
                 if (To_Name_Tool == "FindLine")
                 {
-                    FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+                    FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_To_tool];
                     To_X = tool.Xcenterob;
                     To_Y = tool.Ycenterob;
                     To_X1 = tool.X1ob;
@@ -3690,14 +3548,14 @@ public class HistogramTool_Color : Class_Tool
                 }
                 if (To_Name_Tool == "FindCircle")
                 {
-                    FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+                    FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_To_tool];
                     To_X = tool.X_center;
                     To_Y = tool.Y_center;
 
                 }
                 if (To_Name_Tool == "ShapeModel")
                 {
-                    ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+                    ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_To_tool];
                     To_X = tool.MatchResults[0].X;
                     To_Y = tool.MatchResults[0].Y;
                 }
@@ -3789,7 +3647,7 @@ public class HistogramTool_Color : Class_Tool
 				Result_Tool = false;
 				if (Fr_Name_Tool == "FindLine")
 				{
-					FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+					FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_Fr_tool];
 					Fr_X = tool.Xcenterob;
 					Fr_Y = tool.Ycenterob;
 					Fr_X1 = tool.X1ob;
@@ -3799,20 +3657,20 @@ public class HistogramTool_Color : Class_Tool
 				}
 				if (Fr_Name_Tool == "FindCircle")
 				{
-					FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+					FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_Fr_tool];
 					Fr_X = tool.X_center;
 					Fr_Y = tool.Y_center;
 
 				}
 				if (Fr_Name_Tool == "ShapeModel")
 				{
-					ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_Fr_tool];
+					ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_Fr_tool];
 					Fr_X = tool.MatchResults[0].X;
 					Fr_Y = tool.MatchResults[0].Y;
 				}
 				if (To_Name_Tool == "FindLine")
 				{
-					FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+					FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_To_tool];
 					To_X = tool.Xcenterob;
 					To_Y = tool.Ycenterob;
 					To_X1 = tool.X1ob;
@@ -3822,14 +3680,14 @@ public class HistogramTool_Color : Class_Tool
 				}
 				if (To_Name_Tool == "FindCircle")
 				{
-					FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+					FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_To_tool];
 					To_X = tool.X_center;
 					To_Y = tool.Y_center;
 
 				}
 				if (To_Name_Tool == "ShapeModel")
 				{
-					ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Jobs[job_index].Images[image_index].Tools[index_To_tool];
+					ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[job_index].Components[image_index].Tools[index_To_tool];
 					To_X = tool.MatchResults[0].X;
 					To_Y = tool.MatchResults[0].Y;
 				}

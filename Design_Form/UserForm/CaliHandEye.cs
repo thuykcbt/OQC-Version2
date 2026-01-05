@@ -19,12 +19,13 @@ namespace Design_Form.UserForm
         private List<PointF> camPoints = new List<PointF>();
         private double[,] R;
         private double[] t;
-        public CaliHandEye()
+		int a, b, c, d;
+		public CaliHandEye()
         {
             InitializeComponent();
             InitializeDataGridViews();
         }
-        int index_follow = -1;
+    
         private void ParseDataPoints()
         {
             robotPoints.Clear();
@@ -119,15 +120,15 @@ namespace Design_Form.UserForm
                 matrix[1, 0] * vector[0] + matrix[1, 1] * vector[1]
             };
         }
-        public void load_parameter()
+        public void load_parameter(int camera, int view, int component, int tool_index)
         {
             try
             {
-                int a = Job_Model.Statatic_Model.camera_index;
-                int b = Job_Model.Statatic_Model.job_index;
-                int c = Job_Model.Statatic_Model.tool_index;
-                int d = Job_Model.Statatic_Model.image_index;
-               Cal_Hand_Eye_Tool tool = (Cal_Hand_Eye_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+				a = camera;
+				b = view;
+				c = tool_index;
+				d = component;
+				Cal_Hand_Eye_Tool tool = (Cal_Hand_Eye_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
                
               
             }
@@ -181,10 +182,7 @@ namespace Design_Form.UserForm
         }
         private void Save_para()
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
+           
             Job_Model.Statatic_Model.model_run.Cameras[a].R = R;
             Job_Model.Statatic_Model.model_run.Cameras[a].t = t;
         }

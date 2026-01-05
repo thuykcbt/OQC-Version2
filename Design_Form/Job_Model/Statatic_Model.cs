@@ -12,9 +12,9 @@ namespace Design_Form.Job_Model
 {
     public class Statatic_Model
     {
-        public static Model model_run=new Model();
-        public static ManagerModelMain model_list = new ManagerModelMain();
-        public static ManagerModelcs model_main_run = new ManagerModelcs();
+        public static Model model_run;
+        public static ManagerModelMain model_list ;
+        public static ManagerModelcs model_main_run ;
         public static List<VisionHalcon> Dino_lites = new List<VisionHalcon>();
         public static HTuple[,,] hommat2D = new HTuple[50,50,50];
         public static HObject[,,] Input_Image = new HObject[50,50,50];
@@ -71,6 +71,7 @@ namespace Design_Form.Job_Model
                 string file_path = Path.Combine(debugFolder, name_file);
                 var settings = new JsonSerializerSettings
                 {
+                   
                     TypeNameHandling = TypeNameHandling.Auto,
                     Formatting = Formatting.Indented
                 };

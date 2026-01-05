@@ -19,21 +19,22 @@ namespace Design_Form.UserForm
             InitializeComponent();
         }
         int index_follow = -1;
-        public void load_parameter()
+		int a, b, c, d;
+		public void load_parameter(int camera, int view, int component, int tool_index)
         {
             try
             {
-                int a = Job_Model.Statatic_Model.camera_index;
-                int b = Job_Model.Statatic_Model.job_index;
-                int c = Job_Model.Statatic_Model.tool_index;
-                int d = Job_Model.Statatic_Model.image_index;
-                combo_master.Items.Clear();
-                BlobTool tool = (BlobTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
-                for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools.Count; i++)
+				a = camera;
+				b = view;
+				c = tool_index;
+				d = component;
+				combo_master.Items.Clear();
+                BlobTool tool = (BlobTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+                for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools.Count; i++)
                 {
-                    if (Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName == "Fixture")
+                    if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName == "Fixture")
                     {
-                        combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName + ": " + i.ToString());
+                        combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName + ": " + i.ToString());
                     }
 
                 }
@@ -81,11 +82,8 @@ namespace Design_Form.UserForm
         }
         private void Save_para()
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            BlobTool tool = (BlobTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+            
+            BlobTool tool = (BlobTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             tool.index_follow= index_follow;
             tool.master_follow = combo_master.Text;
             tool.ReMove_Noise_Height =(int) numeric_Noise_High.Value;
@@ -110,7 +108,7 @@ namespace Design_Form.UserForm
             tool.fillter_step_2 = Fl_Step2.Text;
             tool.fillter_step_3 = Fl_Step3.Text;
             tool.fillter_step_4 = Fl_Step4.Text;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c] = tool;
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -120,13 +118,10 @@ namespace Design_Form.UserForm
 
         private void combo_master_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
+            
             string buffer1 = combo_master.Text;
             //  combo_master.Items.Clear();
-            for (int i = 0; i < Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools.Count; i++)
+            for (int i = 0; i < Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools.Count; i++)
             {
                 if (combo_master.Text == "Fixture: " + i.ToString())
                 {

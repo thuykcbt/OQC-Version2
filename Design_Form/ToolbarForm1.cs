@@ -144,7 +144,7 @@ namespace Design_Form
                     setting.timer1.Enabled = true;
                     barReport.Enabled = true;
                     bar_Monitor.Enabled = true;
-                    setting.update_change_model();
+                  
                     
                     monitor_Form.timer1.Enabled=false;
                   

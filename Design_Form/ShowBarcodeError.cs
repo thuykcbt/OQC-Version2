@@ -133,13 +133,13 @@ namespace Design_Form
                     {
                         HOperatorSet.ClearWindow(HSmartWindowControl1.HalconWindow);
                         HOperatorSet.DispObj(Products_Ng[0].Job_Error_Cam1[0].Image_Error_Cam, HSmartWindowControl1.HalconWindow);
-                        Job_Model.Statatic_Model.model_run.Cameras[0].Jobs[Products_Ng[0].Job_Error_Cam1[0].index_job].ExecuteAllImge(HSmartWindowControl1.HalconWindow, Products_Ng[0].Job_Error_Cam1[0].Image_Error_Cam);
+                        Job_Model.Statatic_Model.model_run.Cameras[0].Views[Products_Ng[0].Job_Error_Cam1[0].index_job].ExecuteAllImge(HSmartWindowControl1.HalconWindow, Products_Ng[0].Job_Error_Cam1[0].Image_Error_Cam);
                     }
                     if (Products_Ng[0].Job_Error_Cam2.Count > 0)
                     {
                         HOperatorSet.ClearWindow(HSmartWindowControl2.HalconWindow);
                         HOperatorSet.DispObj(Products_Ng[0].Job_Error_Cam2[0].Image_Error_Cam, HSmartWindowControl2.HalconWindow);
-                        Job_Model.Statatic_Model.model_run.Cameras[1].Jobs[Products_Ng[0].Job_Error_Cam2[0].index_job].ExecuteAllImge(HSmartWindowControl2.HalconWindow, Products_Ng[0].Job_Error_Cam2[0].Image_Error_Cam);
+                        Job_Model.Statatic_Model.model_run.Cameras[1].Views[Products_Ng[0].Job_Error_Cam2[0].index_job].ExecuteAllImge(HSmartWindowControl2.HalconWindow, Products_Ng[0].Job_Error_Cam2[0].Image_Error_Cam);
                     }
                     load_Tree_Product();
                     load_Tree_job_Cam1(0);
@@ -307,14 +307,14 @@ namespace Design_Form
                     //HOperatorSet.ClearWindow(HSmartWindowControl1.HalconWindow);
                     //HOperatorSet.DispObj(Products_Ng[tree_product].Job_Error_Cam1[0].Image_Error_Cam, HSmartWindowControl1.HalconWindow);
                     load(Products_Ng[index].Job_Error_Cam1[0].Image_Error_Cam, HSmartWindowControl1.HalconWindow);
-                    Job_Model.Statatic_Model.model_run.Cameras[0].Jobs[Products_Ng[tree_product].Job_Error_Cam1[0].index_job].ExecuteAllImge(HSmartWindowControl1.HalconWindow, Products_Ng[tree_product].Job_Error_Cam1[0].Image_Error_Cam);
+                    Job_Model.Statatic_Model.model_run.Cameras[0].Views[Products_Ng[tree_product].Job_Error_Cam1[0].index_job].ExecuteAllImge(HSmartWindowControl1.HalconWindow, Products_Ng[tree_product].Job_Error_Cam1[0].Image_Error_Cam);
                 }
                 if (Products_Ng[index].Job_Error_Cam2.Count > 0)
                 {
                     //HOperatorSet.ClearWindow(HSmartWindowControl2.HalconWindow);
                     //HOperatorSet.DispObj(Products_Ng[tree_product].Job_Error_Cam2[0].Image_Error_Cam, HSmartWindowControl2.HalconWindow);
                     load(Products_Ng[index].Job_Error_Cam2[0].Image_Error_Cam, HSmartWindowControl2.HalconWindow);
-                    Job_Model.Statatic_Model.model_run.Cameras[1].Jobs[Products_Ng[tree_product].Job_Error_Cam2[0].index_job].ExecuteAllImge(HSmartWindowControl2.HalconWindow, Products_Ng[tree_product].Job_Error_Cam2[0].Image_Error_Cam);
+                    Job_Model.Statatic_Model.model_run.Cameras[1].Views[Products_Ng[tree_product].Job_Error_Cam2[0].index_job].ExecuteAllImge(HSmartWindowControl2.HalconWindow, Products_Ng[tree_product].Job_Error_Cam2[0].Image_Error_Cam);
                 }
                 load_Tree_job_Cam1(index);
                 load_Tree_job_Cam2(index);
@@ -385,7 +385,7 @@ namespace Design_Form
                 //HOperatorSet.ClearWindow(HSmartWindowControl1.HalconWindow);
                 //HOperatorSet.DispObj(Products_Ng[tree_product].Job_Error_Cam1[tree_job_cam1].Image_Error_Cam, HSmartWindowControl1.HalconWindow);
                 load(Products_Ng[tree_product].Job_Error_Cam1[tree_job_cam1].Image_Error_Cam, HSmartWindowControl1.HalconWindow);
-                Job_Model.Statatic_Model.model_run.Cameras[0].Jobs[Products_Ng[tree_product].Job_Error_Cam1[tree_job_cam1].index_job].ExecuteAllImge(HSmartWindowControl1.HalconWindow, Products_Ng[tree_product].Job_Error_Cam1[tree_job_cam1].Image_Error_Cam);
+                Job_Model.Statatic_Model.model_run.Cameras[0].Views[Products_Ng[tree_product].Job_Error_Cam1[tree_job_cam1].index_job].ExecuteAllImge(HSmartWindowControl1.HalconWindow, Products_Ng[tree_product].Job_Error_Cam1[tree_job_cam1].Image_Error_Cam);
 
             }
             catch (Exception ex)
@@ -403,7 +403,7 @@ namespace Design_Form
                 //HOperatorSet.ClearWindow(HSmartWindowControl2.HalconWindow);
                 //HOperatorSet.DispObj(Products_Ng[tree_product].Job_Error_Cam2[tree_job_cam2].Image_Error_Cam, HSmartWindowControl2.HalconWindow);
                 load(Products_Ng[tree_product].Job_Error_Cam2[tree_job_cam2].Image_Error_Cam, HSmartWindowControl2.HalconWindow);
-                Job_Model.Statatic_Model.model_run.Cameras[1].Jobs[Products_Ng[tree_product].Job_Error_Cam2[tree_job_cam2].index_job].ExecuteAllImge(HSmartWindowControl2.HalconWindow, Products_Ng[tree_product].Job_Error_Cam2[tree_job_cam2].Image_Error_Cam);
+                Job_Model.Statatic_Model.model_run.Cameras[1].Views[Products_Ng[tree_product].Job_Error_Cam2[tree_job_cam2].index_job].ExecuteAllImge(HSmartWindowControl2.HalconWindow, Products_Ng[tree_product].Job_Error_Cam2[tree_job_cam2].Image_Error_Cam);
             }
             catch (Exception ex)
             {
@@ -422,14 +422,14 @@ namespace Design_Form
                 //    //HOperatorSet.ClearWindow(HSmartWindowControl1.HalconWindow);
                 //    //HOperatorSet.DispObj(Products_Ng[tree_product].Job_Error_Cam1[0].Image_Error_Cam, HSmartWindowControl1.HalconWindow);
                 //    load(Products_Ng[tree_product].Job_Error_Cam1[0].Image_Error_Cam, HSmartWindowControl1.HalconWindow);
-                //    Job_Model.Statatic_Model.model_run.Cameras[0].Jobs[Products_Ng[tree_product].Job_Error_Cam1[0].index_job].ExecuteAllTools(HSmartWindowControl1.HalconWindow, Products_Ng[tree_product].Job_Error_Cam1[0].Image_Error_Cam);
+                //    Job_Model.Statatic_Model.model_run.Cameras[0].Views[Products_Ng[tree_product].Job_Error_Cam1[0].index_job].ExecuteAllTools(HSmartWindowControl1.HalconWindow, Products_Ng[tree_product].Job_Error_Cam1[0].Image_Error_Cam);
                 //}
                 //if (Products_Ng[tree_product].Job_Error_Cam2.Count > 0)
                 //{
                 //    //HOperatorSet.ClearWindow(HSmartWindowControl2.HalconWindow);
                 //    //HOperatorSet.DispObj(Products_Ng[tree_product].Job_Error_Cam2[0].Image_Error_Cam, HSmartWindowControl2.HalconWindow);
                 //    load(Products_Ng[tree_product].Job_Error_Cam2[0].Image_Error_Cam, HSmartWindowControl2.HalconWindow);
-                //    Job_Model.Statatic_Model.model_run.Cameras[1].Jobs[Products_Ng[tree_product].Job_Error_Cam2[0].index_job].ExecuteAllTools(HSmartWindowControl2.HalconWindow, Products_Ng[tree_product].Job_Error_Cam2[0].Image_Error_Cam);
+                //    Job_Model.Statatic_Model.model_run.Cameras[1].Views[Products_Ng[tree_product].Job_Error_Cam2[0].index_job].ExecuteAllTools(HSmartWindowControl2.HalconWindow, Products_Ng[tree_product].Job_Error_Cam2[0].Image_Error_Cam);
                 //}
                 run_job_1(tree_product);
                 load_Tree_job_Cam1(tree_product);

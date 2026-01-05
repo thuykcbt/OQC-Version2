@@ -17,20 +17,21 @@ namespace Design_Form.UserForm
     {
         int index_follow = -1;
         int roate_image=-1;
-        public Save_image()
+		int a, b, c, d;
+		public Save_image()
         {
             InitializeComponent();
         }
-        public void load_para()
+        public void load_para(int camera, int view, int component, int tool_index)
         {
             try
             {
-                int a = Job_Model.Statatic_Model.camera_index;
-                int b = Job_Model.Statatic_Model.job_index;
-                int c = Job_Model.Statatic_Model.tool_index;
-                int d = Job_Model.Statatic_Model.image_index;
-             
-                Save_Image_Tool tool = (Save_Image_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+				a = camera;
+				b = view;
+				c = tool_index;
+				d = component;
+
+				Save_Image_Tool tool = (Save_Image_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
 
                 label1.Text = tool.file_name_OK;
                 label2.Text = tool.file_name_NG;
@@ -51,17 +52,13 @@ namespace Design_Form.UserForm
         //Button Save
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            Save_Image_Tool tool = (Save_Image_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+            Save_Image_Tool tool = (Save_Image_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             //Sigma index 0
             tool.file_name_OK = label1.Text;
             tool.file_name_NG = label2.Text;
             tool.Save_OK = Save_Image_OK.Checked;
             tool.Save_NG = Save_Image_NG.Checked;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c] = tool;
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

@@ -17,27 +17,23 @@ namespace Design_Form.UserForm
         public ImageFillter()
         {
             InitializeComponent();
-            load_parameter();
+            
         }
         int index_follow = -1;
         int index_From_Tool = -1;
         int index_To_Tool = -1;
-    
-        public void load_parameter()
+		int a, b, c, d;
+
+		public void load_parameter(int camera, int view, int component, int tool_index)
         {
             try
             {
-                int a = Job_Model.Statatic_Model.camera_index;
-                int b = Job_Model.Statatic_Model.job_index;
-                int c = Job_Model.Statatic_Model.tool_index;
-                int d = Job_Model.Statatic_Model.image_index;
-                FitLine_Tool tool = (FitLine_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+				a = camera;
+				b = view;
+				c = tool_index;
+				d = component;
+				FitLine_Tool tool = (FitLine_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
                 combo_FrPos.Items.Clear();
-          
-
-               
-               
-
             }
 
             catch (Exception ex) 
@@ -56,20 +52,11 @@ namespace Design_Form.UserForm
         }
         private void Save_para()
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            FitLine_Tool tool = (FitLine_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
-        
+            FitLine_Tool tool = (FitLine_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             tool.From_Pos = combo_FrPos.Text;
-          
-           
             tool.index_Fr_tool = index_From_Tool;
             tool.index_To_tool = index_To_Tool;
-          
-
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c] = tool;
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
   

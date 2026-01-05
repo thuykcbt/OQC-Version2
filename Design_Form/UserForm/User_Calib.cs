@@ -17,20 +17,21 @@ namespace Design_Form.UserForm
     {
         int index_follow = -1;
         int roate_image=-1;
-        public User_Calib()
+		int a, b, c, d;
+		public User_Calib()
         {
             InitializeComponent();
         }
-        public void load_para()
+        public void load_para(int camera, int view, int component, int tool_index)
         {
             try
             {
-                int a = Job_Model.Statatic_Model.camera_index;
-                int b = Job_Model.Statatic_Model.job_index;
-                int c = Job_Model.Statatic_Model.tool_index;
-                int d = Job_Model.Statatic_Model.image_index;
-             
-                Calibrate_Plate_Tool tool = (Calibrate_Plate_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+				a = camera;
+				b = view;
+				c = tool_index;
+				d = component;
+
+				Calibrate_Plate_Tool tool = (Calibrate_Plate_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
 
                 label1.Text = tool.file_image_calib;
                 label2.Text = tool.file_paracam;
@@ -54,11 +55,7 @@ namespace Design_Form.UserForm
         //Button Save
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            Calibrate_Plate_Tool tool = (Calibrate_Plate_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+            Calibrate_Plate_Tool tool = (Calibrate_Plate_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             //Sigma index 0
             tool.file_image_calib = label1.Text;
             tool.file_paracam = label2.Text;
@@ -68,7 +65,7 @@ namespace Design_Form.UserForm
             tool.Thick_Ness= (double)Thickness.Value;
             tool.Cell_Height=(double)Cell_Height.Value;
             tool.Cell_Width=(double)Cell_Width.Value;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c] = tool;
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

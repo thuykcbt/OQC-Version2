@@ -49,10 +49,10 @@ namespace Design_Form.Job_Model
         public void check_result_item(Model model,int camid)
         {
            
-                for(int j = 0; j < model.Cameras[camid].Jobs.Count; j++)
+                for(int j = 0; j < model.Cameras[camid].Views.Count; j++)
                 {
 
-                if (model.Cameras[camid].Jobs[j].result_job=="NG")
+                if (model.Cameras[camid].Views[j].result_job=="NG")
                 {
                     result = "NG";
                     break;

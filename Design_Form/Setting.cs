@@ -53,7 +53,8 @@ namespace Design_Form
 			inital_user_none();
 			inital_usercontrol();
 			inital_tool();
-			
+			Load_List_Box_Component();
+			Load_List_Box_Tools(0,0,0);	
 
 		}
 		private void inital_tool()
@@ -222,10 +223,7 @@ namespace Design_Form
 
 			cbbCam.Text = cbbCam.Items[0].ToString();
 		}
-		public void update_change_model()
-		{
-			load_Tree();
-		}
+	
 
 		private void inital_Dislay_Halcon()
 		{
@@ -316,27 +314,7 @@ namespace Design_Form
 				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
 			}
 		}
-
-
-
-
-
-		// ContextMenu Add_Job 
-		private void Add_Job_Click(object sender, EventArgs e)
-		{
-			Class_Job job = new Class_Job();
-			Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs.Add(job);
-			treejob++;
-			load_Tree();
-		}
-		// ContextMenu Add_Image
-		private void addImageTool_Click(object sender, EventArgs e)
-		{
-			Class_Image image = new Class_Image();
-			Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images.Add(image);
-			treeimage++;
-			load_Tree();
-		}
+	
 		// Combobox selet_camera
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -345,256 +323,108 @@ namespace Design_Form
 			treetool = 0;
 			treeimage = 0;
 			Job_Model.Statatic_Model.camera_index = camera;
-			if (Job_Model.Statatic_Model.model_run.Cameras.Count <= camera)
-			{
-				Job_Model.Class_Camera camera = new Class_Camera();
-				Job_Model.Statatic_Model.model_run.Cameras.Add(camera);
-			}
-			load_Tree();
+			//if (Job_Model.Statatic_Model.model_run.Cameras.Count <= camera)
+			//{
+			//	Job_Model.Class_Camera camera = new Class_Camera();
+			//	Job_Model.Statatic_Model.model_run.Cameras.Add(camera);
+			//}
+		
 		}
-		private void load_Tree()
-		{
-			try
-			{
-				treeView1.Nodes.Clear();
+		
+	
 
-				Statatic_Model.job_index = treejob;
-				Statatic_Model.tool_index = treetool;
-				Statatic_Model.image_index = treeimage;
-				for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs.Count; i++)
-				{
-					TreeNode Node = new TreeNode();
-					Node.Text = "Job" + (i).ToString() + ": " + Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[i].JobName;
-					Node.Name = (i).ToString();
-					treeView1.Nodes.Add(Node);
-					if (Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[i].Images != null)
-						for (int j = 0; j < Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[i].Images.Count; j++)
-						{
-
-							TreeNode Node1 = new TreeNode();
-							Node1.Text = "Image : " + (j).ToString();
-							Node1.Name = (j).ToString();
-							treeView1.Nodes[i].Nodes.Add(Node1);
-							for (int k = 0; k < Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[i].Images[j].Tools.Count; k++)
-							{
-								Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[i].Images[j].Tools[k].tool_index = k;
-								Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[i].Images[j].Tools[k].job_index = i;
-								Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[i].Images[j].Tools[k].image_index = j;
-								TreeNode Node3 = new TreeNode();
-								Node3.Text = "Tool" + (k).ToString() + ":" + Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[i].Images[j].Tools[k].ToolName;
-								Node3.Name = (k).ToString();
-								treeView1.Nodes[i].Nodes[j].Nodes.Add(Node3);
-							}
-
-						}
-				}
-				TreeNode Node2 = new TreeNode();
-				if (Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs.Count != 0)
-				{
-					treejob = Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs.Count - 1;
-				}
-				if (Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images.Count != 0)
-				{
-					treeimage = Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images.Count - 1;
-					if (Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools.Count != 0)
-					{
-						treetool = Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools.Count - 1;
-						Node2 = treeView1.Nodes[treejob].Nodes[treeimage].Nodes[treetool];
-					}
-					else
-					{
-						Node2 = treeView1.Nodes[treejob].Nodes[treeimage];
-					}
-				}
-				else
-				{
-					Node2 = treeView1.Nodes[treejob];
-				}
-				treeView1.SelectedNode = Node2;
-
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("Error 102" + ex.ToString());
-				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
-			}
-		}
-
-
-		private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-		{
-			try
-			{
-				TreeNode selectedNode = treeView1.SelectedNode;
-				if (selectedNode != null)
-				{
-
-					if (selectedNode.Parent != null)
-					{
-
-						if (selectedNode.Parent.Parent != null)
-						{
-
-							treejob = selectedNode.Parent.Parent.Index;
-							treeimage = selectedNode.Parent.Index;
-							treetool = selectedNode.Index;
-							Job_Model.Statatic_Model.job_index = treejob;
-							Job_Model.Statatic_Model.tool_index = treetool;
-							Job_Model.Statatic_Model.image_index = treeimage;
-							load_username();
-							load_listbox_Roi();
-							return;
-						}
-						else
-						{
-							treejob = selectedNode.Parent.Index;
-							treeimage = selectedNode.Index;
-							Job_Model.Statatic_Model.job_index = treejob;
-							Job_Model.Statatic_Model.image_index = treeimage;
-							return;
-
-						}
-
-
-						treejob = selectedNode.Parent.Parent.Index;
-						treeimage = selectedNode.Parent.Index;
-						treetool = selectedNode.Index;
-						Job_Model.Statatic_Model.job_index = treejob;
-						Job_Model.Statatic_Model.tool_index = treetool;
-						Job_Model.Statatic_Model.image_index = treeimage;
-						load_username();
-					
-
-
-
-					}
-					else
-					{
-
-
-						if (selectedNode.Parent != null)
-						{
-
-							treejob = selectedNode.Parent.Index;
-							treeimage = selectedNode.Index;
-							Job_Model.Statatic_Model.job_index = treejob;
-							Job_Model.Statatic_Model.image_index = treeimage;
-							load_username();
-							
-							return;
-						}
-						else
-						{
-
-							treejob = selectedNode.Index;
-							treeimage = -1;
-							Job_Model.Statatic_Model.job_index = treejob;
-							Job_Model.Statatic_Model.image_index = treeimage;
-							load_user_job();
-							return;
-
-						}
-
-					}
-
-				}
-			}
-			catch
-			{
-				MessageBox.Show("Error load job");
-				Statatic_Model.wirtelog.Log("Error load job");
-			}
-		}
 		private void load_username()
 		{
 			try
 			{
-				string nametool = Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].ToolName;
+				if(listBox_Component.SelectedItem==null||listBox_Tool.SelectedItem==null)
+					return;
+				string nametool = Job_Model.Statatic_Model.model_run.Cameras[camera].Views[0].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].ToolName;
 				switch (nametool)
 				{
 					case "FindLine":
 						show_user("ParaLine");
-						paraline.load_parameter();
+						paraline.load_parameter(camera,0, listBox_Component.SelectedIndex,listBox_Tool.SelectedIndex);
 						break;
 					case "ShapeModel":
 						show_user("ShapeModelPara");
-						shapeModel.load_parameter();
+						shapeModel.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "NccModel":
 						show_user("NccModelPara");
-						ncc_model_user.load_parameter();
+						ncc_model_user.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "ShapeModel_Color":
 						show_user("ShapeModelColor");
-						shapeModelColor.load_parameter();
+						shapeModelColor.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "FindDistance":
 						show_user("FindDistancePara");
-						find_distance_para.load_parameter();
+						find_distance_para.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Fixture":
 						show_user("Fixture_Tool");
-						user_fixture.load_para();
+						user_fixture.load_para(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Fixture_2":
 						show_user("Fixture_Tool2");
-						user_fixture2.load_para();
+						user_fixture2.load_para(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "FindCircle":
 						show_user("FindCirclePara");
-						find_circle_para.load_parameter();
+						find_circle_para.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Histogram":
 						show_user("HistogramPara");
-						histogram_para.load_parameter();
+						histogram_para.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Histogram_Color":
 						show_user("HistogramPara_Color");
-						histogram_color.load_parameter();
+						histogram_color.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Blob":
 						show_user("BlobPara");
-						blob_para.load_parameter();
+						blob_para.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Roate_Img":
 						show_user("RoateImage");
-						para_image.load_para();
+						para_image.load_para(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Barcode_2D":
 						show_user("Barcode2D");
-						para_barcode2D.load_parameter();
+						para_barcode2D.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Save_Image_Tool":
 						show_user("Save_image");
-						para_save_image.load_para();
+						para_save_image.load_para(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Segmentation_Tool":
 						show_user("Segmentation");
-						para_segmentation.load_parameter();
+						para_segmentation.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "OCR_Tool":
 						show_user("OCRUser");
-						OCR_user.load_parameter();
+						OCR_user.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "FitLine_Tool":
 						show_user("UserFitLine");
-						user_fitline.load_parameter();
+						user_fitline.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Calibrate_Plate_Tool":
 						show_user("User_Calib");
-						user_Calib.load_para();
+						user_Calib.load_para(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Fillter_Tool":
 						show_user("Fillter_tool");
-						fillter_tool.load_parameter();
+						fillter_tool.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Cal_Hand_Eye_Tool":
 						show_user("CaliHandEye");
-						calihandEye.load_parameter();
+						calihandEye.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "Select_model_tool":
 						show_user("Select_model");
-						select_Model.load_parameter();
+						select_Model.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 				}
 				//   treeView1.Nodes[treejob].Nodes[treetool].Text = "Tool" + (treetool).ToString() + ":" + nametool;
@@ -602,16 +432,11 @@ namespace Design_Form
 			catch (Exception e) { Job_Model.Statatic_Model.wirtelog.Log(e.ToString()); }
 
 		}
-		private void load_user_job()
-		{
-			show_user("User_Job");
-			user_job.load_parameter();
-
-		}
+	
 
 		private void timer1_Tick(object sender, EventArgs e)
 		{
-			label1.Text = "Job : " + treejob.ToString() + "Image : " + treeimage.ToString() + " " + "Tool : " + treetool.ToString() + "\r" + "Insert_Tool : " + insert_tool.ToString();
+			label1.Text = "Job : " + treejob.ToString() + "Image : " + treeimage.ToString() + " " + "Tool : " + treetool.ToString() + "\r" + "Insert_Tool : " ;
 		}
 		// Button Save Model
 		private string currentFilePath = string.Empty;
@@ -640,11 +465,11 @@ namespace Design_Form
 					LineROI roi_line = new LineROI(StartX1, StartY1, EndX2, EndY2);
 					if (treetool >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].roi_Tool.Add(roi_line);
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool.Add(roi_line);
 					}
 					else
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].roi_Tool.Add(roi_line);
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].roi_Tool.Add(roi_line);
 					}
 				}
 				if (make_roi_index == 3)
@@ -654,11 +479,11 @@ namespace Design_Form
 					RectangleROI roi_rectag = new RectangleROI(StartX, StartY, Phi, WithX, HeighY);
 					if (treetool >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].roi_Tool.Add(roi_rectag);
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool.Add(roi_rectag);
 					}
 					else
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].roi_Tool.Add(roi_rectag);
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].roi_Tool.Add(roi_rectag);
 					}
 				}
 				if (make_roi_index == 2)
@@ -668,11 +493,11 @@ namespace Design_Form
 					CircleROI roi_circle = new CircleROI(StartX, StartY, Radius);
 					if (treetool >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].roi_Tool.Add(roi_circle);
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool.Add(roi_circle);
 					}
 					else
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].roi_Tool.Add(roi_circle);
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].roi_Tool.Add(roi_circle);
 					}
 				}
 				if (make_roi_index == 4)
@@ -680,14 +505,14 @@ namespace Design_Form
 					List<double> Row, Col;
 					libaryHalcon.get_roi_Pylygon(libaryHalcon.Drawobject_Polygy[0], out Row, out Col);
 					PolygonROI polygonROI = new PolygonROI(Row, Col);
-					Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].roi_Tool.Add(polygonROI);
+					Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool.Add(polygonROI);
 					if (treetool >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].roi_Tool.Add(polygonROI);
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool.Add(polygonROI);
 					}
 					else
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].roi_Tool.Add(polygonROI);
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].roi_Tool.Add(polygonROI);
 					}
 				}
 				load_listbox_Roi();
@@ -703,9 +528,9 @@ namespace Design_Form
 		private void load_listbox_Roi()
 		{
 			listBox_Roi.DisplayMember = "Type";
-			listBox_Roi.DataSource = Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].roi_Tool;
+			listBox_Roi.DataSource = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool;
 		}
-		int roi_index;
+	
 		
 
 		Stopwatch Cycletime = new Stopwatch();
@@ -715,16 +540,16 @@ namespace Design_Form
 			try
 			{
 				Job_Model.Statatic_Model.Input_Image[camera, treejob, 0] = InputIMG;
-				Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].show_text = true;
+				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].show_text = true;
 				Cycletime.Restart();
 				if (checkEdit_stepbystep.Checked)
 				{
-					Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].stepbystep = true;
+					Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].stepbystep = true;
 				}
-				string name_tool = Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].ToolName;
+				string name_tool = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].ToolName;
 				if (name_tool == "ShapeModel")
 				{
-					ShapeModelTool shapeModel1 = (ShapeModelTool)Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool];
+					ShapeModelTool shapeModel1 = (ShapeModelTool)Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool];
 					if (shapeModel.checkBox1.Checked)
 					{
 
@@ -738,11 +563,11 @@ namespace Design_Form
 						resultShapeModel.result_Shapemodel();
 					}
 					Cycletime.Stop();
-					label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
+					label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
 				}
 				if (name_tool == "ShapeModel_Color")
 				{
-					ShapeModelTool_Color shapeModel1 = (ShapeModelTool_Color)Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool];
+					ShapeModelTool_Color shapeModel1 = (ShapeModelTool_Color)Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool];
 					if (shapeModelColor.checkBox1.Checked)
 					{
 
@@ -756,11 +581,11 @@ namespace Design_Form
 						resultShapeModel.result_Shapemodel_Color();
 					}
 					Cycletime.Stop();
-					label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
+					label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
 				}
 				if (name_tool == "NccModel")
 				{
-					NccModelTool shapeModel1 = (NccModelTool)Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool];
+					NccModelTool shapeModel1 = (NccModelTool)Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool];
 					if (ncc_model_user.checkBox1.Checked)
 					{
 
@@ -774,13 +599,13 @@ namespace Design_Form
 						resultShapeModel.result_Nccmodel();
 					}
 					Cycletime.Stop();
-					label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
+					label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
 				}
 				else
 				{
-					Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].Excute_OnlyTool(HSmartWindowControl.HalconWindow, Job_Model.Statatic_Model.Input_Image[camera, treejob, 0]);
+					Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].Excute_OnlyTool(HSmartWindowControl.HalconWindow, Job_Model.Statatic_Model.Input_Image[camera, treejob, 0]);
 					Cycletime.Stop();
-					label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
+					label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
 					load_result_tool("ResultShapeModel");
 					if (name_tool == "FindLine")
 					{
@@ -799,7 +624,7 @@ namespace Design_Form
 						resultShapeModel.Result_FindCircle();
 					}
 				}
-				Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].stepbystep = false;
+				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].stepbystep = false;
 				checkEdit_stepbystep.Checked = false;
 				InputIMG = Job_Model.Statatic_Model.Input_Image[camera, treejob, 0];
 			}
@@ -811,6 +636,7 @@ namespace Design_Form
 
 		}
 		// button edit roi
+		int roi_index = -1;
 		private void simpleButton9_Click(object sender, EventArgs e)
 		{
 			try
@@ -822,11 +648,11 @@ namespace Design_Form
 					LineROI roi_line = new LineROI(StartX1, StartY1, EndX2, EndY2);
 					if (treetool >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].roi_Tool[roi_index] = roi_line;
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool[roi_index] = roi_line;
 					}
 					else
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].roi_Tool[roi_index] = roi_line;
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].roi_Tool[roi_index] = roi_line;
 					}
 
 				}
@@ -837,11 +663,11 @@ namespace Design_Form
 					RectangleROI roi_rectag = new RectangleROI(StartX, StartY, Phi, WithX, HeighY);
 					if (treetool >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].roi_Tool[roi_index] = roi_rectag;
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool[roi_index] = roi_rectag;
 					}
 					else
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].roi_Tool[roi_index] = roi_rectag;
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].roi_Tool[roi_index] = roi_rectag;
 					}
 				}
 				if (make_roi_index == 2)
@@ -851,11 +677,11 @@ namespace Design_Form
 					CircleROI roi_circle = new CircleROI(StartX, StartY, Radius);
 					if (treetool >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].roi_Tool[roi_index] = roi_circle;
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool[roi_index] = roi_circle;
 					}
 					else
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].roi_Tool[roi_index] = roi_circle;
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].roi_Tool[roi_index] = roi_circle;
 					}
 				}
 				if (make_roi_index == 4)
@@ -865,11 +691,11 @@ namespace Design_Form
 					PolygonROI roi_polygon = new PolygonROI(Row, Col);
 					if (treetool >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].roi_Tool[roi_index] = roi_polygon;
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool[roi_index] = roi_polygon;
 					}
 					else
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].roi_Tool[roi_index] = roi_polygon;
+						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].roi_Tool[roi_index] = roi_polygon;
 					}
 				}
 			
@@ -884,58 +710,26 @@ namespace Design_Form
 		{
 			if (treetool >= 0)
 			{
-				Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].roi_Tool.RemoveAt(roi_index);
+				Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool.RemoveAt(roi_index);
 			}
 			else
 			{
-				Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].roi_Tool.RemoveAt(roi_index);
+				Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].roi_Tool.RemoveAt(roi_index);
 			}
 
 		
 		}
 
-		private void Delete_Tool_Click(object sender, EventArgs e)
-		{
-			TreeNode selectedNode = treeView1.SelectedNode;
-			if (selectedNode != null)
-			{
-				if (selectedNode.Parent != null)
-				{
-					//treeView1.Nodes[treejob].Nodes.Remove(selectedNode.Parent);
-					Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools.Remove(Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool]);
-					treetool--;
-				}
-				else
-				{
-					// treeView1.Nodes.Remove(selectedNode);
-					treejob = selectedNode.Index;
-					Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs.Remove(Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob]);
-					treejob--;
-				}
-				load_Tree();
-			}
-		}
-		private void Refresh_Click(object sender, EventArgs e)
-		{
-			load_Tree();
-		}
-		public bool insert_tool = false;
-		private void Insert_Tool_Click(object sender, EventArgs e)
-		{
-			if (insert_tool)
-			{
-				insert_tool = false;
-			}
-			else
-				insert_tool = true;
-		}
+		
+		
+	
 		// button creat model
 
 		// button capture
 		private void simpleButton5_Click(object sender, EventArgs e)
 		{
 
-			Job_Model.Statatic_Model.Dino_lites[camera].SETPARAMETERCAMERA("ExposureTime", Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Exposure);
+			Job_Model.Statatic_Model.Dino_lites[camera].SETPARAMETERCAMERA("ExposureTime", Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Exposure);
 
 			Cycletime.Restart();
 			InputIMG = Job_Model.Statatic_Model.Dino_lites[camera].capture_halcom();
@@ -1093,33 +887,16 @@ namespace Design_Form
 		{
 			Cycletime.Restart();
 			Job_Model.Statatic_Model.Input_Image[camera, treejob, 0] = InputIMG;
-			Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].auto_check = false;
-			Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].ExecuteAllImge(HSmartWindowControl.HalconWindow, Job_Model.Statatic_Model.Input_Image[camera, treejob, 0]);
+			Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].auto_check = false;
+			Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].ExecuteAllImge(HSmartWindowControl.HalconWindow, Job_Model.Statatic_Model.Input_Image[camera, treejob, 0]);
 			InputIMG = Job_Model.Statatic_Model.Input_Image[camera, treejob, 0];
 			Cycletime.Stop();
 			label3.Text = "Cycle Time :" + "Job :" + treejob.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
 		}
-		private void update_index_tool(Class_Tool tool, int index_tool)
-		{
-			treetool = index_tool - 1;
-			tool.camera_index = camera;
-			tool.job_index = treejob;
-			tool.tool_index = treetool;
-		}
-		private void update_insert_tool(Class_Tool tool)
-		{
-
-			Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools.Insert(treetool, tool);
-			for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools.Count; i++)
-			{
-				Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[i].tool_index = i;
-			}
-			insert_tool = false;
-		}
 		private bool check_add_tool()
 		{
 			bool check = false;
-			if (Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images.Count > 0)
+			if (Statatic_Model.model_run.Cameras[camera].Views[treejob].Components.Count > 0)
 				check = true;
 			else
 			{
@@ -1161,7 +938,7 @@ namespace Design_Form
 		}
 		private void numeric_cali_ValueChanged(object sender, EventArgs e)
 		{
-			Job_Model.Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools[treetool].cali = (double)numeric_cali.Value;
+			Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].cali = (double)numeric_cali.Value;
 		}
 
 		#region make Roi
@@ -1200,19 +977,12 @@ namespace Design_Form
 			{
 				return;
 			}
-			if (!insert_tool)
-			{
-				Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools.Add(tools[index]);
-				update_index_tool(tools[index], Statatic_Model.model_run.Cameras[camera].Jobs[treejob].Images[treeimage].Tools.Count);
-			}
-			else
-			{
-				update_insert_tool(tools[index]);
-			}
-			load_Tree();
+			Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools.Add(tools[index]);
 			load_username();
+			Load_List_Box_Tools(camera,0,listBox_Component.SelectedIndex);
+			listBox_Tool.SelectedIndex = Statatic_Model.model_run.Cameras[camera].Views[0].Components[listBox_Component.SelectedIndex].Tools.Count - 1;
 		}
-
+		
 		private void ImageProcess_ListItemClick(object sender, ListItemClickEventArgs e)
 		{
 			add_tool_process(ImageProcess.ItemIndex, tool_Image_Process);
@@ -1233,13 +1003,54 @@ namespace Design_Form
 			add_tool_process(DetectObject.ItemIndex, tool_Detection);
 		}
 		#endregion
-		private void add_conponent()
+		private void barButtonItem32_ItemClick(object sender, ItemClickEventArgs e)
 		{
-
+			string selectedValue = "Fiducial_Mark";
+			Statatic_Model.model_run.Cameras[camera].Views[treejob].Components.Add(new Class_Components(selectedValue));
+			listBox_Component.SelectedIndex = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components.Count - 1;
 		}
 		private void Componenent_FaceA_ListItemClick(object sender, ListItemClickEventArgs e)
 		{
-			
+			string selectedValue = Componenent_FaceA.Strings[Componenent_FaceA.ItemIndex];
+			Statatic_Model.model_run.Cameras[camera].Views[treejob].Components.Add(new Class_Components(selectedValue));
+			listBox_Component.SelectedIndex = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components.Count-1;
 		}
+
+		private void Component_FaceB_ListItemClick(object sender, ListItemClickEventArgs e)
+		{
+			string selectedValue = Component_FaceB.Strings[Component_FaceB.ItemIndex];
+			Statatic_Model.model_run.Cameras[camera].Views[treejob].Components.Add(new Class_Components(selectedValue));
+			listBox_Component.SelectedIndex = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components.Count - 1;
+		}
+
+		private void Delete_Component_Click(object sender, EventArgs e)
+		{
+			if (listBox_Component.SelectedItem != null)
+			{
+				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components.RemoveAt(listBox_Component.SelectedIndex);
+			}
+		}
+		public void Load_List_Box_Component()
+		{
+			listBox_Component.DisplayMember = "Name_component";
+			listBox_Component.DataSource = Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components;
+		}
+		public void Load_List_Box_Tools(int camera_index,int Views_index,int Component_index)
+		{
+			listBox_Tool.DisplayMember = "ToolName";
+			listBox_Tool.DataSource = Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[Views_index].Components[Component_index].Tools;
+		}
+
+		private void listBox_Component_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			Load_List_Box_Tools(camera, 0, listBox_Component.SelectedIndex);
+		}
+
+		private void listBox_Tool_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			load_username();
+		}
+
+		
 	}
 }

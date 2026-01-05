@@ -42,10 +42,10 @@ namespace Design_Form
         {
             cbbJob.Items.Clear();
             int a = 0;
-            for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs.Count; i++)
+            for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views.Count; i++)
             {
                 a++;
-                cbbJob.Items.Add("Job :" + i + Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[i].JobName);
+                cbbJob.Items.Add("Job :" + i + Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[i].ViewsName);
             }
         }
 
@@ -62,12 +62,12 @@ namespace Design_Form
         }
         private void load_para_camera()
         {
-            numericContract.Value = (decimal)Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[index_job].Contrast;
-            numericBrightness.Value = (decimal)Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[index_job].Brightness;
-            numericExposure.Value = (decimal)Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[index_job].Exposure;
-            Job_Model.Statatic_Model.Dino_lites[index_camera].SETPARAMETERCAMERA("Contrast", Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[index_job].Contrast);
-            Job_Model.Statatic_Model.Dino_lites[index_camera].SETPARAMETERCAMERA("Gain", Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[index_job].Brightness);
-            Job_Model.Statatic_Model.Dino_lites[index_camera].SETPARAMETERCAMERA("ExposureTime", Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[index_job].Exposure);
+            numericContract.Value = (decimal)Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[index_job].Contrast;
+            numericBrightness.Value = (decimal)Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[index_job].Brightness;
+            numericExposure.Value = (decimal)Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[index_job].Exposure;
+            Job_Model.Statatic_Model.Dino_lites[index_camera].SETPARAMETERCAMERA("Contrast", Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[index_job].Contrast);
+            Job_Model.Statatic_Model.Dino_lites[index_camera].SETPARAMETERCAMERA("Gain", Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[index_job].Brightness);
+            Job_Model.Statatic_Model.Dino_lites[index_camera].SETPARAMETERCAMERA("ExposureTime", Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[index_job].Exposure);
         }
         public void run_livecamera1()
         {
@@ -156,22 +156,22 @@ namespace Design_Form
         private void numericExposure_ValueChanged(object sender, EventArgs e)
         {
             if(cbbCam.Text==""|| cbbJob.Text=="") return;
-            Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[index_job].Exposure = (int)numericExposure.Value;
-            Job_Model.Statatic_Model.Dino_lites[index_camera].SETPARAMETERCAMERA("ExposureTime", Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[index_job].Exposure);
+            Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[index_job].Exposure = (int)numericExposure.Value;
+            Job_Model.Statatic_Model.Dino_lites[index_camera].SETPARAMETERCAMERA("ExposureTime", Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[index_job].Exposure);
         }
 
         private void numericContract_ValueChanged(object sender, EventArgs e)
         {
             if (cbbCam.Text == "" || cbbJob.Text == "") return;
-            Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[index_job].Contrast = (int)numericContract.Value;
-            Job_Model.Statatic_Model.Dino_lites[index_camera].SETPARAMETERCAMERA("Contrast", Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[index_job].Contrast);
+            Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[index_job].Contrast = (int)numericContract.Value;
+            Job_Model.Statatic_Model.Dino_lites[index_camera].SETPARAMETERCAMERA("Contrast", Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[index_job].Contrast);
         }
 
         private void numericBrightness_ValueChanged(object sender, EventArgs e)
         {
             if (cbbCam.Text == "" || cbbJob.Text == "") return;
-            Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[index_job].Brightness = (int)numericBrightness.Value;
-            Job_Model.Statatic_Model.Dino_lites[index_camera].SETPARAMETERCAMERA("Gain", Job_Model.Statatic_Model.model_run.Cameras[index_camera].Jobs[index_job].Brightness);
+            Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[index_job].Brightness = (int)numericBrightness.Value;
+            Job_Model.Statatic_Model.Dino_lites[index_camera].SETPARAMETERCAMERA("Gain", Job_Model.Statatic_Model.model_run.Cameras[index_camera].Views[index_job].Brightness);
         }
 
         

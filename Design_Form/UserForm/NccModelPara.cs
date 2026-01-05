@@ -20,21 +20,22 @@ namespace Design_Form.UserForm
             InitializeComponent();
         }
         int index_follow = -1;
-        public void load_parameter()
+		int a, b, c, d;
+		public void load_parameter(int camera, int view, int component, int tool_index)
         {
             try
             {
-                int a = Job_Model.Statatic_Model.camera_index;
-                int b = Job_Model.Statatic_Model.job_index;
-                int c = Job_Model.Statatic_Model.tool_index;
-                int d = Job_Model.Statatic_Model.image_index;
-                combo_master.Items.Clear();
-                NccModelTool shapeModel = (NccModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
-                for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools.Count; i++)
+				a = camera;
+				b = view;
+				c = tool_index;
+				d = component;
+				combo_master.Items.Clear();
+                NccModelTool shapeModel = (NccModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+                for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools.Count; i++)
                 {
-                    if (Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName == "Fixture")
+                    if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName == "Fixture")
                     {
-                        combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[i].ToolName + ": " + i.ToString());
+                        combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName + ": " + i.ToString());
                     }
 
                 }
@@ -45,7 +46,6 @@ namespace Design_Form.UserForm
                 numeric_MinScore.Value = (decimal)shapeModel.MinScore;
                 numeric_NumberMatch.Value = (decimal)shapeModel.NumberOfMatches;
                 numeric_Level.Value = (decimal)shapeModel.numlever;
-            
                 numeric_Overlap.Value = (decimal)shapeModel.MaxOverlap;
                 combo_SubPixel.Text = shapeModel.SubPixel;
                 combo_Metric.Text = shapeModel.metric;
@@ -55,8 +55,6 @@ namespace Design_Form.UserForm
                 comboBox1.Text= shapeModel.item_check;
                 Max_Phi.Value = (decimal)shapeModel.MaxPhi;
                 Min_Phi.Value = (decimal)shapeModel.MinPhi;
-              
-
             }
 
             catch (Exception ex) 
@@ -69,11 +67,7 @@ namespace Design_Form.UserForm
         
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            NccModelTool shapeModel = (NccModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+            NccModelTool shapeModel = (NccModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             FolderBrowserDialog saveFileDialog = new FolderBrowserDialog();
             //saveFileDialog.Filter = "Model Files (*.model)|*.model"; // Bộ lọc định dạng file;
             //saveFileDialog.Title = "Save As";
@@ -83,7 +77,7 @@ namespace Design_Form.UserForm
                 shapeModel.ModelFilePath = saveFileDialog.SelectedPath;
                 string file_name = shapeModel.ModelFilePath + "\\_Nccmodel" + shapeModel.job_index + shapeModel.tool_index + ".model";
                 shapeModel.ModelReadPath = file_name;
-                Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c] = shapeModel;
+                Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = shapeModel;
                 label1.Text = saveFileDialog.SelectedPath;
             }
         }
@@ -96,11 +90,7 @@ namespace Design_Form.UserForm
         }
         private void Save_para()
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            NccModelTool shapeModel = (NccModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+            NccModelTool shapeModel = (NccModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             shapeModel.index_follow= index_follow;
             shapeModel.FollowMaster = combo_master.Text;
             shapeModel.StartAngle =(double) numeric_AgStart.Value;
@@ -117,7 +107,7 @@ namespace Design_Form.UserForm
             shapeModel.MaxPhi = (double)Max_Phi.Value;
             shapeModel.MinPhi = (double)Min_Phi.Value;
             shapeModel.metric = combo_Metric.Text;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c] = shapeModel;
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = shapeModel;
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -127,13 +117,9 @@ namespace Design_Form.UserForm
 
         private void combo_master_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
             string buffer1 = combo_master.Text;
             //  combo_master.Items.Clear();
-            for (int i = 0; i < Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools.Count; i++)
+            for (int i = 0; i < Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools.Count; i++)
             {
                 if (combo_master.Text == "Fixture: " + i.ToString())
                 {

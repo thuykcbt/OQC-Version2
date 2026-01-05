@@ -35,7 +35,7 @@ namespace Design_Form.UserForm
             table.Columns.Add("Y_Center", typeof(double));
             table.Columns.Add("Phi_Center", typeof(double));
           
-            ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+            ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             
             for (int i = 0; i < tool.MatchResults.Count; i++)
             {
@@ -61,7 +61,7 @@ namespace Design_Form.UserForm
             table.Columns.Add("Y_Center", typeof(double));
             table.Columns.Add("Phi_Center", typeof(double));
 
-            ShapeModelTool_Color tool = (ShapeModelTool_Color)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+            ShapeModelTool_Color tool = (ShapeModelTool_Color)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
 
             for (int i = 0; i < tool.MatchResults.Count; i++)
             {
@@ -87,7 +87,7 @@ namespace Design_Form.UserForm
 			table.Columns.Add("Y_Center", typeof(double));
 			table.Columns.Add("Phi_Center", typeof(double));
 
-			NccModelTool tool = (NccModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+			NccModelTool tool = (NccModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
 
 			for (int i = 0; i < tool.MatchResults.Count; i++)
 			{
@@ -111,7 +111,7 @@ namespace Design_Form.UserForm
             table.Columns.Add("Area", typeof(double));
             table.Columns.Add("W", typeof(double));
             table.Columns.Add("H", typeof(double));
-            BlobTool tool = (BlobTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+            BlobTool tool = (BlobTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             for (int i = 0;i<tool.Result_Area.GetLength(0); i++)
             {
                 if (tool.Result_Area[i] != 0)
@@ -132,7 +132,7 @@ namespace Design_Form.UserForm
             table.Clear();
             table.Rows.Clear();
             table.Columns.Clear();
-            HistogramTool tool = (HistogramTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+            HistogramTool tool = (HistogramTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             table.Columns.Add("Pixel_Map", typeof(int));
             table.Columns.Add("Total_Point", typeof(int));
             for (int i = 0; i < tool.map_pixel.GetLength(0); i++)
@@ -151,7 +151,7 @@ namespace Design_Form.UserForm
             table.Clear();
             table.Rows.Clear();
             table.Columns.Clear();
-            FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+            FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             table.Columns.Add("Stt", typeof(int));
             table.Columns.Add("Center_X", typeof(double));
             table.Columns.Add("Center_Y", typeof(double));
@@ -169,7 +169,7 @@ namespace Design_Form.UserForm
             table.Clear();
             table.Rows.Clear();
             table.Columns.Clear();
-            FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+            FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             table.Columns.Add("Stt", typeof(int));
             table.Columns.Add("Start_X", typeof(double));
             table.Columns.Add("Start_Y", typeof(double));
@@ -189,7 +189,7 @@ namespace Design_Form.UserForm
             table.Clear();
             table.Rows.Clear();
             table.Columns.Clear();
-            FindDistanceTool tool = (FindDistanceTool)Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Images[d].Tools[c];
+            FindDistanceTool tool = (FindDistanceTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             table.Columns.Add("Stt", typeof(int));
             table.Columns.Add("Distance_Pixel", typeof(double));
             table.Columns.Add("Distance_mm", typeof(double));

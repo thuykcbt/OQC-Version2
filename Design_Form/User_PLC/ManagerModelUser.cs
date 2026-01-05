@@ -37,14 +37,24 @@ namespace Design_Form.User_PLC
                 }
                 var settings = new JsonSerializerSettings
                 {
-                    TypeNameHandling = TypeNameHandling.Auto
+					ObjectCreationHandling = ObjectCreationHandling.Replace,
+					TypeNameHandling = TypeNameHandling.Auto
                 };
 
                 string json = File.ReadAllText(name_file);
 
                 Job_Model.Statatic_Model.model_list = JsonConvert.DeserializeObject<ManagerModelMain>(json, settings);
-                Job_Model.Statatic_Model.model_main_run = Job_Model.Statatic_Model.model_list.models[Job_Model.Statatic_Model.model_list.selection_Model];
-                Job_Model.Statatic_Model.model_run = Job_Model.Statatic_Model.model_list.models[Job_Model.Statatic_Model.model_list.selection_Model].models[Job_Model.Statatic_Model.model_list.models[Job_Model.Statatic_Model.model_list.selection_Model].selection_Model];
+                Job_Model.Statatic_Model.model_main_run = Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model];
+                int index = 0;
+                for (int i = 0; i < Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model].models_sub.Count;i++)
+                {
+                    if (Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model].selection_Model == Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model].models_sub[i].ID)
+                    {
+						index=i; break;
+
+					}
+                }
+                Job_Model.Statatic_Model.model_run = Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model].models_sub[index];
             }
             catch (Exception ex)
             {
@@ -58,8 +68,9 @@ namespace Design_Form.User_PLC
             try
             {
                 ManagerModelcs managerModelcs = new ManagerModelcs();
-                Job_Model.Statatic_Model.model_list.models.Clear();
-                Job_Model.Statatic_Model.model_list.models.Add(managerModelcs);
+                managerModelcs.Name_model = "Model Main";
+				Job_Model.Statatic_Model.model_list.models_main.Clear();
+                Job_Model.Statatic_Model.model_list.models_main.Add(managerModelcs);
                 var settings = new JsonSerializerSettings
                 {
                     TypeNameHandling = TypeNameHandling.Auto,
@@ -80,9 +91,9 @@ namespace Design_Form.User_PLC
         {
             if (listbox_Model.Items.Count > 0)
             {
-                for (int i = 0; i < Job_Model.Statatic_Model.model_list.models.Count; i++)
+                for (int i = 0; i < Job_Model.Statatic_Model.model_list.models_main.Count; i++)
                 {
-                    if (Job_Model.Statatic_Model.model_list.selection_Model == Job_Model.Statatic_Model.model_list.models[i].ID)
+                    if (Job_Model.Statatic_Model.model_list.selection_Model == Job_Model.Statatic_Model.model_list.models_main[i].ID)
                     {
                         listbox_Model.SelectedIndex = i;
                     }
@@ -93,9 +104,9 @@ namespace Design_Form.User_PLC
         {
             if (listbox_ModelSub.Items.Count > 0)
             {
-                for (int i = 0; i < Job_Model.Statatic_Model.model_list.models[Job_Model.Statatic_Model.model_list.selection_Model].models.Count; i++)
+                for (int i = 0; i < Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model].models_sub.Count; i++)
                 {
-                    if (Job_Model.Statatic_Model.model_list.models[Job_Model.Statatic_Model.model_list.selection_Model].selection_Model == Job_Model.Statatic_Model.model_list.models[Job_Model.Statatic_Model.model_list.selection_Model].models[i].ID)
+                    if (Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model].selection_Model == Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model].models_sub[i].ID)
                     {
                         listbox_ModelSub.SelectedIndex = i;
                     }
@@ -107,9 +118,9 @@ namespace Design_Form.User_PLC
             try
             {
                 listbox_Model.DisplayMember = "Name_model";
-                listbox_Model.DataSource = Job_Model.Statatic_Model.model_list.models;
+                listbox_Model.DataSource = Job_Model.Statatic_Model.model_list.models_main;
                 listbox_ModelSub.DisplayMember = "Name_Model";
-                listbox_ModelSub.DataSource = Job_Model.Statatic_Model.model_list.models[Job_Model.Statatic_Model.model_list.selection_Model].models;
+                listbox_ModelSub.DataSource = Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model].models_sub;
 
                 // chọn mặc định model đầu tiên
                 find_index_list_main();
@@ -162,8 +173,9 @@ namespace Design_Form.User_PLC
             try
             {
                 Job_Model.ManagerModelcs Modelnew = new Job_Model.ManagerModelcs();
-                Modelnew.ID = Job_Model.Statatic_Model.model_list.models[Job_Model.Statatic_Model.model_list.models.Count - 1].ID + 1;
-                Job_Model.Statatic_Model.model_list.models.Add(Modelnew);
+                Modelnew.Name_model = "Model Main";
+                Modelnew.ID = Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.models_main.Count - 1].ID + 1;
+                Job_Model.Statatic_Model.model_list.models_main.Add(Modelnew);
                
             }
             catch (Exception ex)
@@ -179,10 +191,10 @@ namespace Design_Form.User_PLC
         {
             try
             {
-                Job_Model.Statatic_Model.model_main_run = Job_Model.Statatic_Model.model_list.models[listbox_Model.SelectedIndex];
+                Job_Model.Statatic_Model.model_main_run = Job_Model.Statatic_Model.model_list.models_main[listbox_Model.SelectedIndex];
                 label1.Text = "Main Model Select :" + Job_Model.Statatic_Model.model_main_run.Name_model;
                 Job_Model.Statatic_Model.model_list.selection_Model = Job_Model.Statatic_Model.model_main_run.ID;
-                listbox_ModelSub.DataSource = Job_Model.Statatic_Model.model_list.models[Job_Model.Statatic_Model.model_list.selection_Model].models;
+                listbox_ModelSub.DataSource = Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model].models_sub;
             }
             catch (Exception ex)
             {
@@ -206,7 +218,7 @@ namespace Design_Form.User_PLC
                 if (result == DialogResult.Yes)
                 {
                     // Người dùng chọn YES
-                    Job_Model.Statatic_Model.model_list.models.RemoveAt(listbox_Model.SelectedIndex);
+                    Job_Model.Statatic_Model.model_list.models_main.RemoveAt(listbox_Model.SelectedIndex);
                   
 
                 }
@@ -244,7 +256,7 @@ namespace Design_Form.User_PLC
 
                 // Update item
                 int index= listbox_Model.SelectedIndex;
-                Job_Model.Statatic_Model.model_list.models[index].Name_model = newName;
+                Job_Model.Statatic_Model.model_list.models_main[index].Name_model = newName;
             }
             catch (Exception ex)
             {
@@ -296,17 +308,20 @@ namespace Design_Form.User_PLC
             try
             {
                 Job_Model.Model modelnew = new Job_Model.Model();
-                for (int i = 0; i < Job_Model.Statatic_Model.Dino_lites.Count; i++)
+				
+
+                modelnew = new Job_Model.Model();
+				if (Job_Model.Statatic_Model.model_list.models_main[listbox_Model.SelectedIndex].models_sub.Count>0)
                 {
-                    Job_Model.Class_Camera camera = new Job_Model.Class_Camera();
-                    Job_Model.Class_Job class_Job = new Job_Model.Class_Job();
-                    Job_Model.Class_Image class_Image = new Job_Model.Class_Image();
-                    modelnew.Cameras.Add(camera);
-                    modelnew.Cameras[i].Jobs.Add(class_Job);
-                    modelnew.Cameras[i].Jobs[i].Images.Add(class_Image);
-                }
-                modelnew.ID = Job_Model.Statatic_Model.model_list.models[listbox_Model.SelectedIndex].models[Job_Model.Statatic_Model.model_list.models[listbox_Model.SelectedIndex].models.Count - 1].ID + 1;
-                Job_Model.Statatic_Model.model_list.models[listbox_Model.SelectedIndex].models.Add(modelnew);
+					modelnew.ID = Job_Model.Statatic_Model.model_list.models_main[listbox_Model.SelectedIndex].models_sub[Job_Model.Statatic_Model.model_list.models_main[listbox_Model.SelectedIndex].models_sub.Count - 1].ID + 1;
+				}
+                else
+                {
+                    modelnew.ID = 0;
+
+				}
+              
+                Job_Model.Statatic_Model.model_list.models_main[listbox_Model.SelectedIndex].models_sub.Add(modelnew);
               
             }
             catch (Exception ex)
@@ -378,12 +393,12 @@ namespace Design_Form.User_PLC
                 if (result == DialogResult.Yes)
                 {
                     // Người dùng chọn YES
-                    if (Job_Model.Statatic_Model.model_list.models[listbox_Model.SelectedIndex].selection_Model == listbox_ModelSub.SelectedIndex)
+                    if (Job_Model.Statatic_Model.model_list.models_main[listbox_Model.SelectedIndex].selection_Model == listbox_ModelSub.SelectedIndex)
                     {
                         MessageBox.Show("Khong duoc xoa model dang chay");
                         return;
                     }
-                    Job_Model.Statatic_Model.model_list.models[listbox_Model.SelectedIndex].models.RemoveAt(listbox_ModelSub.SelectedIndex);
+                    Job_Model.Statatic_Model.model_list.models_main[listbox_Model.SelectedIndex].models_sub.RemoveAt(listbox_ModelSub.SelectedIndex);
 
                    
                 }
@@ -401,9 +416,9 @@ namespace Design_Form.User_PLC
         {
             try
             {
-                Job_Model.Statatic_Model.model_run = Job_Model.Statatic_Model.model_list.models[listbox_Model.SelectedIndex].models[listbox_ModelSub.SelectedIndex];
+                Job_Model.Statatic_Model.model_run = Job_Model.Statatic_Model.model_list.models_main[listbox_Model.SelectedIndex].models_sub[listbox_ModelSub.SelectedIndex];
                 label2.Text = "Sub Model Select :" + Job_Model.Statatic_Model.model_run.Name_Model;
-                Job_Model.Statatic_Model.model_list.models[listbox_Model.SelectedIndex].selection_Model = Job_Model.Statatic_Model.model_run.ID;
+                Job_Model.Statatic_Model.model_list.models_main[listbox_Model.SelectedIndex].selection_Model = Job_Model.Statatic_Model.model_run.ID;
             }
             catch (Exception ex)
             {
@@ -430,7 +445,7 @@ namespace Design_Form.User_PLC
                 // Update item
                 int index = listbox_ModelSub.SelectedIndex;
                 //listbox_Model.Items[index] = newName;
-                Job_Model.Statatic_Model.model_list.models[Job_Model.Statatic_Model.model_list.selection_Model].models[index].Name_Model = newName;
+                Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model].models_sub[index].Name_Model = newName;
             }
             catch (Exception ex)
             {

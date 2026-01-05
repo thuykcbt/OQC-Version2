@@ -17,7 +17,7 @@ namespace Design_Form.User_PLC
     {
         List<NumericUpDown> numericUps = new List<NumericUpDown>();
         PLC_Communication.WordConvert convert = new PLC_Communication.WordConvert();
-        bool check_update = false;
+       
         public CycleTime()
         {
             InitializeComponent();

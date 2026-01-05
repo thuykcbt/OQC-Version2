@@ -20,18 +20,20 @@ namespace Design_Form.UserForm
             inital_cobox();
         }
         int index_follow = -1;
-        public void load_parameter()
+		int a, b, c, d;
+		public void load_parameter(int camera, int view, int component, int tool_index)
         {
             try
             {
-                int a = Job_Model.Statatic_Model.camera_index;
-                int b = Job_Model.Statatic_Model.job_index;
-                int c = Job_Model.Statatic_Model.tool_index;
-                name_job.Text =Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].JobName;
-                face_check.Text= Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Face_Check;
-                for(int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Name_Item_check.Count;i++)
+				a = camera;
+				b = view;
+				c = tool_index;
+				d = component;
+				name_job.Text =Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].ViewsName;
+                face_check.Text= Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Face_Check;
+                for(int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check.Count;i++)
                 {
-                    combos[i].Text = Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Name_Item_check[i];
+                    combos[i].Text = Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check[i];
                 }    
             }
 
@@ -63,21 +65,18 @@ namespace Design_Form.UserForm
         }
         private void Save_para()
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].JobName = name_job.Text;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Face_Check= face_check.Text;
-             Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Name_Item_check.Clear();
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Name_Item_check.Add(comboBox1.Text);
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Name_Item_check.Add(comboBox2.Text);
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Name_Item_check.Add(comboBox3.Text);
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Name_Item_check.Add(comboBox4.Text);
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Name_Item_check.Add(comboBox5.Text);
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Name_Item_check.Add(comboBox6.Text);
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Name_Item_check.Add(comboBox7.Text);
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Name_Item_check.Add(comboBox8.Text);
-            Job_Model.Statatic_Model.model_run.Cameras[a].Jobs[b].Name_Item_check.Add(comboBox9.Text);
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].ViewsName = name_job.Text;
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Face_Check= face_check.Text;
+             Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check.Clear();
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check.Add(comboBox1.Text);
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check.Add(comboBox2.Text);
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check.Add(comboBox3.Text);
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check.Add(comboBox4.Text);
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check.Add(comboBox5.Text);
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check.Add(comboBox6.Text);
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check.Add(comboBox7.Text);
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check.Add(comboBox8.Text);
+            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check.Add(comboBox9.Text);
         }
 
       
