@@ -20,7 +20,12 @@ namespace Design_Form.Job_Model
                 OnPropertyChanged(nameof(Name_model));
             }
         }
-	
+		public ManagerModelcs()
+		{
+            Name_model = "Model Main";
+			Model model = new Model();
+			models_sub.Add(model);
+		}
 		public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {
@@ -34,8 +39,12 @@ namespace Design_Form.Job_Model
     public class ManagerModelMain
     {
         public BindingList<ManagerModelcs> models_main =new BindingList<ManagerModelcs>();
-
-        public int selection_Model { get; set; } = 0;
+		public ManagerModelMain()
+		{
+			ManagerModelcs managerModelcs = new ManagerModelcs();
+            models_main.Add(managerModelcs);
+		}
+		public int selection_Model { get; set; } = 0;
        
     }
 

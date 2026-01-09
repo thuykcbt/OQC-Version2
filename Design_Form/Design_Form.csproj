@@ -188,6 +188,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Job_Model\Calibrate_Matrix.cs" />
+    <Compile Include="Job_Model\DataMainToUser.cs" />
     <Compile Include="Job_Model\Display.cs" />
     <Compile Include="Job_Model\Image_Show.cs" />
     <Compile Include="Job_Model\LibaryHalcon.cs" />
@@ -279,6 +280,28 @@
     <Compile Include="ToolbarForm1.Designer.cs">
       <DependentUpon>ToolbarForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools.Base\Barcode_2D.cs" />
+    <Compile Include="Tools.Base\BlobTool.cs" />
+    <Compile Include="Tools.Base\Calibrate_Plate_Tool.cs" />
+    <Compile Include="Tools.Base\Cal_Hand_Eye_Tool.cs" />
+    <Compile Include="Tools.Base\Class_Tool.cs" />
+    <Compile Include="Tools.Base\FindCircleTool.cs" />
+    <Compile Include="Tools.Base\FindDistanceTool.cs" />
+    <Compile Include="Tools.Base\FindLineTool.cs" />
+    <Compile Include="Tools.Base\FitCircleTool.cs" />
+    <Compile Include="Tools.Base\FitLine_Tool.cs" />
+    <Compile Include="Tools.Base\FixtureTool.cs" />
+    <Compile Include="Tools.Base\FixtureTool_2.cs" />
+    <Compile Include="Tools.Base\HistogramTool.cs" />
+    <Compile Include="Tools.Base\HistogramTool_Color.cs" />
+    <Compile Include="Tools.Base\Image_Roate.cs" />
+    <Compile Include="Tools.Base\NccModelTool.cs" />
+    <Compile Include="Tools.Base\OCR_Tool.cs" />
+    <Compile Include="Tools.Base\Save_Image_Tool.cs" />
+    <Compile Include="Tools.Base\Segmentation_Tool.cs" />
+    <Compile Include="Tools.Base\Select_model_tool.cs" />
+    <Compile Include="Tools.Base\ShapeModelTool.cs" />
+    <Compile Include="Tools.Base\ShapeModelTool_Color.cs" />
     <Compile Include="UserForm\Fillter_tool.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -303,6 +326,7 @@
     <Compile Include="UserForm\HistogramPara_Color.Designer.cs">
       <DependentUpon>HistogramPara_Color.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserForm\ISaveable.cs" />
     <Compile Include="UserForm\Select_model.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -946,6 +970,7 @@
   <ItemGroup>
     <None Include="Resources\z6782929621675_6c21971eac958d167464aa5a909065a8.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

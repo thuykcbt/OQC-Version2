@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Design_Form.Tools.Base;
 namespace Design_Form.UserForm
 {
     public partial class ShapeModelColor : DevExpress.XtraEditors.XtraUserControl
@@ -78,7 +78,7 @@ namespace Design_Form.UserForm
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 shapeModel.ModelFilePath = saveFileDialog.SelectedPath;
-                string file_name = shapeModel.ModelFilePath + "\\_Shapemodel" + shapeModel.job_index + shapeModel.tool_index + ".model";
+                string file_name = shapeModel.ModelFilePath + "\\_Shapemodel" + shapeModel.Id.ToString() + ".model";
                 shapeModel.ModelReadPath = file_name;
                 Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = shapeModel;
                 label1.Text = saveFileDialog.SelectedPath;

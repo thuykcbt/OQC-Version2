@@ -10,8 +10,8 @@ namespace Design_Form.Job_Model
     public class WirteLogcs
     {
         private readonly string logFilePath;
-
-        public WirteLogcs(string logDirectory)
+		private static readonly object _lock =  new object();
+		public WirteLogcs(string logDirectory)
         {
             // Đảm bảo thư mục log tồn tại
             if (!Directory.Exists(logDirectory))
@@ -25,16 +25,21 @@ namespace Design_Form.Job_Model
 
         public void Log(string message)
         {
-            try
+            lock (_lock)
             {
-                // Thêm thời gian và ghi log vào file
-                string logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}";
-                File.AppendAllText(logFilePath, logEntry + Environment.NewLine);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error writing log: {ex.Message}");
-            }
+				try
+				{
+					// Thêm thời gian và ghi log vào file
+					string logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}";
+					File.AppendAllText(logFilePath, logEntry + Environment.NewLine);
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine($"Error writing log: {ex.Message}");
+				}
+			}
+
+          
         }
     }
 }

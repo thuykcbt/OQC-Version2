@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Design_Form.Tools.Base;
 
 namespace Design_Form.UserForm
 {
@@ -29,7 +30,7 @@ namespace Design_Form.UserForm
 				c = tool_index;
 				d = component;
 
-				Fillter_Tool tool = (Fillter_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+			
                 for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools.Count; i++)
                 {
                     if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName == "Fixture")
@@ -59,10 +60,10 @@ namespace Design_Form.UserForm
         }
         private void Save_para()
         {
-            Fillter_Tool tool = (Fillter_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-            tool.index_follow= index_follow;
+         
+         
            
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
+            
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

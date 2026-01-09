@@ -1,4 +1,5 @@
 ﻿using Design_Form.Job_Model;
+using Design_Form.Tools.Base;
 using HalconDotNet;
 using System;
 using System.Collections.Generic;
@@ -14,187 +15,95 @@ namespace Design_Form.UserForm
 {
     public partial class ResultShapeModel : UserControl
     {
-        DataTable table = new DataTable();
+      
         
         public ResultShapeModel()
         {
             InitializeComponent();
         }
-        public void result_Shapemodel()
+      
+        public void get_result(ToolResult toolResult,string namComponent)
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            table.Clear();
-            table.Columns.Clear();
-            table.Rows.Clear();
-            table.Columns.Add("STT", typeof(int));
-            table.Columns.Add("Score", typeof(double));
-            table.Columns.Add("X_Center", typeof(double));
-            table.Columns.Add("Y_Center", typeof(double));
-            table.Columns.Add("Phi_Center", typeof(double));
-          
-            ShapeModelTool tool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-            
-            for (int i = 0; i < tool.MatchResults.Count; i++)
-            {
-               
-                    table.Rows.Add(i, tool.MatchResults[i].Score, tool.MatchResults[i].X, tool.MatchResults[i].Y, tool.MatchResults[i].Phi);
-              
-            }
-            dataGridView1.DataSource = table;
-
-        }
-        public void result_Shapemodel_Color()
+			dataGridView1.DataSource = ToolResultToDataTable(toolResult, namComponent);
+		}
+        public void get_result_Views(ViewRunContext viewRunContext)
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            table.Clear();
-            table.Columns.Clear();
-            table.Rows.Clear();
-            table.Columns.Add("STT", typeof(int));
-            table.Columns.Add("Score", typeof(double));
-            table.Columns.Add("X_Center", typeof(double));
-            table.Columns.Add("Y_Center", typeof(double));
-            table.Columns.Add("Phi_Center", typeof(double));
-
-            ShapeModelTool_Color tool = (ShapeModelTool_Color)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-
-            for (int i = 0; i < tool.MatchResults.Count; i++)
-            {
-
-                table.Rows.Add(i, tool.MatchResults[i].Score, tool.MatchResults[i].X, tool.MatchResults[i].Y, tool.MatchResults[i].Phi);
-
-            }
-            dataGridView1.DataSource = table;
-
-        }
-		public void result_Nccmodel()
-		{
-			int a = Job_Model.Statatic_Model.camera_index;
-			int b = Job_Model.Statatic_Model.job_index;
-			int c = Job_Model.Statatic_Model.tool_index;
-			int d = Job_Model.Statatic_Model.image_index;
-			table.Clear();
-			table.Columns.Clear();
-			table.Rows.Clear();
+			DataTable table = new DataTable();
 			table.Columns.Add("STT", typeof(int));
-			table.Columns.Add("Score", typeof(double));
-			table.Columns.Add("X_Center", typeof(double));
-			table.Columns.Add("Y_Center", typeof(double));
-			table.Columns.Add("Phi_Center", typeof(double));
-
-			NccModelTool tool = (NccModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-
-			for (int i = 0; i < tool.MatchResults.Count; i++)
+			table.Columns.Add("Component", typeof(string));
+			table.Columns.Add("Tool", typeof(string));
+			table.Columns.Add("ID", typeof(int));
+			table.Columns.Add("Output", typeof(string));
+            var All_result = viewRunContext.ToolResults;
+            int i = 1;
+			foreach (var kvp in All_result)
 			{
-
-				table.Rows.Add(i, tool.MatchResults[i].Score, tool.MatchResults[i].X, tool.MatchResults[i].Y, tool.MatchResults[i].Phi);
-
+				int id = kvp.Key;
+				ToolResult tool = kvp.Value;
+				table.Rows.Add(i, tool.Name_Component, tool.ToolName, id, tool.OK ? "Pass":"Fail");
+                i++;
 			}
 			dataGridView1.DataSource = table;
-
 		}
-		public void Result_Blob()
-        {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            table.Clear();
-            table.Rows.Clear();
-            table.Columns.Clear();
-            table.Columns.Add("STT", typeof(int));
-            table.Columns.Add("Area", typeof(double));
-            table.Columns.Add("W", typeof(double));
-            table.Columns.Add("H", typeof(double));
-            BlobTool tool = (BlobTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-            for (int i = 0;i<tool.Result_Area.GetLength(0); i++)
-            {
-                if (tool.Result_Area[i] != 0)
-                {
-                    table.Rows.Add(i, tool.Result_Area[i], tool.Result_W[i], tool.Result_H[i]);
-                }
-            }
+		public void get_result_Component(ViewRunContext viewRunContext)
+		{
+			DataTable table = new DataTable();
+			table.Columns.Add("STT", typeof(int));
+			table.Columns.Add("Component", typeof(string));
+			table.Columns.Add("Tool", typeof(string));
+			table.Columns.Add("ID", typeof(int));
+			table.Columns.Add("Output", typeof(string));
+			var All_result = viewRunContext.ToolResults;
+			int i = 1;
+			foreach (var kvp in All_result)
+			{
+				int id = kvp.Key;
+				ToolResult tool = kvp.Value;
+				table.Rows.Add(i, tool.Name_Component, tool.ToolName, id, tool.OK ? "Pass" : "Fail");
+				i++;
+			}
+			dataGridView1.DataSource = table;
+		}
+		public  DataTable ToolResultToDataTable(ToolResult tool, string namComponent)
+		{
+			if (tool == null)
+				throw new ArgumentNullException(nameof(tool));
 
-            dataGridView1.DataSource = table;
-        }
-        public void Result_Histogram()
-        {
+			var table = new DataTable();
 
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            table.Clear();
-            table.Rows.Clear();
-            table.Columns.Clear();
-            HistogramTool tool = (HistogramTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-            table.Columns.Add("Pixel_Map", typeof(int));
-            table.Columns.Add("Total_Point", typeof(int));
-            for (int i = 0; i < tool.map_pixel.GetLength(0); i++)
-            {
-                    table.Rows.Add(i, tool.map_pixel[i]);
-            }
+			// 1. Thêm các cột cố định
+			table.Columns.Add("OK", typeof(bool));
+			table.Columns.Add("ToolName", typeof(string));
+			table.Columns.Add("Name_Component", typeof(string));
 
-            dataGridView1.DataSource = table;
-        }
-        public void Result_FindCircle()
-        {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            table.Clear();
-            table.Rows.Clear();
-            table.Columns.Clear();
-            FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-            table.Columns.Add("Stt", typeof(int));
-            table.Columns.Add("Center_X", typeof(double));
-            table.Columns.Add("Center_Y", typeof(double));
-            table.Columns.Add("Radiuns", typeof(double));
-            table.Columns.Add("Distance", typeof(double));
-            table.Rows.Add(1, tool.X_center,tool.Y_center,tool.Radius,tool.Radius*tool.cali);
-            dataGridView1.DataSource = table;
-        }
-        public void Result_FindLine()
-        {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            table.Clear();
-            table.Rows.Clear();
-            table.Columns.Clear();
-            FindLineTool tool = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-            table.Columns.Add("Stt", typeof(int));
-            table.Columns.Add("Start_X", typeof(double));
-            table.Columns.Add("Start_Y", typeof(double));
-            table.Columns.Add("Center_X", typeof(double));
-            table.Columns.Add("Center_Y", typeof(double));
-            table.Columns.Add("End_X", typeof(double));
-            table.Columns.Add("End_Y", typeof(double));
-            table.Rows.Add(1, tool.X1ob, tool.Y1ob, tool.Xcenterob, tool.Ycenterob,tool.X2ob,tool.Y2ob);
-            dataGridView1.DataSource = table;
-        }
-        public void Result_Distance()
-        {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
-            table.Clear();
-            table.Rows.Clear();
-            table.Columns.Clear();
-            FindDistanceTool tool = (FindDistanceTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-            table.Columns.Add("Stt", typeof(int));
-            table.Columns.Add("Distance_Pixel", typeof(double));
-            table.Columns.Add("Distance_mm", typeof(double));
-            table.Rows.Add(1,tool.Distance,tool.Distance*tool.cali);
-            dataGridView1.DataSource = table;
-        }
+			// 2. Thêm cột cho từng key trong Outputs (nếu có)
+			if (tool.Outputs != null)
+			{
+				foreach (var key in tool.Outputs.Keys)
+				{
+					// Dùng typeof(string) để an toàn với mọi kiểu object
+					table.Columns.Add(key, typeof(string));
+				}
+			}
+
+			// 4. Tạo dòng dữ liệu
+			var row = table.NewRow();
+
+			row["OK"] = tool.OK;
+			row["ToolName"] = tool.ToolName ?? "";
+			row["Name_Component"] = namComponent??"";
+
+			// Điền dữ liệu từ Outputs
+			if (tool.Outputs != null)
+			{
+				foreach (var key in tool.Outputs.Keys)
+				{
+					row[key] = tool.Outputs[key]?.ToString() ?? "";
+				}
+			}
+			table.Rows.Add(row);
+			return table;
+		}
+		
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Design_Form.Job_Model;
+using Design_Form.Tools.Base;
 using HalconDotNet;
 using System;
 using System.Collections.Generic;

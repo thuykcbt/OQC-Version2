@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Design_Form.Tools.Base;
 namespace Design_Form.UserForm
 {
     public partial class HistogramPara : DevExpress.XtraEditors.XtraUserControl

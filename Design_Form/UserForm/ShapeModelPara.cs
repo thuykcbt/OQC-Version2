@@ -10,17 +10,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Design_Form.Tools.Base;
+using HalconDotNet;
 namespace Design_Form.UserForm
 {
-    public partial class ShapeModelPara : DevExpress.XtraEditors.XtraUserControl
-    {
+    public partial class ShapeModelPara : DevExpress.XtraEditors.XtraUserControl, ISaveable
+	{
         public ShapeModelPara()
         {
             InitializeComponent();
         }
         int index_follow = -1;
 		int a, b, c, d;
+        HObject Input;
+        HWindow Window;
+        string ModelMain, ModelSub;
+		public event Action RequestDataFromParent;
+		public void ReceiveDataFromParent(HObject input, HWindow window,string modelMain,string modelSub)
+		{
+			// Hiển thị hoặc xử lý dữ liệu
+			Input=input;
+            Window=window;
+			ModelMain = modelMain;
+			ModelSub = modelSub;
+		}
 		public void load_parameter(int camera, int view, int component, int tool_index)
         {
             try
@@ -55,7 +68,6 @@ namespace Design_Form.UserForm
                 numeric_Overlap.Value = (decimal)shapeModel.MaxOverlap;
                 combo_SubPixel.Text = shapeModel.SubPixel;
                 combo_Metric.Text = shapeModel.metric;
-                label1.Text = shapeModel.ModelReadPath;
                 numeric_MaxScore.Value =(decimal) shapeModel.ScoreMaxThreshold;
                 Min_score.Value = (decimal) shapeModel.ScoreMinThreshold;
                 comboBox1.Text= shapeModel.item_check;
@@ -71,32 +83,16 @@ namespace Design_Form.UserForm
             }
            
         }
-        // Button Save Tool
-        
-        private void simpleButton3_Click(object sender, EventArgs e)
-        {
-            ShapeModelTool shapeModel = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-            FolderBrowserDialog saveFileDialog = new FolderBrowserDialog();
-            //saveFileDialog.Filter = "Model Files (*.model)|*.model"; // Bộ lọc định dạng file;
-            //saveFileDialog.Title = "Save As";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                shapeModel.ModelFilePath = saveFileDialog.SelectedPath;
-                string file_name = shapeModel.ModelFilePath + "\\_Shapemodel" + shapeModel.job_index + shapeModel.tool_index + ".model";
-                shapeModel.ModelReadPath = file_name;
-                Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = shapeModel;
-                label1.Text = saveFileDialog.SelectedPath;
-            }
-        }
-
-       
-
         private void simpleButton1_Click_1(object sender, EventArgs e)
         {
-           Save_para();
-        }
-        private void Save_para()
+			RequestDataFromParent?.Invoke();
+			ShapeModelTool shapeModel = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+            shapeModel.TrainModel(Window, Input, ModelMain,ModelSub);
+		}
+
+	
+
+		public void Save_para(Job_Model.DataMainToUser dataMain)
         {
             ShapeModelTool shapeModel = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             shapeModel.index_follow= index_follow;
@@ -116,13 +112,11 @@ namespace Design_Form.UserForm
             shapeModel.MaxPhi = (double)Max_Phi.Value;
             shapeModel.MinPhi = (double)Min_Phi.Value;
             shapeModel.metric = combo_Metric.Text;
+            shapeModel.type_light = dataMain.light_selet;
             Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = shapeModel;
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            Save_para();
-        }
+      
 
         private void combo_master_SelectedIndexChanged(object sender, EventArgs e)
         {

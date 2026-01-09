@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Design_Form.Tools.Base;
 
 namespace Design_Form.UserForm
 {
@@ -65,10 +66,6 @@ namespace Design_Form.UserForm
 
         private void combo_FrPos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int a = Job_Model.Statatic_Model.camera_index;
-            int b = Job_Model.Statatic_Model.job_index;
-            int c = Job_Model.Statatic_Model.tool_index;
-            int d = Job_Model.Statatic_Model.image_index;
           
             
         }

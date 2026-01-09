@@ -1,4 +1,6 @@
 ﻿using Design_Form.Job_Model;
+using Design_Form.Tools.Base;
+using Design_Form.User_PLC;
 using Design_Form.UserForm;
 using DevExpress.Data.Filtering;
 using DevExpress.Utils.CommonDialogs;
@@ -7,7 +9,9 @@ using DevExpress.Xpo.DB;
 using DevExpress.XtraBars;
 using DevExpress.XtraDashboardLayout;
 using DevExpress.XtraPrinting.Export.Pdf;
+using DevExpress.XtraSplashScreen;
 using HalconDotNet;
+using MathNet.Numerics;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -18,6 +22,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,53 +41,12 @@ namespace Design_Form
 		HObject InputIMG;
 		HObject[] buffer_image = new HObject[5];
 		public int treejob = 0;
-		public int treetool = 0;
 		public int camera = 0;
-		public int treeimage = 0;
 		public int make_roi_index = 0;
 		List<Class_Tool> tool_Image_Process = new List<Class_Tool>();
 		List<Class_Tool> tool_Inspection = new List<Class_Tool>();
 		List<Class_Tool> tool_Measure = new List<Class_Tool>();
 		List<Class_Tool> tool_Detection = new List<Class_Tool>();
-		public Setting()
-		{
-			InitializeComponent();
-
-			inital_Dislay_Halcon();
-			Update_TotalCame();
-			inital_user_none();
-			inital_usercontrol();
-			inital_tool();
-			Load_List_Box_Component();
-			Load_List_Box_Tools(0,0,0);	
-
-		}
-		private void inital_tool()
-		{
-			// Process
-			tool_Image_Process.Add(new Image_Roate());
-			tool_Image_Process.Add(new Save_Image_Tool());
-			tool_Image_Process.Add(new Calibrate_Plate_Tool());
-			tool_Image_Process.Add(new Fillter_Tool());
-			// Inspection
-			tool_Inspection.Add(new HistogramTool());
-			tool_Inspection.Add(new BlobTool());
-			tool_Inspection.Add(new HistogramTool_Color());
-			// Measure
-			tool_Measure.Add(new FindLineTool());
-			tool_Measure.Add(new FindCircleTool());
-			tool_Measure.Add(new FindDistanceTool());
-			tool_Measure.Add(new FitLine_Tool());
-			tool_Measure.Add(new FitCircle_Tool());
-			tool_Measure.Add(new Cal_Hand_Eye_Tool());
-			// Detect Object
-			tool_Detection.Add(new ShapeModelTool());
-			tool_Detection.Add(new FixtureTool());
-			tool_Detection.Add(new Barcode_2D());
-			tool_Detection.Add(new OCR_Tool());
-			tool_Detection.Add(new FixtureTool_2());
-			tool_Detection.Add(new NccModelTool());
-		}
 		ParaLine paraline;
 		Result_FindLine result_FindLine;
 		ShapeModelPara shapeModel;
@@ -107,6 +71,59 @@ namespace Design_Form
 		Select_model select_Model;
 		HistogramPara_Color histogram_color;
 		NccModelPara ncc_model_user;
+		public Setting()
+		{
+			InitializeComponent();
+			inital_Dislay_Halcon();
+			Update_TotalCame();
+			inital_user_none();
+			inital_usercontrol();
+			inital_tool();
+			Load_List_Box_Component();
+			Load_List_Box_Tools(0,0,0);
+			inital_Event();
+		}
+		public void inital_Event()
+		{
+			shapeModel.RequestDataFromParent += OnChildRequestData;
+		}
+		private void OnChildRequestData()
+		{
+			string debugFolder = AppDomain.CurrentDomain.BaseDirectory;
+			string name_file =  Statatic_Model.model_main_run.Name_model;
+			string file_path = Path.Combine(debugFolder, name_file)+"\\";
+			string name_file_modelsub = Statatic_Model.model_run.Name_Model;
+			string file_paht_total = Path.Combine(file_path, name_file_modelsub);
+			// Gửi xuống child
+			shapeModel.ReceiveDataFromParent(InputIMG, HSmartWindowControl.HalconWindow, file_paht_total ,file_path);
+		}
+		private void inital_tool()
+		{
+			// Process
+			tool_Image_Process.Add(new Image_Roate());
+			tool_Image_Process.Add(new Save_Image_Tool());
+			tool_Image_Process.Add(new Calibrate_Plate_Tool());
+		
+			// Inspection
+			tool_Inspection.Add(new HistogramTool());
+			tool_Inspection.Add(new BlobTool());
+			tool_Inspection.Add(new HistogramTool_Color());
+			// Measure
+			tool_Measure.Add(new FindLineTool());
+			tool_Measure.Add(new FindCircleTool());
+			tool_Measure.Add(new FindDistanceTool());
+			tool_Measure.Add(new FitLine_Tool());
+			tool_Measure.Add(new FitCircle_Tool());
+			tool_Measure.Add(new Cal_Hand_Eye_Tool());
+			// Detect Object
+			tool_Detection.Add(new ShapeModelTool());
+			tool_Detection.Add(new FixtureTool());
+			tool_Detection.Add(new Barcode_2D());
+			tool_Detection.Add(new OCR_Tool());
+			tool_Detection.Add(new FixtureTool_2());
+			tool_Detection.Add(new NccModelTool());
+		}
+	
 		private void inital_user_none()
 		{
 			none user_none = new none();
@@ -319,16 +336,8 @@ namespace Design_Form
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			camera = cbbCam.SelectedIndex;
-			treejob = 0;
-			treetool = 0;
-			treeimage = 0;
 			Job_Model.Statatic_Model.camera_index = camera;
-			//if (Job_Model.Statatic_Model.model_run.Cameras.Count <= camera)
-			//{
-			//	Job_Model.Class_Camera camera = new Class_Camera();
-			//	Job_Model.Statatic_Model.model_run.Cameras.Add(camera);
-			//}
-		
+			numericUpDown6.Value = Statatic_Model.model_run.Cameras[camera].Views[treejob].Exposure;
 		}
 		
 	
@@ -436,7 +445,7 @@ namespace Design_Form
 
 		private void timer1_Tick(object sender, EventArgs e)
 		{
-			label1.Text = "Job : " + treejob.ToString() + "Image : " + treeimage.ToString() + " " + "Tool : " + treetool.ToString() + "\r" + "Insert_Tool : " ;
+			label1.Text = "WelCom to project " ;
 		}
 		// Button Save Model
 		private string currentFilePath = string.Empty;
@@ -463,9 +472,9 @@ namespace Design_Form
 					double StartX1, StartY1, EndX2, EndY2;
 					libaryHalcon.get_roi_Line(libaryHalcon.Drawobject_Line, out StartX1, out StartY1, out EndX2, out EndY2);
 					LineROI roi_line = new LineROI(StartX1, StartY1, EndX2, EndY2);
-					if (treetool >= 0)
+					if (listBox_Tool.SelectedIndex >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool.Add(roi_line);
+						Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool.Add(roi_line);
 					}
 					else
 					{
@@ -477,9 +486,9 @@ namespace Design_Form
 					double StartX, StartY, WithX, HeighY, Phi;
 					libaryHalcon.get_roi_Rectang(libaryHalcon.Drawobject[0], out StartX, out StartY, out Phi, out WithX, out HeighY);
 					RectangleROI roi_rectag = new RectangleROI(StartX, StartY, Phi, WithX, HeighY);
-					if (treetool >= 0)
+					if (listBox_Tool.SelectedIndex >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool.Add(roi_rectag);
+						Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool.Add(roi_rectag);
 					}
 					else
 					{
@@ -491,9 +500,9 @@ namespace Design_Form
 					double StartX, StartY, Radius;
 					libaryHalcon.get_roi_Circle(libaryHalcon.Drawobject_circle[0], out StartX, out StartY, out Radius);
 					CircleROI roi_circle = new CircleROI(StartX, StartY, Radius);
-					if (treetool >= 0)
+					if (listBox_Tool.SelectedIndex >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool.Add(roi_circle);
+						Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool.Add(roi_circle);
 					}
 					else
 					{
@@ -505,10 +514,10 @@ namespace Design_Form
 					List<double> Row, Col;
 					libaryHalcon.get_roi_Pylygon(libaryHalcon.Drawobject_Polygy[0], out Row, out Col);
 					PolygonROI polygonROI = new PolygonROI(Row, Col);
-					Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool.Add(polygonROI);
-					if (treetool >= 0)
+					Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool.Add(polygonROI);
+					if (listBox_Tool.SelectedIndex >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool.Add(polygonROI);
+						Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool.Add(polygonROI);
 					}
 					else
 					{
@@ -528,110 +537,30 @@ namespace Design_Form
 		private void load_listbox_Roi()
 		{
 			listBox_Roi.DisplayMember = "Type";
-			listBox_Roi.DataSource = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool;
+			listBox_Roi.DataSource = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool;
 		}
 	
 		
 
 		Stopwatch Cycletime = new Stopwatch();
-		// buttonn Run_only Tool
+		// buttonn Save Tool
 		private void simpleButton12_Click(object sender, EventArgs e)
 		{
-			try
+			var mainData = new Job_Model.DataMainToUser
 			{
-				Job_Model.Statatic_Model.Input_Image[camera, treejob, 0] = InputIMG;
-				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].show_text = true;
-				Cycletime.Restart();
-				if (checkEdit_stepbystep.Checked)
-				{
-					Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].stepbystep = true;
-				}
-				string name_tool = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].ToolName;
-				if (name_tool == "ShapeModel")
-				{
-					ShapeModelTool shapeModel1 = (ShapeModelTool)Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool];
-					if (shapeModel.checkBox1.Checked)
-					{
-
-						shapeModel1.TrainModel(HSmartWindowControl.HalconWindow, Job_Model.Statatic_Model.Input_Image[camera, treejob, 0]);
-						shapeModel.checkBox1.Checked = false;
-					}
-					else
-					{
-						shapeModel1.Excute(HSmartWindowControl.HalconWindow, Job_Model.Statatic_Model.Input_Image[camera, treejob, 0]);
-						load_result_tool("ResultShapeModel");
-						resultShapeModel.result_Shapemodel();
-					}
-					Cycletime.Stop();
-					label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
-				}
-				if (name_tool == "ShapeModel_Color")
-				{
-					ShapeModelTool_Color shapeModel1 = (ShapeModelTool_Color)Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool];
-					if (shapeModelColor.checkBox1.Checked)
-					{
-
-						shapeModel1.TrainModel(HSmartWindowControl.HalconWindow, Job_Model.Statatic_Model.Input_Image[camera, treejob, 0]);
-						shapeModelColor.checkBox1.Checked = false;
-					}
-					else
-					{
-						shapeModel1.Excute(HSmartWindowControl.HalconWindow, Job_Model.Statatic_Model.Input_Image[camera, treejob, 0]);
-						load_result_tool("ResultShapeModel");
-						resultShapeModel.result_Shapemodel_Color();
-					}
-					Cycletime.Stop();
-					label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
-				}
-				if (name_tool == "NccModel")
-				{
-					NccModelTool shapeModel1 = (NccModelTool)Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool];
-					if (ncc_model_user.checkBox1.Checked)
-					{
-
-						shapeModel1.TrainModel(HSmartWindowControl.HalconWindow, Job_Model.Statatic_Model.Input_Image[camera, treejob, 0]);
-						ncc_model_user.checkBox1.Checked = false;
-					}
-					else
-					{
-						shapeModel1.Excute(HSmartWindowControl.HalconWindow, Job_Model.Statatic_Model.Input_Image[camera, treejob, 0]);
-						load_result_tool("ResultShapeModel");
-						resultShapeModel.result_Nccmodel();
-					}
-					Cycletime.Stop();
-					label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
-				}
-				else
-				{
-					Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].Excute_OnlyTool(HSmartWindowControl.HalconWindow, Job_Model.Statatic_Model.Input_Image[camera, treejob, 0]);
-					Cycletime.Stop();
-					label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
-					load_result_tool("ResultShapeModel");
-					if (name_tool == "FindLine")
-					{
-						resultShapeModel.Result_FindLine();
-					}
-					if (name_tool == "Blob")
-					{
-						resultShapeModel.Result_Blob();
-					}
-					if (name_tool == "Histogram")
-					{
-						resultShapeModel.Result_Histogram();
-					}
-					if (name_tool == "FindCircle")
-					{
-						resultShapeModel.Result_FindCircle();
-					}
-				}
-				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].stepbystep = false;
-				checkEdit_stepbystep.Checked = false;
-				InputIMG = Job_Model.Statatic_Model.Input_Image[camera, treejob, 0];
+				light_selet = StringsSelectLight.ItemIndex
+			};
+			var saveableControl = panel6.Controls
+	   .Cast<System.Windows.Forms.Control>()
+	   .FirstOrDefault(c => c.Visible && c is ISaveable);
+			if (saveableControl is ISaveable saveable)
+			{
+				saveable.Save_para(mainData); // ← gọi đúng hàm Save của từng loại
+				MessageBox.Show("Đã lưu thành công!");
 			}
-			catch (Exception ex)
+			else
 			{
-				MessageBox.Show("Error RunTool" + ex.ToString());
-				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
+				MessageBox.Show("Không có user nào có thể lưu.");
 			}
 
 		}
@@ -646,9 +575,9 @@ namespace Design_Form
 					double StartX1, StartY1, EndX2, EndY2;
 					libaryHalcon.get_roi_Line(libaryHalcon.Drawobject_Line, out StartX1, out StartY1, out EndX2, out EndY2);
 					LineROI roi_line = new LineROI(StartX1, StartY1, EndX2, EndY2);
-					if (treetool >= 0)
+					if (listBox_Tool.SelectedIndex >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool[roi_index] = roi_line;
+						Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool[roi_index] = roi_line;
 					}
 					else
 					{
@@ -661,9 +590,9 @@ namespace Design_Form
 					double StartX, StartY, WithX, HeighY, Phi;
 					libaryHalcon.get_roi_Rectang(libaryHalcon.Drawobject[0], out StartX, out StartY, out Phi, out WithX, out HeighY);
 					RectangleROI roi_rectag = new RectangleROI(StartX, StartY, Phi, WithX, HeighY);
-					if (treetool >= 0)
+					if (listBox_Tool.SelectedIndex >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool[roi_index] = roi_rectag;
+						Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool[roi_index] = roi_rectag;
 					}
 					else
 					{
@@ -675,9 +604,9 @@ namespace Design_Form
 					double StartX, StartY, Radius;
 					libaryHalcon.get_roi_Circle(libaryHalcon.Drawobject_circle[0], out StartX, out StartY, out Radius);
 					CircleROI roi_circle = new CircleROI(StartX, StartY, Radius);
-					if (treetool >= 0)
+					if (listBox_Tool.SelectedIndex >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool[roi_index] = roi_circle;
+						Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool[roi_index] = roi_circle;
 					}
 					else
 					{
@@ -689,9 +618,9 @@ namespace Design_Form
 					List<double> Row, Col;
 					libaryHalcon.get_roi_Pylygon(libaryHalcon.Drawobject_Polygy[0], out Row, out Col);
 					PolygonROI roi_polygon = new PolygonROI(Row, Col);
-					if (treetool >= 0)
+					if (listBox_Tool.SelectedIndex >= 0)
 					{
-						Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool[roi_index] = roi_polygon;
+						Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool[roi_index] = roi_polygon;
 					}
 					else
 					{
@@ -708,15 +637,7 @@ namespace Design_Form
 		//xóa roi
 		private void simpleButton10_Click(object sender, EventArgs e)
 		{
-			if (treetool >= 0)
-			{
-				Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].roi_Tool.RemoveAt(roi_index);
-			}
-			else
-			{
-				Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].roi_Tool.RemoveAt(roi_index);
-			}
-
+				Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool.RemoveAt(listBox_Roi.SelectedIndex);
 		
 		}
 
@@ -728,9 +649,7 @@ namespace Design_Form
 		// button capture
 		private void simpleButton5_Click(object sender, EventArgs e)
 		{
-
 			Job_Model.Statatic_Model.Dino_lites[camera].SETPARAMETERCAMERA("ExposureTime", Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Exposure);
-
 			Cycletime.Restart();
 			InputIMG = Job_Model.Statatic_Model.Dino_lites[camera].capture_halcom();
 			update_capture();
@@ -886,10 +805,9 @@ namespace Design_Form
 		private void TrialRun_Click(object sender, EventArgs e)
 		{
 			Cycletime.Restart();
-			Job_Model.Statatic_Model.Input_Image[camera, treejob, 0] = InputIMG;
 			Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].auto_check = false;
-			Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].ExecuteAllImge(HSmartWindowControl.HalconWindow, Job_Model.Statatic_Model.Input_Image[camera, treejob, 0]);
-			InputIMG = Job_Model.Statatic_Model.Input_Image[camera, treejob, 0];
+			var result_context= Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].ExecuteAllComponent(HSmartWindowControl.HalconWindow, InputIMG);
+			resultShapeModel.get_result_Views(result_context);
 			Cycletime.Stop();
 			label3.Text = "Cycle Time :" + "Job :" + treejob.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
 		}
@@ -938,7 +856,7 @@ namespace Design_Form
 		}
 		private void numeric_cali_ValueChanged(object sender, EventArgs e)
 		{
-			Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[treeimage].Tools[treetool].cali = (double)numeric_cali.Value;
+			Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].cali = (double)numeric_cali.Value;
 		}
 
 		#region make Roi
@@ -971,13 +889,16 @@ namespace Design_Form
 	
 		#endregion
 		#region Addtool
-		private void add_tool_process(int index, List<Class_Tool> tools)
+		private void add_tool_process(int index, List<Class_Tool> tools )
 		{
 			if (!check_add_tool())
 			{
 				return;
 			}
+			tools[index].Id = Statatic_Model.model_run.Cameras[camera].Views[treejob].GenerateNewToolId();
+			
 			Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools.Add(tools[index]);
+
 			load_username();
 			Load_List_Box_Tools(camera,0,listBox_Component.SelectedIndex);
 			listBox_Tool.SelectedIndex = Statatic_Model.model_run.Cameras[camera].Views[0].Components[listBox_Component.SelectedIndex].Tools.Count - 1;
@@ -1037,7 +958,7 @@ namespace Design_Form
 		}
 		public void Load_List_Box_Tools(int camera_index,int Views_index,int Component_index)
 		{
-			listBox_Tool.DisplayMember = "ToolName";
+			listBox_Tool.DisplayMember = "DisplayName";
 			listBox_Tool.DataSource = Job_Model.Statatic_Model.model_run.Cameras[camera_index].Views[Views_index].Components[Component_index].Tools;
 		}
 
@@ -1049,8 +970,134 @@ namespace Design_Form
 		private void listBox_Tool_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			load_username();
+			load_listbox_Roi();
 		}
 
+		private void Delete_Tool_Click(object sender, EventArgs e)
+		{
+			if (listBox_Component.SelectedItem != null&&listBox_Tool.SelectedItem!=null)
+			{
+				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools.RemoveAt(listBox_Tool.SelectedIndex);
+			}
+		}
+
+		private void listBox_Roi_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				
+				roi_index = listBox_Roi.SelectedIndex;
+				string type_roi = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool[roi_index].Type;
+				if (type_roi == "Line")
+				{
+					HTuple StartX1, StartY1, EndX2, EndY2;
+					LineROI lineroi1 = (LineROI)Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool[roi_index];
+					StartX1 = lineroi1.StartX;
+					StartY1 = lineroi1.StartY;
+					EndX2 = lineroi1.EndX;
+					EndY2 = lineroi1.EndY;
+					libaryHalcon.make_Roi_Line(HSmartWindowControl.HalconWindow, StartX1, StartY1, EndX2, EndY2);
+					make_roi_index = 1;
+				}
+				if (type_roi == "Rectangle")
+				{
+					double StartX, StartY, Phi, Width, Height;
+					RectangleROI recroi1 = (RectangleROI)Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool[roi_index];
+					StartX = recroi1.X;
+					StartY = recroi1.Y;
+					Phi = recroi1.Phi;
+					Width = recroi1.Width;
+					Height = recroi1.Height;
+					libaryHalcon.make_ROI_rectang(HSmartWindowControl.HalconWindow, StartX, StartY, Phi, Width, Height, false, 0);
+					make_roi_index = 3;
+				}
+				if (type_roi == "Circle")
+				{
+					double StartX, StartY, Radius;
+					CircleROI cirroi1 = (CircleROI)Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool[roi_index];
+					StartX = cirroi1.CenterX;
+					StartY = cirroi1.CenterY;
+					Radius = cirroi1.Radius;
+					libaryHalcon.make_Roi_Circle(HSmartWindowControl.HalconWindow, StartX, StartY, Radius, false, 0);
+					make_roi_index = 2;
+				}
+				if (type_roi == "Polygon")
+				{
+					List<double> Row, Col;
+					PolygonROI polygon = (PolygonROI)Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool[roi_index];
+					Row = polygon.StartX; Col = polygon.StartY;
+					libaryHalcon.Make_Roi_Polygon(HSmartWindowControl.HalconWindow, Row, Col, false, 0);
+					make_roi_index = 4;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Error 103" + ex.ToString());
+				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
+			}
+		}
+
+		private void Run_Component(object sender, EventArgs e)
+		{
+			try
+			{
+				Cycletime.Restart();
+				var context = Statatic_Model.model_run.Cameras[camera].Views[treejob].RunContext;
+				var input = new ToolRunInput
+				{
+					Image = InputIMG,
+					Context = new ViewRunContext(),
+					Window = HSmartWindowControl.HalconWindow
+				};
+				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].ExecuteAllTools(input);
+				Cycletime.Stop();
+				label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Name_component.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
+				resultShapeModel.get_result_Views(input.Context);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Error Component" + ex.ToString());
+				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
+			}
+		}
+
+		private void numericUpDown6_ValueChanged(object sender, EventArgs e)
+		{
+			Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Exposure = (int)numericUpDown6.Value;
+			Job_Model.Statatic_Model.Dino_lites[camera].SETPARAMETERCAMERA("ExposureTime", Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Exposure);
+		}
+
+		private void simpleButton2_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				Cycletime.Restart();
+				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].show_text = true;
+				var context = Statatic_Model.model_run.Cameras[camera].Views[treejob].RunContext;
+				var input = new ToolRunInput
+				{
+					Image = InputIMG,
+					Context = context,
+					Window = HSmartWindowControl.HalconWindow
+				};
+				ToolResult toolResult = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].Excute_OnlyTool(input);
+				context.ToolResults[Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].Id] = toolResult;
+				Cycletime.Stop();
+				label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
+				load_result_tool("ResultShapeModel");
+				string name_component = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Name_component;
+				resultShapeModel.get_result(toolResult, name_component);
+				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].stepbystep = false;
+				checkEdit_stepbystep.Checked = false;
+
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Error RunTool" + ex.ToString());
+				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
+			}
 		
+
+		}
 	}
 }

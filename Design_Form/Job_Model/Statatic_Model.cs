@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //using ActUtlType64Lib;
@@ -17,8 +18,8 @@ namespace Design_Form.Job_Model
         public static ManagerModelcs model_main_run ;
         public static List<VisionHalcon> Dino_lites = new List<VisionHalcon>();
         public static HTuple[,,] hommat2D = new HTuple[50,50,50];
-        public static HObject[,,] Input_Image = new HObject[50,50,50];
-        public static HObject[,,] roi_outmapbit = new HObject[50,50,50];
+     //   public static HObject[,,] Input_Image = new HObject[50,50,50];
+    //    public static HObject[,,] roi_outmapbit = new HObject[50,50,50];
         public static SQL_Lite_Class sql_lite = new SQL_Lite_Class("Products_backup.db");
         public static SQL_Lite_Class sql_lite_update = new SQL_Lite_Class("Products_update.db");
         public static List<HObject> Roi_Dislays1 = new List<HObject>();
@@ -28,7 +29,6 @@ namespace Design_Form.Job_Model
         public static HTuple Para_Cam = new HTuple();
         public static Config_Machine config_machine = new Config_Machine();
       //  public static Model_PLC_Machine model_machine = new Model_PLC_Machine();
-        public static string barcoder_reader { get; set; }
         public static int job_index { get; set; }
         public static int image_index { get; set; }
         public static int tool_index { get; set; }
@@ -85,8 +85,35 @@ namespace Design_Form.Job_Model
                 MessageBox.Show(ex.ToString());
             }
         }
+		public static int check_indextool(int a, int b, int c, int d, int ID)
+		{
+            int index = -1;
+			for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools.Count; i++)
+			{
+				if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].Id == ID)
+				{
+					index = i;
+				}
 
+			}
+			return  index;
+		}
+		public static void TryGetNumberAfterID(string input, out string number)
+		{
+			number = string.Empty;
 
-    }
+			if (string.IsNullOrEmpty(input))
+				return;
+
+			var match = Regex.Match(input, @"ID:(\d+)");
+
+			if (!match.Success)
+				return;
+
+			number = match.Groups[1].Value;
+
+		}
+
+	}
     
 }

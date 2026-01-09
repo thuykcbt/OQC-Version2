@@ -67,10 +67,7 @@ namespace Design_Form.User_PLC
         {
             try
             {
-                ManagerModelcs managerModelcs = new ManagerModelcs();
-                managerModelcs.Name_model = "Model Main";
-				Job_Model.Statatic_Model.model_list.models_main.Clear();
-                Job_Model.Statatic_Model.model_list.models_main.Add(managerModelcs);
+                Job_Model.Statatic_Model.model_list = new ManagerModelMain() ;
                 var settings = new JsonSerializerSettings
                 {
                     TypeNameHandling = TypeNameHandling.Auto,
@@ -173,7 +170,6 @@ namespace Design_Form.User_PLC
             try
             {
                 Job_Model.ManagerModelcs Modelnew = new Job_Model.ManagerModelcs();
-                Modelnew.Name_model = "Model Main";
                 Modelnew.ID = Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.models_main.Count - 1].ID + 1;
                 Job_Model.Statatic_Model.model_list.models_main.Add(Modelnew);
                
