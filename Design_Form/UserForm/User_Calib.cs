@@ -14,8 +14,8 @@ using System.Windows.Forms;
 namespace Design_Form.UserForm
 {
   
-    public partial class User_Calib : UserControl
-    {
+    public partial class User_Calib : UserControl, ISaveable
+	{
         int index_follow = -1;
         int roate_image=-1;
 		int a, b, c, d;
@@ -52,22 +52,24 @@ namespace Design_Form.UserForm
             }
         }
 
-       
-        //Button Save
-        private void simpleButton1_Click(object sender, EventArgs e)
+
+		//Button Save
+		public void Save_para(Job_Model.DataMainToUser dataMain)
         {
-            Calibrate_Plate_Tool tool = (Calibrate_Plate_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-            //Sigma index 0
-            tool.file_image_calib = label1.Text;
-            tool.file_paracam = label2.Text;
-            tool.file_Pose_Came = label3.Text;
-            tool.file_Calib_describe = label4.Text;
-            tool.focus=(double) focus.Value;
-            tool.Thick_Ness= (double)Thickness.Value;
-            tool.Cell_Height=(double)Cell_Height.Value;
-            tool.Cell_Width=(double)Cell_Width.Value;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
-        }
+			Calibrate_Plate_Tool tool = (Calibrate_Plate_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+			//Sigma index 0
+			tool.file_image_calib = label1.Text;
+			tool.file_paracam = label2.Text;
+			tool.file_Pose_Came = label3.Text;
+			tool.file_Calib_describe = label4.Text;
+			tool.focus = (double)focus.Value;
+			tool.Thick_Ness = (double)Thickness.Value;
+			tool.Cell_Height = (double)Cell_Height.Value;
+			tool.Cell_Width = (double)Cell_Width.Value;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
+		}
+
+		
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {

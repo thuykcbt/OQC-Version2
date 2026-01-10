@@ -13,8 +13,8 @@ using System.Windows.Forms;
 
 namespace Design_Form.UserForm
 {
-    public partial class Segmentation : DevExpress.XtraEditors.XtraUserControl
-    {
+    public partial class Segmentation : DevExpress.XtraEditors.XtraUserControl, ISaveable
+	{
         public Segmentation()
         {
             InitializeComponent();
@@ -57,12 +57,9 @@ namespace Design_Form.UserForm
         
        
 
-        private void simpleButton1_Click_1(object sender, EventArgs e)
-        {
-           Save_para();
-        }
-        private void Save_para()
-        {
+       
+		public void Save_para(Job_Model.DataMainToUser dataMain)
+		{
             BlobTool tool = (BlobTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             tool.index_follow= index_follow;
             tool.master_follow = combo_master.Text;
@@ -70,10 +67,7 @@ namespace Design_Form.UserForm
             Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            Save_para();
-        }
+       
 
         private void combo_master_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -98,9 +92,6 @@ namespace Design_Form.UserForm
             ButtonClicked_Draw_Region?.Invoke(this, e);
         }
 
-        private void simpleButton4_Click(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }

@@ -13,8 +13,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Design_Form.Tools.Base;
 namespace Design_Form.UserForm
 {
-    public partial class HistogramPara_Color : DevExpress.XtraEditors.XtraUserControl
-    {
+    public partial class HistogramPara_Color : DevExpress.XtraEditors.XtraUserControl, ISaveable
+	{
         public HistogramPara_Color()
         {
             InitializeComponent();
@@ -85,12 +85,9 @@ namespace Design_Form.UserForm
         
        
 
-        private void simpleButton1_Click_1(object sender, EventArgs e)
-        {
-           Save_para();
-        }
-        private void Save_para()
-        {
+      
+		public void Save_para(Job_Model.DataMainToUser dataMain)
+		{
             HistogramTool_Color tool = (HistogramTool_Color)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             tool.master_follow = combo_master.Text;
             tool.index_follow = index_follow;
@@ -129,11 +126,7 @@ namespace Design_Form.UserForm
             Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            Save_para();
-        }
-
+     
         private void combo_master_SelectedIndexChanged(object sender, EventArgs e)
         {
             string buffer1 = combo_master.Text;
@@ -153,18 +146,8 @@ namespace Design_Form.UserForm
             }
         }
 
-        private void tabPane1_Click(object sender, EventArgs e)
-        {
-        }
+     
 
-        private void simpleButton3_Click(object sender, EventArgs e)
-        {
-            Save_para();
-        }
-
-        private void simpleButton4_Click(object sender, EventArgs e)
-        {
-            Save_para();
-        }
+    
     }
 }

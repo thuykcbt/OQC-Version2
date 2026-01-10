@@ -13,8 +13,8 @@ using System.Windows.Forms;
 using Design_Form.Tools.Base;
 namespace Design_Form.UserForm
 {
-    public partial class NccModelPara : DevExpress.XtraEditors.XtraUserControl
-    {
+    public partial class NccModelPara : DevExpress.XtraEditors.XtraUserControl, ISaveable
+	{
         public NccModelPara()
         {
             InitializeComponent();
@@ -84,12 +84,9 @@ namespace Design_Form.UserForm
 
        
 
-        private void simpleButton1_Click_1(object sender, EventArgs e)
-        {
-           Save_para();
-        }
-        private void Save_para()
-        {
+        
+		public void Save_para(Job_Model.DataMainToUser dataMain)
+		{
             NccModelTool shapeModel = (NccModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             shapeModel.index_follow= index_follow;
             shapeModel.FollowMaster = combo_master.Text;
@@ -109,12 +106,6 @@ namespace Design_Form.UserForm
             shapeModel.metric = combo_Metric.Text;
             Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = shapeModel;
         }
-
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            Save_para();
-        }
-
         private void combo_master_SelectedIndexChanged(object sender, EventArgs e)
         {
             string buffer1 = combo_master.Text;

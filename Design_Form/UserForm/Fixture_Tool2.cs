@@ -12,8 +12,8 @@ using Design_Form.Tools.Base;
 namespace Design_Form.UserForm
 {
   
-    public partial class Fixture_Tool2 : UserControl
-    {
+    public partial class Fixture_Tool2 : UserControl, ISaveable
+	{
         int index_follow = -1;
 		int index_tool = -1;
 		int index_follow2 = -1;
@@ -66,8 +66,7 @@ namespace Design_Form.UserForm
 			    index_follow = int.Parse(num);
 			
 		}
-
-        private void simpleButton1_Click(object sender, EventArgs e)
+		public void Save_para(Job_Model.DataMainToUser dataMain)
         {
 			FixtureTool_2 fixture = (FixtureTool_2)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
 			//Sigma index 0
@@ -78,19 +77,20 @@ namespace Design_Form.UserForm
 			index_tool = Statatic_Model.check_indextool(a, b, c, d, index_follow);
 			index_tool2 = Statatic_Model.check_indextool(a, b, c, d, index_follow2);
 
-			
-           
-            ShapeModelTool shapeModelTool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool];
-            fixture.master_x1 = shapeModelTool.XFollow;
-            fixture.master_y1 = shapeModelTool.YFollow;
 
-            ShapeModelTool shapeModelTool1 = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool2];
-            fixture.master_x2 = shapeModelTool1.XFollow;
-            fixture.master_y2 = shapeModelTool1.YFollow;
 
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = fixture;
-        }
+			ShapeModelTool shapeModelTool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool];
+			fixture.master_x1 = shapeModelTool.XFollow;
+			fixture.master_y1 = shapeModelTool.YFollow;
 
+			ShapeModelTool shapeModelTool1 = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool2];
+			fixture.master_x2 = shapeModelTool1.XFollow;
+			fixture.master_y2 = shapeModelTool1.YFollow;
+
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = fixture;
+		}
+
+	
         private void combo_master2_SelectedIndexChanged(object sender, EventArgs e)
         {
 			//  combo_master.Items.Clear();

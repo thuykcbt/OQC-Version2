@@ -190,8 +190,8 @@
     <Compile Include="Job_Model\Calibrate_Matrix.cs" />
     <Compile Include="Job_Model\DataMainToUser.cs" />
     <Compile Include="Job_Model\Display.cs" />
-    <Compile Include="Job_Model\Image_Show.cs" />
     <Compile Include="Job_Model\LibaryHalcon.cs" />
+    <Compile Include="Job_Model\LightSetting.cs" />
     <Compile Include="Job_Model\ManagerModelcs.cs" />
     <Compile Include="Job_Model\Manager_Result.cs" />
     <Compile Include="Job_Model\Model.cs" />
@@ -199,7 +199,6 @@
     <Compile Include="Job_Model\Scanner_Barcode.cs" />
     <Compile Include="Job_Model\SQL_Lite_Class.cs" />
     <Compile Include="Job_Model\Statatic_Model.cs" />
-    <Compile Include="Job_Model\VisionBasler.cs" />
     <Compile Include="Job_Model\VisionHalcon.cs" />
     <Compile Include="Job_Model\WirteLogcs.cs" />
     <Compile Include="LiveCamera.cs">

@@ -13,8 +13,8 @@ using Design_Form.Tools.Base;
 
 namespace Design_Form.UserForm
 {
-    public partial class Fillter_tool : DevExpress.XtraEditors.XtraUserControl
-    {
+    public partial class Fillter_tool : DevExpress.XtraEditors.XtraUserControl, ISaveable
+	{
         public Fillter_tool()
         {
             InitializeComponent();
@@ -54,22 +54,16 @@ namespace Design_Form.UserForm
         
        
 
-        private void simpleButton1_Click_1(object sender, EventArgs e)
-        {
-           Save_para();
-        }
-        private void Save_para()
-        {
+      
+		public void Save_para(Job_Model.DataMainToUser dataMain)
+		{
          
          
            
             
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            Save_para();
-        }
+       
 
        
     }

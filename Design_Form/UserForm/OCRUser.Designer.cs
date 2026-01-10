@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OCRUser));
 			this.numericChartRangeControlClient1 = new DevExpress.XtraEditors.NumericChartRangeControlClient();
 			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
 			this.Strureture = new System.Windows.Forms.TextBox();
@@ -39,13 +38,11 @@
 			this.contract = new System.Windows.Forms.NumericUpDown();
 			this.comboBox2 = new System.Windows.Forms.ComboBox();
 			this.numeric_Width = new System.Windows.Forms.NumericUpDown();
-			this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
 			this.combo_master = new System.Windows.Forms.ComboBox();
 			this.numeric_High = new System.Windows.Forms.NumericUpDown();
 			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-			this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -60,10 +57,8 @@
 			this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
 			this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
 			this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-			this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.numeric_MeasureThres = new System.Windows.Forms.NumericUpDown();
@@ -80,7 +75,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
@@ -98,7 +92,6 @@
 			this.layoutControl2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_MeasureThres)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_Length2)).BeginInit();
@@ -115,7 +108,6 @@
 			this.layoutControl1.Controls.Add(this.contract);
 			this.layoutControl1.Controls.Add(this.comboBox2);
 			this.layoutControl1.Controls.Add(this.numeric_Width);
-			this.layoutControl1.Controls.Add(this.simpleButton1);
 			this.layoutControl1.Controls.Add(this.combo_master);
 			this.layoutControl1.Controls.Add(this.numeric_High);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -128,44 +120,44 @@
 			// 
 			// Strureture
 			// 
-			this.Strureture.Location = new System.Drawing.Point(123, 229);
+			this.Strureture.Location = new System.Drawing.Point(126, 231);
 			this.Strureture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Strureture.Name = "Strureture";
-			this.Strureture.Size = new System.Drawing.Size(99, 20);
+			this.Strureture.Size = new System.Drawing.Size(95, 20);
 			this.Strureture.TabIndex = 38;
 			// 
 			// numWidh_Min
 			// 
 			this.numWidh_Min.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.numWidh_Min.Location = new System.Drawing.Point(123, 107);
+			this.numWidh_Min.Location = new System.Drawing.Point(126, 109);
 			this.numWidh_Min.Maximum = new decimal(new int[] {
             254,
             0,
             0,
             0});
 			this.numWidh_Min.Name = "numWidh_Min";
-			this.numWidh_Min.Size = new System.Drawing.Size(99, 23);
+			this.numWidh_Min.Size = new System.Drawing.Size(95, 23);
 			this.numWidh_Min.TabIndex = 37;
 			// 
 			// numHigh_Min
 			// 
 			this.numHigh_Min.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.numHigh_Min.Location = new System.Drawing.Point(123, 59);
+			this.numHigh_Min.Location = new System.Drawing.Point(126, 61);
 			this.numHigh_Min.Maximum = new decimal(new int[] {
             254,
             0,
             0,
             0});
 			this.numHigh_Min.Name = "numHigh_Min";
-			this.numHigh_Min.Size = new System.Drawing.Size(99, 23);
+			this.numHigh_Min.Size = new System.Drawing.Size(95, 23);
 			this.numHigh_Min.TabIndex = 36;
 			// 
 			// text_Separator
 			// 
-			this.text_Separator.Location = new System.Drawing.Point(123, 205);
+			this.text_Separator.Location = new System.Drawing.Point(126, 207);
 			this.text_Separator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.text_Separator.Name = "text_Separator";
-			this.text_Separator.Size = new System.Drawing.Size(99, 20);
+			this.text_Separator.Size = new System.Drawing.Size(95, 20);
 			this.text_Separator.TabIndex = 35;
 			// 
 			// Combo_Polarity
@@ -174,23 +166,23 @@
 			this.Combo_Polarity.Items.AddRange(new object[] {
             "dark_on_light",
             "light_on_dark"});
-			this.Combo_Polarity.Location = new System.Drawing.Point(123, 155);
+			this.Combo_Polarity.Location = new System.Drawing.Point(126, 157);
 			this.Combo_Polarity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Combo_Polarity.Name = "Combo_Polarity";
-			this.Combo_Polarity.Size = new System.Drawing.Size(99, 21);
+			this.Combo_Polarity.Size = new System.Drawing.Size(95, 21);
 			this.Combo_Polarity.TabIndex = 34;
 			// 
 			// contract
 			// 
 			this.contract.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.contract.Location = new System.Drawing.Point(123, 131);
+			this.contract.Location = new System.Drawing.Point(126, 133);
 			this.contract.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
 			this.contract.Name = "contract";
-			this.contract.Size = new System.Drawing.Size(99, 23);
+			this.contract.Size = new System.Drawing.Size(95, 23);
 			this.contract.TabIndex = 33;
 			// 
 			// comboBox2
@@ -233,45 +225,32 @@
             "Universal_0-9A-Z_Rej.occ",
             "Universal_0-9A-Z+_Rej.occ",
             "Universal_A-Z+_Rej.occ"});
-			this.comboBox2.Location = new System.Drawing.Point(123, 180);
+			this.comboBox2.Location = new System.Drawing.Point(126, 182);
 			this.comboBox2.Name = "comboBox2";
-			this.comboBox2.Size = new System.Drawing.Size(99, 24);
+			this.comboBox2.Size = new System.Drawing.Size(95, 24);
 			this.comboBox2.TabIndex = 32;
 			this.comboBox2.Text = "Universal_Rej.occ";
 			// 
 			// numeric_Width
 			// 
 			this.numeric_Width.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.numeric_Width.Location = new System.Drawing.Point(123, 83);
+			this.numeric_Width.Location = new System.Drawing.Point(126, 85);
 			this.numeric_Width.Maximum = new decimal(new int[] {
             254,
             0,
             0,
             0});
 			this.numeric_Width.Name = "numeric_Width";
-			this.numeric_Width.Size = new System.Drawing.Size(99, 23);
+			this.numeric_Width.Size = new System.Drawing.Size(95, 23);
 			this.numeric_Width.TabIndex = 19;
-			// 
-			// simpleButton1
-			// 
-			this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.simpleButton1.Appearance.Options.UseFont = true;
-			this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-			this.simpleButton1.Location = new System.Drawing.Point(11, 537);
-			this.simpleButton1.Name = "simpleButton1";
-			this.simpleButton1.Size = new System.Drawing.Size(211, 36);
-			this.simpleButton1.StyleController = this.layoutControl1;
-			this.simpleButton1.TabIndex = 14;
-			this.simpleButton1.Text = "SaveTool";
-			this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
 			// 
 			// combo_master
 			// 
 			this.combo_master.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.combo_master.FormattingEnabled = true;
-			this.combo_master.Location = new System.Drawing.Point(123, 10);
+			this.combo_master.Location = new System.Drawing.Point(126, 12);
 			this.combo_master.Name = "combo_master";
-			this.combo_master.Size = new System.Drawing.Size(99, 24);
+			this.combo_master.Size = new System.Drawing.Size(95, 24);
 			this.combo_master.TabIndex = 4;
 			this.combo_master.Text = "none";
 			this.combo_master.SelectedIndexChanged += new System.EventHandler(this.combo_master_SelectedIndexChanged);
@@ -279,14 +258,14 @@
 			// numeric_High
 			// 
 			this.numeric_High.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.numeric_High.Location = new System.Drawing.Point(123, 35);
+			this.numeric_High.Location = new System.Drawing.Point(126, 37);
 			this.numeric_High.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
 			this.numeric_High.Name = "numeric_High";
-			this.numeric_High.Size = new System.Drawing.Size(99, 23);
+			this.numeric_High.Size = new System.Drawing.Size(95, 23);
 			this.numeric_High.TabIndex = 5;
 			this.numeric_High.Value = new decimal(new int[] {
             2,
@@ -301,7 +280,6 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
             this.emptySpaceItem1,
-            this.layoutControlItem9,
             this.layoutControlItem5,
             this.layoutControlItem6,
             this.layoutControlItem21,
@@ -322,7 +300,7 @@
 			this.layoutControlItem1.Control = this.combo_master;
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(215, 25);
+			this.layoutControlItem1.Size = new System.Drawing.Size(213, 25);
 			this.layoutControlItem1.Text = "Master_Follow";
 			this.layoutControlItem1.TextSize = new System.Drawing.Size(102, 16);
 			// 
@@ -331,17 +309,8 @@
 			this.emptySpaceItem1.AllowHotTrack = false;
 			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 243);
 			this.emptySpaceItem1.Name = "emptySpaceItem1";
-			this.emptySpaceItem1.Size = new System.Drawing.Size(215, 284);
+			this.emptySpaceItem1.Size = new System.Drawing.Size(213, 320);
 			this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-			// 
-			// layoutControlItem9
-			// 
-			this.layoutControlItem9.Control = this.simpleButton1;
-			this.layoutControlItem9.Location = new System.Drawing.Point(0, 527);
-			this.layoutControlItem9.Name = "layoutControlItem9";
-			this.layoutControlItem9.Size = new System.Drawing.Size(215, 40);
-			this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-			this.layoutControlItem9.TextVisible = false;
 			// 
 			// layoutControlItem5
 			// 
@@ -352,7 +321,7 @@
 			this.layoutControlItem5.CustomizationFormText = "Sigma";
 			this.layoutControlItem5.Location = new System.Drawing.Point(0, 25);
 			this.layoutControlItem5.Name = "layoutControlItem5";
-			this.layoutControlItem5.Size = new System.Drawing.Size(215, 24);
+			this.layoutControlItem5.Size = new System.Drawing.Size(213, 24);
 			this.layoutControlItem5.Text = "Max_Char_High";
 			this.layoutControlItem5.TextSize = new System.Drawing.Size(102, 16);
 			// 
@@ -363,7 +332,7 @@
 			this.layoutControlItem6.Control = this.numeric_Width;
 			this.layoutControlItem6.Location = new System.Drawing.Point(0, 73);
 			this.layoutControlItem6.Name = "layoutControlItem6";
-			this.layoutControlItem6.Size = new System.Drawing.Size(215, 24);
+			this.layoutControlItem6.Size = new System.Drawing.Size(213, 24);
 			this.layoutControlItem6.Text = "Max_Char_Width";
 			this.layoutControlItem6.TextSize = new System.Drawing.Size(102, 16);
 			// 
@@ -374,7 +343,7 @@
 			this.layoutControlItem21.Control = this.comboBox2;
 			this.layoutControlItem21.Location = new System.Drawing.Point(0, 170);
 			this.layoutControlItem21.Name = "layoutControlItem21";
-			this.layoutControlItem21.Size = new System.Drawing.Size(215, 25);
+			this.layoutControlItem21.Size = new System.Drawing.Size(213, 25);
 			this.layoutControlItem21.Text = "CodeType";
 			this.layoutControlItem21.TextSize = new System.Drawing.Size(102, 16);
 			// 
@@ -385,7 +354,7 @@
 			this.layoutControlItem23.Control = this.contract;
 			this.layoutControlItem23.Location = new System.Drawing.Point(0, 121);
 			this.layoutControlItem23.Name = "layoutControlItem23";
-			this.layoutControlItem23.Size = new System.Drawing.Size(215, 24);
+			this.layoutControlItem23.Size = new System.Drawing.Size(213, 24);
 			this.layoutControlItem23.Text = "Contract";
 			this.layoutControlItem23.TextSize = new System.Drawing.Size(102, 16);
 			// 
@@ -396,7 +365,7 @@
 			this.layoutControlItem2.Control = this.Combo_Polarity;
 			this.layoutControlItem2.Location = new System.Drawing.Point(0, 145);
 			this.layoutControlItem2.Name = "layoutControlItem2";
-			this.layoutControlItem2.Size = new System.Drawing.Size(215, 25);
+			this.layoutControlItem2.Size = new System.Drawing.Size(213, 25);
 			this.layoutControlItem2.Text = "Polarity";
 			this.layoutControlItem2.TextSize = new System.Drawing.Size(102, 17);
 			// 
@@ -407,7 +376,7 @@
 			this.layoutControlItem3.Control = this.text_Separator;
 			this.layoutControlItem3.Location = new System.Drawing.Point(0, 195);
 			this.layoutControlItem3.Name = "layoutControlItem3";
-			this.layoutControlItem3.Size = new System.Drawing.Size(215, 24);
+			this.layoutControlItem3.Size = new System.Drawing.Size(213, 24);
 			this.layoutControlItem3.Text = "Separator";
 			this.layoutControlItem3.TextSize = new System.Drawing.Size(102, 17);
 			// 
@@ -418,7 +387,7 @@
 			this.layoutControlItem4.Control = this.numHigh_Min;
 			this.layoutControlItem4.Location = new System.Drawing.Point(0, 49);
 			this.layoutControlItem4.Name = "layoutControlItem4";
-			this.layoutControlItem4.Size = new System.Drawing.Size(215, 24);
+			this.layoutControlItem4.Size = new System.Drawing.Size(213, 24);
 			this.layoutControlItem4.Text = "Min_Char_High";
 			this.layoutControlItem4.TextSize = new System.Drawing.Size(102, 17);
 			// 
@@ -429,7 +398,7 @@
 			this.layoutControlItem7.Control = this.numWidh_Min;
 			this.layoutControlItem7.Location = new System.Drawing.Point(0, 97);
 			this.layoutControlItem7.Name = "layoutControlItem7";
-			this.layoutControlItem7.Size = new System.Drawing.Size(215, 24);
+			this.layoutControlItem7.Size = new System.Drawing.Size(213, 24);
 			this.layoutControlItem7.Text = "Min_Char_Width";
 			this.layoutControlItem7.TextSize = new System.Drawing.Size(102, 17);
 			// 
@@ -440,7 +409,7 @@
 			this.layoutControlItem8.Control = this.Strureture;
 			this.layoutControlItem8.Location = new System.Drawing.Point(0, 219);
 			this.layoutControlItem8.Name = "layoutControlItem8";
-			this.layoutControlItem8.Size = new System.Drawing.Size(215, 24);
+			this.layoutControlItem8.Size = new System.Drawing.Size(213, 24);
 			this.layoutControlItem8.Text = "Structure";
 			this.layoutControlItem8.TextSize = new System.Drawing.Size(102, 17);
 			// 
@@ -487,7 +456,6 @@
 			// layoutControl2
 			// 
 			this.layoutControl2.Controls.Add(this.comboBox1);
-			this.layoutControl2.Controls.Add(this.simpleButton2);
 			this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.layoutControl2.Location = new System.Drawing.Point(0, 0);
 			this.layoutControl2.Name = "layoutControl2";
@@ -520,23 +488,10 @@
             "Item18",
             "Item19",
             "Item20"});
-			this.comboBox1.Location = new System.Drawing.Point(89, 10);
+			this.comboBox1.Location = new System.Drawing.Point(92, 12);
 			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(133, 21);
+			this.comboBox1.Size = new System.Drawing.Size(129, 21);
 			this.comboBox1.TabIndex = 30;
-			// 
-			// simpleButton2
-			// 
-			this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.simpleButton2.Appearance.Options.UseFont = true;
-			this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-			this.simpleButton2.Location = new System.Drawing.Point(11, 537);
-			this.simpleButton2.Name = "simpleButton2";
-			this.simpleButton2.Size = new System.Drawing.Size(211, 36);
-			this.simpleButton2.StyleController = this.layoutControl2;
-			this.simpleButton2.TabIndex = 13;
-			this.simpleButton2.Text = "SaveTool";
-			this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
 			// 
 			// layoutControlGroup1
 			// 
@@ -544,7 +499,6 @@
 			this.layoutControlGroup1.GroupBordersVisible = false;
 			this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem2,
-            this.layoutControlItem15,
             this.layoutControlItem20});
 			this.layoutControlGroup1.Name = "Root";
 			this.layoutControlGroup1.Size = new System.Drawing.Size(233, 583);
@@ -555,17 +509,8 @@
 			this.emptySpaceItem2.AllowHotTrack = false;
 			this.emptySpaceItem2.Location = new System.Drawing.Point(0, 25);
 			this.emptySpaceItem2.Name = "emptySpaceItem2";
-			this.emptySpaceItem2.Size = new System.Drawing.Size(215, 502);
+			this.emptySpaceItem2.Size = new System.Drawing.Size(213, 538);
 			this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-			// 
-			// layoutControlItem15
-			// 
-			this.layoutControlItem15.Control = this.simpleButton2;
-			this.layoutControlItem15.Location = new System.Drawing.Point(0, 527);
-			this.layoutControlItem15.Name = "layoutControlItem15";
-			this.layoutControlItem15.Size = new System.Drawing.Size(215, 40);
-			this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
-			this.layoutControlItem15.TextVisible = false;
 			// 
 			// layoutControlItem20
 			// 
@@ -574,7 +519,7 @@
 			this.layoutControlItem20.Control = this.comboBox1;
 			this.layoutControlItem20.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem20.Name = "layoutControlItem20";
-			this.layoutControlItem20.Size = new System.Drawing.Size(215, 25);
+			this.layoutControlItem20.Size = new System.Drawing.Size(213, 25);
 			this.layoutControlItem20.Text = "Item_Check";
 			this.layoutControlItem20.TextSize = new System.Drawing.Size(68, 16);
 			// 
@@ -645,7 +590,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
@@ -663,7 +607,6 @@
 			this.layoutControl2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_MeasureThres)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_Length2)).EndInit();
@@ -685,10 +628,6 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.NumericUpDown numeric_MeasureThres;
         private System.Windows.Forms.NumericUpDown numeric_Length2;

@@ -97,9 +97,10 @@ namespace Design_Form.Job_Model
         public string ViewsName { get; set; }
 		public BindingList<Class_Components> Components;
 		[JsonIgnore]
-		public ViewRunContext RunContext { get; private set; } =new ViewRunContext();
+		public ViewRunContext RunContext { get; set; } =new ViewRunContext();
 		[JsonIgnore] // hoặc [JsonProperty] nếu bạn muốn lưu kèm (tùy)
 		private int _nextToolId = 0; // Trình tạo ID duy nhất trong view này
+        public ViewCaptureSetting CaptureSetting  = new ViewCaptureSetting();
 
 		// Nếu bạn muốn lưu _nextToolId khi serialize (để sau clone vẫn tăng đúng), thì:
 		[JsonProperty("NextToolId")]
@@ -112,10 +113,11 @@ namespace Design_Form.Job_Model
 		{
 			return _nextToolId++;
 		}
+		[JsonConstructor]
 		public Class_Views()
 		{
 			Components = new BindingList<Class_Components>();
-            Class_Components component = new Class_Components("Fudixal_Mark");
+			Class_Components component = new Class_Components("Fudixal_Mark");
             Components.Add(component);
 		}
 		public string result_job = "OK";
@@ -128,7 +130,7 @@ namespace Design_Form.Job_Model
         public string File_Path_Image { get; set; }
         public string Face_Check { get; set; }
      
-        public ViewRunContext ExecuteAllComponent(HWindow hWindow, HObject ho_Image)
+        public ViewRunContext ExecuteAllComponent(HWindow hWindow, List<HObject> ho_Image)
         {
             RunContext = new ViewRunContext();
 			var input = new ToolRunInput
@@ -252,7 +254,7 @@ namespace Design_Form.Job_Model
     }
 	public class ToolRunInput
 	{
-		public HObject Image { get; set; }
+		public List<HObject> Image {  get; set; }
         public bool Save_Fudixal {  get; set; }
 		public ViewRunContext Context { get; set; }
 		public HWindow Window { get; set; } // optional

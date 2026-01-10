@@ -13,8 +13,8 @@ using System.Windows.Forms;
 namespace Design_Form.UserForm
 {
   
-    public partial class Fixture_Tool : UserControl
-    {
+    public partial class Fixture_Tool : UserControl, ISaveable
+	{
         int index_follow = -1;
         int index_tool=-1;
 		int a, b, c, d;
@@ -46,7 +46,7 @@ namespace Design_Form.UserForm
                     }
                 }
 
-                combo_master.Text = fixture.master_follow.ToString();
+                combo_master.Text = fixture.master_follow;
                 // decimal test = Convert.ToDecimal(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Tools[c].para_Tool[1].Value);
                 index_follow = fixture.index_follow;
 
@@ -66,22 +66,22 @@ namespace Design_Form.UserForm
 
 
 		}
-		
-     
-		private void simpleButton1_Click(object sender, EventArgs e)
+		public void Save_para(Job_Model.DataMainToUser dataMain)
         {
-            FixtureTool fixture = (FixtureTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-            //Sigma index 0
-            fixture.master_follow= combo_master.Text;
-            fixture.index_follow= index_follow;
+			FixtureTool fixture = (FixtureTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+			//Sigma index 0
+			fixture.master_follow = combo_master.Text;
+			fixture.index_follow = index_follow;
 			index_tool = Statatic_Model.check_indextool(a, b, c, d, index_follow);
 
 			ShapeModelTool shapeModelTool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool];
-            fixture.master_x = shapeModelTool.XFollow;
-            fixture.master_y = shapeModelTool.YFollow;
-            fixture.master_phi = shapeModelTool.PhiFollow;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = fixture;
-        }
+			fixture.master_x = shapeModelTool.XFollow;
+			fixture.master_y = shapeModelTool.YFollow;
+			fixture.master_phi = shapeModelTool.PhiFollow;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = fixture;
+		}
+
+
     }
     
 }

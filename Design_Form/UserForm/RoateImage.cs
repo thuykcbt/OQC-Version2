@@ -12,8 +12,8 @@ using Design_Form.Tools.Base;
 namespace Design_Form.UserForm
 {
   
-    public partial class RoateImage : UserControl
-    {
+    public partial class RoateImage : UserControl, ISaveable
+	{
         int index_follow = -1;
         int roate_image=-1;
 		int a, b, c, d;
@@ -79,22 +79,25 @@ namespace Design_Form.UserForm
 
         }
         //Button Save
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            Image_Roate tool = (Image_Roate)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-            //Sigma index 0
-            tool.angle_roate = roate_image;
-            tool.roate_angle = combo_Agl.Text;
-            tool.input_image = combo_master.Text;
-            tool.FL_Red = check_FLRed.Checked;
-            tool.FL_Green = check_FLGreen.Checked;
-            tool.FL_BLue = check_FLBlue.Checked;
-            tool.Cv2Gray = check_Cv2Gray.Checked;
-            tool.image_color = check_Color.Checked;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
-        }
+        
+		public void Save_para(Job_Model.DataMainToUser dataMain)
+		{
+			Image_Roate tool = (Image_Roate)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+			//Sigma index 0
+			tool.angle_roate = roate_image;
+			tool.roate_angle = combo_Agl.Text;
+			tool.input_image = combo_master.Text;
+			tool.FL_Red = check_FLRed.Checked;
+			tool.FL_Green = check_FLGreen.Checked;
+			tool.FL_BLue = check_FLBlue.Checked;
+			tool.Cv2Gray = check_Cv2Gray.Checked;
+			tool.image_color = check_Color.Checked;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
+		}
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+
+
+		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Image_Roate tool = (Image_Roate)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             tool.roate_angle = combo_Agl.Text;

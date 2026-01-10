@@ -21,9 +21,9 @@ namespace Design_Form.Tools.Base
 		{
 
 			HWindow hWindow = toolRunInput.Window;
-			HObject ho_Image = toolRunInput.Image;
+			HObject ho_Image = toolRunInput.Image[type_light];
 			var result_Tool = new ToolResult();
-
+			result_Tool.ToolName = ToolName; 
 			result_Tool.OK=false;
 
 			if (index_follow >= 0)

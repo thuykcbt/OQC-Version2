@@ -12,8 +12,8 @@ using System.Windows.Forms;
 
 namespace Design_Form.UserForm
 {
-    public partial class User_Job : DevExpress.XtraEditors.XtraUserControl
-    {
+    public partial class User_Job : DevExpress.XtraEditors.XtraUserControl, ISaveable
+	{
         public User_Job()
         {
             InitializeComponent();
@@ -59,12 +59,9 @@ namespace Design_Form.UserForm
             combos.Add(comboBox9);
         }
 
-        private void simpleButton1_Click_1(object sender, EventArgs e)
-        {
-           Save_para();
-        }
-        private void Save_para()
-        {
+     
+		public void Save_para(Job_Model.DataMainToUser dataMain)
+		{
             Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].ViewsName = name_job.Text;
             Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Face_Check= face_check.Text;
              Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Name_Item_check.Clear();

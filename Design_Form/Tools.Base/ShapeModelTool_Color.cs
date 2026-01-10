@@ -43,7 +43,7 @@ namespace Design_Form.Tools.Base
 		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 			HWindow hWindow = toolRunInput.Window;
-			HObject ho_Image = toolRunInput.Image;
+			HObject ho_Image = toolRunInput.Image[type_light];
 			var result_Tool = new ToolResult();
 			return result_Tool;
 			result_Tool.OK = false;

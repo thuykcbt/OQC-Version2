@@ -13,7 +13,7 @@ using Design_Form.Tools.Base;
 namespace Design_Form.UserForm
 {
     public partial class Result_FindLine : UserControl
-    {
+	{
         public Result_FindLine()
         {
             InitializeComponent();

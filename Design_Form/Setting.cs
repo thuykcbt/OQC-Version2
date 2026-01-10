@@ -39,7 +39,8 @@ namespace Design_Form
 		VisionHalcon vision_hacon = new VisionHalcon();
 		Job_Model.LibaryHalcon libaryHalcon = new Job_Model.LibaryHalcon();
 		HObject InputIMG;
-		HObject[] buffer_image = new HObject[5];
+		//HObject[] buffer_image = new HObject[5];
+		List<HObject> Images = new List<HObject>();
 		public int treejob = 0;
 		public int camera = 0;
 		public int make_roi_index = 0;
@@ -95,7 +96,7 @@ namespace Design_Form
 			string name_file_modelsub = Statatic_Model.model_run.Name_Model;
 			string file_paht_total = Path.Combine(file_path, name_file_modelsub);
 			// Gửi xuống child
-			shapeModel.ReceiveDataFromParent(InputIMG, HSmartWindowControl.HalconWindow, file_paht_total ,file_path);
+			shapeModel.ReceiveDataFromParent(Images, HSmartWindowControl.HalconWindow, file_paht_total ,file_path);
 		}
 		private void inital_tool()
 		{
@@ -229,16 +230,21 @@ namespace Design_Form
 		}
 		private void Update_TotalCame()
 		{
-			int a = 0;
 			for (int i = 0; i < Job_Model.Statatic_Model.Dino_lites.Count; i++)
 			{
-				a++;
-				cbbCam.Items.Add("Camera : " + a);
+				cbbCam.Items.Add("Camera : " + i+1);
 			}
 
 			//  Inital_Camera(Job_Model.Statatic_Model.model_run);
 
 			cbbCam.Text = cbbCam.Items[0].ToString();
+			combo_Light.Items.Clear();
+			for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].CaptureSetting.Shots.Count;i++)
+			{
+				combo_Light.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].CaptureSetting.Shots[i].Name_Shot);
+			}
+			combo_Light.SelectedIndex = 0;
+			load_data_light();
 		}
 	
 
@@ -261,22 +267,42 @@ namespace Design_Form
 		{
 			try
 			{
-				//SaveFileDialog sfd = new SaveFileDialog();
-				openFileDialog1.Filter = "Image Files (*.jpg;*.tiff;*.jpeg; *.png; *.gif; *.bmp)|*.jpg;*.tiff; *.jpeg; *.png; *.gif; *.bmp|All files (*.*)|*.*";
-				openFileDialog1.Title = "Select an Image File";
+				// Cấu hình OpenFileDialog
+				openFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png;*.bmp;*.tiff;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.tiff;*.gif|All files (*.*)|*.*";
+				openFileDialog1.Title = "Select Image File(s)";
+				openFileDialog1.Multiselect = true; // Cho phép chọn nhiều ảnh
+
 				if (openFileDialog1.ShowDialog() == DialogResult.OK)
 				{
-					HOperatorSet.ReadImage(out buffer_image[0], openFileDialog1.FileName);
-					HOperatorSet.Rgb1ToGray(buffer_image[0], out buffer_image[1]);
-					InputIMG = buffer_image[0].Clone();
-					vision_hacon.SetGear(HSmartWindowControl.HalconWindow, InputIMG);
-					HTuple width1;
-					HTuple height1;
-					HOperatorSet.GetImageSize(InputIMG, out width1, out height1);
-					HTuple a1 = 0;
-					HTuple h1 = (height1 - 1) * 1.2;
-					HTuple w1 = (width1 - 1) * 1.2;
-					HSmartWindowControl.HalconWindow.SetPart(a1, -w1 / 2, w1, h1);
+					// Xóa hoặc giữ nguyên Images? 
+					// Ở đây ta GIỮ nguyên danh sách cũ và THÊM mới (nếu muốn ghi đè thì dùng Images.Clear())
+					// Nhưng theo yêu cầu: "kéo ảnh vào folder sẽ được thêm vào Images" → nên là **thêm mới**
+
+					// Đọc tất cả ảnh đã chọn
+					foreach (string filePath in openFileDialog1.FileNames)
+					{
+						HObject image;
+						HOperatorSet.ReadImage(out image, filePath);
+						Images.Add(image); // Thêm vào danh sách
+					}
+
+					// Hiển thị ảnh đầu tiên trong danh sách
+					if (Images.Count > 0)
+					{
+						InputIMG = Images[0]; // Gán lại InputIMG nếu cần dùng ở nơi khác
+
+						vision_hacon.SetGear(HSmartWindowControl.HalconWindow, InputIMG);
+
+						// Thiết lập vùng hiển thị (zoom out 20%)
+						HTuple width, height;
+						HOperatorSet.GetImageSize(InputIMG, out width, out height);
+						HTuple top = 0;
+						HTuple bottom = (height - 1) * 1.2;
+						HTuple right = (width - 1) * 1.2;
+						HTuple left = -right / 2; // Canh giữa theo trục X
+
+						HSmartWindowControl.HalconWindow.SetPart(top, left, right, bottom);
+					}
 				}
 			}
 			catch (Exception ex) { MessageBox.Show(ex.ToString()); }
@@ -315,19 +341,12 @@ namespace Design_Form
 				label2.Text = "Coordinates  " + "X: " + x.ToString("0.00") +
 					" " + "Y: " + y.ToString("0.00")
 					+ " " + "Pixel :" + hv_Grayval.ToString();
-				hv_Button.Dispose();
-				hv_Row.Dispose();
-				hv_Column.Dispose();
-				hv_Grayval.Dispose();
 
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
-				hv_Button.Dispose();
-				hv_Row.Dispose();
-				hv_Column.Dispose();
-				hv_Grayval.Dispose();
+			
 				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
 			}
 		}
@@ -349,6 +368,7 @@ namespace Design_Form
 				if(listBox_Component.SelectedItem==null||listBox_Tool.SelectedItem==null)
 					return;
 				string nametool = Job_Model.Statatic_Model.model_run.Cameras[camera].Views[0].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].ToolName;
+				
 				switch (nametool)
 				{
 					case "FindLine":
@@ -436,6 +456,7 @@ namespace Design_Form
 						select_Model.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 				}
+				load_combox_check_box_light(Job_Model.Statatic_Model.model_run.Cameras[camera].Views[0].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].type_light);
 				//   treeView1.Nodes[treejob].Nodes[treetool].Text = "Tool" + (treetool).ToString() + ":" + nametool;
 			}
 			catch (Exception e) { Job_Model.Statatic_Model.wirtelog.Log(e.ToString()); }
@@ -443,15 +464,12 @@ namespace Design_Form
 		}
 	
 
-		private void timer1_Tick(object sender, EventArgs e)
-		{
-			label1.Text = "WelCom to project " ;
-		}
+	
 		// Button Save Model
 		private string currentFilePath = string.Empty;
 		private void simpleButton3_Click(object sender, EventArgs e)
 		{
-			Job_Model.Statatic_Model.Save_Modellist();
+			
 		}
 
 
@@ -546,9 +564,16 @@ namespace Design_Form
 		// buttonn Save Tool
 		private void simpleButton12_Click(object sender, EventArgs e)
 		{
+			int light = 0;
+			if(check_RGB.Checked)
+			{
+				light = combo_Light.SelectedIndex;
+			}
+			else
+				light = combo_Light.SelectedIndex + 10;
 			var mainData = new Job_Model.DataMainToUser
 			{
-				light_selet = StringsSelectLight.ItemIndex
+				light_selet = light
 			};
 			var saveableControl = panel6.Controls
 	   .Cast<System.Windows.Forms.Control>()
@@ -562,7 +587,7 @@ namespace Design_Form
 			{
 				MessageBox.Show("Không có user nào có thể lưu.");
 			}
-
+			Job_Model.Statatic_Model.Save_Modellist();
 		}
 		// button edit roi
 		int roi_index = -1;
@@ -652,18 +677,18 @@ namespace Design_Form
 			Job_Model.Statatic_Model.Dino_lites[camera].SETPARAMETERCAMERA("ExposureTime", Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Exposure);
 			Cycletime.Restart();
 			InputIMG = Job_Model.Statatic_Model.Dino_lites[camera].capture_halcom();
-			update_capture();
+			update_capture(InputIMG);
 			Cycletime.Stop();
 
 
 			label3.Text = "Cycle Time :" + "Capture :" + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
 		}
-		private void update_capture()
+		private void update_capture(HObject Input)
 		{
 			try
 			{
 				HOperatorSet.ClearWindow(HSmartWindowControl.HalconWindow);
-				HOperatorSet.DispObj(InputIMG, HSmartWindowControl.HalconWindow);
+				HOperatorSet.DispObj(Input, HSmartWindowControl.HalconWindow);
 			}
 			catch (Exception ex) { MessageBox.Show(ex.ToString());
 			}
@@ -781,17 +806,7 @@ namespace Design_Form
 		}
 		private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
 		{
-			if (comboBox1.SelectedIndex == 0)
-			{
-				HOperatorSet.DispObj(buffer_image[0], HSmartWindowControl.HalconWindow);
-				InputIMG = buffer_image[0].Clone();
-
-			}
-			if (comboBox1.SelectedIndex == 1)
-			{
-				HOperatorSet.DispObj(buffer_image[1], HSmartWindowControl.HalconWindow);
-				InputIMG = buffer_image[1].Clone();
-			}
+			load_data_light();
 		}
 		private void LoadImage_Click(object sender, EventArgs e)
 		{
@@ -800,13 +815,13 @@ namespace Design_Form
 
 		private void ResetImage_Click(object sender, EventArgs e)
 		{
-			update_capture();
+			update_capture(InputIMG);
 		}
 		private void TrialRun_Click(object sender, EventArgs e)
 		{
 			Cycletime.Restart();
 			Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].auto_check = false;
-			var result_context= Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].ExecuteAllComponent(HSmartWindowControl.HalconWindow, InputIMG);
+			var result_context= Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].ExecuteAllComponent(HSmartWindowControl.HalconWindow, Images);
 			resultShapeModel.get_result_Views(result_context);
 			Cycletime.Stop();
 			label3.Text = "Cycle Time :" + "Job :" + treejob.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
@@ -827,7 +842,7 @@ namespace Design_Form
 		{
 			if (InputIMG != null)
 			{
-				buffer_image[0] = InputIMG;
+				Images.Add(InputIMG);
 			}
 		}
 
@@ -835,7 +850,7 @@ namespace Design_Form
 		{
 			if (InputIMG != null)
 			{
-				buffer_image[1] = InputIMG;
+				Images.Add(InputIMG);
 			}
 		}
 
@@ -843,7 +858,7 @@ namespace Design_Form
 		{
 			if (InputIMG != null)
 			{
-				buffer_image[2] = InputIMG;
+				Images.Add(InputIMG);
 			}
 		}
 
@@ -851,7 +866,7 @@ namespace Design_Form
 		{
 			if (InputIMG != null)
 			{
-				buffer_image[3] = InputIMG;
+				Images.Add(InputIMG);
 			}
 		}
 		private void numeric_cali_ValueChanged(object sender, EventArgs e)
@@ -1045,7 +1060,7 @@ namespace Design_Form
 				var context = Statatic_Model.model_run.Cameras[camera].Views[treejob].RunContext;
 				var input = new ToolRunInput
 				{
-					Image = InputIMG,
+					Image = Images,
 					Context = new ViewRunContext(),
 					Window = HSmartWindowControl.HalconWindow
 				};
@@ -1076,7 +1091,7 @@ namespace Design_Form
 				var context = Statatic_Model.model_run.Cameras[camera].Views[treejob].RunContext;
 				var input = new ToolRunInput
 				{
-					Image = InputIMG,
+					Image = Images,
 					Context = context,
 					Window = HSmartWindowControl.HalconWindow
 				};
@@ -1098,6 +1113,81 @@ namespace Design_Form
 			}
 		
 
+		}
+
+		private void StringsSelectLight_ListItemClick(object sender, ListItemClickEventArgs e)
+		{
+			update_capture(Images[StringsSelectLight.ItemIndex]);
+
+		}
+		private void load_data_light()
+		{
+			var lightsetting = Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].CaptureSetting;
+			checkBox1.Checked = lightsetting.Shots[combo_Light.SelectedIndex].Lights[0].IsEnabled;
+			numericUpDown1.Value = lightsetting.Shots[combo_Light.SelectedIndex].Lights[0].Intensity;
+			checkBox2.Checked = lightsetting.Shots[combo_Light.SelectedIndex].Lights[1].IsEnabled;
+			numericUpDown2.Value = lightsetting.Shots[combo_Light.SelectedIndex].Lights[1].Intensity;
+			checkBox3.Checked = lightsetting.Shots[combo_Light.SelectedIndex].Lights[2].IsEnabled;
+			numericUpDown3.Value = lightsetting.Shots[combo_Light.SelectedIndex].Lights[2].Intensity;
+			checkBox4.Checked = lightsetting.Shots[combo_Light.SelectedIndex].Lights[3].IsEnabled;
+			numericUpDown4.Value = lightsetting.Shots[combo_Light.SelectedIndex].Lights[3].Intensity;
+		}
+		public void load_combox_check_box_light(int light_setting)
+		{
+			if(light_setting>10)
+			{
+				check_RGB.Checked = false;
+				light_setting -= 10;
+			}
+			else
+			{
+				check_RGB.Checked = true;
+			}
+			combo_Light.SelectedIndex = light_setting;
+
+
+		}
+		//Save Light
+		private void simpleButton3_Click_1(object sender, EventArgs e)
+		{
+			try
+			{
+				var lightsetting = Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].CaptureSetting;
+				lightsetting.Shots[combo_Light.SelectedIndex].AddOrUpdateLight(0, checkBox1.Checked, (int)numericUpDown1.Value);
+				lightsetting.Shots[combo_Light.SelectedIndex].AddOrUpdateLight(1, checkBox2.Checked, (int)numericUpDown2.Value);
+				lightsetting.Shots[combo_Light.SelectedIndex].AddOrUpdateLight(2, checkBox3.Checked, (int)numericUpDown3.Value);
+				lightsetting.Shots[combo_Light.SelectedIndex].AddOrUpdateLight(3, checkBox4.Checked, (int)numericUpDown4.Value);
+				Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].CaptureSetting = lightsetting;
+			}
+			catch (Exception ex)
+			{
+				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
+			}
+		
+		}
+
+		private void check_RGB_CheckedChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				if(InputIMG==null)
+					return;
+				if (!check_RGB.Checked)
+				{
+					HObject hObject = InputIMG.Clone();
+					HOperatorSet.Rgb1ToGray(hObject, out HObject grayImage);
+					update_capture(grayImage);
+				}
+				if (check_RGB.Checked)
+				{
+					update_capture(InputIMG);
+				}
+			}
+			catch (Exception ex)
+			{
+				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
+			}
+			
 		}
 	}
 }

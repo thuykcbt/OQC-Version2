@@ -14,8 +14,8 @@ using System.Windows.Forms;
 
 namespace Design_Form.UserForm
 {
-    public partial class CaliHandEye : DevExpress.XtraEditors.XtraUserControl
-    {
+    public partial class CaliHandEye : DevExpress.XtraEditors.XtraUserControl, ISaveable
+	{
         private List<PointF> robotPoints = new List<PointF>();
         private List<PointF> camPoints = new List<PointF>();
         private double[,] R;
@@ -181,8 +181,8 @@ namespace Design_Form.UserForm
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
-        private void Save_para()
-        {
+		public void Save_para(Job_Model.DataMainToUser dataMain)
+		{
            
             Job_Model.Statatic_Model.model_run.Cameras[a].R = R;
             Job_Model.Statatic_Model.model_run.Cameras[a].t = t;
@@ -200,9 +200,6 @@ namespace Design_Form.UserForm
             dataGridView2.Columns.Add("Y", "Y");
         }
 
-        private void simpleButton2_Click_1(object sender, EventArgs e)
-        {
-            Save_para();
-        }
+     
     }
 }

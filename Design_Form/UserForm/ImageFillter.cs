@@ -13,8 +13,8 @@ using Design_Form.Tools.Base;
 
 namespace Design_Form.UserForm
 {
-    public partial class ImageFillter : DevExpress.XtraEditors.XtraUserControl
-    {
+    public partial class ImageFillter : DevExpress.XtraEditors.XtraUserControl, ISaveable
+	{
         public ImageFillter()
         {
             InitializeComponent();
@@ -47,12 +47,9 @@ namespace Design_Form.UserForm
         
        
 
-        private void simpleButton1_Click_1(object sender, EventArgs e)
-        {
-           Save_para();
-        }
-        private void Save_para()
-        {
+     
+		public void Save_para(Job_Model.DataMainToUser dataMain)
+		{
             FitLine_Tool tool = (FitLine_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
             tool.From_Pos = combo_FrPos.Text;
             tool.index_Fr_tool = index_From_Tool;

@@ -13,8 +13,8 @@ using Design_Form.Tools.Base;
 namespace Design_Form.UserForm
 {
   
-    public partial class Save_image : UserControl
-    {
+    public partial class Save_image : UserControl, ISaveable
+	{
         int index_follow = -1;
         int roate_image=-1;
 		int a, b, c, d;
@@ -48,18 +48,18 @@ namespace Design_Form.UserForm
             }
         }
 
-       
-        //Button Save
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            Save_Image_Tool tool = (Save_Image_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-            //Sigma index 0
-            tool.file_name_OK = label1.Text;
-            tool.file_name_NG = label2.Text;
-            tool.Save_OK = Save_Image_OK.Checked;
-            tool.Save_NG = Save_Image_NG.Checked;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
-        }
+		public void Save_para(Job_Model.DataMainToUser dataMain)
+		{
+			Save_Image_Tool tool = (Save_Image_Tool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+			//Sigma index 0
+			tool.file_name_OK = label1.Text;
+			tool.file_name_NG = label2.Text;
+			tool.Save_OK = Save_Image_OK.Checked;
+			tool.Save_NG = Save_Image_NG.Checked;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
+		}
+		//Button Save
+		
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {

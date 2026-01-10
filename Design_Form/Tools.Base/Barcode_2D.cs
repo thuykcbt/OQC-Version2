@@ -29,7 +29,7 @@ namespace Design_Form.Tools.Base
 			try
 			{
 				HWindow hWindow = toolRunInput.Window;
-				HObject ho_Image = toolRunInput.Image;
+				HObject ho_Image = toolRunInput.Image[type_light];
 				var result_Tool = new ToolResult();
 				return result_Tool;
 				HTuple hv_DataCodeHandle = new HTuple(), hv_ResultHandles = new HTuple(), hv_DecodedDataStrings = new HTuple();

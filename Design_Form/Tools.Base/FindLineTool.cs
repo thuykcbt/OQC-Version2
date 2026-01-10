@@ -37,7 +37,7 @@ namespace Design_Form.Tools.Base
 		{
 
 			HWindow hWindow = toolRunInput.Window;
-			HObject ho_Image = toolRunInput.Image;
+			HObject ho_Image = toolRunInput.Image[type_light];
 			var result_Tool = new ToolResult();
 			return result_Tool;
 			HObject out_bitmap;

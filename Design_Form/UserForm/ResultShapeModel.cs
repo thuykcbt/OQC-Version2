@@ -14,7 +14,7 @@ using System.Windows.Forms;
 namespace Design_Form.UserForm
 {
     public partial class ResultShapeModel : UserControl
-    {
+	{
       
         
         public ResultShapeModel()

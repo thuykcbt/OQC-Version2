@@ -43,7 +43,7 @@ namespace Design_Form.Tools.Base
 
 	
 
-		public void TrainModel(HWindow hWindow, HObject hoImage,string modelMain,string modeSub)
+		public void TrainModel(HWindow hWindow, List<HObject> hoImage,string modelMain,string modeSub)
 		{
 			CanMeasure = false;
 			
@@ -55,12 +55,12 @@ namespace Design_Form.Tools.Base
 			{
 				
 				// Setup display
-				SetupDisplay(hWindow, hoImage);
+				SetupDisplay(hWindow, hoImage[type_light]);
 
 				// Get ROI for model
 				HTuple homMat2d = null;
 				align_Roi(0, out hoModelROI, homMat2d);
-				hoImageROI = ReduceImageDomain(hoImage, hoModelROI);
+				hoImageROI = ReduceImageDomain(hoImage[type_light], hoModelROI);
 
 				// Create shape model
 				hvModelID = CreateShapeModel(hoImageROI);
@@ -82,7 +82,7 @@ namespace Design_Form.Tools.Base
 				// Execute to find initial position
 				ToolRunInput toolRunInput = new ToolRunInput()
 				{
-					Image = hoImageROI,
+					Image = hoImage,
 					Window = hWindow,
 					Context = new ViewRunContext()
 				};
@@ -108,7 +108,7 @@ namespace Design_Form.Tools.Base
 		{
 
 			HWindow hWindow = toolRunInput.Window;
-			HObject ho_Image = toolRunInput.Image;
+			HObject ho_Image = toolRunInput.Image[type_light];
 			var result_Tool = new ToolResult();
 
 			result_Tool.OK = false;
