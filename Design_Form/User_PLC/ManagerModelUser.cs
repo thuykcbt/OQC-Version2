@@ -31,7 +31,7 @@ namespace Design_Form.User_PLC
                 string debugFolder = AppDomain.CurrentDomain.BaseDirectory;
                 string name_file = "ModelJob.job";
                 string file_path = Path.Combine(debugFolder, name_file);
-                if (!File.Exists(name_file))
+                if (!File.Exists(file_path))
                 {
                     wirte_config(file_path);
                 }
@@ -41,7 +41,7 @@ namespace Design_Form.User_PLC
 					TypeNameHandling = TypeNameHandling.Auto
                 };
 
-                string json = File.ReadAllText(name_file);
+                string json = File.ReadAllText(file_path);
 
                 Job_Model.Statatic_Model.model_list = JsonConvert.DeserializeObject<ManagerModelMain>(json, settings);
                 Job_Model.Statatic_Model.model_main_run = Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model];
@@ -55,6 +55,19 @@ namespace Design_Form.User_PLC
 					}
                 }
                 Job_Model.Statatic_Model.model_run = Job_Model.Statatic_Model.model_list.models_main[Job_Model.Statatic_Model.model_list.selection_Model].models_sub[index];
+                foreach(var cam in Job_Model.Statatic_Model.model_run.Cameras)
+                {
+                   foreach(var view in cam.Views)
+                    {
+                        foreach(var component in view.Components)
+                        {
+                            foreach(var tool in component.Tools)
+                            {
+                                tool.Inital_Tool();
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -131,39 +144,7 @@ namespace Design_Form.User_PLC
                 MessageBox.Show(ex.ToString());
             }
         }
-        private void wirte_camera()
-        {
-            try
-            {
-                List<config_cam> cams = new List<config_cam>();
-                Job_Model.config_cam cam1 = new Job_Model.config_cam();
-                cam1.device = "000cdf0a2ded_JAICorporation_GO5101MPGE";
-                cam1.name = "GigEVision2";
-                cam1.TriggerMode = "Off";
-                Job_Model.config_cam cam2 = new Job_Model.config_cam();
-                cam2.name = "USB3Vision";
-                cam2.device = "CAM0";
-                cams.Add(cam1);
-                cams.Add(cam2);
-                string debugFolder = AppDomain.CurrentDomain.BaseDirectory;
-                string name_file = "Cam_Config.cam";
-                string file_path = Path.Combine(debugFolder, name_file);
-                var settings = new JsonSerializerSettings
-                {
-                    TypeNameHandling = TypeNameHandling.Auto,
-                    Formatting = Formatting.Indented
-                };
-
-                string json = JsonConvert.SerializeObject(cams, settings);
-                File.WriteAllText(file_path, json);
-            }
-            catch (Exception ex)
-            {
-                Job_Model.Statatic_Model.wirtelog.Log($"AL100 - {this.GetType().Name}" + ex.ToString());
-                MessageBox.Show(ex.ToString());
-            }
-
-        }
+     
 
         private void addModelM_Click(object sender, EventArgs e)
         {
@@ -215,8 +196,6 @@ namespace Design_Form.User_PLC
                 {
                     // Người dùng chọn YES
                     Job_Model.Statatic_Model.model_list.models_main.RemoveAt(listbox_Model.SelectedIndex);
-                  
-
                 }
             }
             catch (Exception ex)
@@ -333,31 +312,16 @@ namespace Design_Form.User_PLC
         {
             try
             {
-                string debugFolder = AppDomain.CurrentDomain.BaseDirectory;
-                string name_file = "Cam_Config.cam";
-                string file_path = Path.Combine(debugFolder, name_file);
-
-                if (!File.Exists(name_file))
-                {
-                    wirte_camera();
-                }
-                var settings = new JsonSerializerSettings
-                {
-                    TypeNameHandling = TypeNameHandling.Auto
-                };
-                string json = File.ReadAllText(name_file);
-                List<config_cam> cams = new List<config_cam>();
-                cams = JsonConvert.DeserializeObject<List<config_cam>>(json, settings);
-                Job_Model.Statatic_Model.model_run.total_camera = cams.Count;
+				 var cams = Job_Model.Statatic_Model.model_run.Cameras;
                 for (int i = 0; i < cams.Count; i++)
                 {
                     Job_Model.VisionHalcon cam1 = new Job_Model.VisionHalcon();
-                    cam1.Device = cams[i].device;
-                    cam1.name = cams[i].name;
-                    cam1.TriggerMode = cams[i].TriggerMode;
+                    cam1.Device = cams[i].config_Cam.device;
+                    cam1.name = cams[i].config_Cam.name;
+                    cam1.force_ip = cams[i].config_Cam.force_ip;
                     cam1.Open_connect_Gige();
-
-                    Job_Model.Statatic_Model.Dino_lites.Add(cam1);
+                    cam1.inital_camera(cams[i].config_Cam);
+					Job_Model.Statatic_Model.Dino_lites.Add(cam1);
                 }
             }
             catch (Exception ex)
@@ -370,10 +334,7 @@ namespace Design_Form.User_PLC
         }
       
 
-        private void listbox_Model_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
+       
 
         private void DelSubModel_Click(object sender, EventArgs e)
         {

@@ -122,8 +122,8 @@ namespace Design_Form.UserForm
             tool.Blue.MaxMean = (double)Max_Mean_Blue.Value;
             tool.Blue.MinMean = (double)Min_Mean_Blue.Value;
             tool.Blue.Enable = Check_Blue.Checked;
-
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
+			tool.type_light = dataMain.light_selet;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
      

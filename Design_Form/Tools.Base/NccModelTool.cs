@@ -43,9 +43,12 @@ namespace Design_Form.Tools.Base
 
 		public NccModelTool() : base("NccModel") { }
 
-		
+        public override void Inital_Tool()
+        {
 
-		public void TrainModel(HWindow hWindow, HObject hoImage)
+        }
+
+        public void TrainModel(HWindow hWindow, HObject hoImage)
 		{
 			CanMeasure = false;
 			HObject hoModelROI = null, hoImageROI = null;

@@ -10,8 +10,8 @@ using System.Windows.Forms;
 
 namespace Design_Form.Tools.Base
 {
-	public class ShapeModelTool : Class_Tool
-	{
+	public class ShapeModelTool : Class_Tool, GetPoint
+    {
 		// Properties
 		public string FollowMaster { get; set; } = "none";
 		public double StartAngle { get; set; } = 0;
@@ -35,15 +35,19 @@ namespace Design_Form.Tools.Base
 		public bool CanMeasure { get; set; }
 
 		// Master training results
-		public double XFollow { get; set; }
-		public double YFollow { get; set; }
-		public double PhiFollow { get; set; }
-
-		public ShapeModelTool() : base("ShapeModel") { }
-
 	
+        public double x_master_tool { get; set; }
+        public double y_master_tool { get; set; }
+        public double phi_master_tool { get; set; }
 
-		public void TrainModel(HWindow hWindow, List<HObject> hoImage,string modelMain,string modeSub)
+        public ShapeModelTool() : base("ShapeModel") { }
+        public override void Inital_Tool()
+        {
+
+        }
+
+
+        public void TrainModel(HWindow hWindow, Dictionary<int, HObject> hoImage,string modelMain,string modeSub)
 		{
 			CanMeasure = false;
 			
@@ -91,9 +95,9 @@ namespace Design_Form.Tools.Base
 				// Store first match as follow position
 				ToolResult result_Tool = Excute_OnlyTool(toolRunInput);
 				ShapeMatchResult result =(ShapeMatchResult) result_Tool.Outputs["result0"];
-				XFollow = result.X;
-				YFollow = result.Y;
-				PhiFollow = result.Phi;
+				x_master_tool = result.X;
+				y_master_tool = result.Y;
+				phi_master_tool = result.Phi;
 
 			}
 			catch (Exception ex)
@@ -122,8 +126,13 @@ namespace Design_Form.Tools.Base
 				HTuple HHomMat2D_fiducial = toolRunInput.Context.HomMat2D_Fiducial;
 				align_Roi(1, out hoSearchROI, HHomMat2D_fiducial);
 				// Get search ROI
-				HTuple homMat2d = toolRunInput.GetHomMatFromTool(index_follow);
-				align_Roi(1, out hoSearchROI, homMat2d);
+				if(index_follow>=0)
+				{
+					HTuple homMat2d = toolRunInput.GetHomMatFromTool(index_follow);
+					HOperatorSet.HomMat2dCompose(HHomMat2D_fiducial, homMat2d, out homMat2d);
+					align_Roi(1, out hoSearchROI, homMat2d);
+				}
+			
 				ho_Image = ReduceImageDomain(ho_Image, hoSearchROI);
 
 				// Read and find shape model
@@ -134,8 +143,9 @@ namespace Design_Form.Tools.Base
 				var matches = FindShapeMatches(ho_Image, hvModelID);
 
 				// Process results
-				result_Tool.OK = ProcessMatchResults(hWindow, matches, hoShapeModelContour,result_Tool);
-				result_Tool.ToolName = ToolName;
+				result_Tool.OK = ProcessMatchResults(hWindow, matches, hoShapeModelContour,result_Tool,toolRunInput.show_text);
+				result_Tool.Outputs["Match"] = matches;
+                result_Tool.ToolName = ToolName;
 				return result_Tool;
 			}
 			catch (Exception ex)
@@ -256,7 +266,7 @@ namespace Design_Form.Tools.Base
 			return matches;
 		}
 
-		private bool ProcessMatchResults(HWindow hWindow, ShapeMatch[] matches, HObject hoShapeModelContour,ToolResult result_Tool)
+		private bool ProcessMatchResults(HWindow hWindow, ShapeMatch[] matches, HObject hoShapeModelContour,ToolResult result_Tool,bool Show_Text)
 		{
 			for (int i = 0; i < matches.Length; i++)
 			{
@@ -280,11 +290,15 @@ namespace Design_Form.Tools.Base
 								   result.Score <= ScoreMaxThreshold &&
 								   result.Phi >= MinPhi &&
 								   result.Phi <= MaxPhi;
+				if(Show_Text)
+				{
+					HOperatorSet.SetColor(hWindow, isValidMatch ? "green" : "red");
 
-				HOperatorSet.SetColor(hWindow, isValidMatch ? "green" : "red");
+					// Display match
+					DisplayMatch(hWindow, match, hoShapeModelContour, i == 0);
+				}
 
-				// Display match
-				DisplayMatch(hWindow, match, hoShapeModelContour, i == 0);
+				
 				if(!isValidMatch)
 					return false;
 			}

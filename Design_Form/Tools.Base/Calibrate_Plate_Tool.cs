@@ -20,9 +20,12 @@ namespace Design_Form.Tools.Base
 		public double Cell_Width { get; set; }
 		public double Cell_Height { get; set; }
 		public double Thick_Ness { get; set; }
+        public override void Inital_Tool()
+        {
 
+        }
 
-		public Calibrate_Plate_Tool( ) : base("Calibrate_Plate_Tool") { }
+        public Calibrate_Plate_Tool( ) : base("Calibrate_Plate_Tool") { }
 		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 

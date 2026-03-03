@@ -2,6 +2,7 @@
 using Design_Form.Tools.Base;
 using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.XtraEditors;
+using HalconDotNet;
 using MathNet.Numerics.LinearAlgebra.Factorization;
 using System;
 using System.Collections.Generic;
@@ -55,15 +56,17 @@ namespace Design_Form.UserForm
                 combo_master.Items.Clear();
                 combo_master.Items.Add("none");
                 Barcode_2D tool = (Barcode_2D)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-                for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools.Count; i++)
-                {
-                    if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName == "Fixture")
-                    {
-                        combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName + ": " + i.ToString());
-                    }
-
-                }
-                index_follow = tool.index_follow;
+				for (int j = 0; j <= b; j++)
+				{
+					for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools.Count; i++)
+					{
+						if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName == "Fixture" || Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName == "Fixture_2")
+						{
+							combo_master.Items.Add("ID:" + Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].Id.ToString() + "_" + Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName);
+						}
+					}
+				}
+				index_follow = tool.index_follow;
                 combo_master.Text = tool.master_follow;
                 numeric_Blur.Value = tool.Blur;
                 combo_Codetype.Text = tool.Codetype;
@@ -101,29 +104,18 @@ namespace Design_Form.UserForm
             tool.threshold_Max = (int)Th_max.Value;
             tool.threshold_Min = (int)TH_Min.Value;
             tool.Barcode2D = !checkBox1.Checked;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
+			tool.type_light = dataMain.light_selet;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
   
         private void combo_master_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
-            string buffer1 = combo_master.Text;
-            
-            //  combo_master.Items.Clear();
-            for (int i = 0; i < Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools.Count; i++)
-            {
-                if (combo_master.Text == "Fixture: " + i.ToString())
-                {
-                    index_follow = i;
-                }
-                if(combo_master.Text == "none")
-                {
-                    index_follow = -1;
-                    break;
-                }
-            }
-        }
+
+			Statatic_Model.TryGetNumberAfterID(combo_master.Text, out string num);
+			if (num.Length > 0)
+				index_follow = int.Parse(num);
+		}
         private void check_status()
         {
             combo_Codetype.Items.Clear();
@@ -144,8 +136,6 @@ namespace Design_Form.UserForm
         }
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-        
-           
             check_status();
         }
 

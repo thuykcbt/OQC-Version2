@@ -21,8 +21,11 @@ namespace Design_Form.Tools.Base
 		public bool FL_BLue { get; set; } = false;
 		public bool Cv2Gray { get; set; } = false;
 		public Image_Roate() : base("Roate_Img") { }
+        public override void Inital_Tool()
+        {
 
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        }
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 
 			HWindow hWindow = toolRunInput.Window;

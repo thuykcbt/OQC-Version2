@@ -33,7 +33,7 @@ namespace Design_Form.UserForm
 
 				combo_master.Items.Clear();
                 combo_master.Items.Add("none");
-               FixtureTool fixture = (FixtureTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+               FixtureTool tool = (FixtureTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
                 for (int j = 0; j <= b; j++)
                 {
                     for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools.Count; i++)
@@ -45,10 +45,10 @@ namespace Design_Form.UserForm
 
                     }
                 }
-
-                combo_master.Text = fixture.master_follow;
+                checkMasterFudixial.Checked = tool.master_fudixial;
+                combo_master.Text = tool.master_follow;
                 // decimal test = Convert.ToDecimal(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Tools[c].para_Tool[1].Value);
-                index_follow = fixture.index_follow;
+                index_follow = tool.index_follow;
 
 			}
 
@@ -62,23 +62,22 @@ namespace Design_Form.UserForm
         {
 
 			Statatic_Model.TryGetNumberAfterID(combo_master.Text, out string num);
-            index_follow = int.Parse(num);
-
-
+			if (num.Length > 0)
+				index_follow = int.Parse(num);
 		}
 		public void Save_para(Job_Model.DataMainToUser dataMain)
         {
-			FixtureTool fixture = (FixtureTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+			FixtureTool tool = (FixtureTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
 			//Sigma index 0
-			fixture.master_follow = combo_master.Text;
-			fixture.index_follow = index_follow;
+			tool.master_follow = combo_master.Text;
+			tool.index_follow = index_follow;
 			index_tool = Statatic_Model.check_indextool(a, b, c, d, index_follow);
-
+            tool.master_fudixial = checkMasterFudixial.Checked;
 			ShapeModelTool shapeModelTool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool];
-			fixture.master_x = shapeModelTool.XFollow;
-			fixture.master_y = shapeModelTool.YFollow;
-			fixture.master_phi = shapeModelTool.PhiFollow;
-			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = fixture;
+			tool.master_x = shapeModelTool.x_master_tool;
+			tool.master_y = shapeModelTool.y_master_tool;
+			tool.master_phi = shapeModelTool.phi_master_tool;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
 		}
 
 

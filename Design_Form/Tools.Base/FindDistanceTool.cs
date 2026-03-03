@@ -38,8 +38,12 @@ namespace Design_Form.Tools.Base
 		public double Distance { get; set; }
 
 		public FindDistanceTool() : base("FindDistance") { }
+        public override void Inital_Tool()
+        {
 
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        }
+
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 
 			HWindow hWindow = toolRunInput.Window;
@@ -203,7 +207,7 @@ namespace Design_Form.Tools.Base
 				Display design_Display = new Display();
 				design_Display.set_font(hWindow, 15, "mono", "true", "false");
 				// HOperatorSet.DispText()
-				if (show_text)
+				if (toolRunInput.show_text)
 				{
 					HOperatorSet.DispText(hWindow
 					  , "Step" + Id + "-" + " Circle\n" + "Distance " + Distance.ToString("0.000") + "mm"

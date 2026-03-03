@@ -18,8 +18,12 @@ namespace Design_Form.Tools.Base
 		// resule code
 
 		public Save_Image_Tool() : base("Save_Image_Tool") { }
+        public override void Inital_Tool()
+        {
 
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        }
+
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 
 			HWindow hWindow = toolRunInput.Window;

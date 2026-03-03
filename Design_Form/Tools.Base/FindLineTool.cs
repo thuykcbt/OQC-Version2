@@ -32,14 +32,18 @@ namespace Design_Form.Tools.Base
 		public double Y2ob = new double();
 		public double Xcenterob = new double();
 		public double Ycenterob = new double();
+        public override void Inital_Tool()
+        {
 
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        }
+
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 
 			HWindow hWindow = toolRunInput.Window;
 			HObject ho_Image = toolRunInput.Image[type_light];
 			var result_Tool = new ToolResult();
-			return result_Tool;
+		
 			HObject out_bitmap;
 			HObject ho_Rectangle, ho_ImageReduced;
 			result_Tool.OK = false;
@@ -96,10 +100,7 @@ namespace Design_Form.Tools.Base
 					hv_LineRow2 = X2;
 					hv_LineColumn2 = Y2;
 				}
-
-
-
-
+				
 				HOperatorSet.AddMetrologyObjectLineMeasure(
 					   hv_MetrologyHandle
 					   , hv_LineRow1
@@ -118,25 +119,27 @@ namespace Design_Form.Tools.Base
 				HOperatorSet.ApplyMetrologyModel(ho_Image, hv_MetrologyHandle);
 				HOperatorSet.GetMetrologyObjectMeasures(out out_bitmap, hv_MetrologyHandle, "all", "all", out hv_MRow, out hv_MColumn);
 				HOperatorSet.GetMetrologyObjectResult(hv_MetrologyHandle, "all", "all", "result_type", "all_param", out hv_LineParameter);
+				
 				if (hv_LineParameter.Length > 2)
 				{
 					X1ob = hv_LineParameter.TupleSelect(0);
 					Y1ob = hv_LineParameter.TupleSelect(1);
 					X2ob = hv_LineParameter.TupleSelect(2);
 					Y2ob = hv_LineParameter.TupleSelect(3);
-					Xcenterob = (X1ob + X2ob) / 2;
-					Ycenterob = (Y1ob + Y2ob) / 2;
+					result_Tool.Outputs["X1ob"] = hv_LineParameter.TupleSelect(0);
+					result_Tool.Outputs["Y1ob"] = hv_LineParameter.TupleSelect(1);
+					result_Tool.Outputs["X2ob"] = hv_LineParameter.TupleSelect(2);
+					result_Tool.Outputs["Y2ob"] = hv_LineParameter.TupleSelect(3);
+					result_Tool.Outputs["Xcenter"] = (hv_LineParameter.TupleSelect(0)+ hv_LineParameter.TupleSelect(2))/2;
+					result_Tool.Outputs["Yxenter"] = (hv_LineParameter.TupleSelect(1) + hv_LineParameter.TupleSelect(3)) / 2;
 					out_bitmap.Dispose();
 					hv_MRow.Dispose();
 					hv_MColumn.Dispose();
-					if (show_line)
+					if (toolRunInput.show_text)
 					{
 						HOperatorSet.SetColor(hWindow, "green");
-						//  HOperatorSet.DispLine(hWindow, X1ob[cam, job, tool], Y1ob[cam, job, tool], X2ob[cam, job, tool], Y2ob[cam, job, tool]);
 						HOperatorSet.DispArrow(hWindow, X1ob, Y1ob, X2ob, Y2ob, 1);
 					}
-
-
 					result_Tool.OK = true;
 				}
 				else
@@ -151,16 +154,15 @@ namespace Design_Form.Tools.Base
 					HOperatorSet.DispArrow(hWindow, Xtb1, Ytb1, Xtb2, Ytb2, 0.5);
 					result_Tool.OK = false;
 					HOperatorSet.SetColor(hWindow, "orange");
-					if (out_bitmap != null) HOperatorSet.DispObj(out_bitmap, hWindow);
-
 				}
+				return result_Tool;
 			}
 
 			catch (Exception ex)
 			{
 				Job_Model.Statatic_Model.wirtelog.Log($"AL014 - {this.GetType().Name}" + ex.ToString());
 				result_Tool.OK = false;
-
+				return result_Tool;
 			}
 		}
 

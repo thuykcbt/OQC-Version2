@@ -54,7 +54,8 @@ namespace Design_Form.UserForm
             tool.From_Pos = combo_FrPos.Text;
             tool.index_Fr_tool = index_From_Tool;
             tool.index_To_tool = index_To_Tool;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
+			tool.type_light = dataMain.light_selet;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
   

@@ -42,10 +42,13 @@ namespace Design_Form.Tools.Base
 		public double[] Result_H = new double[1000];
 		public int total_Blob { get; set; } = 0;
 		public BlobTool() : base("Blob") { }
-		
+        public override void Inital_Tool()
+        {
+
+        }
 
 
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 			
 			HWindow hWindow = toolRunInput.Window;

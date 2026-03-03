@@ -61,22 +61,22 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>C:\Program Files (x86)\MELSOFT\ACT\Control\ActUtlTypeLib.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.BonusSkins.v21.2" />
-    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Sparkline.v21.2.Core" />
-    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.BonusSkins.v22.2" />
+    <Reference Include="DevExpress.Data.Desktop.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v22.2.Core" />
+    <Reference Include="DevExpress.Utils.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v21.2" />
-    <Reference Include="DevExpress.Printing.v21.2.Core" />
-    <Reference Include="DevExpress.Drawing.v21.2">
+    <Reference Include="DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v22.2" />
+    <Reference Include="DevExpress.Printing.v22.2.Core" />
+    <Reference Include="DevExpress.Drawing.v22.2">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -175,12 +175,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Confirm_Data.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Confirm_Data.Designer.cs">
-      <DependentUpon>Confirm_Data.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +183,7 @@
     </Compile>
     <Compile Include="Job_Model\Calibrate_Matrix.cs" />
     <Compile Include="Job_Model\DataMainToUser.cs" />
+    <Compile Include="Job_Model\DataOffset.cs" />
     <Compile Include="Job_Model\Display.cs" />
     <Compile Include="Job_Model\LibaryHalcon.cs" />
     <Compile Include="Job_Model\LightSetting.cs" />
@@ -197,22 +192,11 @@
     <Compile Include="Job_Model\Model.cs" />
     <Compile Include="Job_Model\Roi_tool.cs" />
     <Compile Include="Job_Model\Scanner_Barcode.cs" />
+    <Compile Include="Job_Model\LightController.cs" />
     <Compile Include="Job_Model\SQL_Lite_Class.cs" />
     <Compile Include="Job_Model\Statatic_Model.cs" />
     <Compile Include="Job_Model\VisionHalcon.cs" />
     <Compile Include="Job_Model\WirteLogcs.cs" />
-    <Compile Include="LiveCamera.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LiveCamera.Designer.cs">
-      <DependentUpon>LiveCamera.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LiveCamInPLC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LiveCamInPLC.Designer.cs">
-      <DependentUpon>LiveCamInPLC.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,12 +220,6 @@
     <Compile Include="PLC_Form.Designer.cs">
       <DependentUpon>PLC_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="PopUp_NG.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PopUp_NG.Designer.cs">
-      <DependentUpon>PopUp_NG.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -261,12 +239,6 @@
     <Compile Include="Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShowBarcodeError.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ShowBarcodeError.Designer.cs">
-      <DependentUpon>ShowBarcodeError.cs</DependentUpon>
-    </Compile>
     <Compile Include="SplashScreen1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +254,7 @@
     <Compile Include="Tools.Base\Barcode_2D.cs" />
     <Compile Include="Tools.Base\BlobTool.cs" />
     <Compile Include="Tools.Base\Calibrate_Plate_Tool.cs" />
+    <Compile Include="Tools.Base\Align_Tool.cs" />
     <Compile Include="Tools.Base\Cal_Hand_Eye_Tool.cs" />
     <Compile Include="Tools.Base\Class_Tool.cs" />
     <Compile Include="Tools.Base\FindCircleTool.cs" />
@@ -290,6 +263,8 @@
     <Compile Include="Tools.Base\FitCircleTool.cs" />
     <Compile Include="Tools.Base\FitLine_Tool.cs" />
     <Compile Include="Tools.Base\FixtureTool.cs" />
+    <Compile Include="Tools.Base\GetPoint.cs" />
+    <Compile Include="Tools.Base\OriginFindLine.cs" />
     <Compile Include="Tools.Base\FixtureTool_2.cs" />
     <Compile Include="Tools.Base\HistogramTool.cs" />
     <Compile Include="Tools.Base\HistogramTool_Color.cs" />
@@ -299,6 +274,7 @@
     <Compile Include="Tools.Base\Save_Image_Tool.cs" />
     <Compile Include="Tools.Base\Segmentation_Tool.cs" />
     <Compile Include="Tools.Base\Select_model_tool.cs" />
+    <Compile Include="Tools.Base\TextureInspectionTool.cs" />
     <Compile Include="Tools.Base\ShapeModelTool.cs" />
     <Compile Include="Tools.Base\ShapeModelTool_Color.cs" />
     <Compile Include="UserForm\Fillter_tool.cs">
@@ -312,6 +288,18 @@
     </Compile>
     <Compile Include="UserForm\CaliHandEye.Designer.cs">
       <DependentUpon>CaliHandEye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\Align.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\Align.Designer.cs">
+      <DependentUpon>Align.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\OriginFindLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\OriginFindLine.Designer.cs">
+      <DependentUpon>OriginFindLine.cs</DependentUpon>
     </Compile>
     <Compile Include="UserForm\Fixture_Tool2.cs">
       <SubType>UserControl</SubType>
@@ -338,17 +326,17 @@
     <Compile Include="UserForm\ImageFillter.Designer.cs">
       <DependentUpon>ImageFillter.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserForm\ShapeModelColor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserForm\ShapeModelColor.Designer.cs">
-      <DependentUpon>ShapeModelColor.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserForm\NccModelPara.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserForm\NccModelPara.Designer.cs">
       <DependentUpon>NccModelPara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\TextureInspectionPara.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\TextureInspectionPara.Designer.cs">
+      <DependentUpon>TextureInspectionPara.cs</DependentUpon>
     </Compile>
     <Compile Include="UserForm\User_Calib.cs">
       <SubType>UserControl</SubType>
@@ -368,12 +356,6 @@
     <Compile Include="UserForm\OCRUser.Designer.cs">
       <DependentUpon>OCRUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserForm\User_Job.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserForm\User_Job.Designer.cs">
-      <DependentUpon>User_Job.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserForm\Segmentation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -391,12 +373,6 @@
     </Compile>
     <Compile Include="UserForm\Barcode2D.Designer.cs">
       <DependentUpon>Barcode2D.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserForm\none.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserForm\none.Designer.cs">
-      <DependentUpon>none.cs</DependentUpon>
     </Compile>
     <Compile Include="UserForm\Save_image.cs">
       <SubType>UserControl</SubType>
@@ -446,23 +422,11 @@
     <Compile Include="UserForm\ParaLine.Designer.cs">
       <DependentUpon>ParaLine.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserForm\Result_FindLine.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserForm\Result_FindLine.Designer.cs">
-      <DependentUpon>Result_FindLine.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserForm\ResultShapeModel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserForm\ResultShapeModel.Designer.cs">
       <DependentUpon>ResultShapeModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="User_Fillter\Mean_Image.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User_Fillter\Mean_Image.Designer.cs">
-      <DependentUpon>Mean_Image.cs</DependentUpon>
     </Compile>
     <Compile Include="User_PLC\ConveyorCam.cs">
       <SubType>UserControl</SubType>
@@ -644,17 +608,8 @@
     <Compile Include="WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Confirm_Data.resx">
-      <DependentUpon>Confirm_Data.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LiveCamera.resx">
-      <DependentUpon>LiveCamera.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LiveCamInPLC.resx">
-      <DependentUpon>LiveCamInPLC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -664,9 +619,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PLC_Form.resx">
       <DependentUpon>PLC_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PopUp_NG.resx">
-      <DependentUpon>PopUp_NG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -678,9 +630,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ShowBarcodeError.resx">
-      <DependentUpon>ShowBarcodeError.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
@@ -694,6 +643,12 @@
     <EmbeddedResource Include="UserForm\CaliHandEye.resx">
       <DependentUpon>CaliHandEye.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\Align.resx">
+      <DependentUpon>Align.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\OriginFindLine.resx">
+      <DependentUpon>OriginFindLine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserForm\Fixture_Tool2.resx">
       <DependentUpon>Fixture_Tool2.cs</DependentUpon>
     </EmbeddedResource>
@@ -706,11 +661,11 @@
     <EmbeddedResource Include="UserForm\ImageFillter.resx">
       <DependentUpon>ImageFillter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserForm\ShapeModelColor.resx">
-      <DependentUpon>ShapeModelColor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserForm\NccModelPara.resx">
       <DependentUpon>NccModelPara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\TextureInspectionPara.resx">
+      <DependentUpon>TextureInspectionPara.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\User_Calib.resx">
       <DependentUpon>User_Calib.cs</DependentUpon>
@@ -721,9 +676,6 @@
     <EmbeddedResource Include="UserForm\OCRUser.resx">
       <DependentUpon>OCRUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserForm\User_Job.resx">
-      <DependentUpon>User_Job.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserForm\Segmentation.resx">
       <DependentUpon>Segmentation.cs</DependentUpon>
     </EmbeddedResource>
@@ -732,9 +684,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\Barcode2D.resx">
       <DependentUpon>Barcode2D.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserForm\none.resx">
-      <DependentUpon>none.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\Save_image.resx">
       <DependentUpon>Save_image.cs</DependentUpon>
@@ -762,12 +711,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\ParaLine.resx">
       <DependentUpon>ParaLine.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserForm\Result_FindLine.resx">
-      <DependentUpon>Result_FindLine.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User_Fillter\Mean_Image.resx">
-      <DependentUpon>Mean_Image.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_PLC\ConveyorCam.resx">
       <DependentUpon>ConveyorCam.cs</DependentUpon>

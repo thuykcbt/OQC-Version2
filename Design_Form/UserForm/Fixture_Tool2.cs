@@ -34,23 +34,24 @@ namespace Design_Form.UserForm
 
 				combo_master.Items.Clear();
                 combo_master.Items.Add("none");
-               FixtureTool_2 fixture = (FixtureTool_2)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+               FixtureTool_2 tool = (FixtureTool_2)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
                 for (int j = 0; j <= b; j++)
                 {
                     for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools.Count; i++)
                     {
-                        if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName == "ShapeModel")
+                        if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName == "ShapeModel"|| Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName == "FindCircle")
                         {
 							combo_master.Items.Add("ID:" + Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].Id.ToString() + "_" + Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName);
 							combo_master2.Items.Add("ID:" + Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].Id.ToString() + "_" + Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName);
 						}
                     }
                 }
-                combo_master.Text = fixture.master_follow;
-                combo_master2.Text = fixture.master_follow_1;
+                combo_master.Text = tool.master_follow;
+                combo_master2.Text = tool.master_follow_1;
 				// decimal test = Convert.ToDecimal(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Tools[c].para_Tool[1].Value);
-				index_follow = fixture.index_follow;
-				index_follow2 = fixture.index_folow_2;
+				index_follow = tool.index_follow;
+				index_follow2 = tool.index_folow_2;
+				checkMasterFudixial.Checked = tool.master_fudixial;
 			}
 
             catch (Exception ex)
@@ -68,26 +69,35 @@ namespace Design_Form.UserForm
 		}
 		public void Save_para(Job_Model.DataMainToUser dataMain)
         {
-			FixtureTool_2 fixture = (FixtureTool_2)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+			FixtureTool_2 tool = (FixtureTool_2)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
 			//Sigma index 0
-			fixture.master_follow = combo_master.Text;
-			fixture.index_follow = index_follow;
-			fixture.master_follow_1 = combo_master2.Text;
-			fixture.index_folow_2 = index_follow2;
+			tool.master_follow = combo_master.Text;
+			tool.index_follow = index_follow;
+			tool.master_follow_1 = combo_master2.Text;
+			tool.index_folow_2 = index_follow2;
 			index_tool = Statatic_Model.check_indextool(a, b, c, d, index_follow);
 			index_tool2 = Statatic_Model.check_indextool(a, b, c, d, index_follow2);
+			tool.master_fudixial = checkMasterFudixial.Checked;
+			if(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool].ToolName=="ShapeModel")
+			{
+				ShapeModelTool shapeModelTool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool];
+				tool.master_x1 = shapeModelTool.x_master_tool;
+				tool.master_y1 = shapeModelTool.y_master_tool;
+				ShapeModelTool shapeModelTool1 = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool2];
+				tool.master_x2 = shapeModelTool1.x_master_tool;
+				tool.master_y2 = shapeModelTool1.y_master_tool;
+			}
+			if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool].ToolName == "FindCircle")
+			{
+				FindCircleTool circletool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool];
+				tool.master_x1 = circletool.x_master_tool;
+				tool.master_y1 = circletool.y_master_tool;
+				FindCircleTool circletool1 = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool2];
+				tool.master_x2 = circletool1.x_master_tool;
+				tool.master_y2 = circletool1.y_master_tool;
+			}
 
-
-
-			ShapeModelTool shapeModelTool = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool];
-			fixture.master_x1 = shapeModelTool.XFollow;
-			fixture.master_y1 = shapeModelTool.YFollow;
-
-			ShapeModelTool shapeModelTool1 = (ShapeModelTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[index_tool2];
-			fixture.master_x2 = shapeModelTool1.XFollow;
-			fixture.master_y2 = shapeModelTool1.YFollow;
-
-			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = fixture;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
 		}
 
 	

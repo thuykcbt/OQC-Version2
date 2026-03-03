@@ -104,7 +104,8 @@ namespace Design_Form.UserForm
             shapeModel.MaxPhi = (double)Max_Phi.Value;
             shapeModel.MinPhi = (double)Min_Phi.Value;
             shapeModel.metric = combo_Metric.Text;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = shapeModel;
+			shapeModel.type_light = dataMain.light_selet;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = shapeModel;
         }
         private void combo_master_SelectedIndexChanged(object sender, EventArgs e)
         {

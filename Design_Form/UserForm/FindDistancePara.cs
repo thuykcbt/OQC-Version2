@@ -96,8 +96,8 @@ namespace Design_Form.UserForm
             tool.Min_Dis =(double) numeric_MinD.Value;
             tool.index_Fr_tool = index_From_Tool;
             tool.index_To_tool = index_To_Tool;
-          
-            tool.Fr_Name_Tool = Fr_name_tool;
+			tool.type_light = dataMain.light_selet;
+			tool.Fr_Name_Tool = Fr_name_tool;
             tool.To_Name_Tool = To_name_tool;
 
             Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;

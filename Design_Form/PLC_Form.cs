@@ -579,36 +579,15 @@ namespace Design_Form
         {
             PLC_Communication.Model_PLC.index_teach_point = (int)numericUpDown2.Value - 1;
         }
-        LiveCamInPLC liveCamInPLC1;
-        LiveCamInPLC liveCamInPLC2;
-
+    
         private void button6_Click(object sender, EventArgs e)
         {
-            if (liveCamInPLC1 == null || liveCamInPLC1.IsDisposed)
-            {
-                liveCamInPLC1 = new LiveCamInPLC();
-            }
-            else
-            {
-                liveCamInPLC1.BringToFront();
-            }
-            liveCamInPLC1.index = 0;
-            int index_ts = (int)numericUpDown2.Value - 1;
-            liveCamInPLC1.loaddata(index_ts, 0);
-            liveCamInPLC1.Show();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (liveCamInPLC1 != null && !liveCamInPLC1.IsDisposed)
-            {
-                int index_ts = (int)numericUpDown2.Value - 1;
-                liveCamInPLC1.savedata(index_ts, 0);
-            }
-            else
-            {
-                MessageBox.Show("Please Press Button Adjust");
-            }
+           
         }
         // Station 2
         private void simpleButton16_Click(object sender, EventArgs e)
@@ -877,32 +856,12 @@ namespace Design_Form
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (liveCamInPLC2 == null || liveCamInPLC2.IsDisposed)
-            {
-                liveCamInPLC2 = new LiveCamInPLC();
-            }
-            else
-            {
-                liveCamInPLC2.BringToFront();
-            }
-
-            liveCamInPLC2.index = 1;
-            int index_ts = (int)numericUpDown8.Value - 1;
-            liveCamInPLC2.loaddata(index_ts, 1);
-            liveCamInPLC2.Show();
+           
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (liveCamInPLC2 != null && !liveCamInPLC2.IsDisposed)
-            {
-                int index_ts = (int)numericUpDown8.Value - 1;
-                liveCamInPLC2.savedata(index_ts, 1);
-            }
-            else
-            {
-                MessageBox.Show("Please Press Button Adjust");
-            }
+           
         }
 
         private void button8_MouseUp(object sender, MouseEventArgs e)

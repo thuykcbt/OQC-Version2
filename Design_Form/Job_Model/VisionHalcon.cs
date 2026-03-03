@@ -13,7 +13,7 @@ namespace Design_Form.Job_Model
     {
         public HTuple hv_AcqHandle = new HTuple();
         public string _camtype = "";
-        public HObject[] input_image = new HObject[50];
+     
         public bool _camlive = false;
         public bool isbusy = false;
         // HTuple name = new HTuple();
@@ -21,7 +21,9 @@ namespace Design_Form.Job_Model
         public HTuple Device = "000cdf0a2ded_JAICorporation_GO5101MPGE";
         public string TriggerMode = "Off";
         public bool lamp_vision_connected = false;
-        public void Open_connect_Gige()
+        public string force_ip = "force_ip=192.168.137.1/00:30:53:24:1D:25/192.168.137.144/255.255.255.0";
+
+		public void Open_connect_Gige()
         {
             if (hv_AcqHandle != null)
             {
@@ -30,17 +32,16 @@ namespace Design_Form.Job_Model
             hv_AcqHandle.Dispose();
             try
             {
-                HOperatorSet.OpenFramegrabber(name, 0, 0, 0, 0, 0, 0, "progressive", -1, "default", -1, "false", "default", Device, 0, -1, out hv_AcqHandle);
+                if(force_ip==null)
+					HOperatorSet.OpenFramegrabber(name, 0, 0, 0, 0, 0, 0, "progressive", -1, "default", -1, "false", "default", Device, 0, -1, out hv_AcqHandle);
+                else
+				    HOperatorSet.OpenFramegrabber(name, 0, 0, 0, 0, 0, 0, "progressive", -1, "default", force_ip, "false", "default", Device, 0, -1, out hv_AcqHandle);
                 if (hv_AcqHandle.Type != HTupleType.EMPTY)
-                {
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", TriggerMode);
+                    {
+                  //  HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", TriggerMode);
                     lamp_vision_connected = true;
-              //      HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
-                    
+                  //      HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
                 }  
-                    
-
-
             }
             catch (Exception e)
             {
@@ -51,7 +52,7 @@ namespace Design_Form.Job_Model
         {
             try
             {
-                Console.WriteLine("haha");
+                
                 if (!lamp_vision_connected)
                 {
                     Open_connect_Gige();
@@ -60,9 +61,12 @@ namespace Design_Form.Job_Model
                 {
                     HObject ho_Image = null;
                     HOperatorSet.GenEmptyObj(out ho_Image);
-                    ho_Image.Dispose();                
-                    HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
-                  
+                    ho_Image.Dispose();
+                     
+                    //  HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
+                    SETPARAMETERCAMERA_int("TriggerSoftware", 1);
+                    HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
+         //           SETPARAMETERCAMERA_int("TriggerSoftware", 0);
                     return ho_Image;
                 }
                 else
@@ -120,13 +124,13 @@ namespace Design_Form.Job_Model
                 Job_Model.Statatic_Model.wirtelog.Log($"AL002 - {this.GetType().Name}" + e.ToString());
                 return null; }
         }
-        public void SETPARAMETERCAMERA(string Param, int Value)
+        public void SETPARAMETERCAMERA(string Param, string Value)
         {
             try
             {
                 if (hv_AcqHandle.Type == HTupleType.HANDLE)
                     lock (hv_AcqHandle)
-                        HOperatorSet.SetFramegrabberParam(hv_AcqHandle, Param, Value);
+                        HOperatorSet.SetFramegrabberParam(hv_AcqHandle, Param, (HTuple)Value);
             }
             catch (Exception e)
             {
@@ -134,44 +138,84 @@ namespace Design_Form.Job_Model
             }
 
         }
-        public void disconect()
+		public void SETPARAMETERCAMERA_int(string Param, int Value)
+		{
+			try
+			{
+				if (hv_AcqHandle.Type == HTupleType.HANDLE)
+					lock (hv_AcqHandle)
+						HOperatorSet.SetFramegrabberParam(hv_AcqHandle, Param,Value);
+			}
+			catch (Exception e)
+			{
+				Job_Model.Statatic_Model.wirtelog.Log($"AL003 - {this.GetType().Name} -" + e.ToString());
+			}
+
+		}
+        public void inital_camera(config_cam config_Cam)
         {
-            //  IntPtr proc = HalconAPI.PreCall(2038);  // 2038 là ID của hàm CloseFramegrabber
-            //  HalconAPI.Store(proc, 0, hv_AcqHandle);    // Truyền vào handle của thiết bị đã mở
+            try
+            {
+				if (hv_AcqHandle.Type == HTupleType.EMPTY) return;
 
-            //  // Gọi hàm để đóng kết nối
-            ////  int err = HalconAPI.CallProcedure(proc);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PixelFormat", config_Cam.Pixel_Format);
+                if (config_Cam.ModelCamera == "AreaCamera")
+                {
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", config_Cam.Exposure);
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSelector", config_Cam.TriggerSelector);
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", config_Cam.TriggerMode);
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSource", config_Cam.TriggerSource);
+                    HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
+                }
+              
+                if (config_Cam.ModelCamera == "LineScan")
+                {
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTimeAbs", config_Cam.Exposure);
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "AcquisitionMode", config_Cam.AcquisitionMode);
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "AcquisitionFrameCount", config_Cam.AcquisitionFrameCount);
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSelector", config_Cam.TriggerSelector);
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", config_Cam.TriggerMode);
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSource", config_Cam.TriggerSource);
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerActivation", config_Cam.TrgiggerActivation);
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "AcquisitionLineRateAbs", config_Cam.AcquisitionLinerateABS);
+                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "grab_timeout", config_Cam.grab_timout);
+                }
+            }
+            catch (Exception ex)
+            {
 
-            //  // Giải phóng tài nguyên
-            //  HalconAPI.UnpinTuple(hv_AcqHandle);
-
-            // Kiểm tra lỗi nếu có
-            //  HalconAPI.PostCall(proc, err);
+                Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
+            }
+         
+		}
+		public void disconect()
+        {
             
         }
     }
+    
+	       
     public class config_cam
     {
+        public string ModelCamera {  get; set; } = "36020US";
+        public string TypeName {  get; set; }
         public string name { get; set; }
+        public string force_ip {  get; set; }
         public string device { get; set; }
-        public string TriggerMode { get; set; }
-        public string ID_google { get; set; }
+        public string Pixel_Format { get; set; } = "BayerGR8";
+		public int Exposure = 1300;
+		public int Brightness = 0;
+		public int Contrast = 512;
+        public int Height {  get; set; }
+        public int Width { get; set; }
+        public string AcquisitionMode { get; set; }
+        public int AcquisitionFrameCount { get; set; }
+        public string TriggerSelector { get; set; }
+		public string TriggerMode { get; set; } = "Off";
+        public string TriggerSource { get; set; }
+        public string TrgiggerActivation { get; set; }
+        public double AcquisitionLinerateABS { get; set; }
+        public int grab_timout { get; set; } = 5000;
 
-
-    }
-    public class Config_Machine
-    {
-        public string start_code1D { get; set; }
-        public bool use_start_1D { get; set; } = true;
-        public int length_code1D { get; set; } = 6;
-        public string end_code1D { get;set; }
-        public bool use_end_1D { get; set; }
-        public string start_code2D { get; set; }
-        public bool use_start_2D { get; set; }
-        public int length_code2D { get; set; } = 4;
-        public string end_code2D { get; set; }
-        public bool use_end_2D { get; set; }
-   
-    }
-  
+	}
 }

@@ -131,10 +131,10 @@
     <value>..\Resources\icons8-pause-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="failure" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\failure1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\failure1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="check" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\check1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="1894657_play_controller_preview_start_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1894657_play_controller_preview_start_icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -149,7 +149,7 @@
     <value>..\Resources\ngon-nui-thieng-cua-nhat-ban.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="caliper-svgrepo-com" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\caliper-svgrepo-com.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\caliper-svgrepo-com.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="icons8-home-page-60" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-home-page-60.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -167,7 +167,7 @@
     <value>..\Resources\15573_agt_fail_icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ok1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\ok1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="z6188726383483_352226315000677337f52a511588e030" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\z6188726383483_352226315000677337f52a511588e030.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

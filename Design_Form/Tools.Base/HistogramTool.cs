@@ -25,15 +25,21 @@ namespace Design_Form.Tools.Base
 		public double Deviation { get; set; }
 
 		public HistogramTool() : base("Histogram") { }
+        public override void Inital_Tool()
+        {
 
+        }
 
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 
 			HWindow hWindow = toolRunInput.Window;
 			HObject ho_Image = toolRunInput.Image[type_light];
-			var result_Tool = new ToolResult();
-			return result_Tool;
+			var result_Tool = new ToolResult
+			{
+				ToolName = ToolName,
+			};
+
 			try
 			{
 				Array.Clear(map_pixel, 0, map_pixel.GetLength(0));
@@ -47,7 +53,15 @@ namespace Design_Form.Tools.Base
 				HOperatorSet.GenEmptyObj(out ho_ImageROI);
 				HOperatorSet.GenEmptyObj(out ho_ImageROI1);
 				HOperatorSet.GenEmptyObj(out edges);
-				HTuple homMat2d = toolRunInput.GetHomMatFromTool(index_follow);
+				HTuple homMat2d;
+				if (index_follow<0)
+				{
+					homMat2d = toolRunInput.Context.HomMat2D_Fiducial;
+				}
+				else
+				{
+					homMat2d = toolRunInput.GetHomMatFromTool(index_follow);
+				}
 				align_Roi(0, out ho_ImageROI, homMat2d);
 				HOperatorSet.AreaCenter(ho_ImageROI, out area, out rowCenter, out columnCenter);
 				HOperatorSet.GrayHisto(ho_ImageROI, ho_Image, out abHis, out relati);
@@ -90,7 +104,7 @@ namespace Design_Form.Tools.Base
 				HOperatorSet.SetShape(hWindow, "original");
 				HOperatorSet.SetDraw(hWindow, "margin");
 
-				if (results_toool > min_setup && results_toool < max_setup)
+				if (results_toool >= min_setup && results_toool <= max_setup)
 				{
 					HOperatorSet.SetColor(hWindow, "green");
 					result_Tool.OK = true;
@@ -102,13 +116,11 @@ namespace Design_Form.Tools.Base
 				Display design_Display = new Display();
 				design_Display.set_font(hWindow, 10, "mono", "true", "false");
 
-				HOperatorSet.DispRegion(ho_ImageROI, hWindow);
-				ho_ImageROI.Dispose();
-				ho_ImageROI1.Dispose();
-				edges.Dispose();
+			
 				// HOperatorSet.DispText()
-				if (show_text)
+				if (toolRunInput.show_text)
 				{
+					HOperatorSet.DispRegion(ho_ImageROI, hWindow);
 					HOperatorSet.DispText(hWindow
 						, "Step" + Id + "-" + " Histogram\n" + "Result " + results_toool.ToString("0.00") + "%\n"
 						, "image"
@@ -119,11 +131,12 @@ namespace Design_Form.Tools.Base
 						, new HTuple());
 
 				}
+				result_Tool.Outputs["Value"] = results_toool;
+				return result_Tool;
 
-
-
+				
 			}
-			catch (Exception e) { Job_Model.Statatic_Model.wirtelog.Log($"AL018 - {this.GetType().Name}" + e.ToString()); }
+			catch (Exception e) { Job_Model.Statatic_Model.wirtelog.Log($"AL018 - {this.GetType().Name}" + e.ToString()); return result_Tool; }
 		}
 		public class GrayStatistics
 		{
@@ -227,7 +240,7 @@ namespace Design_Form.Tools.Base
 			stat.PeakGray = peakGray;
 			stat.PeakCount = peakCount;
 			stat.Average = sumGray / totalPixel;
-			stat.Rate = (totalPixel / (double)result_Histogram) * 100;
+			stat.Rate = (result_Histogram / (double)totalPixel) * 100;
 			return stat;
 		}
 	}

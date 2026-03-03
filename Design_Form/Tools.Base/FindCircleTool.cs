@@ -9,9 +9,12 @@ using static Design_Form.Job_Model.Roi_tool;
 
 namespace Design_Form.Tools.Base
 {
-	public class FindCircleTool : Class_Tool
-	{
-		public string master_follow { get; set; } = "none";
+	public class FindCircleTool : Class_Tool, GetPoint
+    {
+        public double x_master_tool { get; set; }
+        public double y_master_tool { get; set; }
+        public double phi_master_tool { get; set; }
+        public string master_follow { get; set; } = "none";
 		public double sigma { get; set; } = 1;
 		public double MeasureThres { get; set; } = 30;
 		public double Length1 { get; set; } = 20;
@@ -21,20 +24,23 @@ namespace Design_Form.Tools.Base
 		public string combo_Result { get; set; } = "all";
 		public string combo_Light_to_Dark { get; set; } = "positive";
 		// Result
-		public double X_center { get; set; }
-		public double Y_center { get; set; }
+
 		public double Radius { get; set; }
 		public double limit_high { get; set; } = 1000;
 		public double limit_low { get; set; } = 0;
 		public FindCircleTool() : base("FindCircle") { }
+        public override void Inital_Tool()
+        {
 
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        }
+
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 
 			HWindow hWindow = toolRunInput.Window;
 			HObject ho_Image = toolRunInput.Image[type_light];
 			var result_Tool = new ToolResult();
-			return result_Tool;
+			
 			try
 			{
 				result_Tool.OK = false;
@@ -139,16 +145,23 @@ namespace Design_Form.Tools.Base
 				{
 					hv_CircleRadius = hv_CircleParameter.TupleSelect(hv_Sequence + 2);
 				}
-				out_bitmap.Dispose();
-				hv_Row1.Dispose();
-				hv_Column1.Dispose();
 				HOperatorSet.GetMetrologyObjectMeasures(out out_bitmap, hv_MetrologyHandle, "all", "all", out hv_Row1, out hv_Column1);
 				if (hv_CircleParameter.Length > 1)
 				{
-					X_center = hv_CircleRow;
-					Y_center = hv_CircleColumn;
+					x_master_tool = hv_CircleRow;
+					y_master_tool = hv_CircleColumn;
 					Radius = hv_CircleRadius;
-					HOperatorSet.SetTposition(hWindow, X1, Y1);
+					result_Tool.Outputs["X_center"] = x_master_tool;
+					result_Tool.Outputs["Y_center"] = y_master_tool;
+                    result_Tool.Outputs["Phi_center"] = 0.0;
+                    result_Tool.Outputs["Radius"] = Radius;
+					ShapeModelTool.ShapeMatchResult shapeMatchResult = new ShapeModelTool.ShapeMatchResult();
+
+                        shapeMatchResult.X = x_master_tool;
+					shapeMatchResult.Y = y_master_tool;
+					shapeMatchResult.Phi = 0.0;
+					result_Tool.Outputs["result0"] = shapeMatchResult;
+                    HOperatorSet.SetTposition(hWindow, X1, Y1);
 					Display design_Display = new Display();
 					design_Display.set_font(hWindow, 10, "mono", "true", "false");
 					HOperatorSet.SetDraw(hWindow, "margin");
@@ -162,67 +175,34 @@ namespace Design_Form.Tools.Base
 						HOperatorSet.SetColor(hWindow, "red");
 						result_Tool.OK = false;
 					}
-					HOperatorSet.DispCircle(hWindow, X_center, Y_center, Radius);
+					HOperatorSet.DispCircle(hWindow, x_master_tool, y_master_tool, Radius);
 					ho_cir.Dispose();
-					if (show_text)
+					if (toolRunInput.show_text)
 					{
 						design_Display.disp_message(hWindow
 				   , "Step" + Id + "-" + " Circle\n" + "Radius " + (Radius * cali).ToString("0.000") + "mm"
 				   + "\nRadius " + (Radius).ToString("0.000")
 				   , "image"
-				   , X_center
-				   , Y_center
+				   , x_master_tool
+				   , y_master_tool
 				   , "black"
 				   , "true");
 					}
-
-
-
-					//    HOperatorSet.DispText(hWindow
-					//    , "Step" + job_index + "-" + tool_index + " Circle\n" + "Radius " + (Radius * cali).ToString("0.000") + "mm"
-					//    + "\nRadius " + (Radius).ToString("0.000")
-					//    , "image"
-					//    , hv_CircleRow
-					//    , hv_CircleColumn
-					//    , "black"
-					//    , new HTuple()
-					//    , new HTuple());
 				}
 				else
 				{
 					HOperatorSet.DispObj(out_bitmap, hWindow);
 				}
 
+				return result_Tool;
 
-
-				ho_Reg.Dispose();
-				ho_Cross1.Dispose();
-				ho_Contours.Dispose();
-				ho_Cross.Dispose();
-				hv_Width.Dispose();
-				hv_Height.Dispose();
-				hv_RowCircle.Dispose();
-				hv_CircleInitRow.Dispose();
-				hv_CircleInitColumn.Dispose();
-				hv_CircleInitRadius.Dispose();
-				hv_CircleRadiusTolerance.Dispose();
-				hv_MetrologyHandle.Dispose();
-				hv_MetrologyCircleIndices.Dispose();
-				hv_Sequence.Dispose();
-				hv_CircleParameter.Dispose();
-				hv_CircleRow.Dispose();
-				hv_CircleColumn.Dispose();
-				hv_CircleRadius.Dispose();
-				hv_Row1.Dispose();
-				hv_Column1.Dispose();
-				hv_Color.Dispose();
-				hv_Message.Dispose();
 
 			}
 			catch (Exception ex)
 			{
 
 				Job_Model.Statatic_Model.wirtelog.Log($"AL017 - {this.GetType().Name}" + ex.ToString());
+				return result_Tool;
 			}
 		}
 	}

@@ -13,7 +13,11 @@ namespace Design_Form.Tools.Base
 		public string master_follow { get; set; } = "none";
 		public HTuple hv_GMMHandle;
 		public Segmentation_Tool() : base("Segmentation_Tool") { }
-		public void train_sengment(HObject ho_Image)
+        public override void Inital_Tool()
+        {
+
+        }
+        public void train_sengment(HObject ho_Image)
 		{
 			try
 			{

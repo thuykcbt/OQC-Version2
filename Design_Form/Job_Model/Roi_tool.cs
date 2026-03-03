@@ -1,4 +1,6 @@
-﻿using HalconDotNet;
+﻿using Design_Form.Tools.Base;
+using HalconDotNet;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +21,11 @@ namespace Design_Form.Job_Model
 				type = value;
 				OnPropertyChanged(nameof(Type));
 			}
+		}
+		public Roi_tool Clone()
+		{
+			var json = JsonConvert.SerializeObject(this);
+			return (Roi_tool)JsonConvert.DeserializeObject(json, this.GetType());
 		}
 		public event PropertyChangedEventHandler PropertyChanged;
 		protected void OnPropertyChanged(string propertyName)

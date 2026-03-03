@@ -15,9 +15,13 @@ namespace Design_Form.Tools.Base
 		public double master_y { get; set; } = 0;
 		public double master_x { get; set; } = 0;
 		public double master_phi { get; set; } = 0;
+		public bool master_fudixial { get; set; } = false;
 		public FixtureTool() : base("Fixture") { }
+        public override void Inital_Tool()
+        {
 
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        }
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 
 			HWindow hWindow = toolRunInput.Window;
@@ -25,26 +29,33 @@ namespace Design_Form.Tools.Base
 			var result_Tool = new ToolResult();
 			result_Tool.ToolName = ToolName; 
 			result_Tool.OK=false;
-
-			if (index_follow >= 0)
+			try
 			{
-
-				double x_cr = (double)toolRunInput.Context.ToolResults[index_follow].Outputs["X_center"];
-				double y_cr = (double)toolRunInput.Context.ToolResults[index_follow].Outputs["Y_center"];
-				double phi_cr = (double)toolRunInput.Context.ToolResults[index_follow].Outputs["Phi_center"];
-				
-				Align_Tool(out HTuple homMat2D, x_cr, y_cr, phi_cr);
-				result_Tool.Outputs["phi_cr"] = phi_cr;
-				result_Tool.Outputs["master_phi"] = master_phi;
-				result_Tool.HomMat2D = homMat2D;
-				if(toolRunInput.Save_Fudixal)
+				if (index_follow >= 0)
 				{
-					toolRunInput.Context.HomMat2D_Fiducial = homMat2D;
-					toolRunInput.Save_Fudixal =false;
+
+					double x_cr = (double)toolRunInput.Context.ToolResults[index_follow].Outputs["X_center"];
+					double y_cr = (double)toolRunInput.Context.ToolResults[index_follow].Outputs["Y_center"];
+					double phi_cr = (double)toolRunInput.Context.ToolResults[index_follow].Outputs["Phi_center"];
+
+					Align_Tool(out HTuple homMat2D, x_cr, y_cr, phi_cr);
+					result_Tool.Outputs["phi_cr"] = phi_cr;
+					result_Tool.Outputs["master_phi"] = master_phi;
+					result_Tool.HomMat2D = homMat2D;
+					if (master_fudixial)
+					{
+						toolRunInput.Context.HomMat2D_Fiducial = homMat2D;
+					}
+					result_Tool.OK = true;
 				}
-				result_Tool.OK = true;
+				return result_Tool;
 			}
-			return result_Tool;
+			catch (Exception ex)
+			{
+				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
+				return result_Tool;
+			}
+			
 		}
 		public void Align_Tool(out HTuple homMat2D, double x_cr, double y_cr, double phi_cr)
 		{

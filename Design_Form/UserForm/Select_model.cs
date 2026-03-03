@@ -78,7 +78,8 @@ namespace Design_Form.UserForm
             tool.max_mean2 = (int)Max_Mean2.Value;
             tool.min_mean3 = (int)Min_Mean3.Value;
             tool.max_mean3 = (int)Max_Mean3.Value;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
+			tool.type_light = dataMain.light_selet;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
         

@@ -1,9 +1,11 @@
 ﻿using Design_Form.Job_Model;
 using Google.Apis.Util;
 using HalconDotNet;
+using MathNet.Numerics.LinearAlgebra;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,15 +25,19 @@ namespace Design_Form.Tools.Base
 		// resule code
 	
 		public Barcode_2D() : base("Barcode_2D") { }
-		
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        public override void Inital_Tool()
+        {
+          
+        }
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
+			var result_Tool = new ToolResult();
 			try
 			{
 				HWindow hWindow = toolRunInput.Window;
 				HObject ho_Image = toolRunInput.Image[type_light];
-				var result_Tool = new ToolResult();
-				return result_Tool;
+				result_Tool.ToolName = toolName;
+				
 				HTuple hv_DataCodeHandle = new HTuple(), hv_ResultHandles = new HTuple(), hv_DecodedDataStrings = new HTuple();
 				HTuple hv_Message = new HTuple();
 				HObject image_Reducer;
@@ -42,42 +48,17 @@ namespace Design_Form.Tools.Base
 				HOperatorSet.GenEmptyObj(out ho_SymbolXLDs);
 				
 				barcode = "";
-				// dATACODE = new DATACODE();
-				// HRegion ROI = new HRegion();
-				// ROI.GenRectangle2(Y1, X1, Phi, X2, Y2);
-				// lấy vùng roi
 				LibaryHalcon libaryHalcon = new LibaryHalcon();
-				HTuple homMat2D = null;
+				HTuple HHomMat2D_fiducial = toolRunInput.Context.HomMat2D_Fiducial;
+				align_Roi(0, out ho_Reg, HHomMat2D_fiducial);
+				// Get search ROI
 				if (index_follow >= 0)
 				{
-					homMat2D = toolRunInput.GetHomMatFromTool(index_follow);
-					if (roi_Tool[0].Type == "Rectangle")
-					{
-						RectangleROI rectangleROI = (RectangleROI)roi_Tool[0];
-						libaryHalcon.Alingn_Tool_Rectang(homMat2D, rectangleROI.X, rectangleROI.Y, rectangleROI.Phi, rectangleROI.Width, rectangleROI.Height, out ho_Reg);
-					}
-					if (roi_Tool[0].Type == "Circle")
-					{
-						CircleROI CirROI = (CircleROI)roi_Tool[0];
-						libaryHalcon.Align_Tool_Cir(homMat2D, CirROI.CenterX, CirROI.CenterY, CirROI.Radius, out ho_Reg);
-
-					}
-
+					HTuple homMat2d = toolRunInput.GetHomMatFromTool(index_follow);
+					HOperatorSet.HomMat2dCompose(HHomMat2D_fiducial, homMat2d, out homMat2d);
+					align_Roi(0, out ho_Reg, homMat2d);
 				}
-				else
-				{
-					if (roi_Tool[0].Type == "Rectangle")
-					{
-						RectangleROI rectangleROI = (RectangleROI)roi_Tool[0];
 
-						HOperatorSet.GenRectangle2(out ho_Reg, rectangleROI.X, rectangleROI.Y, rectangleROI.Phi, rectangleROI.Width, rectangleROI.Height);
-					}
-					if (roi_Tool[0].Type == "Circle")
-					{
-						CircleROI CirROI = (CircleROI)roi_Tool[0];
-						HOperatorSet.GenCircle(out ho_Reg, CirROI.CenterX, CirROI.CenterY, CirROI.Radius);
-					}
-				}
 				HOperatorSet.ReduceDomain(ho_Image, ho_Reg, out image_Reducer);
 				//HOperatorSet.Threshold(image_Reducer, out image_Reducer, threshold_Min, threshold_Max);
 				//VisionMode visionMode = VisionMode.Runtime;
@@ -105,6 +86,7 @@ namespace Design_Form.Tools.Base
 				//HOperatorSet.DispObj(image_Reducer, hWindow);
 
 
+				
 
 				hv_Message.Dispose();
 				hv_Message = "No data code found.";
@@ -118,6 +100,7 @@ namespace Design_Form.Tools.Base
 					hv_Message = new HTuple();
 				hv_Message[3] = "to read this symbol.";
 				//
+				HObject dislay;
 				//If no data code could be found
 				if ((int)(new HTuple((new HTuple(hv_DecodedDataStrings.TupleLength())).TupleEqual(0))) != 0)
 				{
@@ -125,29 +108,28 @@ namespace Design_Form.Tools.Base
 					Console.WriteLine(hv_Message.ToString());
 					HOperatorSet.SetDraw(hWindow, "margin");
 					HOperatorSet.SetColor(hWindow, "red");
-					HOperatorSet.DispObj(ho_Reg, hWindow);
-
+					dislay = ho_Reg;
 				}
 				else
 				{
 					// disp_message(hWindow, hv_DecodedDataStrings, "window", 40, 12, "black", "true");
 					result_Tool.OK = true;
+					result_Tool.Outputs["Value"] = hv_DecodedDataStrings;
 					HOperatorSet.SetColor(hWindow, "green");
-					HOperatorSet.DispObj(ho_SymbolXLDs, hWindow);
-					Job_Model.Statatic_Model.barcode = hv_DecodedDataStrings;
+					toolRunInput.Context.barcode = hv_DecodedDataStrings;
 					barcode = hv_DecodedDataStrings;
+					dislay = ho_SymbolXLDs;
 				}
-				//   ho_Image.Dispose();
-				ho_SymbolXLDs.Dispose();
-				hv_Message.Dispose();
-				hv_DataCodeHandle.Dispose();
-				hv_ResultHandles.Dispose();
-				hv_DecodedDataStrings.Dispose();
+				if (toolRunInput.show_text)
+				{
+					HOperatorSet.DispObj(dislay, hWindow);
+				}
+				return result_Tool;
 			}
 			catch (Exception e) {
-				return null;
 
 				Job_Model.Statatic_Model.wirtelog.Log($"AL010 - {this.GetType().Name}" + e.ToString());
+				return result_Tool;
 			}
 		}
 	}

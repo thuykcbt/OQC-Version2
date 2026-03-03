@@ -30,20 +30,18 @@ namespace Design_Form.UserForm
 				d = component;
 				combo_master.Items.Clear();
                 FindLineTool findLine = (FindLineTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-                for(int i = 0;i< Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools.Count;i++)
-                {
-                    if(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName=="Fixture")
-                    {
-                        combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName+": "+i.ToString());
-                    }
-                    if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName == "Fixture_2")
-                    {
-                        combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName + ": " + i.ToString());
-                    }
+				for (int j = 0; j <= b; j++)
+				{
+					for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools.Count; i++)
+					{
+						if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName == "Fixture" || Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName == "Fixture_2")
+						{
+							combo_master.Items.Add("ID:" + Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].Id.ToString() + "_" + Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName);
+						}
+					}
+				}
 
-                }    
-
-                combo_master.Text = findLine.folow_master;
+				combo_master.Text = findLine.folow_master;
                // decimal test = Convert.ToDecimal(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Tools[c].para_Tool[1].Value);
                 numeric_Sigma.Value = findLine.sigma;
                 numeric_Length.Value =findLine.Length1 ;
@@ -71,6 +69,7 @@ namespace Design_Form.UserForm
 			findLine.Threshold = numeric_Threshold.Value;
 			findLine.combo_Result = combo_Result.Text;
 			findLine.combo_Light_to_Dark = combo_Light_to_Dark.Text;
+			findLine.type_light = dataMain.light_selet;
 			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = findLine;
 
 		}
@@ -79,25 +78,9 @@ namespace Design_Form.UserForm
 
         private void combo_master_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string buffer1 = combo_master.Text;
-            //  combo_master.Items.Clear();
-            for (int i = 0; i < Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools.Count; i++)
-            {
-                if (combo_master.Text == "Fixture: " + i.ToString())
-                {
-                    index_follow = i;
-                }
-                if (combo_master.Text == "Fixture_2: " + i.ToString())
-                {
-                    index_follow = i;
-                }
-                if (combo_master.Text == "none")
-                {
-                    index_follow = -1;
-                    break;
-                }
-
-            }
-        }
+			Statatic_Model.TryGetNumberAfterID(combo_master.Text, out string num);
+			if (num.Length > 0)
+				index_follow = int.Parse(num);
+		}
     }
 }

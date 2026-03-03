@@ -62,22 +62,19 @@
       <HintPath>C:\Program Files (x86)\MELSOFT\ACT\Control\ActUtlTypeLib.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v21.2" />
-    <Reference Include="DevExpress.Data.Desktop.v21.2" />
-    <Reference Include="DevExpress.Data.Desktop.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.v21.2" />
-    <Reference Include="DevExpress.Data.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Drawing.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v22.2.Core, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v21.2" />
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v21.2.Core" />
-    <Reference Include="DevExpress.Utils.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x64\Debug\DevExpress.Utils.v22.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v21.2" />
     <Reference Include="DevExpress.Printing.v21.2.Core" />
-    <Reference Include="DevExpress.Drawing.v21.2" />
+    <Reference Include="DevExpress.Drawing.v21.2">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -86,14 +83,53 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus, Version=7.6.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.7.6.0\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=7.5.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.7.5.0\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=7.5.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.7.5.0\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.73.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.73.0\lib\net462\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.73.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.73.0\lib\net462\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.73.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.73.0\lib\net462\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Sheets.v4, Version=1.72.0.3966, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Sheets.v4.1.72.0.3966\lib\net462\Google.Apis.Sheets.v4.dll</HintPath>
+    </Reference>
     <Reference Include="halcondotnet">
       <HintPath>C:\Program Files\MVTec\HALCON-18.11-Progress\bin\dotnet35\halcondotnet.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\CaptureandLive\RDVisisonHalcon\System_Loadcell\bin\x64\Debug\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="LModbus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LModbus\obj\Debug\LModbus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>C:\Users\Admin\source\repos\Align\packages\MathNet.Numerics.5.0.0\lib\net461\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.1\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -107,14 +143,29 @@
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.119.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.8.0.4\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -124,58 +175,49 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Confirm_Data.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Confirm_Data.Designer.cs">
-      <DependentUpon>Confirm_Data.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs" />
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Job_Model\Calibrate_Matrix.cs" />
+    <Compile Include="Job_Model\DataMainToUser.cs" />
     <Compile Include="Job_Model\Display.cs" />
     <Compile Include="Job_Model\LibaryHalcon.cs" />
+    <Compile Include="Job_Model\LightSetting.cs" />
+    <Compile Include="Job_Model\ManagerModelcs.cs" />
     <Compile Include="Job_Model\Manager_Result.cs" />
     <Compile Include="Job_Model\Model.cs" />
     <Compile Include="Job_Model\Roi_tool.cs" />
     <Compile Include="Job_Model\Scanner_Barcode.cs" />
+    <Compile Include="Job_Model\LightController.cs" />
     <Compile Include="Job_Model\SQL_Lite_Class.cs" />
     <Compile Include="Job_Model\Statatic_Model.cs" />
-    <Compile Include="Job_Model\VisionBasler.cs" />
     <Compile Include="Job_Model\VisionHalcon.cs" />
     <Compile Include="Job_Model\WirteLogcs.cs" />
-    <Compile Include="LiveCamera.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LiveCamera.Designer.cs">
-      <DependentUpon>LiveCamera.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModelView\ReadCodeModel.cs" />
     <Compile Include="Monitor_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Monitor_Form.Designer.cs">
       <DependentUpon>Monitor_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Monitor_Product_Error\ProductError.cs" />
+    <Compile Include="PLC_Communication\AlarmList.cs" />
+    <Compile Include="PLC_Communication\ModbusTCP.cs" />
     <Compile Include="PLC_Communication\Model_PLC.cs" />
-    <Compile Include="PLC_Communication\Static_PLC.cs" />
     <Compile Include="PLC_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PLC_Form.Designer.cs">
       <DependentUpon>PLC_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PopUp_NG.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PopUp_NG.Designer.cs">
-      <DependentUpon>PopUp_NG.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -208,6 +250,91 @@
     <Compile Include="ToolbarForm1.Designer.cs">
       <DependentUpon>ToolbarForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools.Base\Barcode_2D.cs" />
+    <Compile Include="Tools.Base\BlobTool.cs" />
+    <Compile Include="Tools.Base\Calibrate_Plate_Tool.cs" />
+    <Compile Include="Tools.Base\Cal_Hand_Eye_Tool.cs" />
+    <Compile Include="Tools.Base\Class_Tool.cs" />
+    <Compile Include="Tools.Base\FindCircleTool.cs" />
+    <Compile Include="Tools.Base\FindDistanceTool.cs" />
+    <Compile Include="Tools.Base\FindLineTool.cs" />
+    <Compile Include="Tools.Base\FitCircleTool.cs" />
+    <Compile Include="Tools.Base\FitLine_Tool.cs" />
+    <Compile Include="Tools.Base\FixtureTool.cs" />
+    <Compile Include="Tools.Base\OriginFindLine.cs" />
+    <Compile Include="Tools.Base\FixtureTool_2.cs" />
+    <Compile Include="Tools.Base\HistogramTool.cs" />
+    <Compile Include="Tools.Base\HistogramTool_Color.cs" />
+    <Compile Include="Tools.Base\Image_Roate.cs" />
+    <Compile Include="Tools.Base\NccModelTool.cs" />
+    <Compile Include="Tools.Base\OCR_Tool.cs" />
+    <Compile Include="Tools.Base\Save_Image_Tool.cs" />
+    <Compile Include="Tools.Base\Segmentation_Tool.cs" />
+    <Compile Include="Tools.Base\Select_model_tool.cs" />
+    <Compile Include="Tools.Base\TextureInspectionTool.cs" />
+    <Compile Include="Tools.Base\ShapeModelTool.cs" />
+    <Compile Include="Tools.Base\ShapeModelTool_Color.cs" />
+    <Compile Include="UserForm\Fillter_tool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\Fillter_tool.Designer.cs">
+      <DependentUpon>Fillter_tool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\CaliHandEye.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\CaliHandEye.Designer.cs">
+      <DependentUpon>CaliHandEye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\OriginFindLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\OriginFindLine.Designer.cs">
+      <DependentUpon>OriginFindLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\Fixture_Tool2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\Fixture_Tool2.Designer.cs">
+      <DependentUpon>Fixture_Tool2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\HistogramPara_Color.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\HistogramPara_Color.Designer.cs">
+      <DependentUpon>HistogramPara_Color.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\ISaveable.cs" />
+    <Compile Include="UserForm\Select_model.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\Select_model.Designer.cs">
+      <DependentUpon>Select_model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\ImageFillter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\ImageFillter.Designer.cs">
+      <DependentUpon>ImageFillter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\NccModelPara.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\NccModelPara.Designer.cs">
+      <DependentUpon>NccModelPara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\TextureInspectionPara.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\TextureInspectionPara.Designer.cs">
+      <DependentUpon>TextureInspectionPara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\User_Calib.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForm\User_Calib.Designer.cs">
+      <DependentUpon>User_Calib.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForm\UserFitLine.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -219,12 +346,6 @@
     </Compile>
     <Compile Include="UserForm\OCRUser.Designer.cs">
       <DependentUpon>OCRUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserForm\User_Job.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserForm\User_Job.Designer.cs">
-      <DependentUpon>User_Job.cs</DependentUpon>
     </Compile>
     <Compile Include="UserForm\Segmentation.cs">
       <SubType>UserControl</SubType>
@@ -243,12 +364,6 @@
     </Compile>
     <Compile Include="UserForm\Barcode2D.Designer.cs">
       <DependentUpon>Barcode2D.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserForm\none.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserForm\none.Designer.cs">
-      <DependentUpon>none.cs</DependentUpon>
     </Compile>
     <Compile Include="UserForm\Save_image.cs">
       <SubType>UserControl</SubType>
@@ -298,17 +413,185 @@
     <Compile Include="UserForm\ParaLine.Designer.cs">
       <DependentUpon>ParaLine.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserForm\Result_FindLine.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserForm\Result_FindLine.Designer.cs">
-      <DependentUpon>Result_FindLine.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserForm\ResultShapeModel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserForm\ResultShapeModel.Designer.cs">
       <DependentUpon>ResultShapeModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\ConveyorCam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\ConveyorCam.Designer.cs">
+      <DependentUpon>ConveyorCam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\Data_Machine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\Data_Machine.Designer.cs">
+      <DependentUpon>Data_Machine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\CycleTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\CycleTime.Designer.cs">
+      <DependentUpon>CycleTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\ManagerModelUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\ManagerModelUser.Designer.cs">
+      <DependentUpon>ManagerModelUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\ModelPLC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\ModelPLC.Designer.cs">
+      <DependentUpon>ModelPLC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\ParameterCam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\ParameterCam.Designer.cs">
+      <DependentUpon>ParameterCam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis10_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis10_1.Designer.cs">
+      <DependentUpon>Teach_Point_Axis10_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis9_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis9_1.Designer.cs">
+      <DependentUpon>Teach_Point_Axis9_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis8_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis8_1.Designer.cs">
+      <DependentUpon>Teach_Point_Axis8_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis7_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis7_1.Designer.cs">
+      <DependentUpon>Teach_Point_Axis7_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis6_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis6_1.Designer.cs">
+      <DependentUpon>Teach_Point_Axis6_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis5_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis5_1.Designer.cs">
+      <DependentUpon>Teach_Point_Axis5_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\TimerPLC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\TimerPLC.Designer.cs">
+      <DependentUpon>TimerPLC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\Unload_Pro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\Unload_Pro.Designer.cs">
+      <DependentUpon>Unload_Pro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\TransferPro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\TransferPro.Designer.cs">
+      <DependentUpon>TransferPro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\LoadInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\LoadInput.Designer.cs">
+      <DependentUpon>LoadInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\parametermotion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\parametermotion.Designer.cs">
+      <DependentUpon>parametermotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis4_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis4_1.Designer.cs">
+      <DependentUpon>Teach_Point_Axis4_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis3_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis3_1.Designer.cs">
+      <DependentUpon>Teach_Point_Axis3_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis2_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis2_1.Designer.cs">
+      <DependentUpon>Teach_Point_Axis2_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis1_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\Teach_Point_Axis1_1.Designer.cs">
+      <DependentUpon>Teach_Point_Axis1_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\User_Alarm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\User_Alarm.Designer.cs">
+      <DependentUpon>User_Alarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\User_Input3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\User_Input3.Designer.cs">
+      <DependentUpon>User_Input3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\User_Input2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\User_Input2.Designer.cs">
+      <DependentUpon>User_Input2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\User_Input1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\User_Input1.Designer.cs">
+      <DependentUpon>User_Input1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\User_Output2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\User_Output2.Designer.cs">
+      <DependentUpon>User_Output2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\User_Output1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\User_Output1.Designer.cs">
+      <DependentUpon>User_Output1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\User_Output.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\User_Output.Designer.cs">
+      <DependentUpon>User_Output.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_PLC\User_Input.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_PLC\User_Input.Designer.cs">
+      <DependentUpon>User_Input.cs</DependentUpon>
     </Compile>
     <Compile Include="WaitForm1.cs">
       <SubType>Form</SubType>
@@ -316,14 +599,8 @@
     <Compile Include="WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Confirm_Data.resx">
-      <DependentUpon>Confirm_Data.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LiveCamera.resx">
-      <DependentUpon>LiveCamera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -333,9 +610,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PLC_Form.resx">
       <DependentUpon>PLC_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PopUp_NG.resx">
-      <DependentUpon>PopUp_NG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -354,14 +628,41 @@
     <EmbeddedResource Include="ToolbarForm1.resx">
       <DependentUpon>ToolbarForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\Fillter_tool.resx">
+      <DependentUpon>Fillter_tool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\CaliHandEye.resx">
+      <DependentUpon>CaliHandEye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\OriginFindLine.resx">
+      <DependentUpon>OriginFindLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\Fixture_Tool2.resx">
+      <DependentUpon>Fixture_Tool2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\HistogramPara_Color.resx">
+      <DependentUpon>HistogramPara_Color.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\Select_model.resx">
+      <DependentUpon>Select_model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\ImageFillter.resx">
+      <DependentUpon>ImageFillter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\NccModelPara.resx">
+      <DependentUpon>NccModelPara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\TextureInspectionPara.resx">
+      <DependentUpon>TextureInspectionPara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\User_Calib.resx">
+      <DependentUpon>User_Calib.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserForm\UserFitLine.resx">
       <DependentUpon>UserFitLine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\OCRUser.resx">
       <DependentUpon>OCRUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserForm\User_Job.resx">
-      <DependentUpon>User_Job.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\Segmentation.resx">
       <DependentUpon>Segmentation.cs</DependentUpon>
@@ -371,9 +672,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\Barcode2D.resx">
       <DependentUpon>Barcode2D.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserForm\none.resx">
-      <DependentUpon>none.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\Save_image.resx">
       <DependentUpon>Save_image.cs</DependentUpon>
@@ -402,8 +700,92 @@
     <EmbeddedResource Include="UserForm\ParaLine.resx">
       <DependentUpon>ParaLine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserForm\Result_FindLine.resx">
-      <DependentUpon>Result_FindLine.cs</DependentUpon>
+    <EmbeddedResource Include="User_PLC\ConveyorCam.resx">
+      <DependentUpon>ConveyorCam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\Data_Machine.resx">
+      <DependentUpon>Data_Machine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\CycleTime.resx">
+      <DependentUpon>CycleTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\ManagerModelUser.resx">
+      <DependentUpon>ManagerModelUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\ModelPLC.resx">
+      <DependentUpon>ModelPLC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\ParameterCam.resx">
+      <DependentUpon>ParameterCam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\Teach_Point_Axis10_1.resx">
+      <DependentUpon>Teach_Point_Axis10_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\Teach_Point_Axis9_1.resx">
+      <DependentUpon>Teach_Point_Axis9_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\Teach_Point_Axis8_1.resx">
+      <DependentUpon>Teach_Point_Axis8_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\Teach_Point_Axis7_1.resx">
+      <DependentUpon>Teach_Point_Axis7_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\Teach_Point_Axis6_1.resx">
+      <DependentUpon>Teach_Point_Axis6_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\Teach_Point_Axis5_1.resx">
+      <DependentUpon>Teach_Point_Axis5_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\TimerPLC.resx">
+      <DependentUpon>TimerPLC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\Unload_Pro.resx">
+      <DependentUpon>Unload_Pro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\TransferPro.resx">
+      <DependentUpon>TransferPro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\LoadInput.resx">
+      <DependentUpon>LoadInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\parametermotion.resx">
+      <DependentUpon>parametermotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\Teach_Point_Axis4_1.resx">
+      <DependentUpon>Teach_Point_Axis4_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\Teach_Point_Axis3_1.resx">
+      <DependentUpon>Teach_Point_Axis3_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\Teach_Point_Axis2_1.resx">
+      <DependentUpon>Teach_Point_Axis2_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\Teach_Point_Axis1_1.resx">
+      <DependentUpon>Teach_Point_Axis1_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\User_Alarm.resx">
+      <DependentUpon>User_Alarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\User_Input3.resx">
+      <DependentUpon>User_Input3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\User_Input2.resx">
+      <DependentUpon>User_Input2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\User_Input1.resx">
+      <DependentUpon>User_Input1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\User_Output2.resx">
+      <DependentUpon>User_Output2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\User_Output1.resx">
+      <DependentUpon>User_Output1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\User_Output.resx">
+      <DependentUpon>User_Output.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_PLC\User_Input.resx">
+      <DependentUpon>User_Input.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
@@ -482,6 +864,43 @@
   <ItemGroup>
     <None Include="Resources\z6188726383483_352226315000677337f52a511588e030.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoVT1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ngon-nui-thieng-cua-nhat-ban.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caliper-svgrepo-com.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borules_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-automatic-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-automatic-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-page-60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-manual-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-pause-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-automation-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z6782929621675_6c21971eac958d167464aa5a909065a8.jpg" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

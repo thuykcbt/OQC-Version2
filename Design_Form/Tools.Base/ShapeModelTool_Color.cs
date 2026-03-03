@@ -40,7 +40,11 @@ namespace Design_Form.Tools.Base
 		public double YFollow { get; set; }
 		public double PhiFollow { get; set; }
 		public ShapeModelTool_Color() : base("ShapeModel_Color") { }
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        public override void Inital_Tool()
+        {
+
+        }
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 			HWindow hWindow = toolRunInput.Window;
 			HObject ho_Image = toolRunInput.Image[type_light];

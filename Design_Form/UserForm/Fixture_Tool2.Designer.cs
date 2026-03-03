@@ -35,16 +35,20 @@
 			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
 			this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.checkMasterFudixial = new System.Windows.Forms.CheckBox();
+			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
 			this.layoutControl1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// layoutControl1
 			// 
+			this.layoutControl1.Controls.Add(this.checkMasterFudixial);
 			this.layoutControl1.Controls.Add(this.combo_master2);
 			this.layoutControl1.Controls.Add(this.combo_master);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -59,9 +63,9 @@
 			// 
 			this.combo_master2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.combo_master2.FormattingEnabled = true;
-			this.combo_master2.Location = new System.Drawing.Point(65, 35);
+			this.combo_master2.Location = new System.Drawing.Point(72, 37);
 			this.combo_master2.Name = "combo_master2";
-			this.combo_master2.Size = new System.Drawing.Size(117, 24);
+			this.combo_master2.Size = new System.Drawing.Size(106, 24);
 			this.combo_master2.TabIndex = 14;
 			this.combo_master2.Text = "none";
 			this.combo_master2.SelectedIndexChanged += new System.EventHandler(this.combo_master2_SelectedIndexChanged);
@@ -70,9 +74,9 @@
 			// 
 			this.combo_master.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.combo_master.FormattingEnabled = true;
-			this.combo_master.Location = new System.Drawing.Point(65, 10);
+			this.combo_master.Location = new System.Drawing.Point(72, 12);
 			this.combo_master.Name = "combo_master";
-			this.combo_master.Size = new System.Drawing.Size(117, 24);
+			this.combo_master.Size = new System.Drawing.Size(106, 24);
 			this.combo_master.TabIndex = 5;
 			this.combo_master.Text = "none";
 			this.combo_master.SelectedIndexChanged += new System.EventHandler(this.combo_master_SelectedIndexChanged);
@@ -84,7 +88,8 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
             this.emptySpaceItem1,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.layoutControlItem2});
 			this.Root.Name = "Root";
 			this.Root.Size = new System.Drawing.Size(190, 483);
 			this.Root.TextVisible = false;
@@ -96,16 +101,16 @@
 			this.layoutControlItem1.Control = this.combo_master;
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(176, 25);
+			this.layoutControlItem1.Size = new System.Drawing.Size(170, 25);
 			this.layoutControlItem1.Text = "Master1";
 			this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 16);
 			// 
 			// emptySpaceItem1
 			// 
 			this.emptySpaceItem1.AllowHotTrack = false;
-			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 50);
+			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 74);
 			this.emptySpaceItem1.Name = "emptySpaceItem1";
-			this.emptySpaceItem1.Size = new System.Drawing.Size(176, 417);
+			this.emptySpaceItem1.Size = new System.Drawing.Size(170, 389);
 			this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
 			// 
 			// layoutControlItem3
@@ -115,9 +120,28 @@
 			this.layoutControlItem3.Control = this.combo_master2;
 			this.layoutControlItem3.Location = new System.Drawing.Point(0, 25);
 			this.layoutControlItem3.Name = "layoutControlItem3";
-			this.layoutControlItem3.Size = new System.Drawing.Size(176, 25);
+			this.layoutControlItem3.Size = new System.Drawing.Size(170, 25);
 			this.layoutControlItem3.Text = "Master2";
 			this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 17);
+			// 
+			// checkMasterFudixial
+			// 
+			this.checkMasterFudixial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkMasterFudixial.Location = new System.Drawing.Point(12, 62);
+			this.checkMasterFudixial.Name = "checkMasterFudixial";
+			this.checkMasterFudixial.Size = new System.Drawing.Size(166, 20);
+			this.checkMasterFudixial.TabIndex = 15;
+			this.checkMasterFudixial.Text = "Master_Fudixial";
+			this.checkMasterFudixial.UseVisualStyleBackColor = true;
+			// 
+			// layoutControlItem2
+			// 
+			this.layoutControlItem2.Control = this.checkMasterFudixial;
+			this.layoutControlItem2.Location = new System.Drawing.Point(0, 50);
+			this.layoutControlItem2.Name = "layoutControlItem2";
+			this.layoutControlItem2.Size = new System.Drawing.Size(170, 24);
+			this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem2.TextVisible = false;
 			// 
 			// Fixture_Tool2
 			// 
@@ -132,6 +156,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -145,5 +170,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private System.Windows.Forms.ComboBox combo_master2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-    }
+		private System.Windows.Forms.CheckBox checkMasterFudixial;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+	}
 }

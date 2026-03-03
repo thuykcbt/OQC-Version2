@@ -80,7 +80,8 @@ namespace Design_Form.UserForm
             tool.min_char_width = (int)numWidh_Min.Value;
             tool.min_char_high = (int)numHigh_Min.Value;
             tool.structure = Strureture.Text;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
+			tool.type_light = dataMain.light_selet;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
     

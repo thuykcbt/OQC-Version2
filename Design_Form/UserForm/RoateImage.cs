@@ -1,4 +1,6 @@
 ﻿using Design_Form.Job_Model;
+using Design_Form.Tools.Base;
+using DevExpress.XtraPrinting.Export.Pdf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Design_Form.Tools.Base;
 namespace Design_Form.UserForm
 {
   
@@ -92,6 +93,7 @@ namespace Design_Form.UserForm
 			tool.FL_BLue = check_FLBlue.Checked;
 			tool.Cv2Gray = check_Cv2Gray.Checked;
 			tool.image_color = check_Color.Checked;
+			tool.type_light = dataMain.light_selet;
 			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
 		}
 

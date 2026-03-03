@@ -22,11 +22,11 @@ namespace Design_Form.UserForm
         }
         int index_follow = -1;
 		int a, b, c, d;
-        List<HObject> Input;
+		Dictionary<int, HObject> Input;
         HWindow Window;
         string ModelMain, ModelSub;
 		public event Action RequestDataFromParent;
-		public void ReceiveDataFromParent(List<HObject> input, HWindow window,string modelMain,string modelSub)
+		public void ReceiveDataFromParent(Dictionary<int, HObject> input, HWindow window,string modelMain,string modelSub)
 		{
 			// Hiển thị hoặc xử lý dữ liệu
 			Input=input;

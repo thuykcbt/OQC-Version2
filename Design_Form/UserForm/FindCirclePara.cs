@@ -30,20 +30,18 @@ namespace Design_Form.UserForm
 				d = component;
 				combo_master.Items.Clear();
                 FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
-                for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools.Count; i++)
-                {
-                    if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName == "Fixture")
-                    {
-                        combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName + ": " + i.ToString());
-                    }
-                    if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName == "Fixture_2")
-                    {
-                        combo_master.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[i].ToolName + ": " + i.ToString());
-                    }
+				for (int j = 0; j <= b; j++)
+				{
+					for (int i = 0; i < Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools.Count; i++)
+					{
+						if (Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName == "Fixture" || Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName == "Fixture_2")
+						{
+							combo_master.Items.Add("ID:" + Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].Id.ToString() + "_" + Job_Model.Statatic_Model.model_run.Cameras[a].Views[j].Components[d].Tools[i].ToolName);
+						}
+					}
+				}
 
-                }
-
-                combo_master.Text = tool.master_follow;
+				combo_master.Text = tool.master_follow;
                 numeric_AgStart.Value =(decimal) tool.Ag_Start;
                 numeric_AgEnd.Value = (decimal)tool.Ag_End;
                 numeric_Length.Value = (decimal)tool.Length1;
@@ -70,6 +68,10 @@ namespace Design_Form.UserForm
 		public void Save_para(Job_Model.DataMainToUser dataMain)
 		{
             FindCircleTool tool = (FindCircleTool)Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c];
+            if (combo_master.Text=="none")
+            {
+                index_follow = -1;
+			}
             tool.index_follow= index_follow;
             tool.master_follow = combo_master.Text;
             tool.Ag_Start =(double) numeric_AgStart.Value;
@@ -82,30 +84,16 @@ namespace Design_Form.UserForm
             tool.combo_Light_to_Dark = combo_Light_to_Dark.Text;
             tool.limit_high =(double) numeric_MaxRadius.Value;
             tool.limit_low =(double)numeric_Minradius.Value;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
+			tool.type_light = dataMain.light_selet;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
      
         private void combo_master_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string buffer1 = combo_master.Text;
-            //  combo_master.Items.Clear();
-            for (int i = 0; i < Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools.Count; i++)
-            {
-                if (combo_master.Text == "Fixture: " + i.ToString())
-                {
-                    index_follow = i;
-                }
-                if (combo_master.Text == "Fixture_2: " + i.ToString())
-                {
-                    index_follow = i;
-                }
-                if (combo_master.Text == "none")
-                {
-                    index_follow = -1;
-                    break;
-                }
-            }
-        }
+			Statatic_Model.TryGetNumberAfterID(combo_master.Text, out string num);
+			if (num.Length > 0)
+				index_follow = int.Parse(num);
+		}
     }
 }

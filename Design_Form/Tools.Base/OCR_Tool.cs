@@ -25,9 +25,12 @@ namespace Design_Form.Tools.Base
 
 		public string result_text { get; set; }
 		public OCR_Tool() : base("OCR_Tool") { }
+        public override void Inital_Tool()
+        {
 
+        }
 
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 
 			HWindow hWindow = toolRunInput.Window;

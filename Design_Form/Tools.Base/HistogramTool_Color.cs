@@ -38,9 +38,12 @@ namespace Design_Form.Tools.Base
 
 		public HistogramTool_Color() : base("Histogram_Color") { }
 
+        public override void Inital_Tool()
+        {
 
+        }
 
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 
 			HWindow hWindow = toolRunInput.Window;
@@ -72,7 +75,7 @@ namespace Design_Form.Tools.Base
 				HOperatorSet.SetColor(hWindow, result_Tool.OK ? "green" : "red");
 				HOperatorSet.DispRegion(ho_Roi, hWindow);
 
-				if (show_text)
+				if (toolRunInput.show_text)
 				{
 					string txt = $"Histogram RGB\n" +
 								 $"R: {Red.Rate:0.00}% M:{Red.Mean:0.0} D:{Red.Deviation:0.0}\n" +

@@ -16,8 +16,8 @@ namespace Design_Form.PLC_Communication
 
         public static bool connect = false;
         public static object agree_read = new object();
-        public static int[] Read_from_PLc = new int[1000];
-        public static int[] Wirte_to_PLC = new int[1000];
+        public static int[] Read_from_PLc = new int[100];
+        public static int[] Wirte_to_PLC = new int[100];
         public static int[] Read_from_PLc_1 = new int[100];
         public static int[] Wirte_to_PLC_1 = new int[100];
         public static int[] IO_Resigter = new int[20];
@@ -134,8 +134,31 @@ namespace Design_Form.PLC_Communication
         public static int[] pose_read_ax10 = new int[20];
         public static int[] speed_read_ax10 = new int[20];
         public static int index_pos_call_ax10 = 0;
+        // Camera Connect-->PLC
+        public static bool[] ControlFlagPC = new bool[16];
+        public static bool[] ConnectCheckPC = new bool[16];
+        public static int[] Result_PointPC = new int[20];
+        // Camera Connect-->PLC
+        public static bool[] ControlFlagPLC = new bool[16];
+        public static bool[] ConnectCheckPLC = new bool[16];
+        public static int[] Result_PointPLC = new int[20];
 
-
+        public static void update_to_wirte_new()
+        {
+            // To do later
+            WordConvert convert = new WordConvert();
+            Wirte_to_PLC[0] = convert.Bit16toint(ControlFlagPC);
+            Wirte_to_PLC[1] = convert.Bit16toint(ConnectCheckPC);
+            convertIntToWord(Result_PointPC, 2, 20);
+        }
+        public static void update_to_read_new()
+        {
+            // To do later
+            WordConvert convert = new WordConvert();
+            ControlFlagPLC = convert.WordTo16Bit(Read_from_PLc[0]);
+            ConnectCheckPLC = convert.WordTo16Bit(Read_from_PLc[1]);
+            Result_PointPLC = read_mutil(18, 2);
+        }
         public static void update_to_write()
         {
             WordConvert convert = new WordConvert();

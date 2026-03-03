@@ -20,7 +20,7 @@ namespace Design_Form.Job_Model
         {
             try
             {
-                if (robotPoints.Count != camPoints.Count || robotPoints.Count < 2)
+                if (robotPoints.Count != camPoints.Count || robotPoints.Count < 4)
                     throw new ArgumentException("Số lượng điểm không hợp lệ");
 
                 // Thử cả hai phương pháp

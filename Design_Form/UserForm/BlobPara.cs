@@ -106,7 +106,8 @@ namespace Design_Form.UserForm
             tool.fillter_step_2 = Fl_Step2.Text;
             tool.fillter_step_3 = Fl_Step3.Text;
             tool.fillter_step_4 = Fl_Step4.Text;
-            Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
+			tool.type_light = dataMain.light_selet;
+			Job_Model.Statatic_Model.model_run.Cameras[a].Views[b].Components[d].Tools[c] = tool;
         }
 
 

@@ -28,8 +28,12 @@ namespace Design_Form.Tools.Base
 		public double Deviation { get; set; }
 		public int[] map_pixel = new int[256];
 		public Select_model_tool() : base("Select_model_tool") { }
+        public override void Inital_Tool()
+        {
 
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        }
+
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 
 			HWindow hWindow = toolRunInput.Window;

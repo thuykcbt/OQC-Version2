@@ -42,9 +42,12 @@ namespace Design_Form.Tools.Base
 		public double X_Center { get; set; }
 		public double Y_Center { get; set; }
 		public FitCircle_Tool() : base("FitCircle_Tool") { }
+        public override void Inital_Tool()
+        {
 
+        }
 
-		public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
+        public override ToolResult Excute_OnlyTool(ToolRunInput toolRunInput)
 		{
 
 			HWindow hWindow = toolRunInput.Window;

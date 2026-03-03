@@ -28,15 +28,7 @@ namespace Design_Form
         {
             try
             {
-                string query = @"
-                SELECT Products.ProductId,Products.Barcode, Products.Result, Products.Date,  Products.Item1, Products.Item2, Products.Item3,Products.Item4,Products.Item5,Products.Item6,Products.Item7,Products.Item8,Products.Item9,Products.Item10,Products.Item11,Products.Item12,Products.Item13,Products.Item14,Products.Item15,Products.Item16,Products.Item17,Products.Item18,Products.Item19,Products.Item20
-                FROM Products
-                ";
-
-                dataTable = Job_Model.Statatic_Model.sql_lite.GetAllData(query);
-
-                // Gán dữ liệu vào DataGridView
-                dataGridView1.DataSource = dataTable;
+              
             }
             catch (Exception ex)
             {
@@ -58,17 +50,10 @@ namespace Design_Form
         {
             if(check_Old.Checked)
             {
-                 dataTable = Job_Model.Statatic_Model.sql_lite.GetProductsByDateRange(dateTimePicker1.Value,dateTimePicker2.Value);
-
-                // Gán dữ liệu vào DataGridView
-                dataGridView1.DataSource = dataTable;
             }
             if(check_update.Checked)
             {
-                dataTable = Job_Model.Statatic_Model.sql_lite_update.GetProductsByDateRange(dateTimePicker1.Value, dateTimePicker2.Value);
-
-                // Gán dữ liệu vào DataGridView
-                dataGridView1.DataSource = dataTable;
+               
             }    
             //load_data();
         }

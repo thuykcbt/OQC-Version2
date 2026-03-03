@@ -20,14 +20,19 @@ namespace Design_Form.Tools.Base
 		public Class_Tool(string tool)
 		{
 			ToolName = tool;
+			
+
+		}
+		public void Inital()
+		{
 			if (ToolName == "ShapeModel")
 			{
-				RectangleROI rectangle = new RectangleROI(50,50,0,50,50);
+				RectangleROI rectangle = new RectangleROI(50, 50, 0, 50, 50);
 				roi_Tool.Add(rectangle);
-				rectangle = new RectangleROI(100,100, 0, 100, 100);
+				rectangle = new RectangleROI(100, 100, 0, 100, 100);
 				roi_Tool.Add(rectangle);
 			}
-			else if (ToolName == "Fixture"|| ToolName == "Fixture_2")
+			else if (ToolName == "Fixture" || ToolName == "Fixture_2")
 			{
 				return;
 			}
@@ -36,7 +41,6 @@ namespace Design_Form.Tools.Base
 				RectangleROI rectangle = new RectangleROI(50, 50, 0, 50, 50);
 				roi_Tool.Add(rectangle);
 			}
-
 		}
 		public string toolName;
 		public string ToolName
@@ -68,14 +72,14 @@ namespace Design_Form.Tools.Base
 		public int threshold_Min { get; set; } = 125;
 		public int index_input_Image { get; set; } = 0;
 		public bool camera_color = false;
-		public bool show_text = false;
+		
 		public string file_load { get; set; }
 		
 		public abstract ToolResult Excute_OnlyTool(ToolRunInput toolRunInput);
 
-		
+        public abstract void Inital_Tool();
 
-		public void align_Roi( int index_roi, out HObject ho_ImageROI, HTuple homMat2D)
+        public void align_Roi( int index_roi, out HObject ho_ImageROI, HTuple homMat2D)
 		{
 			// Khởi tạo đối tượng đầu ra
 			HOperatorSet.GenEmptyObj(out ho_ImageROI);
@@ -181,9 +185,12 @@ namespace Design_Form.Tools.Base
 		}
 		public Class_Tool Clone()
 		{
-			string jobjson = JsonConvert.SerializeObject(this, Formatting.Indented);
-			return JsonConvert.DeserializeObject<Class_Tool>(jobjson);
-
+			var settings = new JsonSerializerSettings
+			{
+				TypeNameHandling = TypeNameHandling.Auto
+			};
+			var json = JsonConvert.SerializeObject(this, settings);
+			return (Class_Tool)JsonConvert.DeserializeObject(json, this.GetType(), settings);
 		}
 	}
 }

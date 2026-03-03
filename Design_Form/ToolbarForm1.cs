@@ -28,7 +28,7 @@ namespace Design_Form
         ReportForm report;
        
         Monitor_Form monitor_Form;
-        PopUp_NG Popup_NG;
+        
         private GlobalKeyboardHook _keyboardHook;
         public VisionSoftware()
         {
@@ -44,14 +44,7 @@ namespace Design_Form
         {
             try
             {
-                _keyboardHook = new GlobalKeyboardHook();
-                _keyboardHook.OnBarcodeScanned += barcode =>
-                {
-                    
-                    // MessageBox.Show($"Barcode: {barcode}");
-                    show_popup_ng(barcode);
-                    Console.WriteLine(barcode.ToString());
-                };
+               
 
             }
             catch (Exception ex)
@@ -146,7 +139,7 @@ namespace Design_Form
                     bar_Monitor.Enabled = true;
                   
                     
-                    monitor_Form.timer1.Enabled=false;
+                  
                   
 
                 }
@@ -172,7 +165,7 @@ namespace Design_Form
                     setting.timer1.Enabled = false;
                
               
-                    monitor_Form.timer1.Enabled = false;
+                   
                  
                 }
             }
@@ -195,7 +188,7 @@ namespace Design_Form
                    
                     current_Window = 2;
                     setting.timer1.Enabled = false;
-                    monitor_Form.timer1.Enabled = false;
+                 
                  
                 }
             }
@@ -219,7 +212,7 @@ namespace Design_Form
                     current_Window = 3;
                     setting.timer1.Enabled = false;
                 
-                    monitor_Form.timer1.Enabled = false;
+                  
                    
                 }
             }
@@ -244,7 +237,7 @@ namespace Design_Form
                     current_Window = 5;
                     setting.timer1.Enabled = false;
                   
-                    monitor_Form.timer1.Enabled = true;
+                   
                  
                 }
             }
@@ -266,23 +259,21 @@ namespace Design_Form
         {
             try
             {
-               
-
-                for (int i = 0; i < Job_Model.Statatic_Model.Dino_lites.Count; i++)
-                {
-                    if (Job_Model.Statatic_Model.Dino_lites[i].lamp_vision_connected)
-                    {
-                        bars_button[i].ImageOptions.SvgImage = Properties.Resources.ok;
-                    }
-                    else
-                    {
-                        bars_button[i].ImageOptions.SvgImage = Properties.Resources.failure;
-                    }
-                }
+                //for (int i = 0; i < Job_Model.Statatic_Model.Dino_lites.Count; i++)
+                //{
+                //    if (Job_Model.Statatic_Model.Dino_lites[i].lamp_vision_connected)
+                //    {
+                //        bars_button[i].ImageOptions.SvgImage = Properties.Resources.ok;
+                //    }
+                //    else
+                //    {
+                //        bars_button[i].ImageOptions.SvgImage = Properties.Resources.failure;
+                //    }
+                //}
             }
             catch (Exception ex)
             {
-
+                Statatic_Model.wirtelog.Log(ex.ToString());
             }
            
         }
@@ -294,28 +285,29 @@ namespace Design_Form
         
         }
 
-        private void barButtonItem4_ItemClick_2(object sender, ItemClickEventArgs e)
-        {
-           
-        }
-        private void show_popup_ng(string data_code)
-        {
-            try
-            {
-                Popup_NG = new PopUp_NG();
-                Popup_NG.barcode_check = data_code;
-                Popup_NG.load_result_now(data_code);
-                Popup_NG.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
-             
-            }
-         
-            
-        }
+      
+		private void bar_Monitor_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				if (current_Window != 5)
+				{
+					btn_Home.Enabled = true;
+					barButtonSetting.Enabled = true;
+					btnLivecamera.Enabled = true;
+					barReport.Enabled = true;
+					bar_Monitor.Enabled = false;
+					ShowChildForm(monitor_Form);
+					current_Window = 5;
+					setting.timer1.Enabled = false;
 
-       
-    }
+				}
+			}
+			catch (Exception ex)
+			{
+				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
+			}
+
+		}
+	}
 }
