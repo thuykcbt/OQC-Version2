@@ -4,6 +4,7 @@ using DevExpress.Data.Linq.Helpers;
 //using DevExpress.Drawing;
 //using DevExpress.Drawing.Internal.Fonts.Interop;
 using DevExpress.Internal.WinApi.Windows.UI.Notifications;
+using DevExpress.Utils;
 using DevExpress.Utils.CommonDialogs;
 using DevExpress.Utils.Extensions;
 using DevExpress.XtraBars.Docking2010.Dragging;
@@ -89,6 +90,49 @@ namespace Design_Form.Job_Model
 
         
         public config_cam config_Cam { get; set; } = new config_cam();
+        public string FolderPath { get; set; }
+        public List<HObject> load_image(string folderPath)
+        {
+			List<HObject> images = new List<HObject>();
+			if (!Directory.Exists(folderPath))
+			{
+				MessageBox.Show($"Thư mục không tồn tại: {folderPath}", "Lỗi",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return images;
+			}
+			string[] validExtensions = { ".jpg", ".jpeg", ".png", ".bmp", ".gif", ".tiff", ".webp" };
+            try
+            {
+				string[] files = Directory.GetFiles(folderPath);
+				foreach (string file in files)
+				{
+					string extension = Path.GetExtension(file).ToLower();
+
+					if (Array.Exists(validExtensions, ext => ext == extension))
+					{
+						try
+						{
+							// Load ảnh và thêm vào danh sách
+							HOperatorSet.ReadImage(out HObject img, file);
+							images.Add(img);
+						}
+						catch (Exception ex)
+						{
+							MessageBox.Show($"Không thể đọc ảnh {Path.GetFileName(file)}: {ex.Message}",
+								"Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						}
+					}
+				}
+			}
+            catch (Exception ex)
+            {
+				MessageBox.Show($"Lỗi khi quét thư mục: {ex.Message}", "Lỗi",
+							  MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			return images;
+		}
+	
+
         public Class_Camera(string nam)
         {
             this.name = nam;
@@ -173,14 +217,14 @@ namespace Design_Form.Job_Model
                 else if (result == "NG")
                 {
                     hv_Text.Dispose();
-                    hv_Text = "NG";
+                    hv_Text = "WAIT";
                     hv_BoxColor.Dispose();
-                    hv_BoxColor = "red";
+                    hv_BoxColor = "yellow";
                 }
                 else
                 {
                     hv_Text.Dispose();
-                    hv_Text = "OK";
+                    hv_Text = "READY";
                     hv_BoxColor.Dispose();
                     hv_BoxColor = "green";
                 }

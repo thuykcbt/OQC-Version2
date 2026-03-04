@@ -28,291 +28,303 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Setting));
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
-            this.panelContainer2 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel8 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel8_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dropDownButton4 = new DevExpress.XtraEditors.DropDownButton();
-            this.popupMenu3 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.Fiducial_Mark = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
-            this.barAddBarCode2D = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.ImageProcess = new DevExpress.XtraBars.BarListItem();
-            this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
-            this.Inspection = new DevExpress.XtraBars.BarListItem();
-            this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
-            this.Measure = new DevExpress.XtraBars.BarListItem();
-            this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
-            this.DetectObject = new DevExpress.XtraBars.BarListItem();
-            this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
-            this.barListItem1 = new DevExpress.XtraBars.BarListItem();
-            this.barSubItem6 = new DevExpress.XtraBars.BarSubItem();
-            this.Componenent_FaceA = new DevExpress.XtraBars.BarListItem();
-            this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
-            this.Component_FaceB = new DevExpress.XtraBars.BarListItem();
-            this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
-            this.StringsSelectLight = new DevExpress.XtraBars.BarListItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barListItem2 = new DevExpress.XtraBars.BarListItem();
-            this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
-            this.barListItem3 = new DevExpress.XtraBars.BarListItem();
-            this.dropDownButton2 = new DevExpress.XtraEditors.DropDownButton();
-            this.popupMenu2 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.dropDownButton5 = new DevExpress.XtraEditors.DropDownButton();
-            this.dropDownButton1 = new DevExpress.XtraEditors.DropDownButton();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.dockPanel4 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.combo_Light = new System.Windows.Forms.ComboBox();
-            this.check_RGB = new System.Windows.Forms.CheckBox();
-            this.panelContainer3 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel7 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel7_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.listBox_Component = new System.Windows.Forms.ListBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.Delete_Component = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBox_Tool = new System.Windows.Forms.ListBox();
-            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.Delete_Tool = new System.Windows.Forms.ToolStripMenuItem();
-            this.DockSetting = new DevExpress.XtraBars.Docking.DockPanel();
-            this.controlContainer3 = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.layoutControl6 = new DevExpress.XtraLayout.LayoutControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.numeric_cali = new System.Windows.Forms.NumericUpDown();
-            this.checkEdit_stepbystep = new DevExpress.XtraEditors.CheckEdit();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem29 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockControl = new DevExpress.XtraBars.Docking.DockPanel();
-            this.controlContainer4 = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.Live_Camera = new DevExpress.XtraEditors.SimpleButton();
-            this.TrialRun = new DevExpress.XtraEditors.SimpleButton();
-            this.cbbCam = new System.Windows.Forms.ComboBox();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.controlContainer5 = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.layoutControl7 = new DevExpress.XtraLayout.LayoutControl();
-            this.listBox_Roi = new System.Windows.Forms.ListBox();
-            this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dockPanel6 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel6_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.dockPanel3 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel3_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.Check_Show_Roi_Ok = new System.Windows.Forms.CheckBox();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.dockPanel5 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel5_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.layoutControl8 = new DevExpress.XtraLayout.LayoutControl();
-            this.label2 = new System.Windows.Forms.Label();
-            this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControl9 = new DevExpress.XtraLayout.LayoutControl();
-            this.label3 = new System.Windows.Forms.Label();
-            this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.popupMenu4 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.dockMainCame = new DevExpress.XtraBars.Docking.DockPanel();
-            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.SavePic = new System.Windows.Forms.ToolStripMenuItem();
-            this.LoadImage = new System.Windows.Forms.ToolStripMenuItem();
-            this.ResetImage = new System.Windows.Forms.ToolStripMenuItem();
-            this.Close_Make_Roi = new System.Windows.Forms.ToolStripMenuItem();
-            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
-            this.treeView3 = new System.Windows.Forms.TreeView();
-            this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
-            this.treeView2 = new System.Windows.Forms.TreeView();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
-            this.panelContainer2.SuspendLayout();
-            this.dockPanel8.SuspendLayout();
-            this.dockPanel8_Container.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
-            this.dockPanel4.SuspendLayout();
-            this.dockPanel4_Container.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.panelContainer3.SuspendLayout();
-            this.dockPanel7.SuspendLayout();
-            this.dockPanel7_Container.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
-            this.contextMenuStrip3.SuspendLayout();
-            this.DockSetting.SuspendLayout();
-            this.controlContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).BeginInit();
-            this.layoutControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numeric_cali)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_stepbystep.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            this.panelContainer1.SuspendLayout();
-            this.dockControl.SuspendLayout();
-            this.controlContainer4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            this.dockPanel1.SuspendLayout();
-            this.controlContainer5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl7)).BeginInit();
-            this.layoutControl7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            this.dockPanel6.SuspendLayout();
-            this.dockPanel6_Container.SuspendLayout();
-            this.dockPanel3.SuspendLayout();
-            this.dockPanel3_Container.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            this.dockPanel5.SuspendLayout();
-            this.dockPanel5_Container.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl8)).BeginInit();
-            this.layoutControl8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl9)).BeginInit();
-            this.layoutControl9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu4)).BeginInit();
-            this.dockPanel2.SuspendLayout();
-            this.dockMainCame.SuspendLayout();
-            this.contextMenuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // dockManager1
-            // 
-            this.dockManager1.Form = this;
-            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Setting));
+			this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+			this.panelContainer2 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel8 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel8_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+			this.dropDownButton4 = new DevExpress.XtraEditors.DropDownButton();
+			this.popupMenu3 = new DevExpress.XtraBars.PopupMenu(this.components);
+			this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
+			this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+			this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+			this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+			this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+			this.Fiducial_Mark = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+			this.barAddBarCode2D = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
+			this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+			this.ImageProcess = new DevExpress.XtraBars.BarListItem();
+			this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
+			this.Inspection = new DevExpress.XtraBars.BarListItem();
+			this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
+			this.Measure = new DevExpress.XtraBars.BarListItem();
+			this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
+			this.DetectObject = new DevExpress.XtraBars.BarListItem();
+			this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
+			this.barListItem1 = new DevExpress.XtraBars.BarListItem();
+			this.barSubItem6 = new DevExpress.XtraBars.BarSubItem();
+			this.Componenent_FaceA = new DevExpress.XtraBars.BarListItem();
+			this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
+			this.Component_FaceB = new DevExpress.XtraBars.BarListItem();
+			this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
+			this.StringsSelectLight = new DevExpress.XtraBars.BarListItem();
+			this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+			this.barListItem2 = new DevExpress.XtraBars.BarListItem();
+			this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
+			this.barListItem3 = new DevExpress.XtraBars.BarListItem();
+			this.dropDownButton2 = new DevExpress.XtraEditors.DropDownButton();
+			this.popupMenu2 = new DevExpress.XtraBars.PopupMenu(this.components);
+			this.dropDownButton5 = new DevExpress.XtraEditors.DropDownButton();
+			this.dropDownButton1 = new DevExpress.XtraEditors.DropDownButton();
+			this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+			this.dockPanel4 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.combo_Light = new System.Windows.Forms.ComboBox();
+			this.check_RGB = new System.Windows.Forms.CheckBox();
+			this.panelContainer3 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel7 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel7_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+			this.listBox_Component = new System.Windows.Forms.ListBox();
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.Delete_Component = new System.Windows.Forms.ToolStripMenuItem();
+			this.listBox_Tool = new System.Windows.Forms.ListBox();
+			this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.Delete_Tool = new System.Windows.Forms.ToolStripMenuItem();
+			this.DockSetting = new DevExpress.XtraBars.Docking.DockPanel();
+			this.controlContainer3 = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.layoutControl6 = new DevExpress.XtraLayout.LayoutControl();
+			this.numeric_cali = new System.Windows.Forms.NumericUpDown();
+			this.checkEdit_stepbystep = new DevExpress.XtraEditors.CheckEdit();
+			this.panel6 = new System.Windows.Forms.Panel();
+			this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem29 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockControl = new DevExpress.XtraBars.Docking.DockPanel();
+			this.controlContainer4 = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+			this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+			this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+			this.Live_Camera = new DevExpress.XtraEditors.SimpleButton();
+			this.TrialRun = new DevExpress.XtraEditors.SimpleButton();
+			this.cbbCam = new System.Windows.Forms.ComboBox();
+			this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+			this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+			this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.controlContainer5 = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.layoutControl7 = new DevExpress.XtraLayout.LayoutControl();
+			this.listBox_Roi = new System.Windows.Forms.ListBox();
+			this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
+			this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
+			this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
+			this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.dockPanel6 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel6_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.panel5 = new System.Windows.Forms.Panel();
+			this.dockPanel9 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel9_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.dockPanel3 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel3_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.label4 = new System.Windows.Forms.Label();
+			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+			this.checkBox2 = new System.Windows.Forms.CheckBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+			this.checkBox3 = new System.Windows.Forms.CheckBox();
+			this.label7 = new System.Windows.Forms.Label();
+			this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+			this.checkBox4 = new System.Windows.Forms.CheckBox();
+			this.label9 = new System.Windows.Forms.Label();
+			this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+			this.Check_Show_Roi_Ok = new System.Windows.Forms.CheckBox();
+			this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+			this.dockPanel5 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel5_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.layoutControl8 = new DevExpress.XtraLayout.LayoutControl();
+			this.label2 = new System.Windows.Forms.Label();
+			this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControl9 = new DevExpress.XtraLayout.LayoutControl();
+			this.label3 = new System.Windows.Forms.Label();
+			this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.popupMenu4 = new DevExpress.XtraBars.PopupMenu(this.components);
+			this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.dockMainCame = new DevExpress.XtraBars.Docking.DockPanel();
+			this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.SavePic = new System.Windows.Forms.ToolStripMenuItem();
+			this.LoadImage = new System.Windows.Forms.ToolStripMenuItem();
+			this.ResetImage = new System.Windows.Forms.ToolStripMenuItem();
+			this.Close_Make_Roi = new System.Windows.Forms.ToolStripMenuItem();
+			this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+			this.treeView3 = new System.Windows.Forms.TreeView();
+			this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+			this.treeView2 = new System.Windows.Forms.TreeView();
+			this.panel7 = new System.Windows.Forms.Panel();
+			this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+			this.dockPanel10 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel10_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.listBox_View = new System.Windows.Forms.ListBox();
+			this.panel8 = new System.Windows.Forms.Panel();
+			this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+			this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
+			this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+			this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+			((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
+			this.panelContainer2.SuspendLayout();
+			this.dockPanel8.SuspendLayout();
+			this.dockPanel8_Container.SuspendLayout();
+			this.flowLayoutPanel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.popupMenu3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.popupMenu2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
+			this.dockPanel4.SuspendLayout();
+			this.dockPanel4_Container.SuspendLayout();
+			this.flowLayoutPanel3.SuspendLayout();
+			this.panelContainer3.SuspendLayout();
+			this.dockPanel7.SuspendLayout();
+			this.dockPanel7_Container.SuspendLayout();
+			this.tableLayoutPanel3.SuspendLayout();
+			this.contextMenuStrip1.SuspendLayout();
+			this.contextMenuStrip3.SuspendLayout();
+			this.DockSetting.SuspendLayout();
+			this.controlContainer3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).BeginInit();
+			this.layoutControl6.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_cali)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.checkEdit_stepbystep.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).BeginInit();
+			this.panelContainer1.SuspendLayout();
+			this.dockControl.SuspendLayout();
+			this.controlContainer4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+			this.layoutControl1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+			this.dockPanel1.SuspendLayout();
+			this.controlContainer5.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControl7)).BeginInit();
+			this.layoutControl7.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+			this.dockPanel6.SuspendLayout();
+			this.dockPanel6_Container.SuspendLayout();
+			this.dockPanel9.SuspendLayout();
+			this.dockPanel9_Container.SuspendLayout();
+			this.dockPanel3.SuspendLayout();
+			this.dockPanel3_Container.SuspendLayout();
+			this.flowLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
+			this.dockPanel5.SuspendLayout();
+			this.dockPanel5_Container.SuspendLayout();
+			this.tableLayoutPanel1.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControl8)).BeginInit();
+			this.layoutControl8.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControl9)).BeginInit();
+			this.layoutControl9.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.popupMenu4)).BeginInit();
+			this.dockPanel2.SuspendLayout();
+			this.dockMainCame.SuspendLayout();
+			this.contextMenuStrip2.SuspendLayout();
+			this.panel7.SuspendLayout();
+			this.dockPanel10.SuspendLayout();
+			this.dockPanel10_Container.SuspendLayout();
+			this.panel8.SuspendLayout();
+			this.flowLayoutPanel5.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// dockManager1
+			// 
+			this.dockManager1.Form = this;
+			this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
             this.panelContainer2,
             this.panelContainer3,
             this.panelContainer1,
             this.dockPanel6,
+            this.dockPanel9,
             this.dockPanel3,
+            this.dockPanel10,
             this.dockPanel5});
-            this.dockManager1.TopZIndexControls.AddRange(new string[] {
+			this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
             "System.Windows.Forms.MenuStrip",
@@ -325,118 +337,116 @@
             "DevExpress.XtraBars.TabFormControl",
             "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl",
             "DevExpress.XtraBars.ToolbarForm.ToolbarFormControl"});
-            // 
-            // panelContainer2
-            // 
-            this.panelContainer2.Controls.Add(this.dockPanel8);
-            this.panelContainer2.Controls.Add(this.dockPanel4);
-            this.panelContainer2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
-            this.panelContainer2.FloatVertical = true;
-            this.panelContainer2.ID = new System.Guid("86e6a389-abc7-4488-8037-81a24c205ae6");
-            this.panelContainer2.Location = new System.Drawing.Point(0, 0);
-            this.panelContainer2.Margin = new System.Windows.Forms.Padding(4);
-            this.panelContainer2.Name = "panelContainer2";
-            this.panelContainer2.OriginalSize = new System.Drawing.Size(200, 105);
-            this.panelContainer2.Size = new System.Drawing.Size(2492, 105);
-            this.panelContainer2.Text = "panelContainer2";
-            // 
-            // dockPanel8
-            // 
-            this.dockPanel8.Controls.Add(this.dockPanel8_Container);
-            this.dockPanel8.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dockPanel8.ID = new System.Guid("506b9017-0b11-44a6-919d-3108f8630633");
-            this.dockPanel8.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dockPanel8.Name = "dockPanel8";
-            this.dockPanel8.OriginalSize = new System.Drawing.Size(2043, 153);
-            this.dockPanel8.Size = new System.Drawing.Size(2043, 105);
-            this.dockPanel8.Text = "Manager";
-            // 
-            // dockPanel8_Container
-            // 
-            this.dockPanel8_Container.Controls.Add(this.flowLayoutPanel2);
-            this.dockPanel8_Container.Location = new System.Drawing.Point(4, 38);
-            this.dockPanel8_Container.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dockPanel8_Container.Name = "dockPanel8_Container";
-            this.dockPanel8_Container.Size = new System.Drawing.Size(2032, 60);
-            this.dockPanel8_Container.TabIndex = 0;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.dropDownButton4);
-            this.flowLayoutPanel2.Controls.Add(this.dropDownButton2);
-            this.flowLayoutPanel2.Controls.Add(this.dropDownButton5);
-            this.flowLayoutPanel2.Controls.Add(this.dropDownButton1);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(2032, 60);
-            this.flowLayoutPanel2.TabIndex = 0;
-            // 
-            // dropDownButton4
-            // 
-            this.dropDownButton4.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
-            this.dropDownButton4.DropDownControl = this.popupMenu3;
-            this.dropDownButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("dropDownButton4.ImageOptions.Image")));
-            this.dropDownButton4.Location = new System.Drawing.Point(4, 4);
-            this.dropDownButton4.Margin = new System.Windows.Forms.Padding(4);
-            this.dropDownButton4.MenuManager = this.barManager1;
-            this.dropDownButton4.Name = "dropDownButton4";
-            this.dropDownButton4.Size = new System.Drawing.Size(210, 53);
-            this.dropDownButton4.TabIndex = 18;
-            this.dropDownButton4.Text = "SelectRoi";
-            // 
-            // popupMenu3
-            // 
-            this.popupMenu3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+			// 
+			// panelContainer2
+			// 
+			this.panelContainer2.Controls.Add(this.dockPanel8);
+			this.panelContainer2.Controls.Add(this.dockPanel4);
+			this.panelContainer2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
+			this.panelContainer2.FloatVertical = true;
+			this.panelContainer2.ID = new System.Guid("86e6a389-abc7-4488-8037-81a24c205ae6");
+			this.panelContainer2.Location = new System.Drawing.Point(0, 0);
+			this.panelContainer2.Name = "panelContainer2";
+			this.panelContainer2.OriginalSize = new System.Drawing.Size(200, 105);
+			this.panelContainer2.Size = new System.Drawing.Size(1292, 105);
+			this.panelContainer2.Text = "panelContainer2";
+			// 
+			// dockPanel8
+			// 
+			this.dockPanel8.Controls.Add(this.dockPanel8_Container);
+			this.dockPanel8.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+			this.dockPanel8.ID = new System.Guid("506b9017-0b11-44a6-919d-3108f8630633");
+			this.dockPanel8.Location = new System.Drawing.Point(0, 0);
+			this.dockPanel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.dockPanel8.Name = "dockPanel8";
+			this.dockPanel8.OriginalSize = new System.Drawing.Size(1059, 72);
+			this.dockPanel8.Size = new System.Drawing.Size(1059, 105);
+			this.dockPanel8.Text = "Manager";
+			// 
+			// dockPanel8_Container
+			// 
+			this.dockPanel8_Container.Controls.Add(this.flowLayoutPanel2);
+			this.dockPanel8_Container.Location = new System.Drawing.Point(3, 26);
+			this.dockPanel8_Container.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.dockPanel8_Container.Name = "dockPanel8_Container";
+			this.dockPanel8_Container.Size = new System.Drawing.Size(1052, 75);
+			this.dockPanel8_Container.TabIndex = 0;
+			// 
+			// flowLayoutPanel2
+			// 
+			this.flowLayoutPanel2.Controls.Add(this.dropDownButton4);
+			this.flowLayoutPanel2.Controls.Add(this.dropDownButton2);
+			this.flowLayoutPanel2.Controls.Add(this.dropDownButton5);
+			this.flowLayoutPanel2.Controls.Add(this.dropDownButton1);
+			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+			this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(1052, 75);
+			this.flowLayoutPanel2.TabIndex = 0;
+			// 
+			// dropDownButton4
+			// 
+			this.dropDownButton4.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
+			this.dropDownButton4.DropDownControl = this.popupMenu3;
+			this.dropDownButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("dropDownButton4.ImageOptions.Image")));
+			this.dropDownButton4.Location = new System.Drawing.Point(3, 3);
+			this.dropDownButton4.MenuManager = this.barManager1;
+			this.dropDownButton4.Name = "dropDownButton4";
+			this.dropDownButton4.Size = new System.Drawing.Size(140, 36);
+			this.dropDownButton4.TabIndex = 18;
+			this.dropDownButton4.Text = "SelectRoi";
+			// 
+			// popupMenu3
+			// 
+			this.popupMenu3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem28),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem29),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem30),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem31)});
-            this.popupMenu3.Manager = this.barManager1;
-            this.popupMenu3.Name = "popupMenu3";
-            // 
-            // barButtonItem28
-            // 
-            this.barButtonItem28.Caption = "Roi_Line";
-            this.barButtonItem28.Id = 59;
-            this.barButtonItem28.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem28.ImageOptions.SvgImage")));
-            this.barButtonItem28.Name = "barButtonItem28";
-            this.barButtonItem28.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem28_ItemClick);
-            // 
-            // barButtonItem29
-            // 
-            this.barButtonItem29.Caption = "Roi_Rectangle";
-            this.barButtonItem29.Id = 60;
-            this.barButtonItem29.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem29.ImageOptions.SvgImage")));
-            this.barButtonItem29.Name = "barButtonItem29";
-            this.barButtonItem29.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem29_ItemClick);
-            // 
-            // barButtonItem30
-            // 
-            this.barButtonItem30.Caption = "Roi_Circle";
-            this.barButtonItem30.Id = 61;
-            this.barButtonItem30.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem30.ImageOptions.SvgImage")));
-            this.barButtonItem30.Name = "barButtonItem30";
-            this.barButtonItem30.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem30_ItemClick);
-            // 
-            // barButtonItem31
-            // 
-            this.barButtonItem31.Caption = "Roi_Polygon";
-            this.barButtonItem31.Id = 62;
-            this.barButtonItem31.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem31.ImageOptions.SvgImage")));
-            this.barButtonItem31.Name = "barButtonItem31";
-            this.barButtonItem31.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem31_ItemClick);
-            // 
-            // barManager1
-            // 
-            this.barManager1.DockControls.Add(this.barDockControlTop);
-            this.barManager1.DockControls.Add(this.barDockControlBottom);
-            this.barManager1.DockControls.Add(this.barDockControlLeft);
-            this.barManager1.DockControls.Add(this.barDockControlRight);
-            this.barManager1.Form = this;
-            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+			this.popupMenu3.Manager = this.barManager1;
+			this.popupMenu3.Name = "popupMenu3";
+			// 
+			// barButtonItem28
+			// 
+			this.barButtonItem28.Caption = "Roi_Line";
+			this.barButtonItem28.Id = 59;
+			this.barButtonItem28.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem28.ImageOptions.SvgImage")));
+			this.barButtonItem28.Name = "barButtonItem28";
+			this.barButtonItem28.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem28_ItemClick);
+			// 
+			// barButtonItem29
+			// 
+			this.barButtonItem29.Caption = "Roi_Rectangle";
+			this.barButtonItem29.Id = 60;
+			this.barButtonItem29.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem29.ImageOptions.SvgImage")));
+			this.barButtonItem29.Name = "barButtonItem29";
+			this.barButtonItem29.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem29_ItemClick);
+			// 
+			// barButtonItem30
+			// 
+			this.barButtonItem30.Caption = "Roi_Circle";
+			this.barButtonItem30.Id = 61;
+			this.barButtonItem30.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem30.ImageOptions.SvgImage")));
+			this.barButtonItem30.Name = "barButtonItem30";
+			this.barButtonItem30.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem30_ItemClick);
+			// 
+			// barButtonItem31
+			// 
+			this.barButtonItem31.Caption = "Roi_Polygon";
+			this.barButtonItem31.Id = 62;
+			this.barButtonItem31.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem31.ImageOptions.SvgImage")));
+			this.barButtonItem31.Name = "barButtonItem31";
+			this.barButtonItem31.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem31_ItemClick);
+			// 
+			// barManager1
+			// 
+			this.barManager1.DockControls.Add(this.barDockControlTop);
+			this.barManager1.DockControls.Add(this.barDockControlBottom);
+			this.barManager1.DockControls.Add(this.barDockControlLeft);
+			this.barManager1.DockControls.Add(this.barDockControlRight);
+			this.barManager1.Form = this;
+			this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.Fiducial_Mark,
             this.barButtonItem2,
             this.barButtonItem3,
@@ -489,272 +499,268 @@
             this.barListItem2,
             this.barSubItem8,
             this.barListItem3});
-            this.barManager1.MaxItemId = 77;
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlTop.Size = new System.Drawing.Size(2492, 0);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 848);
-            this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(2492, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 848);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(2492, 0);
-            this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 848);
-            // 
-            // Fiducial_Mark
-            // 
-            this.Fiducial_Mark.Id = 36;
-            this.Fiducial_Mark.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Fiducial_Mark.ImageOptions.SvgImage")));
-            this.Fiducial_Mark.Name = "Fiducial_Mark";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Id = 37;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Id = 38;
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Id = 39;
-            this.barButtonItem4.Name = "barButtonItem4";
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Id = 40;
-            this.barButtonItem5.Name = "barButtonItem5";
-            // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Id = 41;
-            this.barButtonItem6.Name = "barButtonItem6";
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Id = 42;
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // barButtonItem8
-            // 
-            this.barButtonItem8.Caption = "Object Detection";
-            this.barButtonItem8.Id = 7;
-            this.barButtonItem8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.ImageOptions.Image")));
-            this.barButtonItem8.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.ImageOptions.LargeImage")));
-            this.barButtonItem8.Name = "barButtonItem8";
-            // 
-            // barButtonItem9
-            // 
-            this.barButtonItem9.Caption = "Image Classification";
-            this.barButtonItem9.Id = 8;
-            this.barButtonItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.Image")));
-            this.barButtonItem9.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.LargeImage")));
-            this.barButtonItem9.Name = "barButtonItem9";
-            // 
-            // barButtonItem10
-            // 
-            this.barButtonItem10.Id = 43;
-            this.barButtonItem10.Name = "barButtonItem10";
-            // 
-            // barAddBarCode2D
-            // 
-            this.barAddBarCode2D.Id = 44;
-            this.barAddBarCode2D.Name = "barAddBarCode2D";
-            // 
-            // barButtonItem11
-            // 
-            this.barButtonItem11.Id = 45;
-            this.barButtonItem11.Name = "barButtonItem11";
-            // 
-            // barButtonItem12
-            // 
-            this.barButtonItem12.Id = 46;
-            this.barButtonItem12.Name = "barButtonItem12";
-            // 
-            // barButtonItem13
-            // 
-            this.barButtonItem13.Id = 47;
-            this.barButtonItem13.Name = "barButtonItem13";
-            // 
-            // barButtonItem14
-            // 
-            this.barButtonItem14.Id = 48;
-            this.barButtonItem14.Name = "barButtonItem14";
-            // 
-            // barButtonItem15
-            // 
-            this.barButtonItem15.Caption = "FitCircle";
-            this.barButtonItem15.Id = 15;
-            this.barButtonItem15.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.ImageOptions.Image")));
-            this.barButtonItem15.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.ImageOptions.LargeImage")));
-            this.barButtonItem15.Name = "barButtonItem15";
-            // 
-            // barButtonItem16
-            // 
-            this.barButtonItem16.Id = 49;
-            this.barButtonItem16.Name = "barButtonItem16";
-            // 
-            // barButtonItem17
-            // 
-            this.barButtonItem17.Id = 50;
-            this.barButtonItem17.Name = "barButtonItem17";
-            // 
-            // barButtonItem18
-            // 
-            this.barButtonItem18.Id = 51;
-            this.barButtonItem18.Name = "barButtonItem18";
-            // 
-            // barButtonItem19
-            // 
-            this.barButtonItem19.Id = 52;
-            this.barButtonItem19.Name = "barButtonItem19";
-            // 
-            // barButtonItem20
-            // 
-            this.barButtonItem20.Id = 53;
-            this.barButtonItem20.Name = "barButtonItem20";
-            // 
-            // barButtonItem21
-            // 
-            this.barButtonItem21.Id = 54;
-            this.barButtonItem21.Name = "barButtonItem21";
-            // 
-            // barButtonItem22
-            // 
-            this.barButtonItem22.Id = 55;
-            this.barButtonItem22.Name = "barButtonItem22";
-            // 
-            // barButtonItem23
-            // 
-            this.barButtonItem23.Id = 56;
-            this.barButtonItem23.Name = "barButtonItem23";
-            // 
-            // barButtonItem24
-            // 
-            this.barButtonItem24.Id = 63;
-            this.barButtonItem24.Name = "barButtonItem24";
-            // 
-            // barButtonItem25
-            // 
-            this.barButtonItem25.Id = 64;
-            this.barButtonItem25.Name = "barButtonItem25";
-            // 
-            // barButtonItem26
-            // 
-            this.barButtonItem26.Id = 65;
-            this.barButtonItem26.Name = "barButtonItem26";
-            // 
-            // barButtonItem27
-            // 
-            this.barButtonItem27.Id = 66;
-            this.barButtonItem27.Name = "barButtonItem27";
-            // 
-            // barSubItem1
-            // 
-            this.barSubItem1.Caption = "Image_Procesing";
-            this.barSubItem1.Id = 28;
-            this.barSubItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem1.ImageOptions.SvgImage")));
-            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+			this.barManager1.MaxItemId = 77;
+			// 
+			// barDockControlTop
+			// 
+			this.barDockControlTop.CausesValidation = false;
+			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+			this.barDockControlTop.Manager = this.barManager1;
+			this.barDockControlTop.Size = new System.Drawing.Size(1292, 0);
+			// 
+			// barDockControlBottom
+			// 
+			this.barDockControlBottom.CausesValidation = false;
+			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 580);
+			this.barDockControlBottom.Manager = this.barManager1;
+			this.barDockControlBottom.Size = new System.Drawing.Size(1292, 0);
+			// 
+			// barDockControlLeft
+			// 
+			this.barDockControlLeft.CausesValidation = false;
+			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+			this.barDockControlLeft.Manager = this.barManager1;
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 580);
+			// 
+			// barDockControlRight
+			// 
+			this.barDockControlRight.CausesValidation = false;
+			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+			this.barDockControlRight.Location = new System.Drawing.Point(1292, 0);
+			this.barDockControlRight.Manager = this.barManager1;
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 580);
+			// 
+			// Fiducial_Mark
+			// 
+			this.Fiducial_Mark.Id = 36;
+			this.Fiducial_Mark.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Fiducial_Mark.ImageOptions.SvgImage")));
+			this.Fiducial_Mark.Name = "Fiducial_Mark";
+			// 
+			// barButtonItem2
+			// 
+			this.barButtonItem2.Id = 37;
+			this.barButtonItem2.Name = "barButtonItem2";
+			// 
+			// barButtonItem3
+			// 
+			this.barButtonItem3.Id = 38;
+			this.barButtonItem3.Name = "barButtonItem3";
+			// 
+			// barButtonItem4
+			// 
+			this.barButtonItem4.Id = 39;
+			this.barButtonItem4.Name = "barButtonItem4";
+			// 
+			// barButtonItem5
+			// 
+			this.barButtonItem5.Id = 40;
+			this.barButtonItem5.Name = "barButtonItem5";
+			// 
+			// barButtonItem6
+			// 
+			this.barButtonItem6.Id = 41;
+			this.barButtonItem6.Name = "barButtonItem6";
+			// 
+			// barButtonItem7
+			// 
+			this.barButtonItem7.Id = 42;
+			this.barButtonItem7.Name = "barButtonItem7";
+			// 
+			// barButtonItem8
+			// 
+			this.barButtonItem8.Caption = "Object Detection";
+			this.barButtonItem8.Id = 7;
+			this.barButtonItem8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.ImageOptions.Image")));
+			this.barButtonItem8.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.ImageOptions.LargeImage")));
+			this.barButtonItem8.Name = "barButtonItem8";
+			// 
+			// barButtonItem9
+			// 
+			this.barButtonItem9.Caption = "Image Classification";
+			this.barButtonItem9.Id = 8;
+			this.barButtonItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.Image")));
+			this.barButtonItem9.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.LargeImage")));
+			this.barButtonItem9.Name = "barButtonItem9";
+			// 
+			// barButtonItem10
+			// 
+			this.barButtonItem10.Id = 43;
+			this.barButtonItem10.Name = "barButtonItem10";
+			// 
+			// barAddBarCode2D
+			// 
+			this.barAddBarCode2D.Id = 44;
+			this.barAddBarCode2D.Name = "barAddBarCode2D";
+			// 
+			// barButtonItem11
+			// 
+			this.barButtonItem11.Id = 45;
+			this.barButtonItem11.Name = "barButtonItem11";
+			// 
+			// barButtonItem12
+			// 
+			this.barButtonItem12.Id = 46;
+			this.barButtonItem12.Name = "barButtonItem12";
+			// 
+			// barButtonItem13
+			// 
+			this.barButtonItem13.Id = 47;
+			this.barButtonItem13.Name = "barButtonItem13";
+			// 
+			// barButtonItem14
+			// 
+			this.barButtonItem14.Id = 48;
+			this.barButtonItem14.Name = "barButtonItem14";
+			// 
+			// barButtonItem15
+			// 
+			this.barButtonItem15.Caption = "FitCircle";
+			this.barButtonItem15.Id = 15;
+			this.barButtonItem15.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.ImageOptions.Image")));
+			this.barButtonItem15.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.ImageOptions.LargeImage")));
+			this.barButtonItem15.Name = "barButtonItem15";
+			// 
+			// barButtonItem16
+			// 
+			this.barButtonItem16.Id = 49;
+			this.barButtonItem16.Name = "barButtonItem16";
+			// 
+			// barButtonItem17
+			// 
+			this.barButtonItem17.Id = 50;
+			this.barButtonItem17.Name = "barButtonItem17";
+			// 
+			// barButtonItem18
+			// 
+			this.barButtonItem18.Id = 51;
+			this.barButtonItem18.Name = "barButtonItem18";
+			// 
+			// barButtonItem19
+			// 
+			this.barButtonItem19.Id = 52;
+			this.barButtonItem19.Name = "barButtonItem19";
+			// 
+			// barButtonItem20
+			// 
+			this.barButtonItem20.Id = 53;
+			this.barButtonItem20.Name = "barButtonItem20";
+			// 
+			// barButtonItem21
+			// 
+			this.barButtonItem21.Id = 54;
+			this.barButtonItem21.Name = "barButtonItem21";
+			// 
+			// barButtonItem22
+			// 
+			this.barButtonItem22.Id = 55;
+			this.barButtonItem22.Name = "barButtonItem22";
+			// 
+			// barButtonItem23
+			// 
+			this.barButtonItem23.Id = 56;
+			this.barButtonItem23.Name = "barButtonItem23";
+			// 
+			// barButtonItem24
+			// 
+			this.barButtonItem24.Id = 63;
+			this.barButtonItem24.Name = "barButtonItem24";
+			// 
+			// barButtonItem25
+			// 
+			this.barButtonItem25.Id = 64;
+			this.barButtonItem25.Name = "barButtonItem25";
+			// 
+			// barButtonItem26
+			// 
+			this.barButtonItem26.Id = 65;
+			this.barButtonItem26.Name = "barButtonItem26";
+			// 
+			// barButtonItem27
+			// 
+			this.barButtonItem27.Id = 66;
+			this.barButtonItem27.Name = "barButtonItem27";
+			// 
+			// barSubItem1
+			// 
+			this.barSubItem1.Caption = "Image_Procesing";
+			this.barSubItem1.Id = 28;
+			this.barSubItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem1.ImageOptions.SvgImage")));
+			this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.ImageProcess)});
-            this.barSubItem1.Name = "barSubItem1";
-            // 
-            // ImageProcess
-            // 
-            this.ImageProcess.Caption = "TextBox";
-            this.ImageProcess.Id = 32;
-            this.ImageProcess.Name = "ImageProcess";
-            this.ImageProcess.Strings.AddRange(new object[] {
+			this.barSubItem1.Name = "barSubItem1";
+			// 
+			// ImageProcess
+			// 
+			this.ImageProcess.Caption = "TextBox";
+			this.ImageProcess.Id = 32;
+			this.ImageProcess.Name = "ImageProcess";
+			this.ImageProcess.Strings.AddRange(new object[] {
             "Roate",
             "Save",
             "Caibirate_Plate",
             "Fillter"});
-            this.ImageProcess.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.ImageProcess_ListItemClick);
-            // 
-            // barSubItem2
-            // 
-            this.barSubItem2.Caption = "Inspection";
-            this.barSubItem2.Id = 29;
-            this.barSubItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem2.ImageOptions.SvgImage")));
-            this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+			this.ImageProcess.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.ImageProcess_ListItemClick);
+			// 
+			// barSubItem2
+			// 
+			this.barSubItem2.Caption = "Inspection";
+			this.barSubItem2.Id = 29;
+			this.barSubItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem2.ImageOptions.SvgImage")));
+			this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.Inspection)});
-            this.barSubItem2.Name = "barSubItem2";
-            // 
-            // Inspection
-            // 
-            this.Inspection.Caption = "Inspectiontex";
-            this.Inspection.Id = 33;
-            this.Inspection.Name = "Inspection";
-            this.Inspection.Strings.AddRange(new object[] {
+			this.barSubItem2.Name = "barSubItem2";
+			// 
+			// Inspection
+			// 
+			this.Inspection.Caption = "Inspectiontex";
+			this.Inspection.Id = 33;
+			this.Inspection.Name = "Inspection";
+			this.Inspection.Strings.AddRange(new object[] {
             "Histogram",
             "Blob",
             "Histogram_Color",
             "TextureInspection"});
-            this.Inspection.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.Inspection_ListItemClick);
-            // 
-            // barSubItem3
-            // 
-            this.barSubItem3.Caption = "Measurement";
-            this.barSubItem3.Id = 30;
-            this.barSubItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem3.ImageOptions.SvgImage")));
-            this.barSubItem3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+			this.Inspection.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.Inspection_ListItemClick);
+			// 
+			// barSubItem3
+			// 
+			this.barSubItem3.Caption = "Measurement";
+			this.barSubItem3.Id = 30;
+			this.barSubItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem3.ImageOptions.SvgImage")));
+			this.barSubItem3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.Measure)});
-            this.barSubItem3.Name = "barSubItem3";
-            // 
-            // Measure
-            // 
-            this.Measure.Caption = "Measure";
-            this.Measure.Id = 34;
-            this.Measure.Name = "Measure";
-            this.Measure.Strings.AddRange(new object[] {
+			this.barSubItem3.Name = "barSubItem3";
+			// 
+			// Measure
+			// 
+			this.Measure.Caption = "Measure";
+			this.Measure.Id = 34;
+			this.Measure.Name = "Measure";
+			this.Measure.Strings.AddRange(new object[] {
             "FindLine",
             "FindCircle",
             "FindDistance",
             "FitLine",
             "FitCircle"});
-            this.Measure.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.Measure_ListItemClick);
-            // 
-            // barSubItem4
-            // 
-            this.barSubItem4.Caption = "DetectObject";
-            this.barSubItem4.Id = 31;
-            this.barSubItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem4.ImageOptions.SvgImage")));
-            this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+			this.Measure.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.Measure_ListItemClick);
+			// 
+			// barSubItem4
+			// 
+			this.barSubItem4.Caption = "DetectObject";
+			this.barSubItem4.Id = 31;
+			this.barSubItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem4.ImageOptions.SvgImage")));
+			this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.DetectObject)});
-            this.barSubItem4.Name = "barSubItem4";
-            // 
-            // DetectObject
-            // 
-            this.DetectObject.Id = 35;
-            this.DetectObject.Name = "DetectObject";
-            this.DetectObject.Strings.AddRange(new object[] {
+			this.barSubItem4.Name = "barSubItem4";
+			// 
+			// DetectObject
+			// 
+			this.DetectObject.Id = 35;
+			this.DetectObject.Name = "DetectObject";
+			this.DetectObject.Strings.AddRange(new object[] {
             "ShapeModel",
             "Fixture",
             "Barcode",
@@ -762,38 +768,38 @@
             "Fixture_2",
             "NccModel",
             "OriginFindLine"});
-            this.DetectObject.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.DetectObject_ListItemClick);
-            // 
-            // barSubItem5
-            // 
-            this.barSubItem5.Caption = "MakeRoi";
-            this.barSubItem5.Id = 57;
-            this.barSubItem5.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+			this.DetectObject.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.DetectObject_ListItemClick);
+			// 
+			// barSubItem5
+			// 
+			this.barSubItem5.Caption = "MakeRoi";
+			this.barSubItem5.Id = 57;
+			this.barSubItem5.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barListItem1)});
-            this.barSubItem5.Name = "barSubItem5";
-            // 
-            // barListItem1
-            // 
-            this.barListItem1.Caption = "MakeRoi";
-            this.barListItem1.Id = 58;
-            this.barListItem1.Name = "barListItem1";
-            // 
-            // barSubItem6
-            // 
-            this.barSubItem6.Caption = "Face A";
-            this.barSubItem6.Id = 67;
-            this.barSubItem6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem6.ImageOptions.Image")));
-            this.barSubItem6.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem6.ImageOptions.LargeImage")));
-            this.barSubItem6.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+			this.barSubItem5.Name = "barSubItem5";
+			// 
+			// barListItem1
+			// 
+			this.barListItem1.Caption = "MakeRoi";
+			this.barListItem1.Id = 58;
+			this.barListItem1.Name = "barListItem1";
+			// 
+			// barSubItem6
+			// 
+			this.barSubItem6.Caption = "Face A";
+			this.barSubItem6.Id = 67;
+			this.barSubItem6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem6.ImageOptions.Image")));
+			this.barSubItem6.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem6.ImageOptions.LargeImage")));
+			this.barSubItem6.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.Componenent_FaceA)});
-            this.barSubItem6.Name = "barSubItem6";
-            // 
-            // Componenent_FaceA
-            // 
-            this.Componenent_FaceA.Caption = "FaceA";
-            this.Componenent_FaceA.Id = 68;
-            this.Componenent_FaceA.Name = "Componenent_FaceA";
-            this.Componenent_FaceA.Strings.AddRange(new object[] {
+			this.barSubItem6.Name = "barSubItem6";
+			// 
+			// Componenent_FaceA
+			// 
+			this.Componenent_FaceA.Caption = "FaceA";
+			this.Componenent_FaceA.Id = 68;
+			this.Componenent_FaceA.Name = "Componenent_FaceA";
+			this.Componenent_FaceA.Strings.AddRange(new object[] {
             "Metal sheet",
             "VT Cam",
             "Mic 1,2",
@@ -807,677 +813,572 @@
             "Rubber SPK",
             "Tape Finger sensor",
             "Barcode"});
-            this.Componenent_FaceA.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.Componenent_FaceA_ListItemClick);
-            // 
-            // barSubItem7
-            // 
-            this.barSubItem7.Caption = "Face B";
-            this.barSubItem7.Id = 69;
-            this.barSubItem7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem7.ImageOptions.Image")));
-            this.barSubItem7.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem7.ImageOptions.LargeImage")));
-            this.barSubItem7.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+			this.Componenent_FaceA.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.Componenent_FaceA_ListItemClick);
+			// 
+			// barSubItem7
+			// 
+			this.barSubItem7.Caption = "Face B";
+			this.barSubItem7.Id = 69;
+			this.barSubItem7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem7.ImageOptions.Image")));
+			this.barSubItem7.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem7.ImageOptions.LargeImage")));
+			this.barSubItem7.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.Component_FaceB)});
-            this.barSubItem7.Name = "barSubItem7";
-            // 
-            // Component_FaceB
-            // 
-            this.Component_FaceB.Caption = "FaceB";
-            this.Component_FaceB.Id = 70;
-            this.Component_FaceB.Name = "Component_FaceB";
-            this.Component_FaceB.Strings.AddRange(new object[] {
+			this.barSubItem7.Name = "barSubItem7";
+			// 
+			// Component_FaceB
+			// 
+			this.Component_FaceB.Caption = "FaceB";
+			this.Component_FaceB.Id = 70;
+			this.Component_FaceB.Name = "Component_FaceB";
+			this.Component_FaceB.Strings.AddRange(new object[] {
             "Tape Gasket UB",
             "Tape Sponge UB",
             "Tape Air vent",
             "Tape GR và tape Inner",
             "Finger sensor"});
-            this.Component_FaceB.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.Component_FaceB_ListItemClick);
-            // 
-            // barButtonItem32
-            // 
-            this.barButtonItem32.Caption = "Fiducial_Mark";
-            this.barButtonItem32.Id = 71;
-            this.barButtonItem32.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem32.ImageOptions.SvgImage")));
-            this.barButtonItem32.Name = "barButtonItem32";
-            this.barButtonItem32.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem32_ItemClick);
-            // 
-            // StringsSelectLight
-            // 
-            this.StringsSelectLight.Caption = "Light";
-            this.StringsSelectLight.Id = 72;
-            this.StringsSelectLight.Name = "StringsSelectLight";
-            this.StringsSelectLight.Strings.AddRange(new object[] {
+			this.Component_FaceB.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.Component_FaceB_ListItemClick);
+			// 
+			// barButtonItem32
+			// 
+			this.barButtonItem32.Caption = "Fiducial_Mark";
+			this.barButtonItem32.Id = 71;
+			this.barButtonItem32.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem32.ImageOptions.SvgImage")));
+			this.barButtonItem32.Name = "barButtonItem32";
+			this.barButtonItem32.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem32_ItemClick);
+			// 
+			// StringsSelectLight
+			// 
+			this.StringsSelectLight.Caption = "Light";
+			this.StringsSelectLight.Id = 72;
+			this.StringsSelectLight.Name = "StringsSelectLight";
+			this.StringsSelectLight.Strings.AddRange(new object[] {
             "SideLight",
             "TopLight",
             "Low-Side",
             "Max-Light",
             "Low-Light"});
-            this.StringsSelectLight.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.StringsSelectLight_ListItemClick);
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Calibirate";
-            this.barButtonItem1.Id = 73;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
-            // 
-            // barListItem2
-            // 
-            this.barListItem2.Caption = "Calibration";
-            this.barListItem2.Id = 74;
-            this.barListItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barListItem2.ImageOptions.SvgImage")));
-            this.barListItem2.Name = "barListItem2";
-            // 
-            // barSubItem8
-            // 
-            this.barSubItem8.Caption = "Calibration";
-            this.barSubItem8.Id = 75;
-            this.barSubItem8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem8.ImageOptions.SvgImage")));
-            this.barSubItem8.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+			this.StringsSelectLight.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.StringsSelectLight_ListItemClick);
+			// 
+			// barButtonItem1
+			// 
+			this.barButtonItem1.Caption = "Calibirate";
+			this.barButtonItem1.Id = 73;
+			this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+			this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+			this.barButtonItem1.Name = "barButtonItem1";
+			this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+			// 
+			// barListItem2
+			// 
+			this.barListItem2.Caption = "Calibration";
+			this.barListItem2.Id = 74;
+			this.barListItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barListItem2.ImageOptions.SvgImage")));
+			this.barListItem2.Name = "barListItem2";
+			// 
+			// barSubItem8
+			// 
+			this.barSubItem8.Caption = "Calibration";
+			this.barSubItem8.Id = 75;
+			this.barSubItem8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem8.ImageOptions.SvgImage")));
+			this.barSubItem8.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barListItem3)});
-            this.barSubItem8.Name = "barSubItem8";
-            // 
-            // barListItem3
-            // 
-            this.barListItem3.Caption = "barListItem3";
-            this.barListItem3.Id = 76;
-            this.barListItem3.Name = "barListItem3";
-            this.barListItem3.Strings.AddRange(new object[] {
+			this.barSubItem8.Name = "barSubItem8";
+			// 
+			// barListItem3
+			// 
+			this.barListItem3.Caption = "barListItem3";
+			this.barListItem3.Id = 76;
+			this.barListItem3.Name = "barListItem3";
+			this.barListItem3.Strings.AddRange(new object[] {
             "Calib-Hand-Eye",
             "Alignment",
             "Calibrate_Plate_Tool"});
-            this.barListItem3.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.barListItem3_ListItemClick);
-            // 
-            // dropDownButton2
-            // 
-            this.dropDownButton2.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
-            this.dropDownButton2.DropDownControl = this.popupMenu2;
-            this.dropDownButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton2.ImageOptions.SvgImage")));
-            this.dropDownButton2.Location = new System.Drawing.Point(222, 4);
-            this.dropDownButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.dropDownButton2.MenuManager = this.barManager1;
-            this.dropDownButton2.Name = "dropDownButton2";
-            this.dropDownButton2.Size = new System.Drawing.Size(210, 53);
-            this.dropDownButton2.TabIndex = 19;
-            this.dropDownButton2.Text = "Add_Component";
-            // 
-            // popupMenu2
-            // 
-            this.popupMenu2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+			this.barListItem3.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.barListItem3_ListItemClick);
+			// 
+			// dropDownButton2
+			// 
+			this.dropDownButton2.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
+			this.dropDownButton2.DropDownControl = this.popupMenu2;
+			this.dropDownButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton2.ImageOptions.SvgImage")));
+			this.dropDownButton2.Location = new System.Drawing.Point(149, 3);
+			this.dropDownButton2.MenuManager = this.barManager1;
+			this.dropDownButton2.Name = "dropDownButton2";
+			this.dropDownButton2.Size = new System.Drawing.Size(140, 36);
+			this.dropDownButton2.TabIndex = 19;
+			this.dropDownButton2.Text = "Add_Component";
+			// 
+			// popupMenu2
+			// 
+			this.popupMenu2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem6),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem7),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem32),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
-            this.popupMenu2.Manager = this.barManager1;
-            this.popupMenu2.Name = "popupMenu2";
-            // 
-            // dropDownButton5
-            // 
-            this.dropDownButton5.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
-            this.dropDownButton5.DropDownControl = this.popupMenu2;
-            this.dropDownButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton5.ImageOptions.SvgImage")));
-            this.dropDownButton5.Location = new System.Drawing.Point(440, 4);
-            this.dropDownButton5.Margin = new System.Windows.Forms.Padding(4);
-            this.dropDownButton5.MenuManager = this.barManager1;
-            this.dropDownButton5.Name = "dropDownButton5";
-            this.dropDownButton5.Size = new System.Drawing.Size(210, 53);
-            this.dropDownButton5.TabIndex = 21;
-            this.dropDownButton5.Text = "Select_Model";
-            // 
-            // dropDownButton1
-            // 
-            this.dropDownButton1.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
-            this.dropDownButton1.DropDownControl = this.popupMenu1;
-            this.dropDownButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton1.ImageOptions.SvgImage")));
-            this.dropDownButton1.Location = new System.Drawing.Point(658, 4);
-            this.dropDownButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.dropDownButton1.Name = "dropDownButton1";
-            this.dropDownButton1.Size = new System.Drawing.Size(178, 53);
-            this.dropDownButton1.TabIndex = 7;
-            this.dropDownButton1.Text = "Add_Tool";
-            // 
-            // popupMenu1
-            // 
-            this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+			this.popupMenu2.Manager = this.barManager1;
+			this.popupMenu2.Name = "popupMenu2";
+			// 
+			// dropDownButton5
+			// 
+			this.dropDownButton5.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
+			this.dropDownButton5.DropDownControl = this.popupMenu2;
+			this.dropDownButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton5.ImageOptions.SvgImage")));
+			this.dropDownButton5.Location = new System.Drawing.Point(295, 3);
+			this.dropDownButton5.MenuManager = this.barManager1;
+			this.dropDownButton5.Name = "dropDownButton5";
+			this.dropDownButton5.Size = new System.Drawing.Size(140, 36);
+			this.dropDownButton5.TabIndex = 21;
+			this.dropDownButton5.Text = "Select_Model";
+			// 
+			// dropDownButton1
+			// 
+			this.dropDownButton1.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
+			this.dropDownButton1.DropDownControl = this.popupMenu1;
+			this.dropDownButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton1.ImageOptions.SvgImage")));
+			this.dropDownButton1.Location = new System.Drawing.Point(441, 3);
+			this.dropDownButton1.Name = "dropDownButton1";
+			this.dropDownButton1.Size = new System.Drawing.Size(119, 36);
+			this.dropDownButton1.TabIndex = 7;
+			this.dropDownButton1.Text = "Add_Tool";
+			// 
+			// popupMenu1
+			// 
+			this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem2),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem3),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem4),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8)});
-            this.popupMenu1.Manager = this.barManager1;
-            this.popupMenu1.Name = "popupMenu1";
-            // 
-            // dockPanel4
-            // 
-            this.dockPanel4.Controls.Add(this.dockPanel4_Container);
-            this.dockPanel4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dockPanel4.FloatVertical = true;
-            this.dockPanel4.ID = new System.Guid("41e95cd3-650d-4149-86bc-407d6a8f35d6");
-            this.dockPanel4.Location = new System.Drawing.Point(2043, 0);
-            this.dockPanel4.Margin = new System.Windows.Forms.Padding(4);
-            this.dockPanel4.Name = "dockPanel4";
-            this.dockPanel4.OriginalSize = new System.Drawing.Size(449, 153);
-            this.dockPanel4.Size = new System.Drawing.Size(449, 105);
-            this.dockPanel4.Text = "Lighting";
-            // 
-            // dockPanel4_Container
-            // 
-            this.dockPanel4_Container.Controls.Add(this.flowLayoutPanel3);
-            this.dockPanel4_Container.Location = new System.Drawing.Point(4, 38);
-            this.dockPanel4_Container.Margin = new System.Windows.Forms.Padding(4);
-            this.dockPanel4_Container.Name = "dockPanel4_Container";
-            this.dockPanel4_Container.Size = new System.Drawing.Size(441, 60);
-            this.dockPanel4_Container.TabIndex = 0;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.label1);
-            this.flowLayoutPanel3.Controls.Add(this.combo_Light);
-            this.flowLayoutPanel3.Controls.Add(this.check_RGB);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(441, 60);
-            this.flowLayoutPanel3.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 7);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 29);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Lighting";
-            // 
-            // combo_Light
-            // 
-            this.combo_Light.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.combo_Light.FormattingEnabled = true;
-            this.combo_Light.Items.AddRange(new object[] {
+			this.popupMenu1.Manager = this.barManager1;
+			this.popupMenu1.Name = "popupMenu1";
+			// 
+			// dockPanel4
+			// 
+			this.dockPanel4.Controls.Add(this.dockPanel4_Container);
+			this.dockPanel4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+			this.dockPanel4.FloatVertical = true;
+			this.dockPanel4.ID = new System.Guid("41e95cd3-650d-4149-86bc-407d6a8f35d6");
+			this.dockPanel4.Location = new System.Drawing.Point(1059, 0);
+			this.dockPanel4.Name = "dockPanel4";
+			this.dockPanel4.OriginalSize = new System.Drawing.Size(233, 72);
+			this.dockPanel4.Size = new System.Drawing.Size(233, 105);
+			this.dockPanel4.Text = "Lighting";
+			// 
+			// dockPanel4_Container
+			// 
+			this.dockPanel4_Container.Controls.Add(this.flowLayoutPanel3);
+			this.dockPanel4_Container.Location = new System.Drawing.Point(3, 26);
+			this.dockPanel4_Container.Name = "dockPanel4_Container";
+			this.dockPanel4_Container.Size = new System.Drawing.Size(227, 75);
+			this.dockPanel4_Container.TabIndex = 0;
+			// 
+			// flowLayoutPanel3
+			// 
+			this.flowLayoutPanel3.Controls.Add(this.label1);
+			this.flowLayoutPanel3.Controls.Add(this.combo_Light);
+			this.flowLayoutPanel3.Controls.Add(this.check_RGB);
+			this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+			this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+			this.flowLayoutPanel3.Size = new System.Drawing.Size(227, 75);
+			this.flowLayoutPanel3.TabIndex = 0;
+			// 
+			// label1
+			// 
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(3, 6);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(66, 19);
+			this.label1.TabIndex = 10;
+			this.label1.Text = "Lighting";
+			// 
+			// combo_Light
+			// 
+			this.combo_Light.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.combo_Light.FormattingEnabled = true;
+			this.combo_Light.Items.AddRange(new object[] {
             "RGB",
             "GRAY"});
-            this.combo_Light.Location = new System.Drawing.Point(107, 3);
-            this.combo_Light.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.combo_Light.Name = "combo_Light";
-            this.combo_Light.Size = new System.Drawing.Size(192, 37);
-            this.combo_Light.TabIndex = 9;
-            this.combo_Light.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
-            // 
-            // check_RGB
-            // 
-            this.check_RGB.AutoSize = true;
-            this.check_RGB.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.check_RGB.Location = new System.Drawing.Point(307, 4);
-            this.check_RGB.Margin = new System.Windows.Forms.Padding(4);
-            this.check_RGB.Name = "check_RGB";
-            this.check_RGB.Size = new System.Drawing.Size(84, 33);
-            this.check_RGB.TabIndex = 11;
-            this.check_RGB.Text = "RGB";
-            this.check_RGB.UseVisualStyleBackColor = true;
-            this.check_RGB.CheckedChanged += new System.EventHandler(this.check_RGB_CheckedChanged);
-            // 
-            // panelContainer3
-            // 
-            this.panelContainer3.Controls.Add(this.dockPanel7);
-            this.panelContainer3.Controls.Add(this.DockSetting);
-            this.panelContainer3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
-            this.panelContainer3.ID = new System.Guid("8e459d49-4a95-44d1-9b64-ce6e408d8c74");
-            this.panelContainer3.Location = new System.Drawing.Point(1946, 105);
-            this.panelContainer3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panelContainer3.Name = "panelContainer3";
-            this.panelContainer3.OriginalSize = new System.Drawing.Size(546, 200);
-            this.panelContainer3.Size = new System.Drawing.Size(546, 743);
-            this.panelContainer3.Text = "panelContainer3";
-            // 
-            // dockPanel7
-            // 
-            this.dockPanel7.Controls.Add(this.dockPanel7_Container);
-            this.dockPanel7.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dockPanel7.ID = new System.Guid("f69c4bd7-4cfb-46b2-9c53-9e0e3423a466");
-            this.dockPanel7.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dockPanel7.Name = "dockPanel7";
-            this.dockPanel7.OriginalSize = new System.Drawing.Size(514, 213);
-            this.dockPanel7.Size = new System.Drawing.Size(546, 206);
-            this.dockPanel7.Text = " ";
-            // 
-            // dockPanel7_Container
-            // 
-            this.dockPanel7_Container.Controls.Add(this.tableLayoutPanel3);
-            this.dockPanel7_Container.Location = new System.Drawing.Point(7, 38);
-            this.dockPanel7_Container.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dockPanel7_Container.Name = "dockPanel7_Container";
-            this.dockPanel7_Container.Size = new System.Drawing.Size(535, 161);
-            this.dockPanel7_Container.TabIndex = 0;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.23288F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.76712F));
-            this.tableLayoutPanel3.Controls.Add(this.listBox_Component, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.listBox_Tool, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(535, 161);
-            this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // listBox_Component
-            // 
-            this.listBox_Component.ContextMenuStrip = this.contextMenuStrip1;
-            this.listBox_Component.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox_Component.FormattingEnabled = true;
-            this.listBox_Component.ItemHeight = 19;
-            this.listBox_Component.Location = new System.Drawing.Point(4, 3);
-            this.listBox_Component.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.listBox_Component.Name = "listBox_Component";
-            this.listBox_Component.Size = new System.Drawing.Size(266, 155);
-            this.listBox_Component.TabIndex = 0;
-            this.listBox_Component.SelectedIndexChanged += new System.EventHandler(this.listBox_Component_SelectedIndexChanged);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.combo_Light.Location = new System.Drawing.Point(75, 2);
+			this.combo_Light.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.combo_Light.Name = "combo_Light";
+			this.combo_Light.Size = new System.Drawing.Size(129, 27);
+			this.combo_Light.TabIndex = 9;
+			this.combo_Light.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+			// 
+			// check_RGB
+			// 
+			this.check_RGB.AutoSize = true;
+			this.check_RGB.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.check_RGB.Location = new System.Drawing.Point(3, 34);
+			this.check_RGB.Name = "check_RGB";
+			this.check_RGB.Size = new System.Drawing.Size(58, 23);
+			this.check_RGB.TabIndex = 11;
+			this.check_RGB.Text = "RGB";
+			this.check_RGB.UseVisualStyleBackColor = true;
+			this.check_RGB.CheckedChanged += new System.EventHandler(this.check_RGB_CheckedChanged);
+			// 
+			// panelContainer3
+			// 
+			this.panelContainer3.Controls.Add(this.dockPanel7);
+			this.panelContainer3.Controls.Add(this.DockSetting);
+			this.panelContainer3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+			this.panelContainer3.ID = new System.Guid("8e459d49-4a95-44d1-9b64-ce6e408d8c74");
+			this.panelContainer3.Location = new System.Drawing.Point(939, 105);
+			this.panelContainer3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.panelContainer3.Name = "panelContainer3";
+			this.panelContainer3.OriginalSize = new System.Drawing.Size(353, 200);
+			this.panelContainer3.Size = new System.Drawing.Size(353, 475);
+			this.panelContainer3.Text = "panelContainer3";
+			// 
+			// dockPanel7
+			// 
+			this.dockPanel7.Controls.Add(this.dockPanel7_Container);
+			this.dockPanel7.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+			this.dockPanel7.ID = new System.Guid("f69c4bd7-4cfb-46b2-9c53-9e0e3423a466");
+			this.dockPanel7.Location = new System.Drawing.Point(0, 0);
+			this.dockPanel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.dockPanel7.Name = "dockPanel7";
+			this.dockPanel7.OriginalSize = new System.Drawing.Size(364, 141);
+			this.dockPanel7.Size = new System.Drawing.Size(353, 132);
+			this.dockPanel7.Text = " ";
+			// 
+			// dockPanel7_Container
+			// 
+			this.dockPanel7_Container.Controls.Add(this.tableLayoutPanel3);
+			this.dockPanel7_Container.Location = new System.Drawing.Point(4, 26);
+			this.dockPanel7_Container.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.dockPanel7_Container.Name = "dockPanel7_Container";
+			this.dockPanel7_Container.Size = new System.Drawing.Size(346, 102);
+			this.dockPanel7_Container.TabIndex = 0;
+			// 
+			// tableLayoutPanel3
+			// 
+			this.tableLayoutPanel3.ColumnCount = 3;
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.tableLayoutPanel3.Controls.Add(this.listBox_View, 0, 0);
+			this.tableLayoutPanel3.Controls.Add(this.listBox_Tool, 2, 0);
+			this.tableLayoutPanel3.Controls.Add(this.listBox_Component, 1, 0);
+			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+			this.tableLayoutPanel3.RowCount = 1;
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(346, 102);
+			this.tableLayoutPanel3.TabIndex = 0;
+			// 
+			// listBox_Component
+			// 
+			this.listBox_Component.ContextMenuStrip = this.contextMenuStrip1;
+			this.listBox_Component.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listBox_Component.FormattingEnabled = true;
+			this.listBox_Component.Location = new System.Drawing.Point(118, 2);
+			this.listBox_Component.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.listBox_Component.Name = "listBox_Component";
+			this.listBox_Component.Size = new System.Drawing.Size(109, 98);
+			this.listBox_Component.TabIndex = 0;
+			this.listBox_Component.SelectedIndexChanged += new System.EventHandler(this.listBox_Component_SelectedIndexChanged);
+			// 
+			// contextMenuStrip1
+			// 
+			this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Delete_Component});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(241, 36);
-            // 
-            // Delete_Component
-            // 
-            this.Delete_Component.Image = ((System.Drawing.Image)(resources.GetObject("Delete_Component.Image")));
-            this.Delete_Component.Name = "Delete_Component";
-            this.Delete_Component.Size = new System.Drawing.Size(240, 32);
-            this.Delete_Component.Text = "Delete_Component";
-            this.Delete_Component.Click += new System.EventHandler(this.Delete_Component_Click);
-            // 
-            // listBox_Tool
-            // 
-            this.listBox_Tool.ContextMenuStrip = this.contextMenuStrip3;
-            this.listBox_Tool.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox_Tool.FormattingEnabled = true;
-            this.listBox_Tool.ItemHeight = 19;
-            this.listBox_Tool.Location = new System.Drawing.Point(278, 3);
-            this.listBox_Tool.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.listBox_Tool.Name = "listBox_Tool";
-            this.listBox_Tool.Size = new System.Drawing.Size(253, 155);
-            this.listBox_Tool.TabIndex = 1;
-            this.listBox_Tool.SelectedIndexChanged += new System.EventHandler(this.listBox_Tool_SelectedIndexChanged);
-            // 
-            // contextMenuStrip3
-            // 
-            this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(181, 30);
+			// 
+			// Delete_Component
+			// 
+			this.Delete_Component.Image = ((System.Drawing.Image)(resources.GetObject("Delete_Component.Image")));
+			this.Delete_Component.Name = "Delete_Component";
+			this.Delete_Component.Size = new System.Drawing.Size(180, 26);
+			this.Delete_Component.Text = "Delete_Component";
+			this.Delete_Component.Click += new System.EventHandler(this.Delete_Component_Click);
+			// 
+			// listBox_Tool
+			// 
+			this.listBox_Tool.ContextMenuStrip = this.contextMenuStrip3;
+			this.listBox_Tool.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listBox_Tool.FormattingEnabled = true;
+			this.listBox_Tool.Location = new System.Drawing.Point(233, 2);
+			this.listBox_Tool.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.listBox_Tool.Name = "listBox_Tool";
+			this.listBox_Tool.Size = new System.Drawing.Size(110, 98);
+			this.listBox_Tool.TabIndex = 1;
+			this.listBox_Tool.SelectedIndexChanged += new System.EventHandler(this.listBox_Tool_SelectedIndexChanged);
+			// 
+			// contextMenuStrip3
+			// 
+			this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(24, 24);
+			this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Delete_Tool});
-            this.contextMenuStrip3.Name = "contextMenuStrip3";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(183, 36);
-            // 
-            // Delete_Tool
-            // 
-            this.Delete_Tool.Image = ((System.Drawing.Image)(resources.GetObject("Delete_Tool.Image")));
-            this.Delete_Tool.Name = "Delete_Tool";
-            this.Delete_Tool.Size = new System.Drawing.Size(182, 32);
-            this.Delete_Tool.Text = "Delete_Tool";
-            this.Delete_Tool.Click += new System.EventHandler(this.Delete_Tool_Click);
-            // 
-            // DockSetting
-            // 
-            this.DockSetting.Controls.Add(this.controlContainer3);
-            this.DockSetting.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.DockSetting.ID = new System.Guid("b133cc2c-936e-4577-8685-147cf3fd2e8a");
-            this.DockSetting.Location = new System.Drawing.Point(0, 206);
-            this.DockSetting.Margin = new System.Windows.Forms.Padding(4);
-            this.DockSetting.Name = "DockSetting";
-            this.DockSetting.Options.ShowCloseButton = false;
-            this.DockSetting.OriginalSize = new System.Drawing.Size(514, 556);
-            this.DockSetting.Size = new System.Drawing.Size(546, 537);
-            this.DockSetting.Text = "Setting_Para";
-            // 
-            // controlContainer3
-            // 
-            this.controlContainer3.Controls.Add(this.layoutControl6);
-            this.controlContainer3.Location = new System.Drawing.Point(7, 38);
-            this.controlContainer3.Margin = new System.Windows.Forms.Padding(4);
-            this.controlContainer3.Name = "controlContainer3";
-            this.controlContainer3.Size = new System.Drawing.Size(535, 495);
-            this.controlContainer3.TabIndex = 0;
-            // 
-            // layoutControl6
-            // 
-            this.layoutControl6.Controls.Add(this.simpleButton2);
-            this.layoutControl6.Controls.Add(this.simpleButton1);
-            this.layoutControl6.Controls.Add(this.numeric_cali);
-            this.layoutControl6.Controls.Add(this.checkEdit_stepbystep);
-            this.layoutControl6.Controls.Add(this.panel6);
-            this.layoutControl6.Controls.Add(this.simpleButton12);
-            this.layoutControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl6.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl6.Margin = new System.Windows.Forms.Padding(4);
-            this.layoutControl6.Name = "layoutControl6";
-            this.layoutControl6.Root = this.layoutControlGroup5;
-            this.layoutControl6.Size = new System.Drawing.Size(535, 495);
-            this.layoutControl6.TabIndex = 0;
-            this.layoutControl6.Text = "layoutControl6";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Appearance.Options.UseTextOptions = true;
-            this.simpleButton2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(12, 431);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(511, 52);
-            this.simpleButton2.StyleController = this.layoutControl6;
-            this.simpleButton2.TabIndex = 10;
-            this.simpleButton2.Text = "Run_Tool";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Appearance.Options.UseTextOptions = true;
-            this.simpleButton1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(12, 375);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(511, 52);
-            this.simpleButton1.StyleController = this.layoutControl6;
-            this.simpleButton1.TabIndex = 9;
-            this.simpleButton1.Text = "Run_Component";
-            this.simpleButton1.Click += new System.EventHandler(this.Run_Component);
-            // 
-            // numeric_cali
-            // 
-            this.numeric_cali.DecimalPlaces = 3;
-            this.numeric_cali.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numeric_cali.Increment = new decimal(new int[] {
+			this.contextMenuStrip3.Name = "contextMenuStrip3";
+			this.contextMenuStrip3.Size = new System.Drawing.Size(144, 34);
+			// 
+			// Delete_Tool
+			// 
+			this.Delete_Tool.Image = ((System.Drawing.Image)(resources.GetObject("Delete_Tool.Image")));
+			this.Delete_Tool.Name = "Delete_Tool";
+			this.Delete_Tool.Size = new System.Drawing.Size(143, 30);
+			this.Delete_Tool.Text = "Delete_Tool";
+			this.Delete_Tool.Click += new System.EventHandler(this.Delete_Tool_Click);
+			// 
+			// DockSetting
+			// 
+			this.DockSetting.Controls.Add(this.controlContainer3);
+			this.DockSetting.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+			this.DockSetting.ID = new System.Guid("b133cc2c-936e-4577-8685-147cf3fd2e8a");
+			this.DockSetting.Location = new System.Drawing.Point(0, 132);
+			this.DockSetting.Name = "DockSetting";
+			this.DockSetting.Options.ShowCloseButton = false;
+			this.DockSetting.OriginalSize = new System.Drawing.Size(364, 367);
+			this.DockSetting.Size = new System.Drawing.Size(353, 343);
+			this.DockSetting.Text = "Setting_Para";
+			// 
+			// controlContainer3
+			// 
+			this.controlContainer3.Controls.Add(this.layoutControl6);
+			this.controlContainer3.Location = new System.Drawing.Point(4, 26);
+			this.controlContainer3.Name = "controlContainer3";
+			this.controlContainer3.Size = new System.Drawing.Size(346, 314);
+			this.controlContainer3.TabIndex = 0;
+			// 
+			// layoutControl6
+			// 
+			this.layoutControl6.Controls.Add(this.numeric_cali);
+			this.layoutControl6.Controls.Add(this.checkEdit_stepbystep);
+			this.layoutControl6.Controls.Add(this.panel6);
+			this.layoutControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.layoutControl6.Location = new System.Drawing.Point(0, 0);
+			this.layoutControl6.Name = "layoutControl6";
+			this.layoutControl6.Root = this.layoutControlGroup5;
+			this.layoutControl6.Size = new System.Drawing.Size(346, 314);
+			this.layoutControl6.TabIndex = 0;
+			this.layoutControl6.Text = "layoutControl6";
+			// 
+			// numeric_cali
+			// 
+			this.numeric_cali.DecimalPlaces = 3;
+			this.numeric_cali.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.numeric_cali.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.numeric_cali.Location = new System.Drawing.Point(161, 248);
-            this.numeric_cali.Margin = new System.Windows.Forms.Padding(4);
-            this.numeric_cali.Name = "numeric_cali";
-            this.numeric_cali.Size = new System.Drawing.Size(362, 31);
-            this.numeric_cali.TabIndex = 8;
-            this.numeric_cali.ValueChanged += new System.EventHandler(this.numeric_cali_ValueChanged);
-            // 
-            // checkEdit_stepbystep
-            // 
-            this.checkEdit_stepbystep.Location = new System.Drawing.Point(12, 282);
-            this.checkEdit_stepbystep.Margin = new System.Windows.Forms.Padding(4);
-            this.checkEdit_stepbystep.MenuManager = this.barManager1;
-            this.checkEdit_stepbystep.Name = "checkEdit_stepbystep";
-            this.checkEdit_stepbystep.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEdit_stepbystep.Properties.Appearance.Options.UseFont = true;
-            this.checkEdit_stepbystep.Properties.Caption = "StepByStep";
-            this.checkEdit_stepbystep.Size = new System.Drawing.Size(511, 33);
-            this.checkEdit_stepbystep.StyleController = this.layoutControl6;
-            this.checkEdit_stepbystep.TabIndex = 7;
-            // 
-            // panel6
-            // 
-            this.panel6.Location = new System.Drawing.Point(12, 12);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(511, 232);
-            this.panel6.TabIndex = 6;
-            // 
-            // simpleButton12
-            // 
-            this.simpleButton12.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton12.Appearance.Options.UseFont = true;
-            this.simpleButton12.Appearance.Options.UseTextOptions = true;
-            this.simpleButton12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.simpleButton12.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton12.ImageOptions.SvgImage")));
-            this.simpleButton12.Location = new System.Drawing.Point(12, 319);
-            this.simpleButton12.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton12.Name = "simpleButton12";
-            this.simpleButton12.Size = new System.Drawing.Size(511, 52);
-            this.simpleButton12.StyleController = this.layoutControl6;
-            this.simpleButton12.TabIndex = 5;
-            this.simpleButton12.Text = "Save_Tool";
-            this.simpleButton12.Click += new System.EventHandler(this.simpleButton12_Click);
-            // 
-            // layoutControlGroup5
-            // 
-            this.layoutControlGroup5.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup5.GroupBordersVisible = false;
-            this.layoutControlGroup5.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem21,
+			this.numeric_cali.Location = new System.Drawing.Point(119, 255);
+			this.numeric_cali.Name = "numeric_cali";
+			this.numeric_cali.Size = new System.Drawing.Size(215, 23);
+			this.numeric_cali.TabIndex = 8;
+			this.numeric_cali.ValueChanged += new System.EventHandler(this.numeric_cali_ValueChanged);
+			// 
+			// checkEdit_stepbystep
+			// 
+			this.checkEdit_stepbystep.Location = new System.Drawing.Point(12, 279);
+			this.checkEdit_stepbystep.MenuManager = this.barManager1;
+			this.checkEdit_stepbystep.Name = "checkEdit_stepbystep";
+			this.checkEdit_stepbystep.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkEdit_stepbystep.Properties.Appearance.Options.UseFont = true;
+			this.checkEdit_stepbystep.Properties.Caption = "StepByStep";
+			this.checkEdit_stepbystep.Size = new System.Drawing.Size(322, 23);
+			this.checkEdit_stepbystep.StyleController = this.layoutControl6;
+			this.checkEdit_stepbystep.TabIndex = 7;
+			// 
+			// panel6
+			// 
+			this.panel6.Location = new System.Drawing.Point(12, 12);
+			this.panel6.Name = "panel6";
+			this.panel6.Size = new System.Drawing.Size(322, 239);
+			this.panel6.TabIndex = 6;
+			// 
+			// layoutControlGroup5
+			// 
+			this.layoutControlGroup5.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+			this.layoutControlGroup5.GroupBordersVisible = false;
+			this.layoutControlGroup5.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem16,
             this.layoutControlItem25,
-            this.layoutControlItem29,
-            this.layoutControlItem8,
-            this.layoutControlItem9});
-            this.layoutControlGroup5.Name = "Root";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(535, 495);
-            this.layoutControlGroup5.TextVisible = false;
-            // 
-            // layoutControlItem21
-            // 
-            this.layoutControlItem21.Control = this.simpleButton12;
-            this.layoutControlItem21.Location = new System.Drawing.Point(0, 307);
-            this.layoutControlItem21.Name = "layoutControlItem21";
-            this.layoutControlItem21.Size = new System.Drawing.Size(515, 56);
-            this.layoutControlItem21.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem21.TextVisible = false;
-            // 
-            // layoutControlItem16
-            // 
-            this.layoutControlItem16.Control = this.panel6;
-            this.layoutControlItem16.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(515, 236);
-            this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem16.TextVisible = false;
-            // 
-            // layoutControlItem25
-            // 
-            this.layoutControlItem25.Control = this.checkEdit_stepbystep;
-            this.layoutControlItem25.Location = new System.Drawing.Point(0, 270);
-            this.layoutControlItem25.Name = "layoutControlItem25";
-            this.layoutControlItem25.Size = new System.Drawing.Size(515, 37);
-            this.layoutControlItem25.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem25.TextVisible = false;
-            // 
-            // layoutControlItem29
-            // 
-            this.layoutControlItem29.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem29.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem29.Control = this.numeric_cali;
-            this.layoutControlItem29.Location = new System.Drawing.Point(0, 236);
-            this.layoutControlItem29.Name = "layoutControlItem29";
-            this.layoutControlItem29.Size = new System.Drawing.Size(515, 34);
-            this.layoutControlItem29.Text = "Calibiration";
-            this.layoutControlItem29.TextSize = new System.Drawing.Size(137, 29);
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.simpleButton1;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 363);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(515, 56);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.simpleButton2;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 419);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(515, 56);
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextVisible = false;
-            // 
-            // panelContainer1
-            // 
-            this.panelContainer1.Controls.Add(this.dockControl);
-            this.panelContainer1.Controls.Add(this.dockPanel1);
-            this.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
-            this.panelContainer1.ID = new System.Guid("29e141b0-a709-4dc4-88b9-ac2e6d583cad");
-            this.panelContainer1.Location = new System.Drawing.Point(0, 105);
-            this.panelContainer1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panelContainer1.Name = "panelContainer1";
-            this.panelContainer1.OriginalSize = new System.Drawing.Size(321, 200);
-            this.panelContainer1.Size = new System.Drawing.Size(321, 743);
-            this.panelContainer1.Text = "panelContainer1";
-            // 
-            // dockControl
-            // 
-            this.dockControl.Controls.Add(this.controlContainer4);
-            this.dockControl.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dockControl.FloatVertical = true;
-            this.dockControl.ID = new System.Guid("6ce8b439-d941-4fa1-a456-b19673add879");
-            this.dockControl.Location = new System.Drawing.Point(0, 0);
-            this.dockControl.Margin = new System.Windows.Forms.Padding(4);
-            this.dockControl.Name = "dockControl";
-            this.dockControl.Options.ShowCloseButton = false;
-            this.dockControl.OriginalSize = new System.Drawing.Size(321, 471);
-            this.dockControl.Size = new System.Drawing.Size(321, 455);
-            this.dockControl.Text = "Control_Camera";
-            // 
-            // controlContainer4
-            // 
-            this.controlContainer4.Controls.Add(this.layoutControl1);
-            this.controlContainer4.Location = new System.Drawing.Point(4, 38);
-            this.controlContainer4.Margin = new System.Windows.Forms.Padding(4);
-            this.controlContainer4.Name = "controlContainer4";
-            this.controlContainer4.Size = new System.Drawing.Size(310, 410);
-            this.controlContainer4.TabIndex = 0;
-            // 
-            // layoutControl1
-            // 
-            this.layoutControl1.Controls.Add(this.simpleButton7);
-            this.layoutControl1.Controls.Add(this.simpleButton6);
-            this.layoutControl1.Controls.Add(this.Live_Camera);
-            this.layoutControl1.Controls.Add(this.TrialRun);
-            this.layoutControl1.Controls.Add(this.cbbCam);
-            this.layoutControl1.Controls.Add(this.simpleButton5);
-            this.layoutControl1.Controls.Add(this.simpleButton4);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(310, 410);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
-            // 
-            // simpleButton7
-            // 
-            this.simpleButton7.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton7.Appearance.Options.UseFont = true;
-            this.simpleButton7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton7.ImageOptions.SvgImage")));
-            this.simpleButton7.Location = new System.Drawing.Point(12, 327);
-            this.simpleButton7.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(286, 52);
-            this.simpleButton7.StyleController = this.layoutControl1;
-            this.simpleButton7.TabIndex = 10;
-            this.simpleButton7.Text = "simpleButton7";
-            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
-            // 
-            // simpleButton6
-            // 
-            this.simpleButton6.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton6.Appearance.Options.UseFont = true;
-            this.simpleButton6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton6.ImageOptions.SvgImage")));
-            this.simpleButton6.Location = new System.Drawing.Point(12, 271);
-            this.simpleButton6.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(286, 52);
-            this.simpleButton6.StyleController = this.layoutControl1;
-            this.simpleButton6.TabIndex = 9;
-            this.simpleButton6.Text = "simpleButton6";
-            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
-            // 
-            // Live_Camera
-            // 
-            this.Live_Camera.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Live_Camera.Appearance.Options.UseFont = true;
-            this.Live_Camera.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("Live_Camera.ImageOptions.Image")));
-            this.Live_Camera.Location = new System.Drawing.Point(12, 103);
-            this.Live_Camera.Margin = new System.Windows.Forms.Padding(4);
-            this.Live_Camera.Name = "Live_Camera";
-            this.Live_Camera.Size = new System.Drawing.Size(286, 52);
-            this.Live_Camera.StyleController = this.layoutControl1;
-            this.Live_Camera.TabIndex = 8;
-            this.Live_Camera.Text = "LiveCam";
-            this.Live_Camera.Click += new System.EventHandler(this.Live_Camera_Click);
-            // 
-            // TrialRun
-            // 
-            this.TrialRun.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TrialRun.Appearance.Options.UseFont = true;
-            this.TrialRun.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("TrialRun.ImageOptions.SvgImage")));
-            this.TrialRun.Location = new System.Drawing.Point(12, 215);
-            this.TrialRun.Margin = new System.Windows.Forms.Padding(4);
-            this.TrialRun.Name = "TrialRun";
-            this.TrialRun.Size = new System.Drawing.Size(286, 52);
-            this.TrialRun.StyleController = this.layoutControl1;
-            this.TrialRun.TabIndex = 7;
-            this.TrialRun.Text = "TrialRun";
-            this.TrialRun.Click += new System.EventHandler(this.TrialRun_Click);
-            // 
-            // cbbCam
-            // 
-            this.cbbCam.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbCam.FormattingEnabled = true;
-            this.cbbCam.Location = new System.Drawing.Point(12, 12);
-            this.cbbCam.Margin = new System.Windows.Forms.Padding(4);
-            this.cbbCam.Name = "cbbCam";
-            this.cbbCam.Size = new System.Drawing.Size(286, 37);
-            this.cbbCam.TabIndex = 0;
-            this.cbbCam.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton5.Appearance.Options.UseFont = true;
-            this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
-            this.simpleButton5.Location = new System.Drawing.Point(12, 159);
-            this.simpleButton5.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(286, 52);
-            this.simpleButton5.StyleController = this.layoutControl1;
-            this.simpleButton5.TabIndex = 6;
-            this.simpleButton5.Text = "Capture";
-            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(12, 47);
-            this.simpleButton4.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(286, 52);
-            this.simpleButton4.StyleController = this.layoutControl1;
-            this.simpleButton4.TabIndex = 5;
-            this.simpleButton4.Text = "Load_Image";
-            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click_1);
-            // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem29});
+			this.layoutControlGroup5.Name = "Root";
+			this.layoutControlGroup5.Size = new System.Drawing.Size(346, 314);
+			this.layoutControlGroup5.TextVisible = false;
+			// 
+			// layoutControlItem16
+			// 
+			this.layoutControlItem16.Control = this.panel6;
+			this.layoutControlItem16.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlItem16.Name = "layoutControlItem16";
+			this.layoutControlItem16.Size = new System.Drawing.Size(326, 243);
+			this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem16.TextVisible = false;
+			// 
+			// layoutControlItem25
+			// 
+			this.layoutControlItem25.Control = this.checkEdit_stepbystep;
+			this.layoutControlItem25.Location = new System.Drawing.Point(0, 267);
+			this.layoutControlItem25.Name = "layoutControlItem25";
+			this.layoutControlItem25.Size = new System.Drawing.Size(326, 27);
+			this.layoutControlItem25.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem25.TextVisible = false;
+			// 
+			// layoutControlItem29
+			// 
+			this.layoutControlItem29.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.layoutControlItem29.AppearanceItemCaption.Options.UseFont = true;
+			this.layoutControlItem29.Control = this.numeric_cali;
+			this.layoutControlItem29.Location = new System.Drawing.Point(0, 243);
+			this.layoutControlItem29.Name = "layoutControlItem29";
+			this.layoutControlItem29.Size = new System.Drawing.Size(326, 24);
+			this.layoutControlItem29.Text = "Calibiration";
+			this.layoutControlItem29.TextSize = new System.Drawing.Size(95, 19);
+			// 
+			// panelContainer1
+			// 
+			this.panelContainer1.Controls.Add(this.dockControl);
+			this.panelContainer1.Controls.Add(this.dockPanel1);
+			this.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+			this.panelContainer1.ID = new System.Guid("29e141b0-a709-4dc4-88b9-ac2e6d583cad");
+			this.panelContainer1.Location = new System.Drawing.Point(0, 105);
+			this.panelContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.panelContainer1.Name = "panelContainer1";
+			this.panelContainer1.OriginalSize = new System.Drawing.Size(321, 200);
+			this.panelContainer1.Size = new System.Drawing.Size(321, 475);
+			this.panelContainer1.Text = "panelContainer1";
+			// 
+			// dockControl
+			// 
+			this.dockControl.Controls.Add(this.controlContainer4);
+			this.dockControl.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+			this.dockControl.FloatVertical = true;
+			this.dockControl.ID = new System.Guid("6ce8b439-d941-4fa1-a456-b19673add879");
+			this.dockControl.Location = new System.Drawing.Point(0, 0);
+			this.dockControl.Name = "dockControl";
+			this.dockControl.Options.ShowCloseButton = false;
+			this.dockControl.OriginalSize = new System.Drawing.Size(214, 311);
+			this.dockControl.Size = new System.Drawing.Size(321, 291);
+			this.dockControl.Text = "Control_Camera";
+			// 
+			// controlContainer4
+			// 
+			this.controlContainer4.Controls.Add(this.layoutControl1);
+			this.controlContainer4.Location = new System.Drawing.Point(3, 26);
+			this.controlContainer4.Name = "controlContainer4";
+			this.controlContainer4.Size = new System.Drawing.Size(314, 261);
+			this.controlContainer4.TabIndex = 0;
+			// 
+			// layoutControl1
+			// 
+			this.layoutControl1.Controls.Add(this.simpleButton7);
+			this.layoutControl1.Controls.Add(this.simpleButton6);
+			this.layoutControl1.Controls.Add(this.Live_Camera);
+			this.layoutControl1.Controls.Add(this.TrialRun);
+			this.layoutControl1.Controls.Add(this.cbbCam);
+			this.layoutControl1.Controls.Add(this.simpleButton5);
+			this.layoutControl1.Controls.Add(this.simpleButton4);
+			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+			this.layoutControl1.Name = "layoutControl1";
+			this.layoutControl1.Root = this.Root;
+			this.layoutControl1.Size = new System.Drawing.Size(314, 261);
+			this.layoutControl1.TabIndex = 0;
+			this.layoutControl1.Text = "layoutControl1";
+			// 
+			// simpleButton7
+			// 
+			this.simpleButton7.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton7.Appearance.Options.UseFont = true;
+			this.simpleButton7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton7.ImageOptions.SvgImage")));
+			this.simpleButton7.Location = new System.Drawing.Point(12, 253);
+			this.simpleButton7.Name = "simpleButton7";
+			this.simpleButton7.Size = new System.Drawing.Size(273, 36);
+			this.simpleButton7.StyleController = this.layoutControl1;
+			this.simpleButton7.TabIndex = 10;
+			this.simpleButton7.Text = "simpleButton7";
+			this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
+			// 
+			// simpleButton6
+			// 
+			this.simpleButton6.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton6.Appearance.Options.UseFont = true;
+			this.simpleButton6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton6.ImageOptions.SvgImage")));
+			this.simpleButton6.Location = new System.Drawing.Point(12, 213);
+			this.simpleButton6.Name = "simpleButton6";
+			this.simpleButton6.Size = new System.Drawing.Size(273, 36);
+			this.simpleButton6.StyleController = this.layoutControl1;
+			this.simpleButton6.TabIndex = 9;
+			this.simpleButton6.Text = "simpleButton6";
+			this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
+			// 
+			// Live_Camera
+			// 
+			this.Live_Camera.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Live_Camera.Appearance.Options.UseFont = true;
+			this.Live_Camera.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("Live_Camera.ImageOptions.Image")));
+			this.Live_Camera.Location = new System.Drawing.Point(12, 77);
+			this.Live_Camera.Name = "Live_Camera";
+			this.Live_Camera.Size = new System.Drawing.Size(273, 52);
+			this.Live_Camera.StyleController = this.layoutControl1;
+			this.Live_Camera.TabIndex = 8;
+			this.Live_Camera.Text = "LiveCam";
+			this.Live_Camera.Click += new System.EventHandler(this.Live_Camera_Click);
+			// 
+			// TrialRun
+			// 
+			this.TrialRun.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TrialRun.Appearance.Options.UseFont = true;
+			this.TrialRun.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("TrialRun.ImageOptions.SvgImage")));
+			this.TrialRun.Location = new System.Drawing.Point(12, 173);
+			this.TrialRun.Name = "TrialRun";
+			this.TrialRun.Size = new System.Drawing.Size(273, 36);
+			this.TrialRun.StyleController = this.layoutControl1;
+			this.TrialRun.TabIndex = 7;
+			this.TrialRun.Text = "TrialRun";
+			this.TrialRun.Click += new System.EventHandler(this.TrialRun_Click);
+			// 
+			// cbbCam
+			// 
+			this.cbbCam.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cbbCam.FormattingEnabled = true;
+			this.cbbCam.Location = new System.Drawing.Point(12, 12);
+			this.cbbCam.Name = "cbbCam";
+			this.cbbCam.Size = new System.Drawing.Size(273, 27);
+			this.cbbCam.TabIndex = 0;
+			this.cbbCam.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+			// 
+			// simpleButton5
+			// 
+			this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton5.Appearance.Options.UseFont = true;
+			this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
+			this.simpleButton5.Location = new System.Drawing.Point(12, 133);
+			this.simpleButton5.Name = "simpleButton5";
+			this.simpleButton5.Size = new System.Drawing.Size(273, 36);
+			this.simpleButton5.StyleController = this.layoutControl1;
+			this.simpleButton5.TabIndex = 6;
+			this.simpleButton5.Text = "Capture";
+			this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
+			// 
+			// simpleButton4
+			// 
+			this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton4.Appearance.Options.UseFont = true;
+			this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
+			this.simpleButton4.Location = new System.Drawing.Point(12, 37);
+			this.simpleButton4.Name = "simpleButton4";
+			this.simpleButton4.Size = new System.Drawing.Size(273, 36);
+			this.simpleButton4.StyleController = this.layoutControl1;
+			this.simpleButton4.TabIndex = 5;
+			this.simpleButton4.Text = "Load_Image";
+			this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click_1);
+			// 
+			// Root
+			// 
+			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+			this.Root.GroupBordersVisible = false;
+			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem1,
             this.layoutControlItem4,
             this.layoutControlItem5,
@@ -1486,913 +1387,1019 @@
             this.layoutControlItem23,
             this.layoutControlItem1,
             this.layoutControlItem3});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(310, 410);
-            this.Root.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 371);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(290, 19);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.simpleButton4;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 35);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(290, 56);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.simpleButton5;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 147);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(290, 56);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.cbbCam;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(290, 35);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
-            // 
-            // layoutControlItem23
-            // 
-            this.layoutControlItem23.Control = this.Live_Camera;
-            this.layoutControlItem23.Location = new System.Drawing.Point(0, 91);
-            this.layoutControlItem23.Name = "layoutControlItem23";
-            this.layoutControlItem23.Size = new System.Drawing.Size(290, 56);
-            this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem23.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.simpleButton6;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 259);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(290, 56);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.simpleButton7;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 315);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(290, 56);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // dockPanel1
-            // 
-            this.dockPanel1.Controls.Add(this.controlContainer5);
-            this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dockPanel1.ID = new System.Guid("5ef53aee-6ad2-47b8-aea8-2c3088e6cc4e");
-            this.dockPanel1.Location = new System.Drawing.Point(0, 455);
-            this.dockPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Options.ShowCloseButton = false;
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(321, 298);
-            this.dockPanel1.Size = new System.Drawing.Size(321, 288);
-            this.dockPanel1.Text = "Manager_Roi";
-            // 
-            // controlContainer5
-            // 
-            this.controlContainer5.Controls.Add(this.layoutControl7);
-            this.controlContainer5.Location = new System.Drawing.Point(4, 38);
-            this.controlContainer5.Margin = new System.Windows.Forms.Padding(4);
-            this.controlContainer5.Name = "controlContainer5";
-            this.controlContainer5.Size = new System.Drawing.Size(310, 246);
-            this.controlContainer5.TabIndex = 0;
-            // 
-            // layoutControl7
-            // 
-            this.layoutControl7.Controls.Add(this.listBox_Roi);
-            this.layoutControl7.Controls.Add(this.simpleButton11);
-            this.layoutControl7.Controls.Add(this.simpleButton10);
-            this.layoutControl7.Controls.Add(this.simpleButton9);
-            this.layoutControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl7.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl7.Margin = new System.Windows.Forms.Padding(4);
-            this.layoutControl7.Name = "layoutControl7";
-            this.layoutControl7.Root = this.layoutControlGroup6;
-            this.layoutControl7.Size = new System.Drawing.Size(310, 246);
-            this.layoutControl7.TabIndex = 0;
-            this.layoutControl7.Text = "layoutControl7";
-            // 
-            // listBox_Roi
-            // 
-            this.listBox_Roi.FormattingEnabled = true;
-            this.listBox_Roi.ItemHeight = 19;
-            this.listBox_Roi.Location = new System.Drawing.Point(12, 12);
-            this.listBox_Roi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.listBox_Roi.Name = "listBox_Roi";
-            this.listBox_Roi.Size = new System.Drawing.Size(384, 137);
-            this.listBox_Roi.TabIndex = 8;
-            this.listBox_Roi.SelectedIndexChanged += new System.EventHandler(this.listBox_Roi_SelectedIndexChanged);
-            // 
-            // simpleButton11
-            // 
-            this.simpleButton11.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton11.ImageOptions.SvgImage")));
-            this.simpleButton11.Location = new System.Drawing.Point(12, 156);
-            this.simpleButton11.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton11.Name = "simpleButton11";
-            this.simpleButton11.Size = new System.Drawing.Size(121, 52);
-            this.simpleButton11.StyleController = this.layoutControl7;
-            this.simpleButton11.TabIndex = 7;
-            this.simpleButton11.Text = "Add_Roi";
-            this.simpleButton11.Click += new System.EventHandler(this.simpleButton11_Click);
-            // 
-            // simpleButton10
-            // 
-            this.simpleButton10.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton10.ImageOptions.SvgImage")));
-            this.simpleButton10.Location = new System.Drawing.Point(260, 156);
-            this.simpleButton10.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton10.Name = "simpleButton10";
-            this.simpleButton10.Size = new System.Drawing.Size(136, 52);
-            this.simpleButton10.StyleController = this.layoutControl7;
-            this.simpleButton10.TabIndex = 6;
-            this.simpleButton10.Text = "Delete_Roi";
-            this.simpleButton10.Click += new System.EventHandler(this.simpleButton10_Click);
-            // 
-            // simpleButton9
-            // 
-            this.simpleButton9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton9.ImageOptions.SvgImage")));
-            this.simpleButton9.Location = new System.Drawing.Point(137, 156);
-            this.simpleButton9.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton9.Name = "simpleButton9";
-            this.simpleButton9.Size = new System.Drawing.Size(119, 52);
-            this.simpleButton9.StyleController = this.layoutControl7;
-            this.simpleButton9.TabIndex = 5;
-            this.simpleButton9.Text = "Edit_Roi";
-            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
-            // 
-            // layoutControlGroup6
-            // 
-            this.layoutControlGroup6.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup6.GroupBordersVisible = false;
-            this.layoutControlGroup6.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+			this.Root.Name = "Root";
+			this.Root.Size = new System.Drawing.Size(297, 311);
+			this.Root.TextVisible = false;
+			// 
+			// emptySpaceItem1
+			// 
+			this.emptySpaceItem1.AllowHotTrack = false;
+			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 281);
+			this.emptySpaceItem1.Name = "emptySpaceItem1";
+			this.emptySpaceItem1.Size = new System.Drawing.Size(277, 10);
+			this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+			// 
+			// layoutControlItem4
+			// 
+			this.layoutControlItem4.Control = this.simpleButton4;
+			this.layoutControlItem4.Location = new System.Drawing.Point(0, 25);
+			this.layoutControlItem4.Name = "layoutControlItem4";
+			this.layoutControlItem4.Size = new System.Drawing.Size(277, 40);
+			this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem4.TextVisible = false;
+			// 
+			// layoutControlItem5
+			// 
+			this.layoutControlItem5.Control = this.simpleButton5;
+			this.layoutControlItem5.Location = new System.Drawing.Point(0, 121);
+			this.layoutControlItem5.Name = "layoutControlItem5";
+			this.layoutControlItem5.Size = new System.Drawing.Size(277, 40);
+			this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem5.TextVisible = false;
+			// 
+			// layoutControlItem6
+			// 
+			this.layoutControlItem6.Control = this.cbbCam;
+			this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlItem6.Name = "layoutControlItem6";
+			this.layoutControlItem6.Size = new System.Drawing.Size(277, 25);
+			this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem6.TextVisible = false;
+			// 
+			// layoutControlItem7
+			// 
+			this.layoutControlItem7.Control = this.TrialRun;
+			this.layoutControlItem7.Location = new System.Drawing.Point(0, 161);
+			this.layoutControlItem7.Name = "layoutControlItem7";
+			this.layoutControlItem7.Size = new System.Drawing.Size(277, 40);
+			this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem7.TextVisible = false;
+			// 
+			// layoutControlItem23
+			// 
+			this.layoutControlItem23.Control = this.Live_Camera;
+			this.layoutControlItem23.Location = new System.Drawing.Point(0, 65);
+			this.layoutControlItem23.Name = "layoutControlItem23";
+			this.layoutControlItem23.Size = new System.Drawing.Size(277, 56);
+			this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem23.TextVisible = false;
+			// 
+			// layoutControlItem1
+			// 
+			this.layoutControlItem1.Control = this.simpleButton6;
+			this.layoutControlItem1.Location = new System.Drawing.Point(0, 201);
+			this.layoutControlItem1.Name = "layoutControlItem1";
+			this.layoutControlItem1.Size = new System.Drawing.Size(277, 40);
+			this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem1.TextVisible = false;
+			// 
+			// layoutControlItem3
+			// 
+			this.layoutControlItem3.Control = this.simpleButton7;
+			this.layoutControlItem3.Location = new System.Drawing.Point(0, 241);
+			this.layoutControlItem3.Name = "layoutControlItem3";
+			this.layoutControlItem3.Size = new System.Drawing.Size(277, 40);
+			this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem3.TextVisible = false;
+			// 
+			// dockPanel1
+			// 
+			this.dockPanel1.Controls.Add(this.controlContainer5);
+			this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+			this.dockPanel1.ID = new System.Guid("5ef53aee-6ad2-47b8-aea8-2c3088e6cc4e");
+			this.dockPanel1.Location = new System.Drawing.Point(0, 291);
+			this.dockPanel1.Name = "dockPanel1";
+			this.dockPanel1.Options.ShowCloseButton = false;
+			this.dockPanel1.OriginalSize = new System.Drawing.Size(214, 197);
+			this.dockPanel1.Size = new System.Drawing.Size(321, 184);
+			this.dockPanel1.Text = "Manager_Roi";
+			// 
+			// controlContainer5
+			// 
+			this.controlContainer5.Controls.Add(this.layoutControl7);
+			this.controlContainer5.Location = new System.Drawing.Point(3, 26);
+			this.controlContainer5.Name = "controlContainer5";
+			this.controlContainer5.Size = new System.Drawing.Size(314, 155);
+			this.controlContainer5.TabIndex = 0;
+			// 
+			// layoutControl7
+			// 
+			this.layoutControl7.Controls.Add(this.listBox_Roi);
+			this.layoutControl7.Controls.Add(this.simpleButton11);
+			this.layoutControl7.Controls.Add(this.simpleButton10);
+			this.layoutControl7.Controls.Add(this.simpleButton9);
+			this.layoutControl7.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.layoutControl7.Location = new System.Drawing.Point(0, 0);
+			this.layoutControl7.Name = "layoutControl7";
+			this.layoutControl7.Root = this.layoutControlGroup6;
+			this.layoutControl7.Size = new System.Drawing.Size(314, 155);
+			this.layoutControl7.TabIndex = 0;
+			this.layoutControl7.Text = "layoutControl7";
+			// 
+			// listBox_Roi
+			// 
+			this.listBox_Roi.FormattingEnabled = true;
+			this.listBox_Roi.Location = new System.Drawing.Point(12, 12);
+			this.listBox_Roi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.listBox_Roi.Name = "listBox_Roi";
+			this.listBox_Roi.Size = new System.Drawing.Size(290, 82);
+			this.listBox_Roi.TabIndex = 8;
+			this.listBox_Roi.SelectedIndexChanged += new System.EventHandler(this.listBox_Roi_SelectedIndexChanged);
+			// 
+			// simpleButton11
+			// 
+			this.simpleButton11.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton11.ImageOptions.SvgImage")));
+			this.simpleButton11.Location = new System.Drawing.Point(12, 107);
+			this.simpleButton11.Name = "simpleButton11";
+			this.simpleButton11.Size = new System.Drawing.Size(90, 36);
+			this.simpleButton11.StyleController = this.layoutControl7;
+			this.simpleButton11.TabIndex = 7;
+			this.simpleButton11.Text = "Add_Roi";
+			this.simpleButton11.Click += new System.EventHandler(this.simpleButton11_Click);
+			// 
+			// simpleButton10
+			// 
+			this.simpleButton10.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton10.ImageOptions.SvgImage")));
+			this.simpleButton10.Location = new System.Drawing.Point(199, 107);
+			this.simpleButton10.Name = "simpleButton10";
+			this.simpleButton10.Size = new System.Drawing.Size(103, 36);
+			this.simpleButton10.StyleController = this.layoutControl7;
+			this.simpleButton10.TabIndex = 6;
+			this.simpleButton10.Text = "Delete_Roi";
+			this.simpleButton10.Click += new System.EventHandler(this.simpleButton10_Click);
+			// 
+			// simpleButton9
+			// 
+			this.simpleButton9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton9.ImageOptions.SvgImage")));
+			this.simpleButton9.Location = new System.Drawing.Point(106, 107);
+			this.simpleButton9.Name = "simpleButton9";
+			this.simpleButton9.Size = new System.Drawing.Size(89, 36);
+			this.simpleButton9.StyleController = this.layoutControl7;
+			this.simpleButton9.TabIndex = 5;
+			this.simpleButton9.Text = "Edit_Roi";
+			this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
+			// 
+			// layoutControlGroup6
+			// 
+			this.layoutControlGroup6.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+			this.layoutControlGroup6.GroupBordersVisible = false;
+			this.layoutControlGroup6.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem18,
             this.layoutControlItem19,
             this.layoutControlItem20,
             this.layoutControlItem2});
-            this.layoutControlGroup6.Name = "layoutControlGroup6";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(408, 220);
-            this.layoutControlGroup6.TextVisible = false;
-            // 
-            // layoutControlItem18
-            // 
-            this.layoutControlItem18.Control = this.simpleButton9;
-            this.layoutControlItem18.Location = new System.Drawing.Point(125, 144);
-            this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(123, 56);
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem18.TextVisible = false;
-            // 
-            // layoutControlItem19
-            // 
-            this.layoutControlItem19.Control = this.simpleButton10;
-            this.layoutControlItem19.Location = new System.Drawing.Point(248, 144);
-            this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(140, 56);
-            this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem19.TextVisible = false;
-            // 
-            // layoutControlItem20
-            // 
-            this.layoutControlItem20.Control = this.simpleButton11;
-            this.layoutControlItem20.Location = new System.Drawing.Point(0, 144);
-            this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(125, 56);
-            this.layoutControlItem20.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem20.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.listBox_Roi;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(388, 144);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // dockPanel6
-            // 
-            this.dockPanel6.Controls.Add(this.dockPanel6_Container);
-            this.dockPanel6.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
-            this.dockPanel6.ID = new System.Guid("bf9857fc-f522-498b-b5e3-ca79f6523556");
-            this.dockPanel6.Location = new System.Drawing.Point(321, 700);
-            this.dockPanel6.Margin = new System.Windows.Forms.Padding(4);
-            this.dockPanel6.Name = "dockPanel6";
-            this.dockPanel6.OriginalSize = new System.Drawing.Size(200, 148);
-            this.dockPanel6.Size = new System.Drawing.Size(1625, 148);
-            this.dockPanel6.Text = "Result_Tool";
-            // 
-            // dockPanel6_Container
-            // 
-            this.dockPanel6_Container.Controls.Add(this.panel5);
-            this.dockPanel6_Container.Location = new System.Drawing.Point(4, 41);
-            this.dockPanel6_Container.Margin = new System.Windows.Forms.Padding(4);
-            this.dockPanel6_Container.Name = "dockPanel6_Container";
-            this.dockPanel6_Container.Size = new System.Drawing.Size(1617, 103);
-            this.dockPanel6_Container.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1617, 103);
-            this.panel5.TabIndex = 0;
-            // 
-            // dockPanel3
-            // 
-            this.dockPanel3.Controls.Add(this.dockPanel3_Container);
-            this.dockPanel3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
-            this.dockPanel3.ID = new System.Guid("52f53d84-faf6-438b-8722-85e63d1a3aea");
-            this.dockPanel3.Location = new System.Drawing.Point(321, 105);
-            this.dockPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dockPanel3.Name = "dockPanel3";
-            this.dockPanel3.OriginalSize = new System.Drawing.Size(320, 200);
-            this.dockPanel3.Size = new System.Drawing.Size(320, 595);
-            this.dockPanel3.Text = "ControlLight";
-            // 
-            // dockPanel3_Container
-            // 
-            this.dockPanel3_Container.Controls.Add(this.flowLayoutPanel1);
-            this.dockPanel3_Container.Location = new System.Drawing.Point(4, 38);
-            this.dockPanel3_Container.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dockPanel3_Container.Name = "dockPanel3_Container";
-            this.dockPanel3_Container.Size = new System.Drawing.Size(309, 553);
-            this.dockPanel3_Container.TabIndex = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.label4);
-            this.flowLayoutPanel1.Controls.Add(this.numericUpDown1);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox1);
-            this.flowLayoutPanel1.Controls.Add(this.label5);
-            this.flowLayoutPanel1.Controls.Add(this.numericUpDown2);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox2);
-            this.flowLayoutPanel1.Controls.Add(this.label6);
-            this.flowLayoutPanel1.Controls.Add(this.numericUpDown3);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox3);
-            this.flowLayoutPanel1.Controls.Add(this.label7);
-            this.flowLayoutPanel1.Controls.Add(this.numericUpDown4);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox4);
-            this.flowLayoutPanel1.Controls.Add(this.label9);
-            this.flowLayoutPanel1.Controls.Add(this.numericUpDown6);
-            this.flowLayoutPanel1.Controls.Add(this.Check_Show_Roi_Ok);
-            this.flowLayoutPanel1.Controls.Add(this.simpleButton3);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(309, 553);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 5);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 25);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Light 1";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(88, 3);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+			this.layoutControlGroup6.Name = "layoutControlGroup6";
+			this.layoutControlGroup6.Size = new System.Drawing.Size(314, 155);
+			this.layoutControlGroup6.TextVisible = false;
+			// 
+			// layoutControlItem18
+			// 
+			this.layoutControlItem18.Control = this.simpleButton9;
+			this.layoutControlItem18.Location = new System.Drawing.Point(94, 95);
+			this.layoutControlItem18.Name = "layoutControlItem18";
+			this.layoutControlItem18.Size = new System.Drawing.Size(93, 40);
+			this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem18.TextVisible = false;
+			// 
+			// layoutControlItem19
+			// 
+			this.layoutControlItem19.Control = this.simpleButton10;
+			this.layoutControlItem19.Location = new System.Drawing.Point(187, 95);
+			this.layoutControlItem19.Name = "layoutControlItem19";
+			this.layoutControlItem19.Size = new System.Drawing.Size(107, 40);
+			this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem19.TextVisible = false;
+			// 
+			// layoutControlItem20
+			// 
+			this.layoutControlItem20.Control = this.simpleButton11;
+			this.layoutControlItem20.Location = new System.Drawing.Point(0, 95);
+			this.layoutControlItem20.Name = "layoutControlItem20";
+			this.layoutControlItem20.Size = new System.Drawing.Size(94, 40);
+			this.layoutControlItem20.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem20.TextVisible = false;
+			// 
+			// layoutControlItem2
+			// 
+			this.layoutControlItem2.Control = this.listBox_Roi;
+			this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlItem2.Name = "layoutControlItem2";
+			this.layoutControlItem2.Size = new System.Drawing.Size(294, 95);
+			this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem2.TextVisible = false;
+			// 
+			// dockPanel6
+			// 
+			this.dockPanel6.Controls.Add(this.dockPanel6_Container);
+			this.dockPanel6.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
+			this.dockPanel6.ID = new System.Guid("bf9857fc-f522-498b-b5e3-ca79f6523556");
+			this.dockPanel6.Location = new System.Drawing.Point(321, 483);
+			this.dockPanel6.Name = "dockPanel6";
+			this.dockPanel6.OriginalSize = new System.Drawing.Size(200, 97);
+			this.dockPanel6.Size = new System.Drawing.Size(618, 97);
+			this.dockPanel6.Text = "Result_Tool";
+			// 
+			// dockPanel6_Container
+			// 
+			this.dockPanel6_Container.Controls.Add(this.panel5);
+			this.dockPanel6_Container.Location = new System.Drawing.Point(3, 27);
+			this.dockPanel6_Container.Name = "dockPanel6_Container";
+			this.dockPanel6_Container.Size = new System.Drawing.Size(612, 67);
+			this.dockPanel6_Container.TabIndex = 0;
+			// 
+			// panel5
+			// 
+			this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel5.Location = new System.Drawing.Point(0, 0);
+			this.panel5.Name = "panel5";
+			this.panel5.Size = new System.Drawing.Size(612, 67);
+			this.panel5.TabIndex = 0;
+			// 
+			// dockPanel9
+			// 
+			this.dockPanel9.Controls.Add(this.dockPanel9_Container);
+			this.dockPanel9.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
+			this.dockPanel9.FloatVertical = true;
+			this.dockPanel9.ID = new System.Guid("e66763d3-7846-4c5a-afdf-5caacdf71b64");
+			this.dockPanel9.Location = new System.Drawing.Point(321, 349);
+			this.dockPanel9.Name = "dockPanel9";
+			this.dockPanel9.OriginalSize = new System.Drawing.Size(200, 134);
+			this.dockPanel9.Size = new System.Drawing.Size(618, 134);
+			this.dockPanel9.Text = "Image_Show";
+			// 
+			// dockPanel9_Container
+			// 
+			this.dockPanel9_Container.Controls.Add(this.panel7);
+			this.dockPanel9_Container.Location = new System.Drawing.Point(3, 27);
+			this.dockPanel9_Container.Name = "dockPanel9_Container";
+			this.dockPanel9_Container.Size = new System.Drawing.Size(612, 104);
+			this.dockPanel9_Container.TabIndex = 0;
+			// 
+			// dockPanel3
+			// 
+			this.dockPanel3.Controls.Add(this.dockPanel3_Container);
+			this.dockPanel3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+			this.dockPanel3.ID = new System.Guid("52f53d84-faf6-438b-8722-85e63d1a3aea");
+			this.dockPanel3.Location = new System.Drawing.Point(321, 105);
+			this.dockPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.dockPanel3.Name = "dockPanel3";
+			this.dockPanel3.OriginalSize = new System.Drawing.Size(200, 200);
+			this.dockPanel3.Size = new System.Drawing.Size(200, 244);
+			this.dockPanel3.Text = "ControlLight";
+			// 
+			// dockPanel3_Container
+			// 
+			this.dockPanel3_Container.Controls.Add(this.flowLayoutPanel1);
+			this.dockPanel3_Container.Location = new System.Drawing.Point(3, 26);
+			this.dockPanel3_Container.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.dockPanel3_Container.Name = "dockPanel3_Container";
+			this.dockPanel3_Container.Size = new System.Drawing.Size(193, 215);
+			this.dockPanel3_Container.TabIndex = 0;
+			// 
+			// flowLayoutPanel1
+			// 
+			this.flowLayoutPanel1.Controls.Add(this.label4);
+			this.flowLayoutPanel1.Controls.Add(this.numericUpDown1);
+			this.flowLayoutPanel1.Controls.Add(this.checkBox1);
+			this.flowLayoutPanel1.Controls.Add(this.label5);
+			this.flowLayoutPanel1.Controls.Add(this.numericUpDown2);
+			this.flowLayoutPanel1.Controls.Add(this.checkBox2);
+			this.flowLayoutPanel1.Controls.Add(this.label6);
+			this.flowLayoutPanel1.Controls.Add(this.numericUpDown3);
+			this.flowLayoutPanel1.Controls.Add(this.checkBox3);
+			this.flowLayoutPanel1.Controls.Add(this.label7);
+			this.flowLayoutPanel1.Controls.Add(this.numericUpDown4);
+			this.flowLayoutPanel1.Controls.Add(this.checkBox4);
+			this.flowLayoutPanel1.Controls.Add(this.label9);
+			this.flowLayoutPanel1.Controls.Add(this.numericUpDown6);
+			this.flowLayoutPanel1.Controls.Add(this.Check_Show_Roi_Ok);
+			this.flowLayoutPanel1.Controls.Add(this.simpleButton3);
+			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(193, 215);
+			this.flowLayoutPanel1.TabIndex = 0;
+			// 
+			// label4
+			// 
+			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(3, 4);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(50, 17);
+			this.label4.TabIndex = 1;
+			this.label4.Text = "Light 1";
+			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// numericUpDown1
+			// 
+			this.numericUpDown1.Location = new System.Drawing.Point(59, 2);
+			this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.numericUpDown1.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(86, 27);
-            this.numericUpDown1.TabIndex = 0;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(182, 3);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(102, 29);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "On/Off";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(4, 40);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 25);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Light 2";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(88, 38);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+			this.numericUpDown1.Name = "numericUpDown1";
+			this.numericUpDown1.Size = new System.Drawing.Size(57, 21);
+			this.numericUpDown1.TabIndex = 0;
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkBox1.Location = new System.Drawing.Point(122, 2);
+			this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(68, 21);
+			this.checkBox1.TabIndex = 2;
+			this.checkBox1.Text = "On/Off";
+			this.checkBox1.UseVisualStyleBackColor = true;
+			// 
+			// label5
+			// 
+			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.Location = new System.Drawing.Point(3, 29);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(50, 17);
+			this.label5.TabIndex = 4;
+			this.label5.Text = "Light 2";
+			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// numericUpDown2
+			// 
+			this.numericUpDown2.Location = new System.Drawing.Point(59, 27);
+			this.numericUpDown2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.numericUpDown2.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(86, 27);
-            this.numericUpDown2.TabIndex = 3;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(182, 38);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(102, 29);
-            this.checkBox2.TabIndex = 5;
-            this.checkBox2.Text = "On/Off";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(4, 75);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 25);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Light 3";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(88, 73);
-            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+			this.numericUpDown2.Name = "numericUpDown2";
+			this.numericUpDown2.Size = new System.Drawing.Size(57, 21);
+			this.numericUpDown2.TabIndex = 3;
+			// 
+			// checkBox2
+			// 
+			this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.checkBox2.AutoSize = true;
+			this.checkBox2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkBox2.Location = new System.Drawing.Point(122, 27);
+			this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.checkBox2.Name = "checkBox2";
+			this.checkBox2.Size = new System.Drawing.Size(68, 21);
+			this.checkBox2.TabIndex = 5;
+			this.checkBox2.Text = "On/Off";
+			this.checkBox2.UseVisualStyleBackColor = true;
+			// 
+			// label6
+			// 
+			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.Location = new System.Drawing.Point(3, 54);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(50, 17);
+			this.label6.TabIndex = 7;
+			this.label6.Text = "Light 3";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// numericUpDown3
+			// 
+			this.numericUpDown3.Location = new System.Drawing.Point(59, 52);
+			this.numericUpDown3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.numericUpDown3.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(86, 27);
-            this.numericUpDown3.TabIndex = 6;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(182, 73);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(102, 29);
-            this.checkBox3.TabIndex = 8;
-            this.checkBox3.Text = "On/Off";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(4, 110);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 25);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Light 4";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Location = new System.Drawing.Point(88, 108);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
+			this.numericUpDown3.Name = "numericUpDown3";
+			this.numericUpDown3.Size = new System.Drawing.Size(57, 21);
+			this.numericUpDown3.TabIndex = 6;
+			// 
+			// checkBox3
+			// 
+			this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.checkBox3.AutoSize = true;
+			this.checkBox3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkBox3.Location = new System.Drawing.Point(122, 52);
+			this.checkBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.checkBox3.Name = "checkBox3";
+			this.checkBox3.Size = new System.Drawing.Size(68, 21);
+			this.checkBox3.TabIndex = 8;
+			this.checkBox3.Text = "On/Off";
+			this.checkBox3.UseVisualStyleBackColor = true;
+			// 
+			// label7
+			// 
+			this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label7.Location = new System.Drawing.Point(3, 79);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(50, 17);
+			this.label7.TabIndex = 10;
+			this.label7.Text = "Light 4";
+			this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// numericUpDown4
+			// 
+			this.numericUpDown4.Location = new System.Drawing.Point(59, 77);
+			this.numericUpDown4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.numericUpDown4.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(86, 27);
-            this.numericUpDown4.TabIndex = 9;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.Location = new System.Drawing.Point(182, 108);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(102, 29);
-            this.checkBox4.TabIndex = 11;
-            this.checkBox4.Text = "On/Off";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(4, 140);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(143, 25);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "ExposureTime";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numericUpDown6
-            // 
-            this.numericUpDown6.Location = new System.Drawing.Point(4, 168);
-            this.numericUpDown6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.numericUpDown6.Maximum = new decimal(new int[] {
+			this.numericUpDown4.Name = "numericUpDown4";
+			this.numericUpDown4.Size = new System.Drawing.Size(57, 21);
+			this.numericUpDown4.TabIndex = 9;
+			// 
+			// checkBox4
+			// 
+			this.checkBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.checkBox4.AutoSize = true;
+			this.checkBox4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkBox4.Location = new System.Drawing.Point(122, 77);
+			this.checkBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.checkBox4.Name = "checkBox4";
+			this.checkBox4.Size = new System.Drawing.Size(68, 21);
+			this.checkBox4.TabIndex = 11;
+			this.checkBox4.Text = "On/Off";
+			this.checkBox4.UseVisualStyleBackColor = true;
+			// 
+			// label9
+			// 
+			this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label9.AutoSize = true;
+			this.label9.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label9.Location = new System.Drawing.Point(3, 100);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(95, 17);
+			this.label9.TabIndex = 16;
+			this.label9.Text = "ExposureTime";
+			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// numericUpDown6
+			// 
+			this.numericUpDown6.Location = new System.Drawing.Point(3, 119);
+			this.numericUpDown6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.numericUpDown6.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(159, 27);
-            this.numericUpDown6.TabIndex = 15;
-            this.numericUpDown6.ValueChanged += new System.EventHandler(this.numericUpDown6_ValueChanged);
-            // 
-            // Check_Show_Roi_Ok
-            // 
-            this.Check_Show_Roi_Ok.AutoSize = true;
-            this.Check_Show_Roi_Ok.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Check_Show_Roi_Ok.Location = new System.Drawing.Point(4, 202);
-            this.Check_Show_Roi_Ok.Margin = new System.Windows.Forms.Padding(4);
-            this.Check_Show_Roi_Ok.Name = "Check_Show_Roi_Ok";
-            this.Check_Show_Roi_Ok.Size = new System.Drawing.Size(160, 28);
-            this.Check_Show_Roi_Ok.TabIndex = 18;
-            this.Check_Show_Roi_Ok.Text = "Show_Roi_OK";
-            this.Check_Show_Roi_Ok.UseVisualStyleBackColor = true;
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.Appearance.Options.UseTextOptions = true;
-            this.simpleButton3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(4, 238);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(310, 53);
-            this.simpleButton3.StyleController = this.layoutControl6;
-            this.simpleButton3.TabIndex = 17;
-            this.simpleButton3.Text = "Save_Light";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click_1);
-            // 
-            // dockPanel5
-            // 
-            this.dockPanel5.Controls.Add(this.dockPanel5_Container);
-            this.dockPanel5.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dockPanel5.ID = new System.Guid("7181ec41-f8fd-44b1-85c5-0571df96d42e");
-            this.dockPanel5.Location = new System.Drawing.Point(641, 105);
-            this.dockPanel5.Margin = new System.Windows.Forms.Padding(4);
-            this.dockPanel5.Name = "dockPanel5";
-            this.dockPanel5.Options.ShowCloseButton = false;
-            this.dockPanel5.OriginalSize = new System.Drawing.Size(1337, 200);
-            this.dockPanel5.Size = new System.Drawing.Size(1305, 595);
-            this.dockPanel5.Text = "Main Setting";
-            // 
-            // dockPanel5_Container
-            // 
-            this.dockPanel5_Container.Controls.Add(this.tableLayoutPanel1);
-            this.dockPanel5_Container.Location = new System.Drawing.Point(4, 38);
-            this.dockPanel5_Container.Margin = new System.Windows.Forms.Padding(4);
-            this.dockPanel5_Container.Name = "dockPanel5_Container";
-            this.dockPanel5_Container.Size = new System.Drawing.Size(1297, 553);
-            this.dockPanel5_Container.TabIndex = 0;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.77778F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.22222F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1297, 553);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.98249F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.01751F));
-            this.tableLayoutPanel2.Controls.Add(this.layoutControl8, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.layoutControl9, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1289, 62);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // layoutControl8
-            // 
-            this.layoutControl8.Controls.Add(this.label2);
-            this.layoutControl8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl8.Location = new System.Drawing.Point(6, 6);
-            this.layoutControl8.Margin = new System.Windows.Forms.Padding(4);
-            this.layoutControl8.Name = "layoutControl8";
-            this.layoutControl8.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(832, 0, 650, 400);
-            this.layoutControl8.Root = this.layoutControlGroup7;
-            this.layoutControl8.Size = new System.Drawing.Size(761, 50);
-            this.layoutControl8.TabIndex = 0;
-            this.layoutControl8.Text = "layoutControl8";
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 12);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(711, 30);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Coordinates";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // layoutControlGroup7
-            // 
-            this.layoutControlGroup7.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup7.GroupBordersVisible = false;
-            this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+			this.numericUpDown6.Name = "numericUpDown6";
+			this.numericUpDown6.Size = new System.Drawing.Size(106, 21);
+			this.numericUpDown6.TabIndex = 15;
+			this.numericUpDown6.ValueChanged += new System.EventHandler(this.numericUpDown6_ValueChanged);
+			// 
+			// Check_Show_Roi_Ok
+			// 
+			this.Check_Show_Roi_Ok.AutoSize = true;
+			this.Check_Show_Roi_Ok.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Check_Show_Roi_Ok.Location = new System.Drawing.Point(3, 145);
+			this.Check_Show_Roi_Ok.Name = "Check_Show_Roi_Ok";
+			this.Check_Show_Roi_Ok.Size = new System.Drawing.Size(106, 20);
+			this.Check_Show_Roi_Ok.TabIndex = 18;
+			this.Check_Show_Roi_Ok.Text = "Show_Roi_OK";
+			this.Check_Show_Roi_Ok.UseVisualStyleBackColor = true;
+			// 
+			// simpleButton3
+			// 
+			this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton3.Appearance.Options.UseFont = true;
+			this.simpleButton3.Appearance.Options.UseTextOptions = true;
+			this.simpleButton3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+			this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+			this.simpleButton3.Location = new System.Drawing.Point(3, 171);
+			this.simpleButton3.Name = "simpleButton3";
+			this.simpleButton3.Size = new System.Drawing.Size(207, 36);
+			this.simpleButton3.StyleController = this.layoutControl6;
+			this.simpleButton3.TabIndex = 17;
+			this.simpleButton3.Text = "Save_Light";
+			this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click_1);
+			// 
+			// dockPanel5
+			// 
+			this.dockPanel5.Controls.Add(this.dockPanel5_Container);
+			this.dockPanel5.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+			this.dockPanel5.ID = new System.Guid("7181ec41-f8fd-44b1-85c5-0571df96d42e");
+			this.dockPanel5.Location = new System.Drawing.Point(521, 105);
+			this.dockPanel5.Name = "dockPanel5";
+			this.dockPanel5.Options.ShowCloseButton = false;
+			this.dockPanel5.OriginalSize = new System.Drawing.Size(234, 200);
+			this.dockPanel5.Size = new System.Drawing.Size(234, 244);
+			this.dockPanel5.Text = "Main Setting";
+			// 
+			// dockPanel5_Container
+			// 
+			this.dockPanel5_Container.Controls.Add(this.tableLayoutPanel1);
+			this.dockPanel5_Container.Location = new System.Drawing.Point(3, 26);
+			this.dockPanel5_Container.Name = "dockPanel5_Container";
+			this.dockPanel5_Container.Size = new System.Drawing.Size(228, 215);
+			this.dockPanel5_Container.TabIndex = 0;
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 1;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 2;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.77778F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.22222F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(228, 215);
+			this.tableLayoutPanel1.TabIndex = 0;
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
+			this.tableLayoutPanel2.ColumnCount = 2;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.98249F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.01751F));
+			this.tableLayoutPanel2.Controls.Add(this.layoutControl8, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.layoutControl9, 1, 0);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 1;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(222, 21);
+			this.tableLayoutPanel2.TabIndex = 0;
+			// 
+			// layoutControl8
+			// 
+			this.layoutControl8.Controls.Add(this.label2);
+			this.layoutControl8.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.layoutControl8.Location = new System.Drawing.Point(5, 5);
+			this.layoutControl8.Name = "layoutControl8";
+			this.layoutControl8.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(832, 0, 650, 400);
+			this.layoutControl8.Root = this.layoutControlGroup7;
+			this.layoutControl8.Size = new System.Drawing.Size(123, 11);
+			this.layoutControl8.TabIndex = 0;
+			this.layoutControl8.Text = "layoutControl8";
+			// 
+			// label2
+			// 
+			this.label2.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(12, 12);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(82, 20);
+			this.label2.TabIndex = 4;
+			this.label2.Text = "Coordinates";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// layoutControlGroup7
+			// 
+			this.layoutControlGroup7.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+			this.layoutControlGroup7.GroupBordersVisible = false;
+			this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem22});
-            this.layoutControlGroup7.Name = "Root";
-            this.layoutControlGroup7.Size = new System.Drawing.Size(735, 54);
-            this.layoutControlGroup7.TextVisible = false;
-            // 
-            // layoutControlItem22
-            // 
-            this.layoutControlItem22.Control = this.label2;
-            this.layoutControlItem22.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem22.Name = "layoutControlItem22";
-            this.layoutControlItem22.Size = new System.Drawing.Size(715, 34);
-            this.layoutControlItem22.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem22.TextVisible = false;
-            // 
-            // layoutControl9
-            // 
-            this.layoutControl9.Controls.Add(this.label3);
-            this.layoutControl9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl9.Location = new System.Drawing.Point(777, 6);
-            this.layoutControl9.Margin = new System.Windows.Forms.Padding(4);
-            this.layoutControl9.Name = "layoutControl9";
-            this.layoutControl9.Root = this.layoutControlGroup8;
-            this.layoutControl9.Size = new System.Drawing.Size(506, 50);
-            this.layoutControl9.TabIndex = 1;
-            this.layoutControl9.Text = "layoutControl9";
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 12);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(456, 30);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Cycle Time";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // layoutControlGroup8
-            // 
-            this.layoutControlGroup8.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup8.GroupBordersVisible = false;
-            this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+			this.layoutControlGroup7.Name = "Root";
+			this.layoutControlGroup7.Size = new System.Drawing.Size(106, 44);
+			this.layoutControlGroup7.TextVisible = false;
+			// 
+			// layoutControlItem22
+			// 
+			this.layoutControlItem22.Control = this.label2;
+			this.layoutControlItem22.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlItem22.Name = "layoutControlItem22";
+			this.layoutControlItem22.Size = new System.Drawing.Size(86, 24);
+			this.layoutControlItem22.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem22.TextVisible = false;
+			// 
+			// layoutControl9
+			// 
+			this.layoutControl9.Controls.Add(this.label3);
+			this.layoutControl9.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.layoutControl9.Location = new System.Drawing.Point(136, 5);
+			this.layoutControl9.Name = "layoutControl9";
+			this.layoutControl9.Root = this.layoutControlGroup8;
+			this.layoutControl9.Size = new System.Drawing.Size(81, 11);
+			this.layoutControl9.TabIndex = 1;
+			this.layoutControl9.Text = "layoutControl9";
+			// 
+			// label3
+			// 
+			this.label3.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Location = new System.Drawing.Point(12, 12);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(40, 20);
+			this.label3.TabIndex = 4;
+			this.label3.Text = "Cycle Time";
+			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// layoutControlGroup8
+			// 
+			this.layoutControlGroup8.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+			this.layoutControlGroup8.GroupBordersVisible = false;
+			this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem24});
-            this.layoutControlGroup8.Name = "layoutControlGroup8";
-            this.layoutControlGroup8.Size = new System.Drawing.Size(480, 54);
-            this.layoutControlGroup8.TextVisible = false;
-            // 
-            // layoutControlItem24
-            // 
-            this.layoutControlItem24.Control = this.label3;
-            this.layoutControlItem24.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem24.Name = "layoutControlItem24";
-            this.layoutControlItem24.Size = new System.Drawing.Size(460, 34);
-            this.layoutControlItem24.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem24.TextVisible = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(4, 74);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1289, 475);
-            this.panel1.TabIndex = 1;
-            // 
-            // popupMenu4
-            // 
-            this.popupMenu4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+			this.layoutControlGroup8.Name = "layoutControlGroup8";
+			this.layoutControlGroup8.Size = new System.Drawing.Size(64, 44);
+			this.layoutControlGroup8.TextVisible = false;
+			// 
+			// layoutControlItem24
+			// 
+			this.layoutControlItem24.Control = this.label3;
+			this.layoutControlItem24.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlItem24.Name = "layoutControlItem24";
+			this.layoutControlItem24.Size = new System.Drawing.Size(44, 24);
+			this.layoutControlItem24.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem24.TextVisible = false;
+			// 
+			// panel1
+			// 
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel1.Location = new System.Drawing.Point(3, 30);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(222, 182);
+			this.panel1.TabIndex = 1;
+			// 
+			// popupMenu4
+			// 
+			this.popupMenu4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.StringsSelectLight)});
-            this.popupMenu4.Manager = this.barManager1;
-            this.popupMenu4.Name = "popupMenu4";
-            // 
-            // dockPanel2_Container
-            // 
-            this.dockPanel2_Container.Location = new System.Drawing.Point(3, 27);
-            this.dockPanel2_Container.Margin = new System.Windows.Forms.Padding(4);
-            this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(1185, 112);
-            this.dockPanel2_Container.TabIndex = 0;
-            // 
-            // dockPanel2
-            // 
-            this.dockPanel2.Controls.Add(this.dockPanel2_Container);
-            this.dockPanel2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
-            this.dockPanel2.ID = new System.Guid("05730fa9-b574-4803-8e82-71cf0b9d4f46");
-            this.dockPanel2.Location = new System.Drawing.Point(300, 707);
-            this.dockPanel2.Margin = new System.Windows.Forms.Padding(4);
-            this.dockPanel2.Name = "dockPanel2";
-            this.dockPanel2.OriginalSize = new System.Drawing.Size(200, 142);
-            this.dockPanel2.Size = new System.Drawing.Size(1786, 208);
-            this.dockPanel2.Text = "Result";
-            // 
-            // dockPanel1_Container
-            // 
-            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 26);
-            this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(4);
-            this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(1185, 377);
-            this.dockPanel1_Container.TabIndex = 0;
-            // 
-            // dockMainCame
-            // 
-            this.dockMainCame.Controls.Add(this.dockPanel1_Container);
-            this.dockMainCame.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dockMainCame.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dockMainCame.ID = new System.Guid("175b0d69-6756-45c6-be29-8f795fc800ff");
-            this.dockMainCame.Location = new System.Drawing.Point(300, 143);
-            this.dockMainCame.Margin = new System.Windows.Forms.Padding(4);
-            this.dockMainCame.Name = "dockMainCame";
-            this.dockMainCame.OriginalSize = new System.Drawing.Size(1191, 200);
-            this.dockMainCame.Size = new System.Drawing.Size(1786, 564);
-            this.dockMainCame.Text = "CameraSetting";
-            // 
-            // xtraTabPage3
-            // 
-            this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(281, 459);
-            // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(281, 459);
-            this.panel4.TabIndex = 0;
-            // 
-            // xtraTabPage2
-            // 
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(281, 459);
-            // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(281, 459);
-            this.panel3.TabIndex = 0;
-            // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(281, 459);
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(281, 459);
-            this.panel2.TabIndex = 0;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.popupMenu4.Manager = this.barManager1;
+			this.popupMenu4.Name = "popupMenu4";
+			// 
+			// dockPanel2_Container
+			// 
+			this.dockPanel2_Container.Location = new System.Drawing.Point(3, 27);
+			this.dockPanel2_Container.Name = "dockPanel2_Container";
+			this.dockPanel2_Container.Size = new System.Drawing.Size(1185, 112);
+			this.dockPanel2_Container.TabIndex = 0;
+			// 
+			// dockPanel2
+			// 
+			this.dockPanel2.Controls.Add(this.dockPanel2_Container);
+			this.dockPanel2.Cursor = System.Windows.Forms.Cursors.Default;
+			this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
+			this.dockPanel2.ID = new System.Guid("05730fa9-b574-4803-8e82-71cf0b9d4f46");
+			this.dockPanel2.Location = new System.Drawing.Point(200, 484);
+			this.dockPanel2.Name = "dockPanel2";
+			this.dockPanel2.OriginalSize = new System.Drawing.Size(200, 142);
+			this.dockPanel2.Size = new System.Drawing.Size(1191, 142);
+			this.dockPanel2.Text = "Result";
+			// 
+			// dockPanel1_Container
+			// 
+			this.dockPanel1_Container.Location = new System.Drawing.Point(3, 26);
+			this.dockPanel1_Container.Name = "dockPanel1_Container";
+			this.dockPanel1_Container.Size = new System.Drawing.Size(1185, 377);
+			this.dockPanel1_Container.TabIndex = 0;
+			// 
+			// dockMainCame
+			// 
+			this.dockMainCame.Controls.Add(this.dockPanel1_Container);
+			this.dockMainCame.Cursor = System.Windows.Forms.Cursors.Default;
+			this.dockMainCame.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+			this.dockMainCame.ID = new System.Guid("175b0d69-6756-45c6-be29-8f795fc800ff");
+			this.dockMainCame.Location = new System.Drawing.Point(200, 98);
+			this.dockMainCame.Name = "dockMainCame";
+			this.dockMainCame.OriginalSize = new System.Drawing.Size(1191, 200);
+			this.dockMainCame.Size = new System.Drawing.Size(1191, 386);
+			this.dockMainCame.Text = "CameraSetting";
+			// 
+			// xtraTabPage3
+			// 
+			this.xtraTabPage3.Name = "xtraTabPage3";
+			this.xtraTabPage3.Size = new System.Drawing.Size(281, 459);
+			// 
+			// panel4
+			// 
+			this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel4.Location = new System.Drawing.Point(0, 0);
+			this.panel4.Name = "panel4";
+			this.panel4.Size = new System.Drawing.Size(281, 459);
+			this.panel4.TabIndex = 0;
+			// 
+			// xtraTabPage2
+			// 
+			this.xtraTabPage2.Name = "xtraTabPage2";
+			this.xtraTabPage2.Size = new System.Drawing.Size(281, 459);
+			// 
+			// panel3
+			// 
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel3.Location = new System.Drawing.Point(0, 0);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(281, 459);
+			this.panel3.TabIndex = 0;
+			// 
+			// xtraTabPage1
+			// 
+			this.xtraTabPage1.Name = "xtraTabPage1";
+			this.xtraTabPage1.Size = new System.Drawing.Size(281, 459);
+			// 
+			// panel2
+			// 
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel2.Location = new System.Drawing.Point(0, 0);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(281, 459);
+			this.panel2.TabIndex = 0;
+			// 
+			// openFileDialog1
+			// 
+			this.openFileDialog1.FileName = "openFileDialog1";
+			// 
+			// contextMenuStrip2
+			// 
+			this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SavePic,
             this.LoadImage,
             this.ResetImage,
             this.Close_Make_Roi});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(208, 132);
-            // 
-            // SavePic
-            // 
-            this.SavePic.Name = "SavePic";
-            this.SavePic.Size = new System.Drawing.Size(207, 32);
-            this.SavePic.Text = "SavePic";
-            this.SavePic.Click += new System.EventHandler(this.SavePic_Click);
-            // 
-            // LoadImage
-            // 
-            this.LoadImage.Name = "LoadImage";
-            this.LoadImage.Size = new System.Drawing.Size(207, 32);
-            this.LoadImage.Text = "LoadImage";
-            this.LoadImage.Click += new System.EventHandler(this.LoadImage_Click);
-            // 
-            // ResetImage
-            // 
-            this.ResetImage.Name = "ResetImage";
-            this.ResetImage.Size = new System.Drawing.Size(207, 32);
-            this.ResetImage.Text = "Reset_Image";
-            this.ResetImage.Click += new System.EventHandler(this.ResetImage_Click);
-            // 
-            // Close_Make_Roi
-            // 
-            this.Close_Make_Roi.Name = "Close_Make_Roi";
-            this.Close_Make_Roi.Size = new System.Drawing.Size(207, 32);
-            this.Close_Make_Roi.Text = "Close Make_Roi";
-            this.Close_Make_Roi.Click += new System.EventHandler(this.Close_Make_Roi_Click);
-            // 
-            // xtraTabPage5
-            // 
-            this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(263, 72);
-            // 
-            // treeView3
-            // 
-            this.treeView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView3.LineColor = System.Drawing.Color.Empty;
-            this.treeView3.Location = new System.Drawing.Point(0, 0);
-            this.treeView3.Name = "treeView3";
-            this.treeView3.Size = new System.Drawing.Size(263, 63);
-            this.treeView3.TabIndex = 0;
-            // 
-            // xtraTabPage4
-            // 
-            this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(263, 72);
-            // 
-            // treeView2
-            // 
-            this.treeView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView2.LineColor = System.Drawing.Color.Empty;
-            this.treeView2.Location = new System.Drawing.Point(0, 0);
-            this.treeView2.Name = "treeView2";
-            this.treeView2.Size = new System.Drawing.Size(263, 72);
-            this.treeView2.TabIndex = 0;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.TrialRun;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 203);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(290, 56);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
-            // 
-            // Setting
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2492, 848);
-            this.Controls.Add(this.dockPanel5);
-            this.Controls.Add(this.dockPanel3);
-            this.Controls.Add(this.dockPanel6);
-            this.Controls.Add(this.panelContainer1);
-            this.Controls.Add(this.panelContainer3);
-            this.Controls.Add(this.panelContainer2);
-            this.Controls.Add(this.dockMainCame);
-            this.Controls.Add(this.dockPanel2);
-            this.Controls.Add(this.barDockControlLeft);
-            this.Controls.Add(this.barDockControlRight);
-            this.Controls.Add(this.barDockControlBottom);
-            this.Controls.Add(this.barDockControlTop);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Setting";
-            this.Text = "FormSetting";
-            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
-            this.panelContainer2.ResumeLayout(false);
-            this.dockPanel8.ResumeLayout(false);
-            this.dockPanel8_Container.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
-            this.dockPanel4.ResumeLayout(false);
-            this.dockPanel4_Container.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
-            this.panelContainer3.ResumeLayout(false);
-            this.dockPanel7.ResumeLayout(false);
-            this.dockPanel7_Container.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.contextMenuStrip3.ResumeLayout(false);
-            this.DockSetting.ResumeLayout(false);
-            this.controlContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).EndInit();
-            this.layoutControl6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numeric_cali)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_stepbystep.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            this.panelContainer1.ResumeLayout(false);
-            this.dockControl.ResumeLayout(false);
-            this.controlContainer4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            this.dockPanel1.ResumeLayout(false);
-            this.controlContainer5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl7)).EndInit();
-            this.layoutControl7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            this.dockPanel6.ResumeLayout(false);
-            this.dockPanel6_Container.ResumeLayout(false);
-            this.dockPanel3.ResumeLayout(false);
-            this.dockPanel3_Container.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            this.dockPanel5.ResumeLayout(false);
-            this.dockPanel5_Container.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl8)).EndInit();
-            this.layoutControl8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl9)).EndInit();
-            this.layoutControl9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu4)).EndInit();
-            this.dockPanel2.ResumeLayout(false);
-            this.dockMainCame.ResumeLayout(false);
-            this.contextMenuStrip2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.contextMenuStrip2.Name = "contextMenuStrip2";
+			this.contextMenuStrip2.Size = new System.Drawing.Size(158, 92);
+			// 
+			// SavePic
+			// 
+			this.SavePic.Name = "SavePic";
+			this.SavePic.Size = new System.Drawing.Size(157, 22);
+			this.SavePic.Text = "SavePic";
+			this.SavePic.Click += new System.EventHandler(this.SavePic_Click);
+			// 
+			// LoadImage
+			// 
+			this.LoadImage.Name = "LoadImage";
+			this.LoadImage.Size = new System.Drawing.Size(157, 22);
+			this.LoadImage.Text = "LoadImage";
+			this.LoadImage.Click += new System.EventHandler(this.LoadImage_Click);
+			// 
+			// ResetImage
+			// 
+			this.ResetImage.Name = "ResetImage";
+			this.ResetImage.Size = new System.Drawing.Size(157, 22);
+			this.ResetImage.Text = "Reset_Image";
+			this.ResetImage.Click += new System.EventHandler(this.ResetImage_Click);
+			// 
+			// Close_Make_Roi
+			// 
+			this.Close_Make_Roi.Name = "Close_Make_Roi";
+			this.Close_Make_Roi.Size = new System.Drawing.Size(157, 22);
+			this.Close_Make_Roi.Text = "Close Make_Roi";
+			this.Close_Make_Roi.Click += new System.EventHandler(this.Close_Make_Roi_Click);
+			// 
+			// xtraTabPage5
+			// 
+			this.xtraTabPage5.Name = "xtraTabPage5";
+			this.xtraTabPage5.Size = new System.Drawing.Size(263, 72);
+			// 
+			// treeView3
+			// 
+			this.treeView3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.treeView3.LineColor = System.Drawing.Color.Empty;
+			this.treeView3.Location = new System.Drawing.Point(0, 0);
+			this.treeView3.Name = "treeView3";
+			this.treeView3.Size = new System.Drawing.Size(263, 63);
+			this.treeView3.TabIndex = 0;
+			// 
+			// xtraTabPage4
+			// 
+			this.xtraTabPage4.Name = "xtraTabPage4";
+			this.xtraTabPage4.Size = new System.Drawing.Size(263, 72);
+			// 
+			// treeView2
+			// 
+			this.treeView2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.treeView2.LineColor = System.Drawing.Color.Empty;
+			this.treeView2.Location = new System.Drawing.Point(0, 0);
+			this.treeView2.Name = "treeView2";
+			this.treeView2.Size = new System.Drawing.Size(263, 72);
+			this.treeView2.TabIndex = 0;
+			// 
+			// panel7
+			// 
+			this.panel7.Controls.Add(this.flowLayoutPanel4);
+			this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel7.Location = new System.Drawing.Point(0, 0);
+			this.panel7.Name = "panel7";
+			this.panel7.Size = new System.Drawing.Size(612, 104);
+			this.panel7.TabIndex = 0;
+			// 
+			// flowLayoutPanel4
+			// 
+			this.flowLayoutPanel4.AutoScroll = true;
+			this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+			this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+			this.flowLayoutPanel4.Size = new System.Drawing.Size(612, 104);
+			this.flowLayoutPanel4.TabIndex = 1;
+			this.flowLayoutPanel4.WrapContents = false;
+			// 
+			// dockPanel10
+			// 
+			this.dockPanel10.Controls.Add(this.dockPanel10_Container);
+			this.dockPanel10.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+			this.dockPanel10.ID = new System.Guid("93c2e7de-a27f-4886-b096-dd9e9ebd1b7b");
+			this.dockPanel10.Location = new System.Drawing.Point(755, 105);
+			this.dockPanel10.Name = "dockPanel10";
+			this.dockPanel10.OriginalSize = new System.Drawing.Size(184, 200);
+			this.dockPanel10.Size = new System.Drawing.Size(184, 244);
+			this.dockPanel10.Text = "dockPanel10";
+			// 
+			// dockPanel10_Container
+			// 
+			this.dockPanel10_Container.Controls.Add(this.panel8);
+			this.dockPanel10_Container.Location = new System.Drawing.Point(4, 26);
+			this.dockPanel10_Container.Name = "dockPanel10_Container";
+			this.dockPanel10_Container.Size = new System.Drawing.Size(177, 215);
+			this.dockPanel10_Container.TabIndex = 0;
+			// 
+			// listBox_View
+			// 
+			this.listBox_View.ContextMenuStrip = this.contextMenuStrip1;
+			this.listBox_View.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listBox_View.FormattingEnabled = true;
+			this.listBox_View.Location = new System.Drawing.Point(3, 2);
+			this.listBox_View.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.listBox_View.Name = "listBox_View";
+			this.listBox_View.Size = new System.Drawing.Size(109, 98);
+			this.listBox_View.TabIndex = 2;
+			// 
+			// panel8
+			// 
+			this.panel8.Controls.Add(this.flowLayoutPanel5);
+			this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel8.Location = new System.Drawing.Point(0, 0);
+			this.panel8.Name = "panel8";
+			this.panel8.Size = new System.Drawing.Size(177, 215);
+			this.panel8.TabIndex = 0;
+			// 
+			// flowLayoutPanel5
+			// 
+			this.flowLayoutPanel5.Controls.Add(this.simpleButton12);
+			this.flowLayoutPanel5.Controls.Add(this.simpleButton1);
+			this.flowLayoutPanel5.Controls.Add(this.simpleButton2);
+			this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+			this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+			this.flowLayoutPanel5.Size = new System.Drawing.Size(177, 215);
+			this.flowLayoutPanel5.TabIndex = 0;
+			// 
+			// simpleButton12
+			// 
+			this.simpleButton12.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton12.Appearance.Options.UseFont = true;
+			this.simpleButton12.Appearance.Options.UseTextOptions = true;
+			this.simpleButton12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+			this.simpleButton12.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton12.ImageOptions.SvgImage")));
+			this.simpleButton12.Location = new System.Drawing.Point(3, 3);
+			this.simpleButton12.Name = "simpleButton12";
+			this.simpleButton12.Size = new System.Drawing.Size(171, 36);
+			this.simpleButton12.StyleController = this.layoutControl6;
+			this.simpleButton12.TabIndex = 6;
+			this.simpleButton12.Text = "Save_Tool";
+			// 
+			// simpleButton1
+			// 
+			this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton1.Appearance.Options.UseFont = true;
+			this.simpleButton1.Appearance.Options.UseTextOptions = true;
+			this.simpleButton1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+			this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+			this.simpleButton1.Location = new System.Drawing.Point(3, 45);
+			this.simpleButton1.Name = "simpleButton1";
+			this.simpleButton1.Size = new System.Drawing.Size(171, 36);
+			this.simpleButton1.StyleController = this.layoutControl6;
+			this.simpleButton1.TabIndex = 10;
+			this.simpleButton1.Text = "Run_Component";
+			// 
+			// simpleButton2
+			// 
+			this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton2.Appearance.Options.UseFont = true;
+			this.simpleButton2.Appearance.Options.UseTextOptions = true;
+			this.simpleButton2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+			this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+			this.simpleButton2.Location = new System.Drawing.Point(3, 87);
+			this.simpleButton2.Name = "simpleButton2";
+			this.simpleButton2.Size = new System.Drawing.Size(171, 36);
+			this.simpleButton2.StyleController = this.layoutControl6;
+			this.simpleButton2.TabIndex = 11;
+			this.simpleButton2.Text = "Run_Tool";
+			// 
+			// Setting
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(1292, 580);
+			this.Controls.Add(this.dockPanel5);
+			this.Controls.Add(this.dockPanel10);
+			this.Controls.Add(this.dockPanel3);
+			this.Controls.Add(this.dockPanel9);
+			this.Controls.Add(this.dockPanel6);
+			this.Controls.Add(this.panelContainer1);
+			this.Controls.Add(this.panelContainer3);
+			this.Controls.Add(this.panelContainer2);
+			this.Controls.Add(this.dockMainCame);
+			this.Controls.Add(this.dockPanel2);
+			this.Controls.Add(this.barDockControlLeft);
+			this.Controls.Add(this.barDockControlRight);
+			this.Controls.Add(this.barDockControlBottom);
+			this.Controls.Add(this.barDockControlTop);
+			this.Name = "Setting";
+			this.Text = "FormSetting";
+			((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
+			this.panelContainer2.ResumeLayout(false);
+			this.dockPanel8.ResumeLayout(false);
+			this.dockPanel8_Container.ResumeLayout(false);
+			this.flowLayoutPanel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.popupMenu3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.popupMenu2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
+			this.dockPanel4.ResumeLayout(false);
+			this.dockPanel4_Container.ResumeLayout(false);
+			this.flowLayoutPanel3.ResumeLayout(false);
+			this.flowLayoutPanel3.PerformLayout();
+			this.panelContainer3.ResumeLayout(false);
+			this.dockPanel7.ResumeLayout(false);
+			this.dockPanel7_Container.ResumeLayout(false);
+			this.tableLayoutPanel3.ResumeLayout(false);
+			this.contextMenuStrip1.ResumeLayout(false);
+			this.contextMenuStrip3.ResumeLayout(false);
+			this.DockSetting.ResumeLayout(false);
+			this.controlContainer3.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).EndInit();
+			this.layoutControl6.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.numeric_cali)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.checkEdit_stepbystep.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).EndInit();
+			this.panelContainer1.ResumeLayout(false);
+			this.dockControl.ResumeLayout(false);
+			this.controlContainer4.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+			this.layoutControl1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+			this.dockPanel1.ResumeLayout(false);
+			this.controlContainer5.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.layoutControl7)).EndInit();
+			this.layoutControl7.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+			this.dockPanel6.ResumeLayout(false);
+			this.dockPanel6_Container.ResumeLayout(false);
+			this.dockPanel9.ResumeLayout(false);
+			this.dockPanel9_Container.ResumeLayout(false);
+			this.dockPanel3.ResumeLayout(false);
+			this.dockPanel3_Container.ResumeLayout(false);
+			this.flowLayoutPanel1.ResumeLayout(false);
+			this.flowLayoutPanel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
+			this.dockPanel5.ResumeLayout(false);
+			this.dockPanel5_Container.ResumeLayout(false);
+			this.tableLayoutPanel1.ResumeLayout(false);
+			this.tableLayoutPanel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.layoutControl8)).EndInit();
+			this.layoutControl8.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControl9)).EndInit();
+			this.layoutControl9.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.popupMenu4)).EndInit();
+			this.dockPanel2.ResumeLayout(false);
+			this.dockMainCame.ResumeLayout(false);
+			this.contextMenuStrip2.ResumeLayout(false);
+			this.panel7.ResumeLayout(false);
+			this.dockPanel10.ResumeLayout(false);
+			this.dockPanel10_Container.ResumeLayout(false);
+			this.panel8.ResumeLayout(false);
+			this.flowLayoutPanel5.ResumeLayout(false);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
@@ -2456,8 +2463,6 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl9;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton12;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem21;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private System.Windows.Forms.Panel panel4;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
@@ -2566,14 +2571,10 @@
 		private DevExpress.XtraBars.BarButtonItem barButtonItem32;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
 		private System.Windows.Forms.ToolStripMenuItem Delete_Tool;
-		private DevExpress.XtraEditors.SimpleButton simpleButton1;
-		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.NumericUpDown numericUpDown6;
 		private DevExpress.XtraBars.BarListItem StringsSelectLight;
 		private DevExpress.XtraBars.PopupMenu popupMenu4;
-		private DevExpress.XtraEditors.SimpleButton simpleButton2;
-		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
 		private System.Windows.Forms.Label label1;
 		private DevExpress.XtraEditors.SimpleButton simpleButton3;
@@ -2588,5 +2589,17 @@
         private DevExpress.XtraBars.BarSubItem barSubItem8;
         private DevExpress.XtraBars.BarListItem barListItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-    }
+		private DevExpress.XtraBars.Docking.DockPanel dockPanel9;
+		private DevExpress.XtraBars.Docking.ControlContainer dockPanel9_Container;
+		private System.Windows.Forms.Panel panel7;
+		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+		private DevExpress.XtraBars.Docking.DockPanel dockPanel10;
+		private DevExpress.XtraBars.Docking.ControlContainer dockPanel10_Container;
+		private System.Windows.Forms.ListBox listBox_View;
+		private System.Windows.Forms.Panel panel8;
+		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+		private DevExpress.XtraEditors.SimpleButton simpleButton12;
+		private DevExpress.XtraEditors.SimpleButton simpleButton1;
+		private DevExpress.XtraEditors.SimpleButton simpleButton2;
+	}
 }

@@ -8,6 +8,7 @@ using DevExpress.Utils.Extensions;
 using DevExpress.Xpo.DB;
 using DevExpress.XtraBars;
 using DevExpress.XtraDashboardLayout;
+using DevExpress.XtraPrinting;
 using DevExpress.XtraPrinting.Export.Pdf;
 using DevExpress.XtraSplashScreen;
 using HalconDotNet;
@@ -93,6 +94,10 @@ namespace Design_Form
 		{
 			shapeModel.RequestDataFromParent += OnChildRequestData;
 			textureInspectionPara.RequestDataFromParent += OnChildRequestData_textureInspectionPara;
+		}
+		public void inital_load_image()
+		{
+
 		}
 		private void OnChildRequestData()
 		{
@@ -249,6 +254,7 @@ namespace Design_Form
 			for (int i = 0; i < Job_Model.Statatic_Model.Dino_lites.Count; i++)
 			{
 				cbbCam.Items.Add("Camera : " + i+1);
+				load_inital(Job_Model.Statatic_Model.model_run.Cameras[i].FolderPath);
 			}
 
 			//  Inital_Camera(Job_Model.Statatic_Model.model_run);
@@ -262,7 +268,7 @@ namespace Design_Form
 			combo_Light.SelectedIndex = 0;
 			load_data_light();
 		}
-	
+	  
 
 		private void inital_Dislay_Halcon()
 		{
@@ -279,52 +285,95 @@ namespace Design_Form
 		{
 			libaryHalcon.clear_Obj(HSmartWindowControl.HalconWindow);
 		}
+		private void load_image_sub()
+		{
+			flowLayoutPanel4.Controls.Clear();
+			int width = flowLayoutPanel4.Width;
+			int height = flowLayoutPanel4.Height;
+			for (int i = 0; i < Images.Count/2; i++)
+			{
+				Panel panel = new Panel();
+				panel.Anchor = AnchorStyles.None;
+				
+			
+				panel.Width = width/8;
+				panel.Height = height;
+				HOperatorSet.GetImageSize(InputIMG, out HTuple width_, out HTuple height_);
+			//	HOperatorSet
+				HalconDotNet.HSmartWindowControl HSmartWindowControl1 = new HSmartWindowControl();
+				HSmartWindowControl1.Click += Panel_Click;
+				HSmartWindowControl1.Tag = i;
+				panel.Controls.Add(HSmartWindowControl1);
+				HSmartWindowControl1.Dock = DockStyle.Fill;
+				vision_hacon.SetGear(HSmartWindowControl1.HalconWindow, Images[i]);
+				
+				HTuple top = 0;
+				HTuple bottom =panel.Height ;
+				HTuple right = panel.Width ;
+				HTuple left =0; // Canh giữa theo trục X
+
+				HSmartWindowControl1.HalconWindow.SetPart(top, left, height_-1, width_-1);
+				
+				flowLayoutPanel4.Controls.Add(panel);
+			}	
+		}
+		private void Panel_Click(object sender, EventArgs e)
+		{
+			HSmartWindowControl clickedPanel = sender as HSmartWindowControl;
+
+			if (clickedPanel != null)
+			{
+				int index = (int)clickedPanel.Tag;
+				vision_hacon.SetGear(HSmartWindowControl.HalconWindow, Images[index]);
+			}
+		}
+		private void load_inital(string FolderPath)
+		{
+			// Load ảnh mới
+			List<HObject> imageList = Job_Model.Statatic_Model.model_run.Cameras[camera].load_image(FolderPath);
+
+
+
+			if (imageList.Count > 0)
+			{
+				Images.Clear();
+				for (int i = 0; i < imageList.Count; i++)
+				{
+					Images[i] = imageList[i];
+					Images[i + 50] = imageList[i];
+				}
+				InputIMG = Images[0];
+				vision_hacon.SetGear(HSmartWindowControl.HalconWindow, InputIMG);
+				// Thiết lập vùng hiển thị (zoom out 20%)
+				HTuple width, height;
+				HOperatorSet.GetImageSize(InputIMG, out width, out height);
+				HOperatorSet.SetPart(HSmartWindowControl.HalconWindow, 0, 0, height, width);
+				load_image_sub();
+			}
+			else
+			{
+
+			}
+		}
 		private void load_Image()
 		{
 			try
 			{
-				// Cấu hình OpenFileDialog
-				openFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png;*.bmp;*.tiff;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.tiff;*.gif|All files (*.*)|*.*";
-				openFileDialog1.Title = "Select Image File(s)";
-				openFileDialog1.Multiselect = true; // Cho phép chọn nhiều ảnh
-
-				if (openFileDialog1.ShowDialog() == DialogResult.OK)
+				using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
 				{
-					// Xóa hoặc giữ nguyên Images? 
-					// Ở đây ta GIỮ nguyên danh sách cũ và THÊM mới (nếu muốn ghi đè thì dùng Images.Clear())
-					// Nhưng theo yêu cầu: "kéo ảnh vào folder sẽ được thêm vào Images" → nên là **thêm mới**
-					Images.Clear();
-					int i = 0;
-					// Đọc tất cả ảnh đã chọn
-					foreach (string filePath in openFileDialog1.FileNames)
+					folderDialog.Description = "Chọn thư mục chứa ảnh";
+					folderDialog.ShowNewFolderButton = false;
+
+					if (folderDialog.ShowDialog() == DialogResult.OK)
 					{
-						HObject image;
-						HOperatorSet.ReadImage(out image, filePath);
-						Images[i] = image; // Thêm vào danh sách
-						HOperatorSet.Rgb1ToGray(image, out image);
-						Images[i + 10] = image;
-						i++;
-					}
+						// Giải phóng ảnh cũ để tránh rò rỉ bộ nhớ
 
-					// Hiển thị ảnh đầu tiên trong danh sách
-					if (Images.Count > 0)
-					{
-						InputIMG = Images[0]; // Gán lại InputIMG nếu cần dùng ở nơi khác
-						Images[55] = InputIMG;
+						load_inital(folderDialog.SelectedPath);
+						Job_Model.Statatic_Model.model_run.Cameras[camera].FolderPath = folderDialog.SelectedPath;
 
-						vision_hacon.SetGear(HSmartWindowControl.HalconWindow, InputIMG);
-
-						// Thiết lập vùng hiển thị (zoom out 20%)
-						HTuple width, height;
-						HOperatorSet.GetImageSize(InputIMG, out width, out height);
-						HTuple top = 0;
-						HTuple bottom = (height - 1) * 1.2;
-						HTuple right = (width - 1) * 1.2;
-						HTuple left = -right / 2; // Canh giữa theo trục X
-
-						HSmartWindowControl.HalconWindow.SetPart(top, left, right, bottom);
 					}
 				}
+			
 			}
 			catch (Exception ex) { MessageBox.Show(ex.ToString()); }
 

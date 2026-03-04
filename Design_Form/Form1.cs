@@ -67,22 +67,10 @@ namespace Design_Form
             inital_dislapHalcon();
           
             _client = new HttpClient();
-            inital_data_PLC();
+        
 
         }
-        private void inital_data_PLC()
-        {
-            //numericUpDown1.Value =(decimal) Job_Model.Statatic_Model.model_run.dataOffset.x1_offset;
-            //numericUpDown2.Value = (decimal)Job_Model.Statatic_Model.model_run.dataOffset.y1_offset;
-            //numericUpDown3.Value = (decimal)Job_Model.Statatic_Model.model_run.dataOffset.phi1_offset;  
-            //numericUpDown4.Value = (decimal)Job_Model.Statatic_Model.model_run.dataOffset.x2_offset;
-            //numericUpDown5.Value = (decimal)Job_Model.Statatic_Model.model_run.dataOffset.y2_offset;
-            //numericUpDown6.Value = (decimal)Job_Model.Statatic_Model.model_run.dataOffset.phi2_offset;
-        }
-        private void save_point()
-        {
-
-        }
+      
         public void inital_process()
         {
             _workerThread = new Thread(run_process_image);
@@ -123,7 +111,6 @@ namespace Design_Form
                             {
                                 PLC_Communication.Model_PLC.connect = true;
                                 PLC_Communication.Model_PLC.Read_from_PLc = LX5S.ReadHoldingRegistersTCPIP(0, 100);
-                              
                                 PLC_Communication.Model_PLC.update_to_read_new();
                                 PLC_Communication.Model_PLC.update_to_wirte_new();
                                 LX5S.WriteMultipleRegisters(100, PLC_Communication.Model_PLC.Wirte_to_PLC);
@@ -310,74 +297,7 @@ namespace Design_Form
         {
             stop_plc();
         }
- //       synth.SelectVoiceByHints(
- // VoiceGender.NotSet,
- // VoiceAge.NotSet,
- //    0,
- //    new System.Globalization.CultureInfo("vi-VN")
- //);
-
- //           synth.SetOutputToDefaultAudioDevice();
- //           synth.Speak("Mười");
-
-
-            //       try
-            //       {
-            //           status_auto.Enabled = false;
-            //           Cursor = Cursors.WaitCursor;
-
-            //           string filePath = "";
-
-            //           using (OpenFileDialog dlg = new OpenFileDialog())
-            //           {
-            //               dlg.Filter = "Image files (*.jpg;*.png)|*.jpg;*.png";
-            //               if (dlg.ShowDialog() != DialogResult.OK)
-            //                   return;
-
-            //               filePath = dlg.FileName;
-            //           }
-
-            //           byte[] imageBytes = File.ReadAllBytes(filePath);
-
-            //           using (var content = new MultipartFormDataContent())
-            //           {
-            //               content.Add(new ByteArrayContent(imageBytes), "file", "image.jpg");
-
-            //               HttpResponseMessage response =
-            //                   await _client.PostAsync($"{pythonServiceUrl}/process-image", content);
-
-            //               response.EnsureSuccessStatusCode();
-
-            //               string json = await response.Content.ReadAsStringAsync();
-            //               PythonResult data =
-            //                   JsonConvert.DeserializeObject<PythonResult>(json);
-
-            //               if (!data.success) return;
-
-            //               byte[] imgBytes = Convert.FromBase64String(data.processed_image);
-
-            //               string tempImagePath = Path.Combine(
-            //Path.GetTempPath(),
-            //"python_result.jpg");
-
-            //               File.WriteAllBytes(tempImagePath, imgBytes);
-
-            //               HObject ho_Image;
-            //               HOperatorSet.ReadImage(out ho_Image, tempImagePath);
-
-            //               HOperatorSet.DispObj(ho_Image, HSmartWindowControl1.HalconWindow);
-            //           }
-            //       }
-            //       catch (Exception ex)
-            //       {
-            //           MessageBox.Show(ex.Message);
-            //       }
-            //       finally
-            //       {
-            //           status_auto.Enabled = true;
-            //           Cursor = Cursors.Default;
-            //       }
-
+ 
         string filePath;
         int i = 0;
         private async void status_auto_Click(object sender, EventArgs e)
@@ -390,18 +310,6 @@ namespace Design_Form
             simpleButton1.Appearance.BackColor = System.Drawing.Color.White;
             status_auto.Appearance.BackColor = System.Drawing.Color.Green;
         }
-
-
-        
-        public class PythonResult
-        {
-            public bool success { get; set; }
-            public string processed_image { get; set; }
-            public int width { get; set; }
-            public int height { get; set; }
-        }
-
-       
         int count_time = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -411,9 +319,6 @@ namespace Design_Form
             simpleButton1.Appearance.BackColor = System.Drawing.Color.Green;
             status_auto.Appearance.BackColor = System.Drawing.Color.White;
             stop_plc();
-
         }
-
-       
     }
 }
