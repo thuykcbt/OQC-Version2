@@ -30,6 +30,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Design_Form.Job_Model.Roi_tool;
 using static DevExpress.Xpo.DB.DataStoreLongrunnersWatch;
+using static DevExpress.XtraEditors.BaseListBoxControl;
 using static DevExpress.XtraEditors.Mask.MaskSettings;
 using static DevExpress.XtraPrinting.Export.Pdf.PdfImageCache;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -84,6 +85,7 @@ namespace Design_Form
 		
 			inital_usercontrol();
 			inital_tool();
+			load_list_View();
 			Load_List_Box_Component();
 			Load_List_Box_Tools(0,0,0);
 			inital_Event();
@@ -621,9 +623,9 @@ namespace Design_Form
 		{
 			listBox_Roi.DisplayMember = "Type";
 			var list = new List<RectangleROI>
-{
-	 Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].roi_Component
-};
+				{
+					 Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].roi_Component
+				};
 			listBox_Roi.DataSource = list;
 			
 		}
@@ -671,9 +673,6 @@ namespace Design_Form
 					{
 						Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool[roi_index] = roi_line;
 					}
-					
-					
-
 				}
 				if (make_roi_index == 3)
 				{
@@ -688,7 +687,6 @@ namespace Design_Form
 					{
 						Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].roi_Component = roi_rectag;
 					}
-					
 				
 				}
 				if (make_roi_index == 2)
@@ -867,25 +865,7 @@ namespace Design_Form
 		{
 			update_capture(InputIMG);
 		}
-		private void TrialRun_Click(object sender, EventArgs e)
-		{
-			Cycletime.Restart();
-			Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].auto_check = false;
-			bool show_roi = Job_Model.Statatic_Model.model_run.Funtion_Machine.Show_Roi_Component_OK;
-			var result_context= Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].ExecuteAllComponent(HSmartWindowControl.HalconWindow, Images,true, show_roi);
-			resultShapeModel.get_result_Views(result_context);
-			int id=Job_Model.Statatic_Model.sql_lite.InsertProduct(result_context.barcode, result_context.result_View);
-			for(int i=0;i< result_context.ConponentResults.Count;i++)
-			{
-				if (!result_context.ConponentResults[i].Result)
-				{
-					result_context.ConponentResults[i].ImagePath = Job_Model.Statatic_Model.SaveNgImage(result_context.ConponentResults[i].Image_Crop_Compoenent, result_context.barcode,"Camera"+camera.ToString() , result_context.ConponentResults[i].ComponentName, "ID"+i.ToString());
-				}
-				Job_Model.Statatic_Model.sql_lite.InsertComponent(id, result_context.ConponentResults[i].ComponentName, result_context.ConponentResults[i].Result, result_context.ConponentResults[i].NgCode, result_context.ConponentResults[i].ImagePath);
-			}
-			Cycletime.Stop();
-			label3.Text = "Cycle Time :" + "Job :" + treejob.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
-		}
+		
 		private bool check_add_tool()
 		{
 			bool check = false;
@@ -946,7 +926,7 @@ namespace Design_Form
 			int count= Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools.Count;
 			Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[count - 1].Inital();
 			load_username();
-			Load_List_Box_Tools(camera,0,listBox_Component.SelectedIndex);
+			Load_List_Box_Tools(camera,treejob,listBox_Component.SelectedIndex);
 			listBox_Tool.SelectedIndex = Statatic_Model.model_run.Cameras[camera].Views[0].Components[listBox_Component.SelectedIndex].Tools.Count - 1;
 		}
 		
@@ -995,14 +975,34 @@ namespace Design_Form
 
 		private void Delete_Component_Click(object sender, EventArgs e)
 		{
+			if (Job_Model.Statatic_Model.model_run.Cameras[camera].Views[listBox_View.SelectedIndex].Components.Count == 1)
+			{
+				MessageBox.Show($"Phai co it nhat 1 Conponent");
+				return;
+			}
 			if (listBox_Component.SelectedItem != null)
 			{
 				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components.RemoveAt(listBox_Component.SelectedIndex);
 			}
+			//load_list_View();
+		}
+		private void delete_ViewStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			if (Job_Model.Statatic_Model.model_run.Cameras[camera].Views.Count == 1)
+			{
+				MessageBox.Show($"Phai co it nhat 1 Views");
+				return;
+			}
+			if (listBox_View.SelectedItem != null)
+			{
+				Statatic_Model.model_run.Cameras[camera].Views.RemoveAt(listBox_View.SelectedIndex);
+			}
+			Load_List_Box_Component();
 		}
 		public void Load_List_Box_Component()
 		{
 			listBox_Component.DisplayMember = "Name_component";
+			
 			listBox_Component.DataSource = Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components;
 		}
 		public void Load_List_Box_Tools(int camera_index,int Views_index,int Component_index)
@@ -1015,10 +1015,21 @@ namespace Design_Form
 			}
 				
 		}
-
+		public void load_list_View()
+		{
+			listBox_View.DisplayMember = "ViewsName";
+			listBox_View.DataSource = Job_Model.Statatic_Model.model_run.Cameras[camera].Views;
+		}
+		private void listBox_View_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			treejob = listBox_View.SelectedIndex;
+			Load_List_Box_Component();
+		}
 		private void listBox_Component_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			Load_List_Box_Tools(camera, 0, listBox_Component.SelectedIndex);
+			if(listBox_Component.SelectedIndex<0)
+				return;
+			Load_List_Box_Tools(camera, treejob, listBox_Component.SelectedIndex);
 			load_listbox_Roi_Component();
 		}
 
@@ -1044,8 +1055,6 @@ namespace Design_Form
 			{
 				load_roi_Tool();
 			}
-
-
 		}
 		private void load_roi_Tool()
 		{
@@ -1123,30 +1132,7 @@ namespace Design_Form
 				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
 			}
 		}
-		private void Run_Component(object sender, EventArgs e)
-		{
-			try
-			{
-				Cycletime.Restart();
-				var context = Statatic_Model.model_run.Cameras[camera].Views[treejob].RunContext;
-				var input = new ToolRunInput
-				{
-					Image = Images,
-					Context = new ViewRunContext(),
-					Window = HSmartWindowControl.HalconWindow
-				};
-				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].ExecuteAllTools(input);
-				Cycletime.Stop();
-				label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Name_component.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
-				resultShapeModel.get_result_Views(input.Context);
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("Error Component" + ex.ToString());
-				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
-			}
-		}
-
+	
 		private void numericUpDown6_ValueChanged(object sender, EventArgs e)
 		{
 			Job_Model.Statatic_Model.model_run.Cameras[camera].config_Cam.Exposure = (int)numericUpDown6.Value;
@@ -1154,39 +1140,7 @@ namespace Design_Form
 			
 		}
 
-		private void simpleButton2_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				Cycletime.Restart();
-				
-				var context = Statatic_Model.model_run.Cameras[camera].Views[treejob].RunContext;
-				var input = new ToolRunInput
-				{
-					Image = Images,
-					Context = context,
-					Window = HSmartWindowControl.HalconWindow,
-					show_text = true,
-				};
-				ToolResult toolResult = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].Excute_OnlyTool(input);
-				context.ToolResults[Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].Id] = toolResult;
-				Cycletime.Stop();
-				label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
-				load_result_tool("ResultShapeModel");
-				string name_component = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Name_component;
-				resultShapeModel.get_result(toolResult, name_component);
-				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].stepbystep = false;
-				checkEdit_stepbystep.Checked = false;
-
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("Error RunTool" + ex.ToString());
-				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
-			}
-		
-
-		}
+	
 
 		private void StringsSelectLight_ListItemClick(object sender, ListItemClickEventArgs e)
 		{
@@ -1265,59 +1219,6 @@ namespace Design_Form
 			}
 			
 		}
-		private void inital_Camera()
-		{
-			//			Job_Model.Statatic_Model.lightController.SetAllChannels(lights);
-		
-			
-		}
-		private void simpleButton6_Click(object sender, EventArgs e)
-		{
-			Cycletime.Restart();
-			//			int[] lights =
-			//{
-			//	0,0,0,0,0,0,0,0,
-			//	0,0,0,0,0,0,0,0
-			//};
-			
-			HOperatorSet.GrabImageStart(Job_Model.Statatic_Model.Dino_lites[0].hv_AcqHandle, -1);
-			HOperatorSet.GrabImageAsync(out HObject ho_Image, Job_Model.Statatic_Model.Dino_lites[0].hv_AcqHandle, 2000);
-			HOperatorSet.GrabImageAsync(out HObject ho_Image1, Job_Model.Statatic_Model.Dino_lites[0].hv_AcqHandle, 2000);
-			Images[0] = ho_Image;
-			Images[1] = ho_Image1;
-			//HOperatorSet.DispObj(ho_Image, HSmartWindowControl.HalconWindow);
-			//MessageBox.Show("image1");
-			//HOperatorSet.DispObj(ho_Image1, HSmartWindowControl.HalconWindow);
-			//MessageBox.Show("image1");
-
-			Cycletime.Stop();
-
-
-			label3.Text = "Cycle Time :" + "Capture :" + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
-		}
-
-		private void simpleButton7_Click(object sender, EventArgs e)
-		{
-			try
-			{
-                Cycletime.Restart();
-                HOperatorSet.GrabImageAsync(out HObject ho_Image, Job_Model.Statatic_Model.Dino_lites[camera].hv_AcqHandle, -1);
-                //HOperatorSet.GrabImageAsync(out HObject ho_Image1, Job_Model.Statatic_Model.Dino_lites[0].hv_AcqHandle, 2000);
-                //Images[0] = ho_Image;
-                //Images[1] = ho_Image1;
-                Cycletime.Stop();
-
-
-                label3.Text = "Cycle Time :" + "Capture :" + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
-            }
-			catch (Exception)
-			{
-
-				
-			}
-			
-		}
-
 		private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
 		{
 			string selectedValue = "Calibirate";
@@ -1325,6 +1226,168 @@ namespace Design_Form
 			listBox_Component.SelectedIndex = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components.Count - 1;
 		}
 
-        
-    }
+		private void simpleButton8_Click(object sender, EventArgs e)
+		{
+			Cycletime.Restart();
+			Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].auto_check = false;
+			bool show_roi = Job_Model.Statatic_Model.model_run.Funtion_Machine.Show_Roi_Component_OK;
+			var result_context = Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].ExecuteAllComponent(HSmartWindowControl.HalconWindow, Images, true, show_roi);
+			resultShapeModel.get_result_Views(result_context);
+			int id = Job_Model.Statatic_Model.sql_lite.InsertProduct(result_context.barcode, result_context.result_View);
+			for (int i = 0; i < result_context.ConponentResults.Count; i++)
+			{
+				if (!result_context.ConponentResults[i].Result)
+				{
+					result_context.ConponentResults[i].ImagePath = Job_Model.Statatic_Model.SaveNgImage(result_context.ConponentResults[i].Image_Crop_Compoenent, result_context.barcode, "Camera" + camera.ToString(), result_context.ConponentResults[i].ComponentName, "ID" + i.ToString());
+				}
+				Job_Model.Statatic_Model.sql_lite.InsertComponent(id, result_context.ConponentResults[i].ComponentName, result_context.ConponentResults[i].Result, result_context.ConponentResults[i].NgCode, result_context.ConponentResults[i].ImagePath);
+			}
+			Cycletime.Stop();
+			label3.Text = "Cycle Time :" + "Job :" + treejob.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
+		}
+
+		private void simpleButton2_Click_1(object sender, EventArgs e)
+		{
+			try
+			{
+				Cycletime.Restart();
+
+				var context = Statatic_Model.model_run.Cameras[camera].Views[treejob].RunContext;
+				var input = new ToolRunInput
+				{
+					Image = Images,
+					Context = context,
+					Window = HSmartWindowControl.HalconWindow,
+					show_text = true,
+				};
+				ToolResult toolResult = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].Excute_OnlyTool(input);
+				context.ToolResults[Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].Id] = toolResult;
+				Cycletime.Stop();
+				label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].ToolName.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
+				load_result_tool("ResultShapeModel");
+				string name_component = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Name_component;
+				resultShapeModel.get_result(toolResult, name_component);
+				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].stepbystep = false;
+				checkEdit_stepbystep.Checked = false;
+
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Error RunTool" + ex.ToString());
+				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
+			}
+
+		}
+
+		private void simpleButton1_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				Cycletime.Restart();
+				var context = Statatic_Model.model_run.Cameras[camera].Views[treejob].RunContext;
+				var input = new ToolRunInput
+				{
+					Image = Images,
+					Context = new ViewRunContext(),
+					Window = HSmartWindowControl.HalconWindow
+				};
+				Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].ExecuteAllTools(input);
+				Cycletime.Stop();
+				label3.Text = "Cycle Time :" + "Tool :" + Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Name_component.ToString() + "  " + Cycletime.ElapsedMilliseconds.ToString() + " Milliseconds";
+				resultShapeModel.get_result_Views(input.Context);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Error Component" + ex.ToString());
+				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
+			}
+		}
+
+		private void reNameStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				RenameItem<Class_Components>(
+	listBox_Component,
+	x => x.Name_component,
+	(x, name) => x.Name_component = name,
+	"Rename Component"
+);
+			}
+			catch (Exception ex)
+			{
+				Job_Model.Statatic_Model.wirtelog.Log($"AL100 - {this.GetType().Name}" + ex.ToString());
+				MessageBox.Show(ex.ToString());
+			}
+		}
+
+		private void ReName_toolStrip_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				RenameItem<Class_Views>(
+		listBox_View,
+		x => x.ViewsName,
+		(x, name) => x.ViewsName = name,
+		"Rename Views"
+	);	
+			}
+			catch (Exception ex)
+			{
+				Job_Model.Statatic_Model.wirtelog.Log($"AL100 - {this.GetType().Name}" + ex.ToString());
+				MessageBox.Show(ex.ToString());
+			}
+		}
+		private void RenameItem<T>(ListBox listBox, Func<T, string> getName, Action<T, string> setName, string title)
+		{
+			try
+			{
+				if (listBox.SelectedItem == null)
+					return;
+
+				T item = (T)listBox.SelectedItem;
+
+				string oldName = getName(item);
+
+				string newName = Class_UserForm.ShowInputDialog(title, oldName);
+
+				if (string.IsNullOrWhiteSpace(newName))
+					return;
+
+				setName(item, newName);
+
+				listBox.Refresh();
+			}
+			catch (Exception ex)
+			{
+				Job_Model.Statatic_Model.wirtelog.Log($"AL100 - {this.GetType().Name} " + ex);
+				MessageBox.Show(ex.ToString());
+			}
+		}
+
+		private void barButtonItem33_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			 Class_Views class_Views = new Class_Views();
+			class_Views.ViewsName = "View"+ (Job_Model.Statatic_Model.model_run.Cameras[camera].Views.Count+1).ToString();
+			Job_Model.Statatic_Model.model_run.Cameras[camera].Views.Add(class_Views);
+		}
+
+		private void toolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				RenameItem<Class_Tool>(
+		listBox_Tool,
+		x => x.ToolName,
+		(x, name) => x.ToolName = name,
+		"Rename Tools"
+	);
+			}
+			catch (Exception ex)
+			{
+				Job_Model.Statatic_Model.wirtelog.Log($"AL100 - {this.GetType().Name}" + ex.ToString());
+				MessageBox.Show(ex.ToString());
+			}
+		}
+	}
 }

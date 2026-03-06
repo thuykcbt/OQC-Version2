@@ -94,11 +94,13 @@
 			this.barListItem2 = new DevExpress.XtraBars.BarListItem();
 			this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
 			this.barListItem3 = new DevExpress.XtraBars.BarListItem();
-			this.dropDownButton2 = new DevExpress.XtraEditors.DropDownButton();
-			this.popupMenu2 = new DevExpress.XtraBars.PopupMenu(this.components);
+			this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
 			this.dropDownButton5 = new DevExpress.XtraEditors.DropDownButton();
-			this.dropDownButton1 = new DevExpress.XtraEditors.DropDownButton();
+			this.popupMenu2 = new DevExpress.XtraBars.PopupMenu(this.components);
+			this.dropDownButton3 = new DevExpress.XtraEditors.DropDownButton();
 			this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+			this.dropDownButton2 = new DevExpress.XtraEditors.DropDownButton();
+			this.dropDownButton1 = new DevExpress.XtraEditors.DropDownButton();
 			this.dockPanel4 = new DevExpress.XtraBars.Docking.DockPanel();
 			this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
 			this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
@@ -109,12 +111,18 @@
 			this.dockPanel7 = new DevExpress.XtraBars.Docking.DockPanel();
 			this.dockPanel7_Container = new DevExpress.XtraBars.Docking.ControlContainer();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.listBox_Component = new System.Windows.Forms.ListBox();
-			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.Delete_Component = new System.Windows.Forms.ToolStripMenuItem();
+			this.listBox_View = new System.Windows.Forms.ListBox();
+			this.contextMenuStrip4 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.delete_ViewStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.ReName_toolStrip = new System.Windows.Forms.ToolStripMenuItem();
 			this.listBox_Tool = new System.Windows.Forms.ListBox();
 			this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.Delete_Tool = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.listBox_Component = new System.Windows.Forms.ListBox();
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.Delete_Component = new System.Windows.Forms.ToolStripMenuItem();
+			this.reNameStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.DockSetting = new DevExpress.XtraBars.Docking.DockPanel();
 			this.controlContainer3 = new DevExpress.XtraBars.Docking.ControlContainer();
 			this.layoutControl6 = new DevExpress.XtraLayout.LayoutControl();
@@ -129,10 +137,7 @@
 			this.dockControl = new DevExpress.XtraBars.Docking.DockPanel();
 			this.controlContainer4 = new DevExpress.XtraBars.Docking.ControlContainer();
 			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-			this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-			this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
 			this.Live_Camera = new DevExpress.XtraEditors.SimpleButton();
-			this.TrialRun = new DevExpress.XtraEditors.SimpleButton();
 			this.cbbCam = new System.Windows.Forms.ComboBox();
 			this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
 			this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
@@ -141,10 +146,7 @@
 			this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
 			this.controlContainer5 = new DevExpress.XtraBars.Docking.ControlContainer();
 			this.layoutControl7 = new DevExpress.XtraLayout.LayoutControl();
@@ -162,6 +164,8 @@
 			this.panel5 = new System.Windows.Forms.Panel();
 			this.dockPanel9 = new DevExpress.XtraBars.Docking.DockPanel();
 			this.dockPanel9_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.panel7 = new System.Windows.Forms.Panel();
+			this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
 			this.dockPanel3 = new DevExpress.XtraBars.Docking.DockPanel();
 			this.dockPanel3_Container = new DevExpress.XtraBars.Docking.ControlContainer();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -181,6 +185,14 @@
 			this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
 			this.Check_Show_Roi_Ok = new System.Windows.Forms.CheckBox();
 			this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+			this.dockPanel10 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel10_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.panel8 = new System.Windows.Forms.Panel();
+			this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+			this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
+			this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+			this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+			this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
 			this.dockPanel5 = new DevExpress.XtraBars.Docking.DockPanel();
 			this.dockPanel5_Container = new DevExpress.XtraBars.Docking.ControlContainer();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -216,16 +228,7 @@
 			this.treeView3 = new System.Windows.Forms.TreeView();
 			this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
 			this.treeView2 = new System.Windows.Forms.TreeView();
-			this.panel7 = new System.Windows.Forms.Panel();
-			this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-			this.dockPanel10 = new DevExpress.XtraBars.Docking.DockPanel();
-			this.dockPanel10_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-			this.listBox_View = new System.Windows.Forms.ListBox();
-			this.panel8 = new System.Windows.Forms.Panel();
-			this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-			this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
-			this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-			this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+			this.popupMenu5 = new DevExpress.XtraBars.PopupMenu(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
 			this.panelContainer2.SuspendLayout();
 			this.dockPanel8.SuspendLayout();
@@ -242,8 +245,9 @@
 			this.dockPanel7.SuspendLayout();
 			this.dockPanel7_Container.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
-			this.contextMenuStrip1.SuspendLayout();
+			this.contextMenuStrip4.SuspendLayout();
 			this.contextMenuStrip3.SuspendLayout();
+			this.contextMenuStrip1.SuspendLayout();
 			this.DockSetting.SuspendLayout();
 			this.controlContainer3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).BeginInit();
@@ -264,10 +268,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
 			this.dockPanel1.SuspendLayout();
 			this.controlContainer5.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl7)).BeginInit();
@@ -281,6 +282,7 @@
 			this.dockPanel6_Container.SuspendLayout();
 			this.dockPanel9.SuspendLayout();
 			this.dockPanel9_Container.SuspendLayout();
+			this.panel7.SuspendLayout();
 			this.dockPanel3.SuspendLayout();
 			this.dockPanel3_Container.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
@@ -289,6 +291,10 @@
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
+			this.dockPanel10.SuspendLayout();
+			this.dockPanel10_Container.SuspendLayout();
+			this.panel8.SuspendLayout();
+			this.flowLayoutPanel5.SuspendLayout();
 			this.dockPanel5.SuspendLayout();
 			this.dockPanel5_Container.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -305,11 +311,7 @@
 			this.dockPanel2.SuspendLayout();
 			this.dockMainCame.SuspendLayout();
 			this.contextMenuStrip2.SuspendLayout();
-			this.panel7.SuspendLayout();
-			this.dockPanel10.SuspendLayout();
-			this.dockPanel10_Container.SuspendLayout();
-			this.panel8.SuspendLayout();
-			this.flowLayoutPanel5.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.popupMenu5)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dockManager1
@@ -375,8 +377,9 @@
 			// flowLayoutPanel2
 			// 
 			this.flowLayoutPanel2.Controls.Add(this.dropDownButton4);
-			this.flowLayoutPanel2.Controls.Add(this.dropDownButton2);
 			this.flowLayoutPanel2.Controls.Add(this.dropDownButton5);
+			this.flowLayoutPanel2.Controls.Add(this.dropDownButton3);
+			this.flowLayoutPanel2.Controls.Add(this.dropDownButton2);
 			this.flowLayoutPanel2.Controls.Add(this.dropDownButton1);
 			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
@@ -498,8 +501,9 @@
             this.barButtonItem1,
             this.barListItem2,
             this.barSubItem8,
-            this.barListItem3});
-			this.barManager1.MaxItemId = 77;
+            this.barListItem3,
+            this.barButtonItem33});
+			this.barManager1.MaxItemId = 78;
 			// 
 			// barDockControlTop
 			// 
@@ -895,17 +899,25 @@
             "Calibrate_Plate_Tool"});
 			this.barListItem3.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.barListItem3_ListItemClick);
 			// 
-			// dropDownButton2
+			// barButtonItem33
 			// 
-			this.dropDownButton2.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
-			this.dropDownButton2.DropDownControl = this.popupMenu2;
-			this.dropDownButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton2.ImageOptions.SvgImage")));
-			this.dropDownButton2.Location = new System.Drawing.Point(149, 3);
-			this.dropDownButton2.MenuManager = this.barManager1;
-			this.dropDownButton2.Name = "dropDownButton2";
-			this.dropDownButton2.Size = new System.Drawing.Size(140, 36);
-			this.dropDownButton2.TabIndex = 19;
-			this.dropDownButton2.Text = "Add_Component";
+			this.barButtonItem33.Caption = "AddView";
+			this.barButtonItem33.Id = 77;
+			this.barButtonItem33.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem33.ImageOptions.SvgImage")));
+			this.barButtonItem33.Name = "barButtonItem33";
+			this.barButtonItem33.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem33_ItemClick);
+			// 
+			// dropDownButton5
+			// 
+			this.dropDownButton5.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
+			this.dropDownButton5.DropDownControl = this.popupMenu2;
+			this.dropDownButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton5.ImageOptions.SvgImage")));
+			this.dropDownButton5.Location = new System.Drawing.Point(149, 3);
+			this.dropDownButton5.MenuManager = this.barManager1;
+			this.dropDownButton5.Name = "dropDownButton5";
+			this.dropDownButton5.Size = new System.Drawing.Size(140, 36);
+			this.dropDownButton5.TabIndex = 21;
+			this.dropDownButton5.Text = "Select_Model";
 			// 
 			// popupMenu2
 			// 
@@ -917,28 +929,16 @@
 			this.popupMenu2.Manager = this.barManager1;
 			this.popupMenu2.Name = "popupMenu2";
 			// 
-			// dropDownButton5
+			// dropDownButton3
 			// 
-			this.dropDownButton5.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
-			this.dropDownButton5.DropDownControl = this.popupMenu2;
-			this.dropDownButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton5.ImageOptions.SvgImage")));
-			this.dropDownButton5.Location = new System.Drawing.Point(295, 3);
-			this.dropDownButton5.MenuManager = this.barManager1;
-			this.dropDownButton5.Name = "dropDownButton5";
-			this.dropDownButton5.Size = new System.Drawing.Size(140, 36);
-			this.dropDownButton5.TabIndex = 21;
-			this.dropDownButton5.Text = "Select_Model";
-			// 
-			// dropDownButton1
-			// 
-			this.dropDownButton1.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
-			this.dropDownButton1.DropDownControl = this.popupMenu1;
-			this.dropDownButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton1.ImageOptions.SvgImage")));
-			this.dropDownButton1.Location = new System.Drawing.Point(441, 3);
-			this.dropDownButton1.Name = "dropDownButton1";
-			this.dropDownButton1.Size = new System.Drawing.Size(119, 36);
-			this.dropDownButton1.TabIndex = 7;
-			this.dropDownButton1.Text = "Add_Tool";
+			this.dropDownButton3.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
+			this.dropDownButton3.DropDownControl = this.popupMenu5;
+			this.dropDownButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton3.ImageOptions.SvgImage")));
+			this.dropDownButton3.Location = new System.Drawing.Point(295, 3);
+			this.dropDownButton3.Name = "dropDownButton3";
+			this.dropDownButton3.Size = new System.Drawing.Size(119, 36);
+			this.dropDownButton3.TabIndex = 22;
+			this.dropDownButton3.Text = "View_Option";
 			// 
 			// popupMenu1
 			// 
@@ -950,6 +950,29 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8)});
 			this.popupMenu1.Manager = this.barManager1;
 			this.popupMenu1.Name = "popupMenu1";
+			// 
+			// dropDownButton2
+			// 
+			this.dropDownButton2.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
+			this.dropDownButton2.DropDownControl = this.popupMenu2;
+			this.dropDownButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton2.ImageOptions.SvgImage")));
+			this.dropDownButton2.Location = new System.Drawing.Point(420, 3);
+			this.dropDownButton2.MenuManager = this.barManager1;
+			this.dropDownButton2.Name = "dropDownButton2";
+			this.dropDownButton2.Size = new System.Drawing.Size(140, 36);
+			this.dropDownButton2.TabIndex = 19;
+			this.dropDownButton2.Text = "Add_Component";
+			// 
+			// dropDownButton1
+			// 
+			this.dropDownButton1.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
+			this.dropDownButton1.DropDownControl = this.popupMenu1;
+			this.dropDownButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("dropDownButton1.ImageOptions.SvgImage")));
+			this.dropDownButton1.Location = new System.Drawing.Point(566, 3);
+			this.dropDownButton1.Name = "dropDownButton1";
+			this.dropDownButton1.Size = new System.Drawing.Size(119, 36);
+			this.dropDownButton1.TabIndex = 7;
+			this.dropDownButton1.Text = "Add_Tool";
 			// 
 			// dockPanel4
 			// 
@@ -1040,7 +1063,7 @@
 			this.dockPanel7.Location = new System.Drawing.Point(0, 0);
 			this.dockPanel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dockPanel7.Name = "dockPanel7";
-			this.dockPanel7.OriginalSize = new System.Drawing.Size(364, 141);
+			this.dockPanel7.OriginalSize = new System.Drawing.Size(353, 125);
 			this.dockPanel7.Size = new System.Drawing.Size(353, 132);
 			this.dockPanel7.Text = " ";
 			// 
@@ -1071,33 +1094,41 @@
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(346, 102);
 			this.tableLayoutPanel3.TabIndex = 0;
 			// 
-			// listBox_Component
+			// listBox_View
 			// 
-			this.listBox_Component.ContextMenuStrip = this.contextMenuStrip1;
-			this.listBox_Component.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listBox_Component.FormattingEnabled = true;
-			this.listBox_Component.Location = new System.Drawing.Point(118, 2);
-			this.listBox_Component.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.listBox_Component.Name = "listBox_Component";
-			this.listBox_Component.Size = new System.Drawing.Size(109, 98);
-			this.listBox_Component.TabIndex = 0;
-			this.listBox_Component.SelectedIndexChanged += new System.EventHandler(this.listBox_Component_SelectedIndexChanged);
+			this.listBox_View.ContextMenuStrip = this.contextMenuStrip4;
+			this.listBox_View.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listBox_View.FormattingEnabled = true;
+			this.listBox_View.Location = new System.Drawing.Point(3, 2);
+			this.listBox_View.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.listBox_View.Name = "listBox_View";
+			this.listBox_View.Size = new System.Drawing.Size(109, 98);
+			this.listBox_View.TabIndex = 2;
+			this.listBox_View.SelectedIndexChanged += new System.EventHandler(this.listBox_View_SelectedIndexChanged);
 			// 
-			// contextMenuStrip1
+			// contextMenuStrip4
 			// 
-			this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Delete_Component});
-			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(181, 30);
+			this.contextMenuStrip4.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.contextMenuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.delete_ViewStripMenuItem1,
+            this.ReName_toolStrip});
+			this.contextMenuStrip4.Name = "contextMenuStrip1";
+			this.contextMenuStrip4.Size = new System.Drawing.Size(142, 56);
 			// 
-			// Delete_Component
+			// delete_ViewStripMenuItem1
 			// 
-			this.Delete_Component.Image = ((System.Drawing.Image)(resources.GetObject("Delete_Component.Image")));
-			this.Delete_Component.Name = "Delete_Component";
-			this.Delete_Component.Size = new System.Drawing.Size(180, 26);
-			this.Delete_Component.Text = "Delete_Component";
-			this.Delete_Component.Click += new System.EventHandler(this.Delete_Component_Click);
+			this.delete_ViewStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("delete_ViewStripMenuItem1.Image")));
+			this.delete_ViewStripMenuItem1.Name = "delete_ViewStripMenuItem1";
+			this.delete_ViewStripMenuItem1.Size = new System.Drawing.Size(141, 26);
+			this.delete_ViewStripMenuItem1.Text = "Delete_View";
+			this.delete_ViewStripMenuItem1.Click += new System.EventHandler(this.delete_ViewStripMenuItem1_Click);
+			// 
+			// ReName_toolStrip
+			// 
+			this.ReName_toolStrip.Name = "ReName_toolStrip";
+			this.ReName_toolStrip.Size = new System.Drawing.Size(141, 26);
+			this.ReName_toolStrip.Text = "ReName";
+			this.ReName_toolStrip.Click += new System.EventHandler(this.ReName_toolStrip_Click);
 			// 
 			// listBox_Tool
 			// 
@@ -1115,9 +1146,10 @@
 			// 
 			this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(24, 24);
 			this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Delete_Tool});
+            this.Delete_Tool,
+            this.toolStripMenuItem1});
 			this.contextMenuStrip3.Name = "contextMenuStrip3";
-			this.contextMenuStrip3.Size = new System.Drawing.Size(144, 34);
+			this.contextMenuStrip3.Size = new System.Drawing.Size(144, 64);
 			// 
 			// Delete_Tool
 			// 
@@ -1127,6 +1159,49 @@
 			this.Delete_Tool.Text = "Delete_Tool";
 			this.Delete_Tool.Click += new System.EventHandler(this.Delete_Tool_Click);
 			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(143, 30);
+			this.toolStripMenuItem1.Text = "ReName";
+			this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+			// 
+			// listBox_Component
+			// 
+			this.listBox_Component.ContextMenuStrip = this.contextMenuStrip1;
+			this.listBox_Component.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listBox_Component.FormattingEnabled = true;
+			this.listBox_Component.Location = new System.Drawing.Point(118, 2);
+			this.listBox_Component.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.listBox_Component.Name = "listBox_Component";
+			this.listBox_Component.Size = new System.Drawing.Size(109, 98);
+			this.listBox_Component.TabIndex = 0;
+			this.listBox_Component.SelectedIndexChanged += new System.EventHandler(this.listBox_Component_SelectedIndexChanged);
+			// 
+			// contextMenuStrip1
+			// 
+			this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Delete_Component,
+            this.reNameStripMenuItem1});
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(181, 56);
+			// 
+			// Delete_Component
+			// 
+			this.Delete_Component.Image = ((System.Drawing.Image)(resources.GetObject("Delete_Component.Image")));
+			this.Delete_Component.Name = "Delete_Component";
+			this.Delete_Component.Size = new System.Drawing.Size(180, 26);
+			this.Delete_Component.Text = "Delete_Component";
+			this.Delete_Component.Click += new System.EventHandler(this.Delete_Component_Click);
+			// 
+			// reNameStripMenuItem1
+			// 
+			this.reNameStripMenuItem1.Name = "reNameStripMenuItem1";
+			this.reNameStripMenuItem1.Size = new System.Drawing.Size(180, 26);
+			this.reNameStripMenuItem1.Text = "ReName";
+			this.reNameStripMenuItem1.Click += new System.EventHandler(this.reNameStripMenuItem1_Click);
+			// 
 			// DockSetting
 			// 
 			this.DockSetting.Controls.Add(this.controlContainer3);
@@ -1135,7 +1210,7 @@
 			this.DockSetting.Location = new System.Drawing.Point(0, 132);
 			this.DockSetting.Name = "DockSetting";
 			this.DockSetting.Options.ShowCloseButton = false;
-			this.DockSetting.OriginalSize = new System.Drawing.Size(364, 367);
+			this.DockSetting.OriginalSize = new System.Drawing.Size(353, 326);
 			this.DockSetting.Size = new System.Drawing.Size(353, 343);
 			this.DockSetting.Text = "Setting_Para";
 			// 
@@ -1257,7 +1332,7 @@
 			this.dockControl.Location = new System.Drawing.Point(0, 0);
 			this.dockControl.Name = "dockControl";
 			this.dockControl.Options.ShowCloseButton = false;
-			this.dockControl.OriginalSize = new System.Drawing.Size(214, 311);
+			this.dockControl.OriginalSize = new System.Drawing.Size(321, 276);
 			this.dockControl.Size = new System.Drawing.Size(321, 291);
 			this.dockControl.Text = "Control_Camera";
 			// 
@@ -1271,10 +1346,7 @@
 			// 
 			// layoutControl1
 			// 
-			this.layoutControl1.Controls.Add(this.simpleButton7);
-			this.layoutControl1.Controls.Add(this.simpleButton6);
 			this.layoutControl1.Controls.Add(this.Live_Camera);
-			this.layoutControl1.Controls.Add(this.TrialRun);
 			this.layoutControl1.Controls.Add(this.cbbCam);
 			this.layoutControl1.Controls.Add(this.simpleButton5);
 			this.layoutControl1.Controls.Add(this.simpleButton4);
@@ -1286,32 +1358,6 @@
 			this.layoutControl1.TabIndex = 0;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
-			// simpleButton7
-			// 
-			this.simpleButton7.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.simpleButton7.Appearance.Options.UseFont = true;
-			this.simpleButton7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton7.ImageOptions.SvgImage")));
-			this.simpleButton7.Location = new System.Drawing.Point(12, 253);
-			this.simpleButton7.Name = "simpleButton7";
-			this.simpleButton7.Size = new System.Drawing.Size(273, 36);
-			this.simpleButton7.StyleController = this.layoutControl1;
-			this.simpleButton7.TabIndex = 10;
-			this.simpleButton7.Text = "simpleButton7";
-			this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
-			// 
-			// simpleButton6
-			// 
-			this.simpleButton6.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.simpleButton6.Appearance.Options.UseFont = true;
-			this.simpleButton6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton6.ImageOptions.SvgImage")));
-			this.simpleButton6.Location = new System.Drawing.Point(12, 213);
-			this.simpleButton6.Name = "simpleButton6";
-			this.simpleButton6.Size = new System.Drawing.Size(273, 36);
-			this.simpleButton6.StyleController = this.layoutControl1;
-			this.simpleButton6.TabIndex = 9;
-			this.simpleButton6.Text = "simpleButton6";
-			this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
-			// 
 			// Live_Camera
 			// 
 			this.Live_Camera.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1319,24 +1365,11 @@
 			this.Live_Camera.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("Live_Camera.ImageOptions.Image")));
 			this.Live_Camera.Location = new System.Drawing.Point(12, 77);
 			this.Live_Camera.Name = "Live_Camera";
-			this.Live_Camera.Size = new System.Drawing.Size(273, 52);
+			this.Live_Camera.Size = new System.Drawing.Size(290, 52);
 			this.Live_Camera.StyleController = this.layoutControl1;
 			this.Live_Camera.TabIndex = 8;
 			this.Live_Camera.Text = "LiveCam";
 			this.Live_Camera.Click += new System.EventHandler(this.Live_Camera_Click);
-			// 
-			// TrialRun
-			// 
-			this.TrialRun.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TrialRun.Appearance.Options.UseFont = true;
-			this.TrialRun.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("TrialRun.ImageOptions.SvgImage")));
-			this.TrialRun.Location = new System.Drawing.Point(12, 173);
-			this.TrialRun.Name = "TrialRun";
-			this.TrialRun.Size = new System.Drawing.Size(273, 36);
-			this.TrialRun.StyleController = this.layoutControl1;
-			this.TrialRun.TabIndex = 7;
-			this.TrialRun.Text = "TrialRun";
-			this.TrialRun.Click += new System.EventHandler(this.TrialRun_Click);
 			// 
 			// cbbCam
 			// 
@@ -1344,7 +1377,7 @@
 			this.cbbCam.FormattingEnabled = true;
 			this.cbbCam.Location = new System.Drawing.Point(12, 12);
 			this.cbbCam.Name = "cbbCam";
-			this.cbbCam.Size = new System.Drawing.Size(273, 27);
+			this.cbbCam.Size = new System.Drawing.Size(290, 27);
 			this.cbbCam.TabIndex = 0;
 			this.cbbCam.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
 			// 
@@ -1355,7 +1388,7 @@
 			this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
 			this.simpleButton5.Location = new System.Drawing.Point(12, 133);
 			this.simpleButton5.Name = "simpleButton5";
-			this.simpleButton5.Size = new System.Drawing.Size(273, 36);
+			this.simpleButton5.Size = new System.Drawing.Size(290, 36);
 			this.simpleButton5.StyleController = this.layoutControl1;
 			this.simpleButton5.TabIndex = 6;
 			this.simpleButton5.Text = "Capture";
@@ -1368,7 +1401,7 @@
 			this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
 			this.simpleButton4.Location = new System.Drawing.Point(12, 37);
 			this.simpleButton4.Name = "simpleButton4";
-			this.simpleButton4.Size = new System.Drawing.Size(273, 36);
+			this.simpleButton4.Size = new System.Drawing.Size(290, 36);
 			this.simpleButton4.StyleController = this.layoutControl1;
 			this.simpleButton4.TabIndex = 5;
 			this.simpleButton4.Text = "Load_Image";
@@ -1383,20 +1416,17 @@
             this.layoutControlItem4,
             this.layoutControlItem5,
             this.layoutControlItem6,
-            this.layoutControlItem7,
-            this.layoutControlItem23,
-            this.layoutControlItem1,
-            this.layoutControlItem3});
+            this.layoutControlItem23});
 			this.Root.Name = "Root";
-			this.Root.Size = new System.Drawing.Size(297, 311);
+			this.Root.Size = new System.Drawing.Size(314, 261);
 			this.Root.TextVisible = false;
 			// 
 			// emptySpaceItem1
 			// 
 			this.emptySpaceItem1.AllowHotTrack = false;
-			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 281);
+			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 161);
 			this.emptySpaceItem1.Name = "emptySpaceItem1";
-			this.emptySpaceItem1.Size = new System.Drawing.Size(277, 10);
+			this.emptySpaceItem1.Size = new System.Drawing.Size(294, 80);
 			this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
 			// 
 			// layoutControlItem4
@@ -1404,7 +1434,7 @@
 			this.layoutControlItem4.Control = this.simpleButton4;
 			this.layoutControlItem4.Location = new System.Drawing.Point(0, 25);
 			this.layoutControlItem4.Name = "layoutControlItem4";
-			this.layoutControlItem4.Size = new System.Drawing.Size(277, 40);
+			this.layoutControlItem4.Size = new System.Drawing.Size(294, 40);
 			this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem4.TextVisible = false;
 			// 
@@ -1413,7 +1443,7 @@
 			this.layoutControlItem5.Control = this.simpleButton5;
 			this.layoutControlItem5.Location = new System.Drawing.Point(0, 121);
 			this.layoutControlItem5.Name = "layoutControlItem5";
-			this.layoutControlItem5.Size = new System.Drawing.Size(277, 40);
+			this.layoutControlItem5.Size = new System.Drawing.Size(294, 40);
 			this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem5.TextVisible = false;
 			// 
@@ -1422,45 +1452,18 @@
 			this.layoutControlItem6.Control = this.cbbCam;
 			this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem6.Name = "layoutControlItem6";
-			this.layoutControlItem6.Size = new System.Drawing.Size(277, 25);
+			this.layoutControlItem6.Size = new System.Drawing.Size(294, 25);
 			this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem6.TextVisible = false;
-			// 
-			// layoutControlItem7
-			// 
-			this.layoutControlItem7.Control = this.TrialRun;
-			this.layoutControlItem7.Location = new System.Drawing.Point(0, 161);
-			this.layoutControlItem7.Name = "layoutControlItem7";
-			this.layoutControlItem7.Size = new System.Drawing.Size(277, 40);
-			this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-			this.layoutControlItem7.TextVisible = false;
 			// 
 			// layoutControlItem23
 			// 
 			this.layoutControlItem23.Control = this.Live_Camera;
 			this.layoutControlItem23.Location = new System.Drawing.Point(0, 65);
 			this.layoutControlItem23.Name = "layoutControlItem23";
-			this.layoutControlItem23.Size = new System.Drawing.Size(277, 56);
+			this.layoutControlItem23.Size = new System.Drawing.Size(294, 56);
 			this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem23.TextVisible = false;
-			// 
-			// layoutControlItem1
-			// 
-			this.layoutControlItem1.Control = this.simpleButton6;
-			this.layoutControlItem1.Location = new System.Drawing.Point(0, 201);
-			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(277, 40);
-			this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-			this.layoutControlItem1.TextVisible = false;
-			// 
-			// layoutControlItem3
-			// 
-			this.layoutControlItem3.Control = this.simpleButton7;
-			this.layoutControlItem3.Location = new System.Drawing.Point(0, 241);
-			this.layoutControlItem3.Name = "layoutControlItem3";
-			this.layoutControlItem3.Size = new System.Drawing.Size(277, 40);
-			this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-			this.layoutControlItem3.TextVisible = false;
 			// 
 			// dockPanel1
 			// 
@@ -1470,7 +1473,7 @@
 			this.dockPanel1.Location = new System.Drawing.Point(0, 291);
 			this.dockPanel1.Name = "dockPanel1";
 			this.dockPanel1.Options.ShowCloseButton = false;
-			this.dockPanel1.OriginalSize = new System.Drawing.Size(214, 197);
+			this.dockPanel1.OriginalSize = new System.Drawing.Size(321, 175);
 			this.dockPanel1.Size = new System.Drawing.Size(321, 184);
 			this.dockPanel1.Text = "Manager_Roi";
 			// 
@@ -1634,6 +1637,25 @@
 			this.dockPanel9_Container.Name = "dockPanel9_Container";
 			this.dockPanel9_Container.Size = new System.Drawing.Size(612, 104);
 			this.dockPanel9_Container.TabIndex = 0;
+			// 
+			// panel7
+			// 
+			this.panel7.Controls.Add(this.flowLayoutPanel4);
+			this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel7.Location = new System.Drawing.Point(0, 0);
+			this.panel7.Name = "panel7";
+			this.panel7.Size = new System.Drawing.Size(612, 104);
+			this.panel7.TabIndex = 0;
+			// 
+			// flowLayoutPanel4
+			// 
+			this.flowLayoutPanel4.AutoScroll = true;
+			this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+			this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+			this.flowLayoutPanel4.Size = new System.Drawing.Size(612, 104);
+			this.flowLayoutPanel4.TabIndex = 1;
+			this.flowLayoutPanel4.WrapContents = false;
 			// 
 			// dockPanel3
 			// 
@@ -1884,6 +1906,105 @@
 			this.simpleButton3.TabIndex = 17;
 			this.simpleButton3.Text = "Save_Light";
 			this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click_1);
+			// 
+			// dockPanel10
+			// 
+			this.dockPanel10.Controls.Add(this.dockPanel10_Container);
+			this.dockPanel10.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+			this.dockPanel10.ID = new System.Guid("93c2e7de-a27f-4886-b096-dd9e9ebd1b7b");
+			this.dockPanel10.Location = new System.Drawing.Point(755, 105);
+			this.dockPanel10.Name = "dockPanel10";
+			this.dockPanel10.OriginalSize = new System.Drawing.Size(184, 200);
+			this.dockPanel10.Size = new System.Drawing.Size(184, 244);
+			this.dockPanel10.Text = "dockPanel10";
+			// 
+			// dockPanel10_Container
+			// 
+			this.dockPanel10_Container.Controls.Add(this.panel8);
+			this.dockPanel10_Container.Location = new System.Drawing.Point(4, 26);
+			this.dockPanel10_Container.Name = "dockPanel10_Container";
+			this.dockPanel10_Container.Size = new System.Drawing.Size(177, 215);
+			this.dockPanel10_Container.TabIndex = 0;
+			// 
+			// panel8
+			// 
+			this.panel8.Controls.Add(this.flowLayoutPanel5);
+			this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel8.Location = new System.Drawing.Point(0, 0);
+			this.panel8.Name = "panel8";
+			this.panel8.Size = new System.Drawing.Size(177, 215);
+			this.panel8.TabIndex = 0;
+			// 
+			// flowLayoutPanel5
+			// 
+			this.flowLayoutPanel5.Controls.Add(this.simpleButton12);
+			this.flowLayoutPanel5.Controls.Add(this.simpleButton8);
+			this.flowLayoutPanel5.Controls.Add(this.simpleButton1);
+			this.flowLayoutPanel5.Controls.Add(this.simpleButton2);
+			this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+			this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+			this.flowLayoutPanel5.Size = new System.Drawing.Size(177, 215);
+			this.flowLayoutPanel5.TabIndex = 0;
+			// 
+			// simpleButton12
+			// 
+			this.simpleButton12.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton12.Appearance.Options.UseFont = true;
+			this.simpleButton12.Appearance.Options.UseTextOptions = true;
+			this.simpleButton12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+			this.simpleButton12.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton12.ImageOptions.SvgImage")));
+			this.simpleButton12.Location = new System.Drawing.Point(3, 3);
+			this.simpleButton12.Name = "simpleButton12";
+			this.simpleButton12.Size = new System.Drawing.Size(171, 36);
+			this.simpleButton12.StyleController = this.layoutControl6;
+			this.simpleButton12.TabIndex = 6;
+			this.simpleButton12.Text = "Save_Tool";
+			// 
+			// simpleButton8
+			// 
+			this.simpleButton8.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton8.Appearance.Options.UseFont = true;
+			this.simpleButton8.Appearance.Options.UseTextOptions = true;
+			this.simpleButton8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+			this.simpleButton8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton8.ImageOptions.SvgImage")));
+			this.simpleButton8.Location = new System.Drawing.Point(3, 45);
+			this.simpleButton8.Name = "simpleButton8";
+			this.simpleButton8.Size = new System.Drawing.Size(171, 36);
+			this.simpleButton8.StyleController = this.layoutControl6;
+			this.simpleButton8.TabIndex = 12;
+			this.simpleButton8.Text = "Run_View";
+			this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click);
+			// 
+			// simpleButton1
+			// 
+			this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton1.Appearance.Options.UseFont = true;
+			this.simpleButton1.Appearance.Options.UseTextOptions = true;
+			this.simpleButton1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+			this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+			this.simpleButton1.Location = new System.Drawing.Point(3, 87);
+			this.simpleButton1.Name = "simpleButton1";
+			this.simpleButton1.Size = new System.Drawing.Size(171, 36);
+			this.simpleButton1.StyleController = this.layoutControl6;
+			this.simpleButton1.TabIndex = 10;
+			this.simpleButton1.Text = "Run_Component";
+			this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+			// 
+			// simpleButton2
+			// 
+			this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton2.Appearance.Options.UseFont = true;
+			this.simpleButton2.Appearance.Options.UseTextOptions = true;
+			this.simpleButton2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+			this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+			this.simpleButton2.Location = new System.Drawing.Point(3, 129);
+			this.simpleButton2.Name = "simpleButton2";
+			this.simpleButton2.Size = new System.Drawing.Size(171, 36);
+			this.simpleButton2.StyleController = this.layoutControl6;
+			this.simpleButton2.TabIndex = 11;
+			this.simpleButton2.Text = "Run_Tool";
+			this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click_1);
 			// 
 			// dockPanel5
 			// 
@@ -2180,130 +2301,27 @@
 			this.treeView2.Size = new System.Drawing.Size(263, 72);
 			this.treeView2.TabIndex = 0;
 			// 
-			// panel7
+			// popupMenu5
 			// 
-			this.panel7.Controls.Add(this.flowLayoutPanel4);
-			this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel7.Location = new System.Drawing.Point(0, 0);
-			this.panel7.Name = "panel7";
-			this.panel7.Size = new System.Drawing.Size(612, 104);
-			this.panel7.TabIndex = 0;
-			// 
-			// flowLayoutPanel4
-			// 
-			this.flowLayoutPanel4.AutoScroll = true;
-			this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-			this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-			this.flowLayoutPanel4.Size = new System.Drawing.Size(612, 104);
-			this.flowLayoutPanel4.TabIndex = 1;
-			this.flowLayoutPanel4.WrapContents = false;
-			// 
-			// dockPanel10
-			// 
-			this.dockPanel10.Controls.Add(this.dockPanel10_Container);
-			this.dockPanel10.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
-			this.dockPanel10.ID = new System.Guid("93c2e7de-a27f-4886-b096-dd9e9ebd1b7b");
-			this.dockPanel10.Location = new System.Drawing.Point(755, 105);
-			this.dockPanel10.Name = "dockPanel10";
-			this.dockPanel10.OriginalSize = new System.Drawing.Size(184, 200);
-			this.dockPanel10.Size = new System.Drawing.Size(184, 244);
-			this.dockPanel10.Text = "dockPanel10";
-			// 
-			// dockPanel10_Container
-			// 
-			this.dockPanel10_Container.Controls.Add(this.panel8);
-			this.dockPanel10_Container.Location = new System.Drawing.Point(4, 26);
-			this.dockPanel10_Container.Name = "dockPanel10_Container";
-			this.dockPanel10_Container.Size = new System.Drawing.Size(177, 215);
-			this.dockPanel10_Container.TabIndex = 0;
-			// 
-			// listBox_View
-			// 
-			this.listBox_View.ContextMenuStrip = this.contextMenuStrip1;
-			this.listBox_View.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listBox_View.FormattingEnabled = true;
-			this.listBox_View.Location = new System.Drawing.Point(3, 2);
-			this.listBox_View.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.listBox_View.Name = "listBox_View";
-			this.listBox_View.Size = new System.Drawing.Size(109, 98);
-			this.listBox_View.TabIndex = 2;
-			// 
-			// panel8
-			// 
-			this.panel8.Controls.Add(this.flowLayoutPanel5);
-			this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel8.Location = new System.Drawing.Point(0, 0);
-			this.panel8.Name = "panel8";
-			this.panel8.Size = new System.Drawing.Size(177, 215);
-			this.panel8.TabIndex = 0;
-			// 
-			// flowLayoutPanel5
-			// 
-			this.flowLayoutPanel5.Controls.Add(this.simpleButton12);
-			this.flowLayoutPanel5.Controls.Add(this.simpleButton1);
-			this.flowLayoutPanel5.Controls.Add(this.simpleButton2);
-			this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-			this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-			this.flowLayoutPanel5.Size = new System.Drawing.Size(177, 215);
-			this.flowLayoutPanel5.TabIndex = 0;
-			// 
-			// simpleButton12
-			// 
-			this.simpleButton12.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.simpleButton12.Appearance.Options.UseFont = true;
-			this.simpleButton12.Appearance.Options.UseTextOptions = true;
-			this.simpleButton12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-			this.simpleButton12.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton12.ImageOptions.SvgImage")));
-			this.simpleButton12.Location = new System.Drawing.Point(3, 3);
-			this.simpleButton12.Name = "simpleButton12";
-			this.simpleButton12.Size = new System.Drawing.Size(171, 36);
-			this.simpleButton12.StyleController = this.layoutControl6;
-			this.simpleButton12.TabIndex = 6;
-			this.simpleButton12.Text = "Save_Tool";
-			// 
-			// simpleButton1
-			// 
-			this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.simpleButton1.Appearance.Options.UseFont = true;
-			this.simpleButton1.Appearance.Options.UseTextOptions = true;
-			this.simpleButton1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-			this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-			this.simpleButton1.Location = new System.Drawing.Point(3, 45);
-			this.simpleButton1.Name = "simpleButton1";
-			this.simpleButton1.Size = new System.Drawing.Size(171, 36);
-			this.simpleButton1.StyleController = this.layoutControl6;
-			this.simpleButton1.TabIndex = 10;
-			this.simpleButton1.Text = "Run_Component";
-			// 
-			// simpleButton2
-			// 
-			this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.simpleButton2.Appearance.Options.UseFont = true;
-			this.simpleButton2.Appearance.Options.UseTextOptions = true;
-			this.simpleButton2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-			this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-			this.simpleButton2.Location = new System.Drawing.Point(3, 87);
-			this.simpleButton2.Name = "simpleButton2";
-			this.simpleButton2.Size = new System.Drawing.Size(171, 36);
-			this.simpleButton2.StyleController = this.layoutControl6;
-			this.simpleButton2.TabIndex = 11;
-			this.simpleButton2.Text = "Run_Tool";
+			this.popupMenu5.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem33),
+            new DevExpress.XtraBars.LinkPersistInfo(this.StringsSelectLight)});
+			this.popupMenu5.Manager = this.barManager1;
+			this.popupMenu5.Name = "popupMenu5";
 			// 
 			// Setting
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1292, 580);
+			this.Controls.Add(this.panelContainer3);
+			this.Controls.Add(this.panelContainer2);
 			this.Controls.Add(this.dockPanel5);
 			this.Controls.Add(this.dockPanel10);
 			this.Controls.Add(this.dockPanel3);
 			this.Controls.Add(this.dockPanel9);
 			this.Controls.Add(this.dockPanel6);
 			this.Controls.Add(this.panelContainer1);
-			this.Controls.Add(this.panelContainer3);
-			this.Controls.Add(this.panelContainer2);
 			this.Controls.Add(this.dockMainCame);
 			this.Controls.Add(this.dockPanel2);
 			this.Controls.Add(this.barDockControlLeft);
@@ -2329,8 +2347,9 @@
 			this.dockPanel7.ResumeLayout(false);
 			this.dockPanel7_Container.ResumeLayout(false);
 			this.tableLayoutPanel3.ResumeLayout(false);
-			this.contextMenuStrip1.ResumeLayout(false);
+			this.contextMenuStrip4.ResumeLayout(false);
 			this.contextMenuStrip3.ResumeLayout(false);
+			this.contextMenuStrip1.ResumeLayout(false);
 			this.DockSetting.ResumeLayout(false);
 			this.controlContainer3.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).EndInit();
@@ -2351,10 +2370,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
 			this.dockPanel1.ResumeLayout(false);
 			this.controlContainer5.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl7)).EndInit();
@@ -2368,6 +2384,7 @@
 			this.dockPanel6_Container.ResumeLayout(false);
 			this.dockPanel9.ResumeLayout(false);
 			this.dockPanel9_Container.ResumeLayout(false);
+			this.panel7.ResumeLayout(false);
 			this.dockPanel3.ResumeLayout(false);
 			this.dockPanel3_Container.ResumeLayout(false);
 			this.flowLayoutPanel1.ResumeLayout(false);
@@ -2377,6 +2394,10 @@
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
+			this.dockPanel10.ResumeLayout(false);
+			this.dockPanel10_Container.ResumeLayout(false);
+			this.panel8.ResumeLayout(false);
+			this.flowLayoutPanel5.ResumeLayout(false);
 			this.dockPanel5.ResumeLayout(false);
 			this.dockPanel5_Container.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
@@ -2393,11 +2414,7 @@
 			this.dockPanel2.ResumeLayout(false);
 			this.dockMainCame.ResumeLayout(false);
 			this.contextMenuStrip2.ResumeLayout(false);
-			this.panel7.ResumeLayout(false);
-			this.dockPanel10.ResumeLayout(false);
-			this.dockPanel10_Container.ResumeLayout(false);
-			this.panel8.ResumeLayout(false);
-			this.flowLayoutPanel5.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.popupMenu5)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -2423,7 +2440,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraEditors.SimpleButton TrialRun;
         private DevExpress.XtraBars.Docking.DockPanel dockMainCame;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel2;
@@ -2579,16 +2595,11 @@
 		private System.Windows.Forms.Label label1;
 		private DevExpress.XtraEditors.SimpleButton simpleButton3;
 		private System.Windows.Forms.CheckBox check_RGB;
-		private DevExpress.XtraEditors.SimpleButton simpleButton6;
-		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
 		private System.Windows.Forms.CheckBox Check_Show_Roi_Ok;
-		private DevExpress.XtraEditors.SimpleButton simpleButton7;
-		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
 		private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarListItem barListItem2;
         private DevExpress.XtraBars.BarSubItem barSubItem8;
         private DevExpress.XtraBars.BarListItem barListItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
 		private DevExpress.XtraBars.Docking.DockPanel dockPanel9;
 		private DevExpress.XtraBars.Docking.ControlContainer dockPanel9_Container;
 		private System.Windows.Forms.Panel panel7;
@@ -2601,5 +2612,14 @@
 		private DevExpress.XtraEditors.SimpleButton simpleButton12;
 		private DevExpress.XtraEditors.SimpleButton simpleButton1;
 		private DevExpress.XtraEditors.SimpleButton simpleButton2;
+		private DevExpress.XtraEditors.DropDownButton dropDownButton3;
+		private DevExpress.XtraEditors.SimpleButton simpleButton8;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip4;
+		private System.Windows.Forms.ToolStripMenuItem delete_ViewStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem reNameStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem ReName_toolStrip;
+		private DevExpress.XtraBars.BarButtonItem barButtonItem33;
+		private DevExpress.XtraBars.PopupMenu popupMenu5;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
 	}
 }

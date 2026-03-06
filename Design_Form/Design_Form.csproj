@@ -195,6 +195,7 @@
     <Compile Include="Job_Model\LightController.cs" />
     <Compile Include="Job_Model\SQL_Lite_Class.cs" />
     <Compile Include="Job_Model\Statatic_Model.cs" />
+    <Compile Include="Job_Model\UserForm.cs" />
     <Compile Include="Job_Model\VisionHalcon.cs" />
     <Compile Include="Job_Model\WirteLogcs.cs" />
     <Compile Include="Login.cs">

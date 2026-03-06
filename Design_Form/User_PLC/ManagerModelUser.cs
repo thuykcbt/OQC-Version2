@@ -224,7 +224,7 @@ namespace Design_Form.User_PLC
                 ManagerModelcs oldName =(Job_Model.ManagerModelcs)listbox_Model.SelectedItem;
                 string oldName_Text= oldName.Name_model;
 
-                string newName = ShowInputDialog("Rename model", oldName_Text);
+                string newName = Class_UserForm.ShowInputDialog("Rename model", oldName_Text);
 
                 if (string.IsNullOrWhiteSpace(newName))
                     return;
@@ -240,43 +240,7 @@ namespace Design_Form.User_PLC
             }
           
         } 
-        public static string ShowInputDialog(string title, string defaultText)
-        {
-            try
-            {
-                Form prompt = new Form()
-                {
-                    Width = 300,
-                    Height = 150,
-                    FormBorderStyle = FormBorderStyle.FixedDialog,
-                    Text = title,
-                    StartPosition = FormStartPosition.CenterScreen
-                };
-
-                Label lbl = new Label() { Left = 10, Top = 15, Text = "New name:" };
-                TextBox txt = new TextBox() { Left = 10, Top = 40, Width = 260 };
-                txt.Text = defaultText;
-
-                Button btnOk = new Button() { Text = "OK", Left = 110, Width = 75, Top = 75, DialogResult = DialogResult.OK };
-                Button btnCancel = new Button() { Text = "Cancel", Left = 195, Width = 75, Top = 75, DialogResult = DialogResult.Cancel };
-
-                prompt.Controls.Add(lbl);
-                prompt.Controls.Add(txt);
-                prompt.Controls.Add(btnOk);
-                prompt.Controls.Add(btnCancel);
-
-                prompt.AcceptButton = btnOk;
-                prompt.CancelButton = btnCancel;
-
-                return prompt.ShowDialog() == DialogResult.OK ? txt.Text : null;
-            }
-            catch (Exception ex)
-            {
-                Job_Model.Statatic_Model.wirtelog.Log($"AL100 -222" + ex.ToString());
-                return null;
-            }
-          
-        }
+      
 
         private void AddModelSub_Click(object sender, EventArgs e)
         {
@@ -394,7 +358,7 @@ namespace Design_Form.User_PLC
 
                 Model oddname =(Model) listbox_ModelSub.SelectedItem;
                 string oldName = oddname.Name_Model;
-                string newName = ShowInputDialog("Rename model", oldName);
+                string newName = Class_UserForm.ShowInputDialog("Rename model", oldName);
 
                 if (string.IsNullOrWhiteSpace(newName))
                     return;

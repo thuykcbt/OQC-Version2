@@ -12,7 +12,7 @@ using static Design_Form.Job_Model.Roi_tool;
 
 namespace Design_Form.Tools.Base
 {
-	public abstract class Class_Tool
+	public abstract class Class_Tool : INotifyPropertyChanged
 	{
 		[JsonProperty]
 		public int Id { get;  set; } // Chỉ gán 1 lần

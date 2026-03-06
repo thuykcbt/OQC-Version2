@@ -85,7 +85,7 @@ namespace Design_Form.Job_Model
     }
     public class Class_Camera
     {
-        public List<Class_Views> Views;
+        public BindingList<Class_Views> Views;
         private string name;
 
         
@@ -96,8 +96,8 @@ namespace Design_Form.Job_Model
 			List<HObject> images = new List<HObject>();
 			if (!Directory.Exists(folderPath))
 			{
-				MessageBox.Show($"Thư mục không tồn tại: {folderPath}", "Lỗi",
-					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				//MessageBox.Show($"Thư mục không tồn tại: {folderPath}", "Lỗi",
+				//	MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return images;
 			}
 			string[] validExtensions = { ".jpg", ".jpeg", ".png", ".bmp", ".gif", ".tiff", ".webp" };
@@ -126,9 +126,9 @@ namespace Design_Form.Job_Model
 			}
             catch (Exception ex)
             {
-				MessageBox.Show($"Lỗi khi quét thư mục: {ex.Message}", "Lỗi",
-							  MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
+                MessageBox.Show($"Lỗi khi quét thư mục: {ex.Message}", "Lỗi",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 			return images;
 		}
 	
@@ -136,17 +136,37 @@ namespace Design_Form.Job_Model
         public Class_Camera(string nam)
         {
             this.name = nam;
-            Views = new List<Class_Views>();
+            Views = new BindingList<Class_Views>();
             Class_Views view = new Class_Views();
+            view.ViewsName = "View1";
             Views.Add(view);
         }
 
     }
-    public class Class_Views
-    {
-        public string ViewsName { get; set; }
+    public class Class_Views : INotifyPropertyChanged
+	{
+        public string viewsName { get; set; }
         public BindingList<Class_Components> Components;
-        [JsonIgnore]
+		public string ViewsName
+		{
+			get => viewsName;
+			set
+			{
+				viewsName = value;
+				OnPropertyChanged(nameof(ViewsName));
+			}
+		}
+		public event PropertyChangedEventHandler PropertyChanged;
+		protected void OnPropertyChanged(string propertyName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+		public Class_Views(string name)
+		{
+			this.ViewsName = name;
+		}
+
+		[JsonIgnore]
         public ViewRunContext RunContext { get; set; } = new ViewRunContext();
         [JsonIgnore] // hoặc [JsonProperty] nếu bạn muốn lưu kèm (tùy)
         private int _nextToolId = 0; // Trình tạo ID duy nhất trong view này
@@ -164,7 +184,7 @@ namespace Design_Form.Job_Model
             return _nextToolId++;
         }
         [JsonConstructor]
-        public Class_Views()
+        public Class_Views() 
         {
             Components = new BindingList<Class_Components>();
             Class_Components component = new Class_Components("Fudixal_Mark");
@@ -261,8 +281,8 @@ namespace Design_Form.Job_Model
             return JsonConvert.DeserializeObject<Class_Views>(jobjson);
         }
     }
-    public class Class_Components
-    {
+    public class Class_Components : INotifyPropertyChanged
+	{
         public string result_Image = "OK";
         public string name_component;
         public string Name_component
