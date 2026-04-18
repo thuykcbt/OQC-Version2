@@ -44,7 +44,7 @@ namespace Design_Form.Job_Model
 {
     public class Model : INotifyPropertyChanged
     {
-        public List<Class_Camera> Cameras;
+        public BindingList<Class_Camera> Cameras;
         private string Name_model { get; set; } = "NewSubModel";
         public Funtion_Machine Funtion_Machine = new Funtion_Machine();
         public DataOffset dataOffset = new DataOffset();
@@ -59,10 +59,10 @@ namespace Design_Form.Job_Model
         }
         public Model()
         {
-            Cameras = new List<Class_Camera>();
+            Cameras = new BindingList<Class_Camera>();
             for (int i = 0; i < total_camera; i++)
             {
-                Cameras.Add(new Class_Camera(i.ToString()));
+                Cameras.Add(new Class_Camera("Camera:"+(i+1).ToString()));
             }
         }
 
@@ -73,7 +73,7 @@ namespace Design_Form.Job_Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         public int ID = 1;
-        public int total_camera = 4;
+        public int total_camera = 1;
         public string File_Path_Image { get; set; }
         public string file_model { get; set; }
 
@@ -83,13 +83,36 @@ namespace Design_Form.Job_Model
             return JsonConvert.DeserializeObject<Model>(jobjson);
         }
     }
-    public class Class_Camera
-    {
+    public class Class_Camera : INotifyPropertyChanged
+	{
         public BindingList<Class_Views> Views;
-        private string name;
+        public string name_Camera;
+		public Class_Camera(string nam)
+		{
+			this.Name_Camera = nam;
+			Views = new BindingList<Class_Views>();
+			Class_Views view = new Class_Views();
+			view.ViewsName = "View1";
+			Views.Add(view);
+		}
 
-        
-        public config_cam config_Cam { get; set; } = new config_cam();
+		public string Name_Camera
+		{
+			get => name_Camera;
+			set
+			{
+				if (name_Camera == value) return;
+				name_Camera = value;
+				OnPropertyChanged(nameof(Name_Camera));
+			}
+		}
+		public event PropertyChangedEventHandler PropertyChanged;
+		protected void OnPropertyChanged(string propertyName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+
+		public config_cam config_Cam { get; set; } = new config_cam();
         public string FolderPath { get; set; }
         public List<HObject> load_image(string folderPath)
         {
@@ -133,15 +156,7 @@ namespace Design_Form.Job_Model
 		}
 	
 
-        public Class_Camera(string nam)
-        {
-            this.name = nam;
-            Views = new BindingList<Class_Views>();
-            Class_Views view = new Class_Views();
-            view.ViewsName = "View1";
-            Views.Add(view);
-        }
-
+       
     }
     public class Class_Views : INotifyPropertyChanged
 	{
@@ -237,14 +252,14 @@ namespace Design_Form.Job_Model
                 else if (result == "NG")
                 {
                     hv_Text.Dispose();
-                    hv_Text = "WAIT";
+                    hv_Text = "FAIL";
                     hv_BoxColor.Dispose();
                     hv_BoxColor = "yellow";
                 }
                 else
                 {
                     hv_Text.Dispose();
-                    hv_Text = "READY";
+                    hv_Text = "PASS";
                     hv_BoxColor.Dispose();
                     hv_BoxColor = "green";
                 }

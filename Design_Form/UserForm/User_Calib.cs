@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace Design_Form.UserForm
 {
@@ -83,7 +84,21 @@ namespace Design_Form.UserForm
             }
         }
 
-        private void simpleButton3_Click(object sender, EventArgs e)
+	
+
+		private void simpleButton1_Click_1(object sender, EventArgs e)
+		{
+            string file_save = "C:/Users/Admin/Desktop/";
+            HTuple diameter =  Convert.ToDouble(comboBox1.Text);
+            HTuple ds_flie = file_save +comboBox1.Text + "calplate.cpd";
+			HTuple ps_file = file_save +comboBox1.Text + "calplate.ps";
+            HOperatorSet.CreateCaltab(27, 31, diameter, ((((new HTuple(13)).TupleConcat(
+6)).TupleConcat(6)).TupleConcat(20)).TupleConcat(20), ((((new HTuple(15)).TupleConcat(
+6)).TupleConcat(24)).TupleConcat(6)).TupleConcat(24), "light_on_dark", ds_flie, ps_file);
+
+		}
+
+		private void simpleButton3_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog saveFileDialog = new FolderBrowserDialog();
 

@@ -44,6 +44,7 @@ namespace Design_Form
 		HObject InputIMG;
 		//HObject[] buffer_image = new HObject[5];
 		Dictionary<int,HObject> Images = new Dictionary<int, HObject>();
+		Dictionary<int, HObject> Images_Folder = new Dictionary<int, HObject>();
 		public int treejob = 0;
 		public int camera = 0;
 		public int make_roi_index = 0;
@@ -52,6 +53,7 @@ namespace Design_Form
 		List<Class_Tool> tool_Measure = new List<Class_Tool>();
 		List<Class_Tool> tool_Detection = new List<Class_Tool>();
         List<Class_Tool> tool_Calibration = new List<Class_Tool>();
+		List<Class_Tool> tool_DeepLearning = new List<Class_Tool>();
         ParaLine paraline;
 		TextureInspectionPara textureInspectionPara;
 		ShapeModelPara shapeModel;
@@ -76,6 +78,7 @@ namespace Design_Form
 		Select_model select_Model;
 		HistogramPara_Color histogram_color;
 		NccModelPara ncc_model_user;
+		Anomaly_User anomaly_User;
 		bool inital  = false;
 		public Setting()
 		{
@@ -150,6 +153,8 @@ namespace Design_Form
 			tool_Detection.Add(new FixtureTool_2());
 			tool_Detection.Add(new NccModelTool());
 			tool_Detection.Add(new OriginFindLine_Tool());
+			// Deep Learning Object
+		//	tool_DeepLearning.Add(new Anomaly_Tool());
 		}
 	
 		
@@ -160,6 +165,7 @@ namespace Design_Form
 			shapeModel = new ShapeModelPara();
 			textureInspectionPara = new TextureInspectionPara();
 			ncc_model_user = new NccModelPara();
+			anomaly_User = new Anomaly_User();
 			resultShapeModel = new ResultShapeModel();
 			user_fixture = new Fixture_Tool();
 			user_fixture2 = new Fixture_Tool2();
@@ -178,6 +184,7 @@ namespace Design_Form
 			user_fitline = new UserFitLine();
 			OCR_user.Name = "OCRUser";
 			ncc_model_user.Name = "NccModelPara";
+			anomaly_User.Name = "Anomaly_User";
 			user_fitline.Name = "UserFitLine";
 			user_Calib = new User_Calib();
 			user_Calib.Name = "User_Calib";
@@ -200,6 +207,7 @@ namespace Design_Form
 			panel6.Controls.Add(align_user);
             panel6.Controls.Add(originFindLine);
 			panel6.Controls.Add(ncc_model_user);
+			panel6.Controls.Add(anomaly_User);
 			panel5.Controls.Add(resultShapeModel);
 			resultShapeModel.Dock = DockStyle.Fill;
 			panel6.Controls.Add(find_circle_para);
@@ -255,7 +263,7 @@ namespace Design_Form
 		{
 			for (int i = 0; i < Job_Model.Statatic_Model.Dino_lites.Count; i++)
 			{
-				cbbCam.Items.Add("Camera : " + i+1);
+				cbbCam.Items.Add(Job_Model.Statatic_Model.model_run.Cameras[i].Name_Camera);
 				load_inital(Job_Model.Statatic_Model.model_run.Cameras[i].FolderPath);
 			}
 
@@ -292,33 +300,33 @@ namespace Design_Form
 			flowLayoutPanel4.Controls.Clear();
 			int width = flowLayoutPanel4.Width;
 			int height = flowLayoutPanel4.Height;
-			for (int i = 0; i < Images.Count/2; i++)
-			{
-				Panel panel = new Panel();
-				panel.Anchor = AnchorStyles.None;
-				
-			
-				panel.Width = width/8;
-				panel.Height = height;
-				HOperatorSet.GetImageSize(InputIMG, out HTuple width_, out HTuple height_);
-			//	HOperatorSet
-				HalconDotNet.HSmartWindowControl HSmartWindowControl1 = new HSmartWindowControl();
-				HSmartWindowControl1.Click += Panel_Click;
-				HSmartWindowControl1.Tag = i;
-				panel.Controls.Add(HSmartWindowControl1);
-				HSmartWindowControl1.Dock = DockStyle.Fill;
-				vision_hacon.SetGear(HSmartWindowControl1.HalconWindow, Images[i]);
-				
-				HTuple top = 0;
-				HTuple bottom =panel.Height ;
-				HTuple right = panel.Width ;
-				HTuple left =0; // Canh giữa theo trục X
+			for (int i = 0; i < Images_Folder.Count; i++) 
+				{
+					Panel panel = new Panel();
+					panel.Anchor = AnchorStyles.None;
 
-				HSmartWindowControl1.HalconWindow.SetPart(top, left, height_-1, width_-1);
-				
-				flowLayoutPanel4.Controls.Add(panel);
-			}	
-		}
+
+					panel.Width = width / 8;
+					panel.Height = height;
+					HOperatorSet.GetImageSize(InputIMG, out HTuple width_, out HTuple height_);
+					//	HOperatorSet
+					HalconDotNet.HSmartWindowControl HSmartWindowControl1 = new HSmartWindowControl();
+					HSmartWindowControl1.Click += Panel_Click;
+					HSmartWindowControl1.Tag = i;
+					panel.Controls.Add(HSmartWindowControl1);
+					HSmartWindowControl1.Dock = DockStyle.Fill;
+					vision_hacon.SetGear(HSmartWindowControl1.HalconWindow, Images_Folder[i]);
+										
+					HTuple top = 0;
+					HTuple bottom = panel.Height;
+					HTuple right = panel.Width;
+					HTuple left = 0; // Canh giữa theo trục X
+
+					HSmartWindowControl1.HalconWindow.SetPart(top, left, height_ - 1, width_ - 1);
+
+					flowLayoutPanel4.Controls.Add(panel);
+				}
+			}
 		private void Panel_Click(object sender, EventArgs e)
 		{
 			HSmartWindowControl clickedPanel = sender as HSmartWindowControl;
@@ -326,7 +334,8 @@ namespace Design_Form
 			if (clickedPanel != null)
 			{
 				int index = (int)clickedPanel.Tag;
-				vision_hacon.SetGear(HSmartWindowControl.HalconWindow, Images[index]);
+				vision_hacon.SetGear(HSmartWindowControl.HalconWindow, Images_Folder[index]);
+				Images[0] = Images_Folder[index];
 			}
 		}
 		private void load_inital(string FolderPath)
@@ -338,13 +347,14 @@ namespace Design_Form
 
 			if (imageList.Count > 0)
 			{
-				Images.Clear();
+				Images_Folder.Clear();
 				for (int i = 0; i < imageList.Count; i++)
 				{
-					Images[i] = imageList[i];
-					Images[i + 50] = imageList[i];
+					Images_Folder[i] = imageList[i];
+					Images_Folder[i + 50] = imageList[i];
 				}
-				InputIMG = Images[0];
+				Images[0] = Images_Folder[0];
+				InputIMG = Images_Folder[0];
 				vision_hacon.SetGear(HSmartWindowControl.HalconWindow, InputIMG);
 				// Thiết lập vùng hiển thị (zoom out 20%)
 				HTuple width, height;
@@ -460,6 +470,10 @@ namespace Design_Form
 					case "NccModel":
 						show_user("NccModelPara");
 						ncc_model_user.load_parameter(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
+						break;
+					case "Anomaly_Tool":
+						show_user("Anomaly_User");
+						anomaly_User.load_para(camera, 0, listBox_Component.SelectedIndex, listBox_Tool.SelectedIndex);
 						break;
 					case "FindDistance":
 						show_user("FindDistancePara");
@@ -631,10 +645,10 @@ namespace Design_Form
 		}
 		Stopwatch Cycletime = new Stopwatch();
 		// buttonn Save Tool
-		private void simpleButton12_Click(object sender, EventArgs e)
+		private void simpleButton12_Click_1(object sender, EventArgs e)
 		{
 			int light = 0;
-			if(check_RGB.Checked)
+			if (check_RGB.Checked)
 			{
 				light = combo_Light.SelectedIndex;
 			}
@@ -658,6 +672,7 @@ namespace Design_Form
 			}
 			Job_Model.Statatic_Model.Save_Modellist();
 		}
+		
 		// button edit roi
 		int roi_index = -1;
 		private void simpleButton9_Click(object sender, EventArgs e)
@@ -724,6 +739,7 @@ namespace Design_Form
 				Job_Model.Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].roi_Tool.RemoveAt(listBox_Roi.SelectedIndex);
 		
 		}
+	
 		// button capture
 		private void simpleButton5_Click(object sender, EventArgs e)
 		{
@@ -781,7 +797,8 @@ namespace Design_Form
 		}
 		private void SavePic_Click(object sender, EventArgs e)
 		{
-			Job_Model.Statatic_Model.SavePic_Click(InputIMG);
+			HObject Input = Images[0];
+			Job_Model.Statatic_Model.SavePic_Click(Input);
 		}
 		bool live_camera1 = false;
 		private void Live_Camera_Click(object sender, EventArgs e)
@@ -882,6 +899,7 @@ namespace Design_Form
 		private void numeric_cali_ValueChanged(object sender, EventArgs e)
 		{
 			Statatic_Model.model_run.Cameras[camera].Views[treejob].Components[listBox_Component.SelectedIndex].Tools[listBox_Tool.SelectedIndex].cali = (double)numeric_cali.Value;
+		
 		}
 
 		#region make Roi
@@ -951,6 +969,10 @@ namespace Design_Form
 		private void DetectObject_ListItemClick(object sender, ListItemClickEventArgs e)
 		{
 			add_tool_process(DetectObject.ItemIndex, tool_Detection);
+		}
+		private void barListItem4_ListItemClick(object sender, ListItemClickEventArgs e)
+		{
+			add_tool_process(barListItem4.ItemIndex, tool_DeepLearning);
 		}
 		#endregion
 		private void barButtonItem32_ItemClick(object sender, ItemClickEventArgs e)
@@ -1388,6 +1410,13 @@ namespace Design_Form
 				Job_Model.Statatic_Model.wirtelog.Log($"AL100 - {this.GetType().Name}" + ex.ToString());
 				MessageBox.Show(ex.ToString());
 			}
+		}
+
+		private void barButtonItem34_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			string selectedValue = "Pro1";
+			Statatic_Model.model_run.Cameras[camera].Views[treejob].Components.Add(new Class_Components(selectedValue));
+			listBox_Component.SelectedIndex = Statatic_Model.model_run.Cameras[camera].Views[treejob].Components.Count - 1;
 		}
 	}
 }

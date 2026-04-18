@@ -39,6 +39,82 @@ namespace Design_Form.Job_Model
         public static WirteLogcs wirtelog = new WirteLogcs("C:\\Log");
         public static WirteLogcs wirtelog_CODE = new WirteLogcs("C:\\Log_ReadingCode");
 
+        public static VisionHalcon CreateRuntimeCamera(Class_Camera cameraConfig, bool connectCamera = false)
+        {
+            var runtimeCamera = new VisionHalcon();
+            ApplyCameraConfigToRuntime(runtimeCamera, cameraConfig);
+
+            if (connectCamera)
+            {
+                runtimeCamera.Open_connect_Gige();
+                runtimeCamera.inital_camera(cameraConfig.config_Cam);
+            }
+
+            return runtimeCamera;
+        }
+
+        public static void ApplyCameraConfigToRuntime(VisionHalcon runtimeCamera, Class_Camera cameraConfig)
+        {
+            if (runtimeCamera == null || cameraConfig == null)
+            {
+                return;
+            }
+
+            runtimeCamera.Device = cameraConfig.config_Cam.device;
+			runtimeCamera.name = string.IsNullOrWhiteSpace(cameraConfig.config_Cam.name)
+	  ? runtimeCamera.name
+	  : new HTuple(cameraConfig.config_Cam.name);
+			runtimeCamera.force_ip = cameraConfig.config_Cam.force_ip;
+        }
+
+        public static void EnsureRuntimeCameraSlots()
+        {
+            if (model_run?.Cameras == null)
+            {
+                Dino_lites.Clear();
+                return;
+            }
+
+            while (Dino_lites.Count > model_run.Cameras.Count)
+            {
+                var removeIndex = Dino_lites.Count - 1;
+                Dino_lites[removeIndex]?.disconect();
+                Dino_lites.RemoveAt(removeIndex);
+            }
+
+            for (int i = 0; i < model_run.Cameras.Count; i++)
+            {
+                if (i >= Dino_lites.Count)
+                {
+                    Dino_lites.Add(CreateRuntimeCamera(model_run.Cameras[i]));
+                    continue;
+                }
+
+                ApplyCameraConfigToRuntime(Dino_lites[i], model_run.Cameras[i]);
+            }
+        }
+
+        public static void AddCameraRuntime(Class_Camera cameraConfig)
+        {
+            if (cameraConfig == null)
+            {
+                return;
+            }
+
+            Dino_lites.Add(CreateRuntimeCamera(cameraConfig));
+        }
+
+        public static void RemoveCameraRuntimeAt(int index)
+        {
+            if (index < 0 || index >= Dino_lites.Count)
+            {
+                return;
+            }
+
+            Dino_lites[index]?.disconect();
+            Dino_lites.RemoveAt(index);
+        }
+
         public static void SaveJob(Model model, string filePath)
         {
             var settings = new JsonSerializerSettings
@@ -153,6 +229,10 @@ namespace Design_Form.Job_Model
 			// 1️⃣ Root cố định
 		
 		}
+		public static void SavePic_Muilti(Dictionary<int, HObject> Images)
+        {
+
+        }
 		public static void SavePic_Click(HObject img)
 		{
 			if (img != null)

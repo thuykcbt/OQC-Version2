@@ -34,11 +34,13 @@
 			this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
 			this.bar1 = new DevExpress.XtraBars.Bar();
 			this.bar_Camera1 = new DevExpress.XtraBars.BarStaticItem();
+			this.barToggleSwitchItem1 = new DevExpress.XtraBars.BarToggleSwitchItem();
 			this.bar2 = new DevExpress.XtraBars.Bar();
 			this.btn_Home = new DevExpress.XtraBars.BarButtonItem();
 			this.barButtonSetting = new DevExpress.XtraBars.BarButtonItem();
 			this.barReport = new DevExpress.XtraBars.BarButtonItem();
-			this.bar_Monitor = new DevExpress.XtraBars.BarButtonItem();
+			this.bar_Model = new DevExpress.XtraBars.BarButtonItem();
+			this.ConfigCam = new DevExpress.XtraBars.BarButtonItem();
 			this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -54,6 +56,7 @@
 			this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
 			this.bar_Cam2 = new DevExpress.XtraBars.BarButtonItem();
 			this.bar_Camera2 = new DevExpress.XtraBars.BarStaticItem();
+			this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
 			this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
@@ -96,12 +99,15 @@
             this.barPLC_Connect,
             this.bar_Camera1,
             this.barPLC_Form,
-            this.bar_Monitor,
+            this.bar_Model,
             this.barButtonItem4,
             this.bar_Cam2,
-            this.bar_Camera2});
+            this.bar_Camera2,
+            this.barCheckItem1,
+            this.barToggleSwitchItem1,
+            this.ConfigCam});
 			this.barManager1.MainMenu = this.bar2;
-			this.barManager1.MaxItemId = 17;
+			this.barManager1.MaxItemId = 20;
 			// 
 			// bar1
 			// 
@@ -111,7 +117,8 @@
 			this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
 			this.bar1.FloatLocation = new System.Drawing.Point(380, 622);
 			this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_Camera1)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_Camera1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barToggleSwitchItem1)});
 			this.bar1.Text = "Tools";
 			// 
 			// bar_Camera1
@@ -128,6 +135,13 @@
 			this.bar_Camera1.Name = "bar_Camera1";
 			this.bar_Camera1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
 			// 
+			// barToggleSwitchItem1
+			// 
+			this.barToggleSwitchItem1.Caption = "RunMode";
+			this.barToggleSwitchItem1.Id = 18;
+			this.barToggleSwitchItem1.Name = "barToggleSwitchItem1";
+			this.barToggleSwitchItem1.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barToggleSwitchItem1_CheckedChanged);
+			// 
 			// bar2
 			// 
 			this.bar2.BarName = "Main menu";
@@ -138,7 +152,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_Home),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonSetting),
             new DevExpress.XtraBars.LinkPersistInfo(this.barReport),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_Monitor)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_Model),
+            new DevExpress.XtraBars.LinkPersistInfo(this.ConfigCam)});
 			this.bar2.OptionsBar.MultiLine = true;
 			this.bar2.OptionsBar.UseWholeRow = true;
 			this.bar2.Text = "Main menu";
@@ -171,14 +186,23 @@
 			this.barReport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
 			this.barReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
 			// 
-			// bar_Monitor
+			// bar_Model
 			// 
-			this.bar_Monitor.Caption = "Model";
-			this.bar_Monitor.Id = 13;
-			this.bar_Monitor.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bar_Monitor.ImageOptions.SvgImage")));
-			this.bar_Monitor.Name = "bar_Monitor";
-			this.bar_Monitor.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-			this.bar_Monitor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_Monitor_ItemClick);
+			this.bar_Model.Caption = "Model";
+			this.bar_Model.Id = 13;
+			this.bar_Model.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bar_Model.ImageOptions.SvgImage")));
+			this.bar_Model.Name = "bar_Model";
+			this.bar_Model.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+			this.bar_Model.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_Model_ItemClick);
+			// 
+			// ConfigCam
+			// 
+			this.ConfigCam.Caption = "Cam_Config";
+			this.ConfigCam.Id = 19;
+			this.ConfigCam.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ConfigCam.ImageOptions.SvgImage")));
+			this.ConfigCam.Name = "ConfigCam";
+			this.ConfigCam.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+			this.ConfigCam.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ConfigCam_ItemClick);
 			// 
 			// barDockControlTop
 			// 
@@ -232,7 +256,7 @@
 			this.btnLivecamera.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLivecamera.ImageOptions.SvgImage")));
 			this.btnLivecamera.Name = "btnLivecamera";
 			this.btnLivecamera.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-			this.btnLivecamera.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
+		
 			// 
 			// skinBarSubItem1
 			// 
@@ -302,6 +326,12 @@
 			this.bar_Camera2.Name = "bar_Camera2";
 			this.bar_Camera2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
 			// 
+			// barCheckItem1
+			// 
+			this.barCheckItem1.Caption = "RunMode";
+			this.barCheckItem1.Id = 17;
+			this.barCheckItem1.Name = "barCheckItem1";
+			// 
 			// barDockControl1
 			// 
 			this.barDockControl1.CausesValidation = false;
@@ -360,6 +390,7 @@
 			// 
 			// timer1
 			// 
+			this.timer1.Enabled = true;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
 			// barStaticItem1
@@ -461,12 +492,15 @@
         private DevExpress.XtraBars.BarStaticItem bar_Camera1;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraBars.BarButtonItem barPLC_Form;
-        private DevExpress.XtraBars.BarButtonItem bar_Monitor;
+        private DevExpress.XtraBars.BarButtonItem bar_Model;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem bar_Cam2;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem2;
         private DevExpress.XtraBars.BarStaticItem barStaticItem3;
         private DevExpress.XtraBars.BarStaticItem bar_Camera2;
-    }
+		private DevExpress.XtraBars.BarToggleSwitchItem barToggleSwitchItem1;
+		private DevExpress.XtraBars.BarCheckItem barCheckItem1;
+		private DevExpress.XtraBars.BarButtonItem ConfigCam;
+	}
 }

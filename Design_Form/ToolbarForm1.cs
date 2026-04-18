@@ -2,6 +2,7 @@
 using DevExpress.DocumentServices.ServiceModel.DataContracts;
 using DevExpress.Export.Xl;
 using DevExpress.XtraBars;
+using DevExpress.XtraEditors.SyntaxEditor;
 using DevExpress.XtraSplashScreen;
 using Newtonsoft.Json;
 using System;
@@ -26,7 +27,7 @@ namespace Design_Form
         Setting setting;
        // LiveCamera livecamera;
         ReportForm report;
-       
+        Config_Camera config_Camera;
         Monitor_Form monitor_Form;
         
         private GlobalKeyboardHook _keyboardHook;
@@ -61,9 +62,9 @@ namespace Design_Form
             { monitor_Form = new Monitor_Form(); }
             if (setting == null)
             { setting = new Setting(); }
-            //if(livecamera == null)
-            //{ livecamera = new LiveCamera(); }
-            if(report == null)
+            if (config_Camera == null)
+            { config_Camera = new Config_Camera(); }
+            if (report == null)
             { report = new ReportForm(); }  
            
               
@@ -82,8 +83,28 @@ namespace Design_Form
               //  barButtonSetting.Enabled = false;
             }
         }
-
-        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+		[Flags]
+		public enum AppWindow
+		{
+			None = 0,
+			Home = 1,
+			Setting = 2,
+			LiveCamera = 4,
+			Report = 8,
+			Model = 16,
+            ConfigCam=32,
+		}
+		private void UpdateButtonState(int window)
+		{
+			barButtonSetting.Enabled = (window & (int)AppWindow.Setting) == 0;
+			btn_Home.Enabled = (window & (int)AppWindow.Home) == 0;
+			btnLivecamera.Enabled = (window & (int)AppWindow.LiveCamera) == 0;
+			barReport.Enabled = (window & (int)AppWindow.Report) == 0;
+			bar_Model.Enabled = (window & (int)AppWindow.Model) == 0;
+			ConfigCam.Enabled = (window & (int)AppWindow.ConfigCam) == 0;
+			setting.timer1.Enabled = (window & (int)AppWindow.Setting) != 0;
+		}
+		private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
             Login login = new Login();
             login.Show();
@@ -123,26 +144,17 @@ namespace Design_Form
         {
             try
             {
-                if (current_Window != 1)
+                if (current_Window != (int)AppWindow.Setting)
                 {
 
                     SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
                     ShowChildForm(setting);
                     // clean_up();
                     SplashScreenManager.CloseForm();
-                    current_Window = 1;
-                    barButtonSetting.Enabled = false;
-                    btnLivecamera.Enabled = true;
-                    btn_Home.Enabled = true;
-                    setting.timer1.Enabled = true;
-                    barReport.Enabled = true;
-                    bar_Monitor.Enabled = true;
-                  
-                    
-                  
-                  
+					current_Window = (int)AppWindow.Setting;
+                    UpdateButtonState(current_Window);
 
-                }
+				}
             }
             catch (Exception ex) { Job_Model.Statatic_Model.wirtelog.Log(ex.ToString()); }
             
@@ -152,101 +164,33 @@ namespace Design_Form
         {
             try
             {
-                if (current_Window != 0)
-                {
-                    btn_Home.Enabled = false;
-                    btnLivecamera.Enabled = true;
-                    barButtonSetting.Enabled = true;
-                    barReport.Enabled = true;
-                    bar_Monitor.Enabled = true;
-                 
-                    ShowChildForm(form1);
-                    current_Window = 0;
-                    setting.timer1.Enabled = false;
-               
-              
-                   
-                 
-                }
-            }
+				if (current_Window != (int)AppWindow.Home)
+				{
+					ShowChildForm(form1);
+					current_Window = (int)AppWindow.Home;
+					UpdateButtonState(current_Window);
+				}
+			}
             catch (Exception ex) { Job_Model.Statatic_Model.wirtelog.Log(ex.ToString()); }
            
-        }
-
-        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                if (current_Window != 2)
-                {
-                    btn_Home.Enabled = true;
-                    barButtonSetting.Enabled = true;
-                    barReport.Enabled = true;
-                    bar_Monitor.Enabled = true;
-               
-                    btnLivecamera.Enabled = false;
-                   
-                    current_Window = 2;
-                    setting.timer1.Enabled = false;
-                 
-                 
-                }
-            }
-            catch (Exception ex) { Job_Model.Statatic_Model.wirtelog.Log(ex.ToString()); }
-            
         }
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            try
-            {
-                if (current_Window != 3)
-                {
-                    btn_Home.Enabled = true;
-                    barButtonSetting.Enabled = true;
-                    btnLivecamera.Enabled = true;
-                    bar_Monitor.Enabled = true;
-                   
-                    barReport.Enabled = false;
-                    ShowChildForm(report);
-                    current_Window = 3;
-                    setting.timer1.Enabled = false;
-                
-                  
-                   
-                }
-            }
-            catch (Exception ex) { Job_Model.Statatic_Model.wirtelog.Log(ex.ToString()); }
-            
-        }
+			try
+			{
+				if (current_Window != (int)AppWindow.Report)
+				{
+					ShowChildForm(report);
+					current_Window = (int)AppWindow.Report;
+					UpdateButtonState(current_Window);
+				}
+			}
+			catch (Exception ex) { Job_Model.Statatic_Model.wirtelog.Log(ex.ToString()); }
+
+		}
        
 
-        private void barButtonItem4_ItemClick_1(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                if (current_Window != 5)
-                {
-                    btn_Home.Enabled = true;
-                    barButtonSetting.Enabled = true;
-                    btnLivecamera.Enabled = true;
-                    barReport.Enabled = true;
-                    bar_Monitor.Enabled = false;
-                   
-                    ShowChildForm(monitor_Form);
-                    current_Window = 5;
-                    setting.timer1.Enabled = false;
-                  
-                   
-                 
-                }
-            }
-            catch (Exception ex)
-            {
-                Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
-            }
-           
-        }
         List<BarStaticItem> bars_button = new List<BarStaticItem>();
         
         private void inital_button_cam()
@@ -261,14 +205,14 @@ namespace Design_Form
             {
                 //for (int i = 0; i < Job_Model.Statatic_Model.Dino_lites.Count; i++)
                 //{
-                //    if (Job_Model.Statatic_Model.Dino_lites[i].lamp_vision_connected)
-                //    {
-                //        bars_button[i].ImageOptions.SvgImage = Properties.Resources.ok;
-                //    }
-                //    else
-                //    {
-                //        bars_button[i].ImageOptions.SvgImage = Properties.Resources.failure;
-                //    }
+                if (Job_Model.Statatic_Model.Dino_lites[0].lamp_vision_connected)
+                {
+                    bars_button[0].ImageOptions.SvgImage = Properties.Resources.ok;
+                }
+                else
+                {
+                    bars_button[0].ImageOptions.SvgImage = Properties.Resources.failure;
+                }
                 //}
             }
             catch (Exception ex)
@@ -286,28 +230,39 @@ namespace Design_Form
         }
 
       
-		private void bar_Monitor_ItemClick(object sender, ItemClickEventArgs e)
+	
+
+		private void barToggleSwitchItem1_CheckedChanged(object sender, ItemClickEventArgs e)
+		{
+			form1.Run_Mode(barToggleSwitchItem1.Checked);
+		}
+
+		private void bar_Model_ItemClick(object sender, ItemClickEventArgs e)
 		{
 			try
 			{
-				if (current_Window != 5)
+				if (current_Window != (int)AppWindow.Model)
 				{
-					btn_Home.Enabled = true;
-					barButtonSetting.Enabled = true;
-					btnLivecamera.Enabled = true;
-					barReport.Enabled = true;
-					bar_Monitor.Enabled = false;
 					ShowChildForm(monitor_Form);
-					current_Window = 5;
-					setting.timer1.Enabled = false;
-
+					current_Window = (int)AppWindow.Model;
+					UpdateButtonState(current_Window);
 				}
 			}
-			catch (Exception ex)
-			{
-				Job_Model.Statatic_Model.wirtelog.Log(ex.ToString());
-			}
+			catch (Exception ex) { Job_Model.Statatic_Model.wirtelog.Log(ex.ToString()); }
+		}
 
+		private void ConfigCam_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				if (current_Window != (int)AppWindow.ConfigCam)
+				{
+					ShowChildForm(config_Camera);
+					current_Window = (int)AppWindow.ConfigCam;
+					UpdateButtonState(current_Window);
+				}
+			}
+			catch (Exception ex) { Job_Model.Statatic_Model.wirtelog.Log(ex.ToString()); }
 		}
 	}
 }

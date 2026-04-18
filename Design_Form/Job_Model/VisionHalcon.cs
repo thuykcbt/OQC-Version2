@@ -66,7 +66,7 @@ namespace Design_Form.Job_Model
                     //  HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
                     SETPARAMETERCAMERA_int("TriggerSoftware", 1);
                     HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
-         //           SETPARAMETERCAMERA_int("TriggerSoftware", 0);
+                  //  SETPARAMETERCAMERA_int("TriggerSoftware", 0);
                     return ho_Image;
                 }
                 else
@@ -152,34 +152,60 @@ namespace Design_Form.Job_Model
 			}
 
 		}
-        public void inital_camera(config_cam config_Cam)
+		public List<string> GetCameraInfo(string[] cameraParams)
+		{
+			var infoList = new List<string>();
+			try
+			{
+				foreach (var param in cameraParams)
+				{
+					try
+					{
+						HalconDotNet.HOperatorSet.GetFramegrabberParam(hv_AcqHandle, param, out HTuple value);
+						infoList.Add(value);
+					}
+					catch
+					{
+					}
+				}
+			}
+			catch (HOperatorException ex)
+			{
+				infoList.Add($"Failed to get camera info: {ex.Message} (Error code: {ex.GetErrorCode()})");
+			}
+			return infoList;
+		}
+		public List<string[]> GetCameraInfo_values(string[] cameraParams)
+		{
+			var infoList = new List<string[]>();
+			try
+			{
+				foreach (var param in cameraParams)
+				{
+					try
+					{
+						HalconDotNet.HOperatorSet.GetFramegrabberParam(hv_AcqHandle, param, out HTuple value);
+                        string[] items = value.SArr;
+						infoList.Add(value);
+					}
+					catch
+					{
+					}
+				}
+			}
+			catch (HOperatorException ex)
+			{
+				Job_Model.Statatic_Model.wirtelog.Log($"AL003 - {this.GetType().Name} -" + ex.ToString());
+			}
+			return infoList;
+		}
+		public void inital_camera(config_cam config_Cam)
         {
             try
             {
 				if (hv_AcqHandle.Type == HTupleType.EMPTY) return;
 
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PixelFormat", config_Cam.Pixel_Format);
-                if (config_Cam.ModelCamera == "AreaCamera")
-                {
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", config_Cam.Exposure);
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSelector", config_Cam.TriggerSelector);
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", config_Cam.TriggerMode);
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSource", config_Cam.TriggerSource);
-                    HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
-                }
-              
-                if (config_Cam.ModelCamera == "LineScan")
-                {
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTimeAbs", config_Cam.Exposure);
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "AcquisitionMode", config_Cam.AcquisitionMode);
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "AcquisitionFrameCount", config_Cam.AcquisitionFrameCount);
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSelector", config_Cam.TriggerSelector);
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", config_Cam.TriggerMode);
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSource", config_Cam.TriggerSource);
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerActivation", config_Cam.TrgiggerActivation);
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "AcquisitionLineRateAbs", config_Cam.AcquisitionLinerateABS);
-                    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "grab_timeout", config_Cam.grab_timout);
-                }
+          
             }
             catch (Exception ex)
             {
@@ -190,8 +216,9 @@ namespace Design_Form.Job_Model
 		}
 		public void disconect()
         {
-            
-        }
+			HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+			lamp_vision_connected = false;
+		}
     }
     
 	       
@@ -210,12 +237,16 @@ namespace Design_Form.Job_Model
         public int Width { get; set; }
         public string AcquisitionMode { get; set; }
         public int AcquisitionFrameCount { get; set; }
-        public string TriggerSelector { get; set; }
-		public string TriggerMode { get; set; } = "Off";
-        public string TriggerSource { get; set; }
-        public string TrgiggerActivation { get; set; }
+        public List<TriggerConfig> triggerConfigs { get; set; } = new List<TriggerConfig>();
         public double AcquisitionLinerateABS { get; set; }
         public int grab_timout { get; set; } = 5000;
 
+	}
+    public class TriggerConfig
+	{
+		public string Selector;
+		public string Mode;
+		public string Source;
+		public string Activation;
 	}
 }

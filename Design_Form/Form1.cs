@@ -91,7 +91,25 @@ namespace Design_Form
             trd.Start();
         }
         Stopwatch cycletime = new Stopwatch();
-        private void Work_PLC()
+		public void Run_Mode(bool run_mode)
+		{
+			if (run_mode)
+            {
+				dockPanel3.Visibility = DockVisibility.Hidden;
+			//	panelContainer4.Visibility = DockVisibility.Hidden;
+			}
+
+            else
+            {
+                dockPanel3.Visibility = DockVisibility.Visible;
+				dockPanel3.Dock = DockingStyle.Top;
+			//	panelContainer4.Visibility = DockVisibility.Visible;
+			//	panelContainer4.Dock = DockingStyle.Right;
+			} 
+                
+                
+		}
+		private void Work_PLC()
         {
             try
             {
@@ -144,9 +162,15 @@ namespace Design_Form
                     count++;
                     if ( CheckEdge(PLC_Communication.Model_PLC.ControlFlagPLC[0]))
                     {
-                       
-                      
-                    }
+                        Images.Clear();
+						HObject image = Job_Model.Statatic_Model.Dino_lites[0].capture_halcom();
+						HOperatorSet.ClearWindow(HSmartWindowControl1.HalconWindow);
+						HOperatorSet.DispObj(image, HSmartWindowControl1.HalconWindow);
+					
+                        Images[0]= image;
+						var result_context = Job_Model.Statatic_Model.model_run.Cameras[0].Views[0].ExecuteAllComponent(HSmartWindowControl1.HalconWindow, Images, true, true);
+
+					}
                     Thread.Sleep(10);
 
                 }

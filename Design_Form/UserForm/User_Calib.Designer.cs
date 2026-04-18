@@ -64,6 +64,10 @@
 			this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
 			this.layoutControl1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Cell_Height)).BeginInit();
@@ -88,6 +92,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// layoutControl1
@@ -102,6 +108,8 @@
 			this.layoutControl1.Appearance.ControlDropDownHeader.Options.UseBorderColor = true;
 			this.layoutControl1.Appearance.ControlFocused.BorderColor = System.Drawing.Color.White;
 			this.layoutControl1.Appearance.ControlFocused.Options.UseBorderColor = true;
+			this.layoutControl1.Controls.Add(this.comboBox1);
+			this.layoutControl1.Controls.Add(this.simpleButton1);
 			this.layoutControl1.Controls.Add(this.label7);
 			this.layoutControl1.Controls.Add(this.label6);
 			this.layoutControl1.Controls.Add(this.label5);
@@ -123,37 +131,37 @@
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(449, 191, 650, 400);
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(190, 483);
+			this.layoutControl1.Size = new System.Drawing.Size(219, 483);
 			this.layoutControl1.TabIndex = 0;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
 			// label7
 			// 
 			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(149, 339);
+			this.label7.Location = new System.Drawing.Point(179, 372);
 			this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(33, 20);
+			this.label7.Size = new System.Drawing.Size(28, 20);
 			this.label7.TabIndex = 35;
 			this.label7.Text = "um";
 			// 
 			// label6
 			// 
 			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(149, 315);
+			this.label6.Location = new System.Drawing.Point(179, 348);
 			this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(33, 20);
+			this.label6.Size = new System.Drawing.Size(28, 20);
 			this.label6.TabIndex = 34;
 			this.label6.Text = "um";
 			// 
 			// label5
 			// 
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(149, 291);
+			this.label5.Location = new System.Drawing.Point(179, 324);
 			this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(33, 20);
+			this.label5.Size = new System.Drawing.Size(28, 20);
 			this.label5.TabIndex = 33;
 			this.label5.Text = "mm";
 			// 
@@ -161,39 +169,39 @@
 			// 
 			this.Cell_Height.DecimalPlaces = 3;
 			this.Cell_Height.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Cell_Height.Location = new System.Drawing.Point(80, 339);
-			this.Cell_Height.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Cell_Height.Location = new System.Drawing.Point(87, 372);
+			this.Cell_Height.Margin = new System.Windows.Forms.Padding(2);
 			this.Cell_Height.Name = "Cell_Height";
-			this.Cell_Height.Size = new System.Drawing.Size(67, 23);
+			this.Cell_Height.Size = new System.Drawing.Size(88, 23);
 			this.Cell_Height.TabIndex = 32;
 			// 
 			// Cell_Width
 			// 
 			this.Cell_Width.DecimalPlaces = 3;
 			this.Cell_Width.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Cell_Width.Location = new System.Drawing.Point(80, 315);
-			this.Cell_Width.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Cell_Width.Location = new System.Drawing.Point(87, 348);
+			this.Cell_Width.Margin = new System.Windows.Forms.Padding(2);
 			this.Cell_Width.Name = "Cell_Width";
-			this.Cell_Width.Size = new System.Drawing.Size(67, 23);
+			this.Cell_Width.Size = new System.Drawing.Size(88, 23);
 			this.Cell_Width.TabIndex = 31;
 			// 
 			// focus
 			// 
 			this.focus.DecimalPlaces = 3;
 			this.focus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.focus.Location = new System.Drawing.Point(80, 291);
-			this.focus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.focus.Location = new System.Drawing.Point(87, 324);
+			this.focus.Margin = new System.Windows.Forms.Padding(2);
 			this.focus.Name = "focus";
-			this.focus.Size = new System.Drawing.Size(67, 23);
+			this.focus.Size = new System.Drawing.Size(88, 23);
 			this.focus.TabIndex = 30;
 			// 
 			// mm
 			// 
 			this.mm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.mm.Location = new System.Drawing.Point(149, 267);
+			this.mm.Location = new System.Drawing.Point(179, 300);
 			this.mm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.mm.Name = "mm";
-			this.mm.Size = new System.Drawing.Size(33, 20);
+			this.mm.Size = new System.Drawing.Size(28, 20);
 			this.mm.TabIndex = 29;
 			this.mm.Text = "mm";
 			// 
@@ -201,18 +209,18 @@
 			// 
 			this.Thickness.DecimalPlaces = 3;
 			this.Thickness.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Thickness.Location = new System.Drawing.Point(80, 267);
-			this.Thickness.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Thickness.Location = new System.Drawing.Point(87, 300);
+			this.Thickness.Margin = new System.Windows.Forms.Padding(2);
 			this.Thickness.Name = "Thickness";
-			this.Thickness.Size = new System.Drawing.Size(67, 23);
+			this.Thickness.Size = new System.Drawing.Size(88, 23);
 			this.Thickness.TabIndex = 28;
 			// 
 			// label4
 			// 
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(8, 115);
+			this.label4.Location = new System.Drawing.Point(12, 125);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(174, 20);
+			this.label4.Size = new System.Drawing.Size(195, 29);
 			this.label4.TabIndex = 27;
 			// 
 			// simpleButton5
@@ -220,9 +228,9 @@
 			this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.simpleButton5.Appearance.Options.UseFont = true;
 			this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
-			this.simpleButton5.Location = new System.Drawing.Point(8, 75);
+			this.simpleButton5.Location = new System.Drawing.Point(12, 85);
 			this.simpleButton5.Name = "simpleButton5";
-			this.simpleButton5.Size = new System.Drawing.Size(174, 36);
+			this.simpleButton5.Size = new System.Drawing.Size(195, 36);
 			this.simpleButton5.StyleController = this.layoutControl1;
 			this.simpleButton5.TabIndex = 26;
 			this.simpleButton5.Text = "Camera_Describe";
@@ -231,9 +239,9 @@
 			// label3
 			// 
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(8, 243);
+			this.label3.Location = new System.Drawing.Point(12, 270);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(174, 20);
+			this.label3.Size = new System.Drawing.Size(195, 26);
 			this.label3.TabIndex = 25;
 			// 
 			// simpleButton4
@@ -241,9 +249,9 @@
 			this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.simpleButton4.Appearance.Options.UseFont = true;
 			this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-			this.simpleButton4.Location = new System.Drawing.Point(8, 203);
+			this.simpleButton4.Location = new System.Drawing.Point(12, 230);
 			this.simpleButton4.Name = "simpleButton4";
-			this.simpleButton4.Size = new System.Drawing.Size(174, 36);
+			this.simpleButton4.Size = new System.Drawing.Size(195, 36);
 			this.simpleButton4.StyleController = this.layoutControl1;
 			this.simpleButton4.TabIndex = 24;
 			this.simpleButton4.Text = "Pose_Cam";
@@ -252,9 +260,9 @@
 			// label2
 			// 
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(8, 179);
+			this.label2.Location = new System.Drawing.Point(12, 198);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(174, 20);
+			this.label2.Size = new System.Drawing.Size(195, 28);
 			this.label2.TabIndex = 23;
 			// 
 			// simpleButton3
@@ -262,9 +270,9 @@
 			this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.simpleButton3.Appearance.Options.UseFont = true;
 			this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-			this.simpleButton3.Location = new System.Drawing.Point(8, 139);
+			this.simpleButton3.Location = new System.Drawing.Point(12, 158);
 			this.simpleButton3.Name = "simpleButton3";
-			this.simpleButton3.Size = new System.Drawing.Size(174, 36);
+			this.simpleButton3.Size = new System.Drawing.Size(195, 36);
 			this.simpleButton3.StyleController = this.layoutControl1;
 			this.simpleButton3.TabIndex = 22;
 			this.simpleButton3.Text = "Para_Cam";
@@ -273,9 +281,9 @@
 			// label1
 			// 
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(8, 50);
+			this.label1.Location = new System.Drawing.Point(12, 52);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(174, 21);
+			this.label1.Size = new System.Drawing.Size(195, 29);
 			this.label1.TabIndex = 21;
 			// 
 			// simpleButton2
@@ -283,9 +291,9 @@
 			this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.simpleButton2.Appearance.Options.UseFont = true;
 			this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-			this.simpleButton2.Location = new System.Drawing.Point(8, 10);
+			this.simpleButton2.Location = new System.Drawing.Point(12, 12);
 			this.simpleButton2.Name = "simpleButton2";
-			this.simpleButton2.Size = new System.Drawing.Size(174, 36);
+			this.simpleButton2.Size = new System.Drawing.Size(195, 36);
 			this.simpleButton2.StyleController = this.layoutControl1;
 			this.simpleButton2.TabIndex = 20;
 			this.simpleButton2.Text = "Load_Image_Calib";
@@ -307,22 +315,24 @@
             this.layoutControlItem9,
             this.layoutControlItem10,
             this.layoutControlItem12,
-            this.layoutControlItem13,
-            this.layoutControlItem11,
             this.layoutControlItem15,
-            this.layoutControlItem16,
+            this.layoutControlItem13,
             this.layoutControlItem14,
-            this.layoutControlItem17});
+            this.layoutControlItem16,
+            this.layoutControlItem17,
+            this.layoutControlItem11,
+            this.layoutControlItem2,
+            this.layoutControlItem18});
 			this.Root.Name = "Root";
-			this.Root.Size = new System.Drawing.Size(190, 483);
+			this.Root.Size = new System.Drawing.Size(219, 483);
 			this.Root.TextVisible = false;
 			// 
 			// emptySpaceItem1
 			// 
 			this.emptySpaceItem1.AllowHotTrack = false;
-			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 353);
+			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 409);
 			this.emptySpaceItem1.Name = "emptySpaceItem1";
-			this.emptySpaceItem1.Size = new System.Drawing.Size(176, 114);
+			this.emptySpaceItem1.Size = new System.Drawing.Size(199, 14);
 			this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
 			// 
 			// layoutControlItem1
@@ -330,7 +340,7 @@
 			this.layoutControlItem1.Control = this.simpleButton2;
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(176, 40);
+			this.layoutControlItem1.Size = new System.Drawing.Size(199, 40);
 			this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem1.TextVisible = false;
 			// 
@@ -340,7 +350,7 @@
 			this.layoutControlItem3.Location = new System.Drawing.Point(0, 40);
 			this.layoutControlItem3.MinSize = new System.Drawing.Size(24, 24);
 			this.layoutControlItem3.Name = "layoutControlItem3";
-			this.layoutControlItem3.Size = new System.Drawing.Size(176, 25);
+			this.layoutControlItem3.Size = new System.Drawing.Size(199, 33);
 			this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem3.TextVisible = false;
@@ -348,19 +358,19 @@
 			// layoutControlItem6
 			// 
 			this.layoutControlItem6.Control = this.simpleButton3;
-			this.layoutControlItem6.Location = new System.Drawing.Point(0, 129);
+			this.layoutControlItem6.Location = new System.Drawing.Point(0, 146);
 			this.layoutControlItem6.Name = "layoutControlItem6";
-			this.layoutControlItem6.Size = new System.Drawing.Size(176, 40);
+			this.layoutControlItem6.Size = new System.Drawing.Size(199, 40);
 			this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem6.TextVisible = false;
 			// 
 			// layoutControlItem7
 			// 
 			this.layoutControlItem7.Control = this.label2;
-			this.layoutControlItem7.Location = new System.Drawing.Point(0, 169);
+			this.layoutControlItem7.Location = new System.Drawing.Point(0, 186);
 			this.layoutControlItem7.MinSize = new System.Drawing.Size(24, 24);
 			this.layoutControlItem7.Name = "layoutControlItem7";
-			this.layoutControlItem7.Size = new System.Drawing.Size(176, 24);
+			this.layoutControlItem7.Size = new System.Drawing.Size(199, 32);
 			this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem7.TextVisible = false;
@@ -368,36 +378,36 @@
 			// layoutControlItem4
 			// 
 			this.layoutControlItem4.Control = this.simpleButton4;
-			this.layoutControlItem4.Location = new System.Drawing.Point(0, 193);
+			this.layoutControlItem4.Location = new System.Drawing.Point(0, 218);
 			this.layoutControlItem4.Name = "layoutControlItem4";
-			this.layoutControlItem4.Size = new System.Drawing.Size(176, 40);
+			this.layoutControlItem4.Size = new System.Drawing.Size(199, 40);
 			this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem4.TextVisible = false;
 			// 
 			// layoutControlItem5
 			// 
 			this.layoutControlItem5.Control = this.label3;
-			this.layoutControlItem5.Location = new System.Drawing.Point(0, 233);
+			this.layoutControlItem5.Location = new System.Drawing.Point(0, 258);
 			this.layoutControlItem5.Name = "layoutControlItem5";
-			this.layoutControlItem5.Size = new System.Drawing.Size(176, 24);
+			this.layoutControlItem5.Size = new System.Drawing.Size(199, 30);
 			this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem5.TextVisible = false;
 			// 
 			// layoutControlItem8
 			// 
 			this.layoutControlItem8.Control = this.simpleButton5;
-			this.layoutControlItem8.Location = new System.Drawing.Point(0, 65);
+			this.layoutControlItem8.Location = new System.Drawing.Point(0, 73);
 			this.layoutControlItem8.Name = "layoutControlItem8";
-			this.layoutControlItem8.Size = new System.Drawing.Size(176, 40);
+			this.layoutControlItem8.Size = new System.Drawing.Size(199, 40);
 			this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem8.TextVisible = false;
 			// 
 			// layoutControlItem9
 			// 
 			this.layoutControlItem9.Control = this.label4;
-			this.layoutControlItem9.Location = new System.Drawing.Point(0, 105);
+			this.layoutControlItem9.Location = new System.Drawing.Point(0, 113);
 			this.layoutControlItem9.Name = "layoutControlItem9";
-			this.layoutControlItem9.Size = new System.Drawing.Size(176, 24);
+			this.layoutControlItem9.Size = new System.Drawing.Size(199, 33);
 			this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem9.TextVisible = false;
 			// 
@@ -406,9 +416,9 @@
 			this.layoutControlItem10.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.layoutControlItem10.AppearanceItemCaption.Options.UseFont = true;
 			this.layoutControlItem10.Control = this.Thickness;
-			this.layoutControlItem10.Location = new System.Drawing.Point(0, 257);
+			this.layoutControlItem10.Location = new System.Drawing.Point(0, 288);
 			this.layoutControlItem10.Name = "layoutControlItem10";
-			this.layoutControlItem10.Size = new System.Drawing.Size(141, 24);
+			this.layoutControlItem10.Size = new System.Drawing.Size(167, 24);
 			this.layoutControlItem10.Text = "Thickness";
 			this.layoutControlItem10.TextSize = new System.Drawing.Size(63, 17);
 			// 
@@ -417,9 +427,9 @@
 			this.layoutControlItem12.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.layoutControlItem12.AppearanceItemCaption.Options.UseFont = true;
 			this.layoutControlItem12.Control = this.focus;
-			this.layoutControlItem12.Location = new System.Drawing.Point(0, 281);
+			this.layoutControlItem12.Location = new System.Drawing.Point(0, 312);
 			this.layoutControlItem12.Name = "layoutControlItem12";
-			this.layoutControlItem12.Size = new System.Drawing.Size(141, 24);
+			this.layoutControlItem12.Size = new System.Drawing.Size(167, 24);
 			this.layoutControlItem12.Text = "Focus";
 			this.layoutControlItem12.TextSize = new System.Drawing.Size(63, 17);
 			// 
@@ -428,36 +438,36 @@
 			this.layoutControlItem13.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.layoutControlItem13.AppearanceItemCaption.Options.UseFont = true;
 			this.layoutControlItem13.Control = this.Cell_Width;
-			this.layoutControlItem13.Location = new System.Drawing.Point(0, 305);
+			this.layoutControlItem13.Location = new System.Drawing.Point(0, 336);
 			this.layoutControlItem13.Name = "layoutControlItem13";
-			this.layoutControlItem13.Size = new System.Drawing.Size(141, 24);
+			this.layoutControlItem13.Size = new System.Drawing.Size(167, 24);
 			this.layoutControlItem13.Text = "Cell Width";
 			this.layoutControlItem13.TextSize = new System.Drawing.Size(63, 17);
 			// 
 			// layoutControlItem11
 			// 
 			this.layoutControlItem11.Control = this.mm;
-			this.layoutControlItem11.Location = new System.Drawing.Point(141, 257);
+			this.layoutControlItem11.Location = new System.Drawing.Point(167, 288);
 			this.layoutControlItem11.Name = "layoutControlItem11";
-			this.layoutControlItem11.Size = new System.Drawing.Size(35, 24);
+			this.layoutControlItem11.Size = new System.Drawing.Size(32, 24);
 			this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem11.TextVisible = false;
 			// 
 			// layoutControlItem15
 			// 
 			this.layoutControlItem15.Control = this.label5;
-			this.layoutControlItem15.Location = new System.Drawing.Point(141, 281);
+			this.layoutControlItem15.Location = new System.Drawing.Point(167, 312);
 			this.layoutControlItem15.Name = "layoutControlItem15";
-			this.layoutControlItem15.Size = new System.Drawing.Size(35, 24);
+			this.layoutControlItem15.Size = new System.Drawing.Size(32, 24);
 			this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem15.TextVisible = false;
 			// 
 			// layoutControlItem16
 			// 
 			this.layoutControlItem16.Control = this.label6;
-			this.layoutControlItem16.Location = new System.Drawing.Point(141, 305);
+			this.layoutControlItem16.Location = new System.Drawing.Point(167, 336);
 			this.layoutControlItem16.Name = "layoutControlItem16";
-			this.layoutControlItem16.Size = new System.Drawing.Size(35, 24);
+			this.layoutControlItem16.Size = new System.Drawing.Size(32, 24);
 			this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem16.TextVisible = false;
 			// 
@@ -466,20 +476,68 @@
 			this.layoutControlItem14.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.layoutControlItem14.AppearanceItemCaption.Options.UseFont = true;
 			this.layoutControlItem14.Control = this.Cell_Height;
-			this.layoutControlItem14.Location = new System.Drawing.Point(0, 329);
+			this.layoutControlItem14.Location = new System.Drawing.Point(0, 360);
 			this.layoutControlItem14.Name = "layoutControlItem14";
-			this.layoutControlItem14.Size = new System.Drawing.Size(141, 24);
+			this.layoutControlItem14.Size = new System.Drawing.Size(167, 24);
 			this.layoutControlItem14.Text = "Cell Height";
 			this.layoutControlItem14.TextSize = new System.Drawing.Size(63, 17);
 			// 
 			// layoutControlItem17
 			// 
 			this.layoutControlItem17.Control = this.label7;
-			this.layoutControlItem17.Location = new System.Drawing.Point(141, 329);
+			this.layoutControlItem17.Location = new System.Drawing.Point(167, 360);
 			this.layoutControlItem17.Name = "layoutControlItem17";
-			this.layoutControlItem17.Size = new System.Drawing.Size(35, 24);
+			this.layoutControlItem17.Size = new System.Drawing.Size(32, 24);
 			this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem17.TextVisible = false;
+			// 
+			// simpleButton1
+			// 
+			this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.simpleButton1.Appearance.Options.UseFont = true;
+			this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+			this.simpleButton1.Location = new System.Drawing.Point(12, 435);
+			this.simpleButton1.Name = "simpleButton1";
+			this.simpleButton1.Size = new System.Drawing.Size(195, 36);
+			this.simpleButton1.StyleController = this.layoutControl1;
+			this.simpleButton1.TabIndex = 36;
+			this.simpleButton1.Text = "Create_Catb";
+			this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
+			// 
+			// layoutControlItem2
+			// 
+			this.layoutControlItem2.Control = this.simpleButton1;
+			this.layoutControlItem2.Location = new System.Drawing.Point(0, 423);
+			this.layoutControlItem2.Name = "layoutControlItem2";
+			this.layoutControlItem2.Size = new System.Drawing.Size(199, 40);
+			this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+			this.layoutControlItem2.TextVisible = false;
+			// 
+			// comboBox1
+			// 
+			this.comboBox1.FormattingEnabled = true;
+			this.comboBox1.Items.AddRange(new object[] {
+            "0.00258065",
+            "0.1",
+            "0.0125",
+            "0.00375",
+            "0.00125"});
+			this.comboBox1.Location = new System.Drawing.Point(87, 396);
+			this.comboBox1.Name = "comboBox1";
+			this.comboBox1.Size = new System.Drawing.Size(120, 21);
+			this.comboBox1.TabIndex = 37;
+			this.comboBox1.Text = "0.00258065";
+			// 
+			// layoutControlItem18
+			// 
+			this.layoutControlItem18.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.layoutControlItem18.AppearanceItemCaption.Options.UseFont = true;
+			this.layoutControlItem18.Control = this.comboBox1;
+			this.layoutControlItem18.Location = new System.Drawing.Point(0, 384);
+			this.layoutControlItem18.Name = "layoutControlItem18";
+			this.layoutControlItem18.Size = new System.Drawing.Size(199, 25);
+			this.layoutControlItem18.Text = "Diameter";
+			this.layoutControlItem18.TextSize = new System.Drawing.Size(63, 18);
 			// 
 			// User_Calib
 			// 
@@ -487,7 +545,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.layoutControl1);
 			this.Name = "User_Calib";
-			this.Size = new System.Drawing.Size(190, 483);
+			this.Size = new System.Drawing.Size(219, 483);
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
 			this.layoutControl1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.Cell_Height)).EndInit();
@@ -512,6 +570,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -553,5 +613,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
-    }
+		private System.Windows.Forms.ComboBox comboBox1;
+		private DevExpress.XtraEditors.SimpleButton simpleButton1;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
+	}
 }

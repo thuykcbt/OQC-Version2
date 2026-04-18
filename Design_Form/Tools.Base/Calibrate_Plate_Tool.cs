@@ -32,7 +32,7 @@ namespace Design_Form.Tools.Base
 			HWindow hWindow = toolRunInput.Window;
 			HObject ho_Image = toolRunInput.Image[type_light];
 			var result_Tool = new ToolResult();
-			return result_Tool;
+		
 			HObject Image_ = new HObject();
 			List<HObject> Image_read = new List<HObject>();
 			HTuple calib_ID = new HTuple(); HTuple error = new HTuple();
@@ -63,6 +63,7 @@ namespace Design_Form.Tools.Base
 				HOperatorSet.CreateCalibData("calibration_object", 1, 1, out calib_ID);
 				display.get_cam_par_data(para_start, "camera_type", out camera_type);
 				//  HOperatorSet.readpa
+		
 				HOperatorSet.SetCalibDataCalibObject(calib_ID, 0, file_Calib_describe);
 				HOperatorSet.SetCalibDataCamParam(calib_ID, 0, camera_type, para_start);
 				for (int i = 0; i < Image_read.Count; i++)
@@ -99,7 +100,9 @@ namespace Design_Form.Tools.Base
 				HOperatorSet.WritePose(hv_CameraPose, file_path1);
 
 			}
+			
 			catch (Exception ex) { Job_Model.Statatic_Model.wirtelog.Log($"AL013 - {this.GetType().Name}" + ex.ToString()); }
+			return result_Tool;
 		}
 
 		

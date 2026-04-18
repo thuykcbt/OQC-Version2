@@ -284,7 +284,7 @@ namespace Design_Form.User_PLC
                     cam1.name = cams[i].config_Cam.name;
                     cam1.force_ip = cams[i].config_Cam.force_ip;
                     cam1.Open_connect_Gige();
-                    cam1.inital_camera(cams[i].config_Cam);
+                    cam1.inital_camera(cams[i].config_Cam); 
 					Job_Model.Statatic_Model.Dino_lites.Add(cam1);
                 }
             }

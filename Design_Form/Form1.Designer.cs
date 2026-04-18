@@ -62,10 +62,15 @@
 			this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.panelContainer2 = new DevExpress.XtraBars.Docking.DockPanel();
 			this.dockPanel_Cam1 = new DevExpress.XtraBars.Docking.DockPanel();
 			this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
 			this.panel_Cam1 = new System.Windows.Forms.Panel();
+			this.dockPanel3 = new DevExpress.XtraBars.Docking.DockPanel();
+			this.dockPanel3_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.label2 = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.panelContainer4 = new DevExpress.XtraBars.Docking.DockPanel();
 			this.dockPanel10 = new DevExpress.XtraBars.Docking.DockPanel();
 			this.dockPanel10_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -94,12 +99,6 @@
 			this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
 			this.dockPanel7 = new DevExpress.XtraBars.Docking.DockPanel();
 			this.dockPanel7_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-			this.dockPanel3 = new DevExpress.XtraBars.Docking.DockPanel();
-			this.dockPanel3_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.label2 = new System.Windows.Forms.Label();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
@@ -115,9 +114,13 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-			this.panelContainer2.SuspendLayout();
 			this.dockPanel_Cam1.SuspendLayout();
 			this.dockPanel2_Container.SuspendLayout();
+			this.dockPanel3.SuspendLayout();
+			this.dockPanel3_Container.SuspendLayout();
+			this.tableLayoutPanel1.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panelContainer4.SuspendLayout();
 			this.dockPanel10.SuspendLayout();
 			this.dockPanel10_Container.SuspendLayout();
@@ -138,11 +141,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
 			this.dockPanel7.SuspendLayout();
-			this.dockPanel3.SuspendLayout();
-			this.dockPanel3_Container.SuspendLayout();
-			this.tableLayoutPanel1.SuspendLayout();
-			this.tableLayoutPanel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dockManager1
@@ -155,7 +153,8 @@
             this.dockPanel1});
 			this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
             this.dockPanel3,
-            this.panelContainer2});
+            this.panelContainer4,
+            this.dockPanel_Cam1});
 			this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -479,7 +478,7 @@
 			this.dockPanel1.OriginalSize = new System.Drawing.Size(195, 431);
 			this.dockPanel1.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
 			this.dockPanel1.SavedIndex = 0;
-			this.dockPanel1.SavedParent = this.panelContainer2;
+			this.dockPanel1.SavedParent = this.dockPanel_Cam1;
 			this.dockPanel1.SavedSizeFactor = 0.90487D;
 			this.dockPanel1.Size = new System.Drawing.Size(195, 431);
 			this.dockPanel1.Text = "dockPanel1";
@@ -511,10 +510,10 @@
 			// 
 			this.listBox2.FormattingEnabled = true;
 			this.listBox2.ItemHeight = 20;
-			this.listBox2.Location = new System.Drawing.Point(8, 201);
+			this.listBox2.Location = new System.Drawing.Point(12, 202);
 			this.listBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.listBox2.Name = "listBox2";
-			this.listBox2.Size = new System.Drawing.Size(170, 192);
+			this.listBox2.Size = new System.Drawing.Size(162, 187);
 			this.listBox2.TabIndex = 5;
 			// 
 			// listBox1
@@ -522,10 +521,10 @@
 			this.listBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.listBox1.FormattingEnabled = true;
 			this.listBox1.ItemHeight = 20;
-			this.listBox1.Location = new System.Drawing.Point(8, 8);
+			this.listBox1.Location = new System.Drawing.Point(12, 12);
 			this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(170, 191);
+			this.listBox1.Size = new System.Drawing.Size(162, 186);
 			this.listBox1.TabIndex = 4;
 			// 
 			// layoutControlGroup4
@@ -544,33 +543,18 @@
 			this.layoutControlItem7.Control = this.listBox1;
 			this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem7.Name = "layoutControlItem7";
-			this.layoutControlItem7.Size = new System.Drawing.Size(172, 193);
+			this.layoutControlItem7.Size = new System.Drawing.Size(166, 190);
 			this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem7.TextVisible = false;
 			// 
 			// layoutControlItem8
 			// 
 			this.layoutControlItem8.Control = this.listBox2;
-			this.layoutControlItem8.Location = new System.Drawing.Point(0, 193);
+			this.layoutControlItem8.Location = new System.Drawing.Point(0, 190);
 			this.layoutControlItem8.Name = "layoutControlItem8";
-			this.layoutControlItem8.Size = new System.Drawing.Size(172, 194);
+			this.layoutControlItem8.Size = new System.Drawing.Size(166, 191);
 			this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem8.TextVisible = false;
-			// 
-			// panelContainer2
-			// 
-			this.panelContainer2.ChildPanelOrientation = DevExpress.XtraBars.Docking.LayoutOrientation.Horizontal;
-			this.panelContainer2.Controls.Add(this.dockPanel_Cam1);
-			this.panelContainer2.Controls.Add(this.panelContainer4);
-			this.panelContainer2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-			this.panelContainer2.FloatVertical = true;
-			this.panelContainer2.ID = new System.Guid("cb31529f-6a8e-4c0b-9e8f-0ef5df2d6b42");
-			this.panelContainer2.Location = new System.Drawing.Point(0, 132);
-			this.panelContainer2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.panelContainer2.Name = "panelContainer2";
-			this.panelContainer2.OriginalSize = new System.Drawing.Size(1124, 200);
-			this.panelContainer2.Size = new System.Drawing.Size(1292, 567);
-			this.panelContainer2.Text = "panelContainer2";
 			// 
 			// dockPanel_Cam1
 			// 
@@ -578,11 +562,14 @@
 			this.dockPanel_Cam1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
 			this.dockPanel_Cam1.FloatSize = new System.Drawing.Size(322, 275);
 			this.dockPanel_Cam1.ID = new System.Guid("10268a0d-59f7-4343-9b31-a44f2c179c39");
-			this.dockPanel_Cam1.Location = new System.Drawing.Point(0, 0);
+			this.dockPanel_Cam1.Location = new System.Drawing.Point(0, 193);
 			this.dockPanel_Cam1.Name = "dockPanel_Cam1";
 			this.dockPanel_Cam1.Options.ShowCloseButton = false;
-			this.dockPanel_Cam1.OriginalSize = new System.Drawing.Size(1442, 829);
-			this.dockPanel_Cam1.Size = new System.Drawing.Size(885, 567);
+			this.dockPanel_Cam1.OriginalSize = new System.Drawing.Size(1124, 200);
+			this.dockPanel_Cam1.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+			this.dockPanel_Cam1.SavedIndex = 1;
+			this.dockPanel_Cam1.SavedSizeFactor = 1.36997D;
+			this.dockPanel_Cam1.Size = new System.Drawing.Size(1036, 506);
 			this.dockPanel_Cam1.Text = "Camera Station 1";
 			// 
 			// dockPanel2_Container
@@ -590,7 +577,7 @@
 			this.dockPanel2_Container.Controls.Add(this.panel_Cam1);
 			this.dockPanel2_Container.Location = new System.Drawing.Point(3, 26);
 			this.dockPanel2_Container.Name = "dockPanel2_Container";
-			this.dockPanel2_Container.Size = new System.Drawing.Size(878, 538);
+			this.dockPanel2_Container.Size = new System.Drawing.Size(1030, 477);
 			this.dockPanel2_Container.TabIndex = 0;
 			// 
 			// panel_Cam1
@@ -598,8 +585,85 @@
 			this.panel_Cam1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel_Cam1.Location = new System.Drawing.Point(0, 0);
 			this.panel_Cam1.Name = "panel_Cam1";
-			this.panel_Cam1.Size = new System.Drawing.Size(878, 538);
+			this.panel_Cam1.Size = new System.Drawing.Size(1030, 477);
 			this.panel_Cam1.TabIndex = 0;
+			// 
+			// dockPanel3
+			// 
+			this.dockPanel3.Controls.Add(this.dockPanel3_Container);
+			this.dockPanel3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
+			this.dockPanel3.FloatSize = new System.Drawing.Size(200, 199);
+			this.dockPanel3.FloatVertical = true;
+			this.dockPanel3.ID = new System.Guid("79000bbb-bc14-4c3a-897e-82faa6531404");
+			this.dockPanel3.Location = new System.Drawing.Point(0, 0);
+			this.dockPanel3.Name = "dockPanel3";
+			this.dockPanel3.OriginalSize = new System.Drawing.Size(200, 193);
+			this.dockPanel3.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top;
+			this.dockPanel3.SavedIndex = 0;
+			this.dockPanel3.SavedSizeFactor = 1.60372D;
+			this.dockPanel3.Size = new System.Drawing.Size(1292, 193);
+			this.dockPanel3.Text = "Main";
+			// 
+			// dockPanel3_Container
+			// 
+			this.dockPanel3_Container.Controls.Add(this.tableLayoutPanel1);
+			this.dockPanel3_Container.Location = new System.Drawing.Point(3, 26);
+			this.dockPanel3_Container.Name = "dockPanel3_Container";
+			this.dockPanel3_Container.Size = new System.Drawing.Size(1286, 163);
+			this.dockPanel3_Container.TabIndex = 0;
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.44583F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.55417F));
+			this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 1;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1286, 163);
+			this.tableLayoutPanel1.TabIndex = 0;
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+			this.tableLayoutPanel2.ColumnCount = 1;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(219, 6);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 1;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(1061, 151);
+			this.tableLayoutPanel2.TabIndex = 1;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label2.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(4, 1);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(1053, 149);
+			this.label2.TabIndex = 2;
+			this.label2.Text = "Vision Align  MAR-5A";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pictureBox1.Image = global::Design_Form.Properties.Resources.ngon_nui_thieng_cua_nhat_ban;
+			this.pictureBox1.Location = new System.Drawing.Point(6, 6);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(204, 151);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox1.TabIndex = 4;
+			this.pictureBox1.TabStop = false;
 			// 
 			// panelContainer4
 			// 
@@ -607,13 +671,12 @@
 			this.panelContainer4.Controls.Add(this.dockPanel6);
 			this.panelContainer4.Controls.Add(this.dockPanel10);
 			this.panelContainer4.Controls.Add(this.dockPanel7);
-			this.panelContainer4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-			this.panelContainer4.FloatVertical = true;
+			this.panelContainer4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
 			this.panelContainer4.ID = new System.Guid("dcb29b4f-f4ab-4631-87b7-34b365e3a9c9");
-			this.panelContainer4.Location = new System.Drawing.Point(885, 0);
+			this.panelContainer4.Location = new System.Drawing.Point(1036, 193);
 			this.panelContainer4.Name = "panelContainer4";
-			this.panelContainer4.OriginalSize = new System.Drawing.Size(663, 829);
-			this.panelContainer4.Size = new System.Drawing.Size(407, 567);
+			this.panelContainer4.OriginalSize = new System.Drawing.Size(256, 193);
+			this.panelContainer4.Size = new System.Drawing.Size(256, 506);
 			this.panelContainer4.Tabbed = true;
 			this.panelContainer4.Text = "Data_Result";
 			// 
@@ -623,10 +686,10 @@
 			this.dockPanel10.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
 			this.dockPanel10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dockPanel10.ID = new System.Guid("8f49a4c5-a9f0-46ab-93f8-dffd3843a5a1");
-			this.dockPanel10.Location = new System.Drawing.Point(3, 26);
+			this.dockPanel10.Location = new System.Drawing.Point(4, 26);
 			this.dockPanel10.Name = "dockPanel10";
-			this.dockPanel10.OriginalSize = new System.Drawing.Size(656, 753);
-			this.dockPanel10.Size = new System.Drawing.Size(401, 512);
+			this.dockPanel10.OriginalSize = new System.Drawing.Size(250, 137);
+			this.dockPanel10.Size = new System.Drawing.Size(249, 451);
 			this.dockPanel10.Text = "Control";
 			// 
 			// dockPanel10_Container
@@ -634,7 +697,7 @@
 			this.dockPanel10_Container.Controls.Add(this.layoutControl3);
 			this.dockPanel10_Container.Location = new System.Drawing.Point(0, 0);
 			this.dockPanel10_Container.Name = "dockPanel10_Container";
-			this.dockPanel10_Container.Size = new System.Drawing.Size(401, 512);
+			this.dockPanel10_Container.Size = new System.Drawing.Size(249, 451);
 			this.dockPanel10_Container.TabIndex = 0;
 			// 
 			// layoutControl3
@@ -646,7 +709,7 @@
 			this.layoutControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.layoutControl3.Name = "layoutControl3";
 			this.layoutControl3.Root = this.layoutControlGroup3;
-			this.layoutControl3.Size = new System.Drawing.Size(401, 512);
+			this.layoutControl3.Size = new System.Drawing.Size(249, 451);
 			this.layoutControl3.TabIndex = 0;
 			this.layoutControl3.Text = "layoutControl3";
 			// 
@@ -657,13 +720,13 @@
 			this.simpleButton1.Appearance.Options.UseBackColor = true;
 			this.simpleButton1.Appearance.Options.UseFont = true;
 			this.simpleButton1.ImageOptions.Image = global::Design_Form.Properties.Resources.icons8_manual_50;
-			this.simpleButton1.Location = new System.Drawing.Point(8, 78);
+			this.simpleButton1.Location = new System.Drawing.Point(12, 84);
 			this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.simpleButton1.Name = "simpleButton1";
-			this.simpleButton1.Size = new System.Drawing.Size(385, 54);
+			this.simpleButton1.Size = new System.Drawing.Size(225, 54);
 			this.simpleButton1.StyleController = this.layoutControl3;
 			this.simpleButton1.TabIndex = 6;
-			this.simpleButton1.Text = "StopRead";
+			this.simpleButton1.Text = "STOP";
 			this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
 			// 
 			// status_auto
@@ -673,13 +736,13 @@
 			this.status_auto.Appearance.Options.UseBackColor = true;
 			this.status_auto.Appearance.Options.UseFont = true;
 			this.status_auto.ImageOptions.Image = global::Design_Form.Properties.Resources.icons8_automatic_64;
-			this.status_auto.Location = new System.Drawing.Point(8, 8);
+			this.status_auto.Location = new System.Drawing.Point(12, 12);
 			this.status_auto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.status_auto.Name = "status_auto";
-			this.status_auto.Size = new System.Drawing.Size(385, 68);
+			this.status_auto.Size = new System.Drawing.Size(225, 68);
 			this.status_auto.StyleController = this.layoutControl3;
 			this.status_auto.TabIndex = 4;
-			this.status_auto.Text = "READ CODE";
+			this.status_auto.Text = "START";
 			this.status_auto.Click += new System.EventHandler(this.status_auto_Click);
 			// 
 			// layoutControlGroup3
@@ -691,7 +754,7 @@
             this.emptySpaceItem2,
             this.layoutControlItem1});
 			this.layoutControlGroup3.Name = "layoutControlGroup3";
-			this.layoutControlGroup3.Size = new System.Drawing.Size(401, 512);
+			this.layoutControlGroup3.Size = new System.Drawing.Size(249, 451);
 			this.layoutControlGroup3.TextVisible = false;
 			// 
 			// layoutControlItem4
@@ -699,24 +762,24 @@
 			this.layoutControlItem4.Control = this.status_auto;
 			this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem4.Name = "layoutControlItem4";
-			this.layoutControlItem4.Size = new System.Drawing.Size(387, 70);
+			this.layoutControlItem4.Size = new System.Drawing.Size(229, 72);
 			this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem4.TextVisible = false;
 			// 
 			// emptySpaceItem2
 			// 
 			this.emptySpaceItem2.AllowHotTrack = false;
-			this.emptySpaceItem2.Location = new System.Drawing.Point(0, 126);
+			this.emptySpaceItem2.Location = new System.Drawing.Point(0, 130);
 			this.emptySpaceItem2.Name = "emptySpaceItem2";
-			this.emptySpaceItem2.Size = new System.Drawing.Size(387, 372);
+			this.emptySpaceItem2.Size = new System.Drawing.Size(229, 301);
 			this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
 			// 
 			// layoutControlItem1
 			// 
 			this.layoutControlItem1.Control = this.simpleButton1;
-			this.layoutControlItem1.Location = new System.Drawing.Point(0, 70);
+			this.layoutControlItem1.Location = new System.Drawing.Point(0, 72);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(387, 56);
+			this.layoutControlItem1.Size = new System.Drawing.Size(229, 58);
 			this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
 			this.layoutControlItem1.TextVisible = false;
 			// 
@@ -728,10 +791,10 @@
 			this.dockPanel6.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
 			this.dockPanel6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dockPanel6.ID = new System.Guid("e05491bd-3c3b-45bd-9461-168cbfef2180");
-			this.dockPanel6.Location = new System.Drawing.Point(3, 26);
+			this.dockPanel6.Location = new System.Drawing.Point(4, 26);
 			this.dockPanel6.Name = "dockPanel6";
-			this.dockPanel6.OriginalSize = new System.Drawing.Size(656, 753);
-			this.dockPanel6.Size = new System.Drawing.Size(401, 512);
+			this.dockPanel6.OriginalSize = new System.Drawing.Size(250, 137);
+			this.dockPanel6.Size = new System.Drawing.Size(249, 451);
 			this.dockPanel6.Text = "Offset";
 			// 
 			// dockPanel6_Container
@@ -739,7 +802,7 @@
 			this.dockPanel6_Container.Controls.Add(this.panel2);
 			this.dockPanel6_Container.Location = new System.Drawing.Point(0, 0);
 			this.dockPanel6_Container.Name = "dockPanel6_Container";
-			this.dockPanel6_Container.Size = new System.Drawing.Size(401, 512);
+			this.dockPanel6_Container.Size = new System.Drawing.Size(249, 451);
 			this.dockPanel6_Container.TabIndex = 0;
 			// 
 			// panel2
@@ -749,7 +812,7 @@
 			this.panel2.Location = new System.Drawing.Point(0, 0);
 			this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(401, 512);
+			this.panel2.Size = new System.Drawing.Size(249, 451);
 			this.panel2.TabIndex = 0;
 			// 
 			// flowLayoutPanel1
@@ -768,9 +831,9 @@
 			this.flowLayoutPanel1.Controls.Add(this.numericUpDown6);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(401, 512);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(249, 451);
 			this.flowLayoutPanel1.TabIndex = 0;
 			// 
 			// label1
@@ -788,7 +851,7 @@
 			// 
 			this.numericUpDown1.DecimalPlaces = 3;
 			this.numericUpDown1.Location = new System.Drawing.Point(113, 2);
-			this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDown1.Minimum = new decimal(new int[] {
             999,
             0,
@@ -802,7 +865,7 @@
 			// 
 			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(197, 6);
+			this.label3.Location = new System.Drawing.Point(2, 32);
 			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(106, 14);
@@ -812,8 +875,8 @@
 			// numericUpDown2
 			// 
 			this.numericUpDown2.DecimalPlaces = 3;
-			this.numericUpDown2.Location = new System.Drawing.Point(307, 2);
-			this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDown2.Location = new System.Drawing.Point(112, 28);
+			this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDown2.Minimum = new decimal(new int[] {
             999,
             0,
@@ -827,7 +890,7 @@
 			// 
 			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(2, 32);
+			this.label4.Location = new System.Drawing.Point(2, 58);
 			this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(118, 14);
@@ -837,8 +900,8 @@
 			// numericUpDown3
 			// 
 			this.numericUpDown3.DecimalPlaces = 3;
-			this.numericUpDown3.Location = new System.Drawing.Point(124, 28);
-			this.numericUpDown3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDown3.Location = new System.Drawing.Point(124, 54);
+			this.numericUpDown3.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDown3.Minimum = new decimal(new int[] {
             999,
             0,
@@ -852,7 +915,7 @@
 			// 
 			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(208, 32);
+			this.label5.Location = new System.Drawing.Point(2, 84);
 			this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(107, 14);
@@ -862,8 +925,8 @@
 			// numericUpDown4
 			// 
 			this.numericUpDown4.DecimalPlaces = 3;
-			this.numericUpDown4.Location = new System.Drawing.Point(319, 28);
-			this.numericUpDown4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDown4.Location = new System.Drawing.Point(113, 80);
+			this.numericUpDown4.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDown4.Minimum = new decimal(new int[] {
             999,
             0,
@@ -877,7 +940,7 @@
 			// 
 			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(2, 58);
+			this.label6.Location = new System.Drawing.Point(2, 110);
 			this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(106, 14);
@@ -887,8 +950,8 @@
 			// numericUpDown5
 			// 
 			this.numericUpDown5.DecimalPlaces = 3;
-			this.numericUpDown5.Location = new System.Drawing.Point(112, 54);
-			this.numericUpDown5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDown5.Location = new System.Drawing.Point(112, 106);
+			this.numericUpDown5.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDown5.Minimum = new decimal(new int[] {
             999,
             0,
@@ -902,7 +965,7 @@
 			// 
 			this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(196, 58);
+			this.label7.Location = new System.Drawing.Point(2, 136);
 			this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(118, 14);
@@ -912,8 +975,8 @@
 			// numericUpDown6
 			// 
 			this.numericUpDown6.DecimalPlaces = 3;
-			this.numericUpDown6.Location = new System.Drawing.Point(318, 54);
-			this.numericUpDown6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDown6.Location = new System.Drawing.Point(124, 132);
+			this.numericUpDown6.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDown6.Minimum = new decimal(new int[] {
             999,
             0,
@@ -929,92 +992,18 @@
 			this.dockPanel7.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
 			this.dockPanel7.FloatVertical = true;
 			this.dockPanel7.ID = new System.Guid("ca487f9e-87d4-497a-8e5d-e4dc2865b2cd");
-			this.dockPanel7.Location = new System.Drawing.Point(3, 26);
+			this.dockPanel7.Location = new System.Drawing.Point(4, 26);
 			this.dockPanel7.Name = "dockPanel7";
-			this.dockPanel7.OriginalSize = new System.Drawing.Size(656, 753);
-			this.dockPanel7.Size = new System.Drawing.Size(401, 512);
+			this.dockPanel7.OriginalSize = new System.Drawing.Size(250, 137);
+			this.dockPanel7.Size = new System.Drawing.Size(249, 451);
 			this.dockPanel7.Text = "Data_Result";
 			// 
 			// dockPanel7_Container
 			// 
 			this.dockPanel7_Container.Location = new System.Drawing.Point(0, 0);
 			this.dockPanel7_Container.Name = "dockPanel7_Container";
-			this.dockPanel7_Container.Size = new System.Drawing.Size(401, 512);
+			this.dockPanel7_Container.Size = new System.Drawing.Size(249, 451);
 			this.dockPanel7_Container.TabIndex = 0;
-			// 
-			// dockPanel3
-			// 
-			this.dockPanel3.Controls.Add(this.dockPanel3_Container);
-			this.dockPanel3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
-			this.dockPanel3.FloatSize = new System.Drawing.Size(200, 199);
-			this.dockPanel3.FloatVertical = true;
-			this.dockPanel3.ID = new System.Guid("79000bbb-bc14-4c3a-897e-82faa6531404");
-			this.dockPanel3.Location = new System.Drawing.Point(0, 0);
-			this.dockPanel3.Name = "dockPanel3";
-			this.dockPanel3.OriginalSize = new System.Drawing.Size(200, 193);
-			this.dockPanel3.Size = new System.Drawing.Size(1292, 132);
-			this.dockPanel3.Text = "Main";
-			// 
-			// dockPanel3_Container
-			// 
-			this.dockPanel3_Container.Controls.Add(this.tableLayoutPanel1);
-			this.dockPanel3_Container.Location = new System.Drawing.Point(3, 26);
-			this.dockPanel3_Container.Name = "dockPanel3_Container";
-			this.dockPanel3_Container.Size = new System.Drawing.Size(1286, 102);
-			this.dockPanel3_Container.TabIndex = 0;
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
-			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.38147F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.61853F));
-			this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
-			this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 1;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1286, 102);
-			this.tableLayoutPanel1.TabIndex = 0;
-			// 
-			// tableLayoutPanel2
-			// 
-			this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-			this.tableLayoutPanel2.ColumnCount = 1;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(396, 6);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 1;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(884, 90);
-			this.tableLayoutPanel2.TabIndex = 1;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label2.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(4, 1);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(876, 88);
-			this.label2.TabIndex = 2;
-			this.label2.Text = "READING OCR MACHINE";
-			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pictureBox1.Image = global::Design_Form.Properties.Resources.ngon_nui_thieng_cua_nhat_ban;
-			this.pictureBox1.Location = new System.Drawing.Point(6, 6);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(381, 90);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox1.TabIndex = 4;
-			this.pictureBox1.TabStop = false;
 			// 
 			// panelContainer1
 			// 
@@ -1046,8 +1035,9 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1292, 699);
+			this.Controls.Add(this.dockPanel_Cam1);
+			this.Controls.Add(this.panelContainer4);
 			this.Controls.Add(this.dockPanel3);
-			this.Controls.Add(this.panelContainer2);
 			this.Controls.Add(this.standaloneBarDockControl1);
 			this.Name = "Form1";
 			this.Text = "/";
@@ -1065,9 +1055,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-			this.panelContainer2.ResumeLayout(false);
 			this.dockPanel_Cam1.ResumeLayout(false);
 			this.dockPanel2_Container.ResumeLayout(false);
+			this.dockPanel3.ResumeLayout(false);
+			this.dockPanel3_Container.ResumeLayout(false);
+			this.tableLayoutPanel1.ResumeLayout(false);
+			this.tableLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.panelContainer4.ResumeLayout(false);
 			this.dockPanel10.ResumeLayout(false);
 			this.dockPanel10_Container.ResumeLayout(false);
@@ -1089,12 +1084,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
 			this.dockPanel7.ResumeLayout(false);
-			this.dockPanel3.ResumeLayout(false);
-			this.dockPanel3_Container.ResumeLayout(false);
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel2.ResumeLayout(false);
-			this.tableLayoutPanel2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -1159,7 +1148,6 @@
         public DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
-        private DevExpress.XtraBars.Docking.DockPanel panelContainer2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
@@ -1173,6 +1161,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numericUpDown6;
-    }
+	}
 }
 
